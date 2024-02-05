@@ -8,7 +8,7 @@ El equipo está compuesto por:
 
 | Nombre | Correo| Cuenta GitHub |
 |----------|----------|----------|
-| Andrés Carreto Jiménez  | a.carreteroj.2021@alumnos.urjc.es  | andrescrrt |
+| Andrés Carretero Jiménez  | a.carreteroj.2021@alumnos.urjc.es  | andrescrrt |
 | Almudena López Rodríguez	    | a.lopezro.2021@alumnos.urjc.es   | almuLR|
 | Irene Pérez Santiago   | i.perezs.2020@alumnos.urjc.es | iireeneeps012 |
 |  Alba Velasco Marqués        |    a.velascom.2021@alumnos.urjc.es      |    AlbitaVM      |
