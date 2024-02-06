@@ -24,17 +24,17 @@ Se va a usar un espacio de trabajo, con un tablero por fase para organizar el tr
 - **Entidades**:
   -   Usuario
   -   Evento
-  -   Inscripción
-  -   Categoría
+  -   Entrada
   -   Comentario - Me gusta
     
--   **Relación**: Un usuario puede inscribirse a cualquier evento y los cuales se pueden clasificar por categorías. Los usuarios pueden dejar comentarios y me gustas en los eventos. Y se les van a mostrar eventos en función de la categoría a la que más acudan.
+-   **Relación**: Un usuario puede inscribirse a cualquier evento y dejar comentarios y me gusta en ellos.  Y se le genera su entrada para el evento. 
 
  ### USUARIOS y TIPO DE PERMISOS:
 
  - **Usuario Anónimo**: Este usuario puede acceder a la web, realizar búsquedas, consultar la información de un evento, registrarse y mirar el grafico de pantalla de inicio con eventos más destacados.
 
  - **Usuario Registrado**: Este usuario puede hacer las mismas funcionalidades de un usuario anónimo y, además, puede inscribirse a eventos, consultar su información, ver eventos anteriores en los que participó o desinscribirse de un evento. La información para su registro será del nombre, apellidos, si pertenece a la comunidad universitaria, correo electrónico (en caso de que sea de la universidad tendrá que escribir el de la universidad, si no el suyo propio) y contraseña.
+ - **Ususario Editor**: Es un ususario registrado que se le otorga permiso para gestionar un evento o varios.
    
  - **Usuario Administrador**: Puede hacer todas las funcionalidades de los usuarios anteriores incluido crear un evento, modificarlo, editarlo, poder crear usuarios, eliminarlos, modificarlos y consultar gráficos de los eventos.
 
