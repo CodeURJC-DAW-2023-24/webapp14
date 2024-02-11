@@ -10986,17 +10986,27 @@ header.masthead .masthead-heading {
     margin-bottom: 4rem;
   }
 }
-#portfolio .portfolio-item {
+#eventosRecientes .portfolio-item {
   max-width: 26rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
-#portfolio .portfolio-item .portfolio-link {
+
+#eventosRecientes .portfolio-item .portfolio-link {
   position: relative;
   display: block;
-  margin: 0 auto;
+  overflow: hidden;
+  flex: 1;
 }
-#portfolio .portfolio-item .portfolio-link .portfolio-hover {
+
+#eventosRecientes .portfolio-item .portfolio-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor */
+}
+
+#eventosRecientes .portfolio-item .portfolio-link .portfolio-hover {
   display: flex;
   position: absolute;
   width: 100%;
@@ -11007,28 +11017,35 @@ header.masthead .masthead-heading {
   opacity: 0;
   transition: opacity ease-in-out 0.25s;
 }
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+
+#eventosRecientes .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
   font-size: 1.25rem;
   color: white;
 }
-#portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {
+
+#eventosRecientes .portfolio-item .portfolio-link:hover .portfolio-hover {
   opacity: 1;
 }
-#portfolio .portfolio-item .portfolio-caption {
+
+#eventosRecientes .portfolio-item .portfolio-caption {
   padding: 1.5rem;
   text-align: center;
   background-color: #fff;
 }
-#portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
+
+#eventosRecientes .portfolio-item .portfolio-caption .portfolio-caption-heading {
   font-size: 1.5rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   margin-bottom: 0;
 }
-#portfolio .portfolio-item .portfolio-caption .portfolio-caption-subheading {
+
+#eventosRecientes .portfolio-item .portfolio-caption .portfolio-caption-subheading {
   font-style: italic;
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+
 
 .portfolio-modal .modal-dialog {
   margin: 1rem;
