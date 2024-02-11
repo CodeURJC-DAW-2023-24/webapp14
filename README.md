@@ -54,10 +54,80 @@ A nivel de tecnología complementaria, vamos a necesitar el uso, de dos tecnolog
 
 Como algoritmo, se quiere implementar un algoritmo que recomiende a cada usuario registrado en la pantalla de inicio, aquellos eventos que le puedan interesar basado en los eventos que ha asistido.
 
- 
 
+## ESTRUCTURA DEL PROYECTO
 
+Vamos a tener diversas pantallas, para nuestra web:
 
+#### PANTALLA DE INICIO
 
-	
+En esta pantalla se muestran las operaciones principales que se pueden realizar, y se muestran algunos eventos. En función de que ussuario seas se te mostraran tambien distintas opciones.
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/2d98b31b-de90-4388-81cb-5fdd89648f50)
+
+#### PANTALLA DE LOGIN
+
+En esta pantalla que te permite iniciar sesión si ya estas registrado o registrarte.
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/0a7ae3bd-8db4-49e9-8e05-4e8ab9f54980)
+
+#### PANTALLA DE REGISTRO
+
+En esta pantalla te permite registrarte añadiendo tus datos.
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/c39e9706-0db6-4056-8c44-dfdbe68770ed)
+
+#### PANTALLA DE MI PERFIL
+
+En esta pantalla se muestra la información del usuario que ha iniciado sesión
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/2682e329-e404-417a-a8c5-c72b24dbf45a)
+
+#### PANTALLA DE EVENTOS RECIENTES
+
+En esta pantalla puedes ver distintos eventos que se van a realizar y un botón de más eventos que al pulsarlo aparecerán más.
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/6e560f70-6970-41ef-9792-646afc2c34c8)
+
+#### PANTALLA DE EVENTOS 
+
+En esta pantalla puedes ver toda la información del evento en el que has pinchado en la pantalla de eventos. Desde esta pantalla podrás inscribirte al evento.
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/ac70a8fb-2ff3-4545-b563-5dd90373868f)
+
+#### PANTALLA DE INSCRIPCIÓN
+
+En esta pantalla podrás rellenar todos los datos para inscribirte a un evento
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/451a1fbd-f013-4e53-ba41-cff3e31c77f0)
+
+#### PANTALLA DEL PANEL DE ADMINISTRACIÓN
+
+En esta pantalla se muestra información base sobre la plataforma, número total de usuarios y eventos, y otra información como visitas a la web, o cuando hay más inscripciones a un evento.
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/0511a745-84a5-40e8-a939-da53a1cabf55)
+
+#### PANTALLA DE GESTIÓN DE USUARIOS
+
+En esta pantalla se muestran los usuarios, y permite realizar y acceder varias acciones sobre los usuarios.
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/85990da3-8ebf-4657-a3a2-f1a6e3d50f01)
+
+#### PANTALLA DE GESTIÓN DE EVENTOS
+
+En esta pantalla se muestran los eventos, y permite realizar y acceder varias acciones sobre los eventos
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/e754761d-e783-4b15-9a9a-ba45706ee353)
+
+#### PANTALLA DE AÑADIR EVENTOS
+
+En esta pantalla se muestran el formulario que hay que rellenar para añadir la información de un evento
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/47766a2b-7187-4d87-8eb0-15b7d48e27f5)
+
+## DIAGRAMA DE NAVEGACIÓN DEL PROYECTO
+
+Esta es la manera en la cual interactuan nuestras pantallas, en el diagrama: flecha rosa: usuario administrador, flecha morada usuario editor, flecha azul turquesa: usuario no registrado, flecha azul oscura: usuario registrado
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/e33ceee6-ab4a-436d-b865-2e195566971f)
 
