@@ -11352,6 +11352,11 @@ section#contact form#contactForm :-ms-input-placeholder {
   background-size: cover;
   background-position: center;
 }
+.bg-image2 {
+  background-image: url('https://dummyimage.com/450x300/dee2e6/6c757d.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
 .login-heading {
   font-weight: 300;
@@ -11363,4 +11368,22 @@ section#contact form#contactForm :-ms-input-placeholder {
   padding: 0.75rem 1rem;
 }
 
+button {
+  width: 150px;
+  height: 60px;
+  border: 3px solid pink;
+  border-radius: 45px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: pink;
+  font-size: 1.1em;
+  font-weight: 200;
+  font-family: 'Montserrat', sans-serif;
+  float: right;
+}
 
+button:hover {
+  background: black;
+  color: white;
+  font-size: 1.1em;
+}
