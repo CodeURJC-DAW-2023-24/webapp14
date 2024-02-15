@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Ticket Event</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../assets/img/about/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../assets/css/styles.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top"><img src="../assets/img/1200px-URJC_logo.svg.png" alt="..." /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="eventos.html">Gestionar Eventos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#eventosDestacados">Destacados</a></li>
+                <li class="nav-item"><a class="nav-link" href="#eventosRecientes">Recientes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">Equipo</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Mi Perfil</a></li>
+                <li class="nav-item">
+                    <div class="input-container">
+                        <input type="text" name="text" class="input" placeholder="search...">
+                        <span class="icon">
+                            <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="1" d="M14 5H20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M14 8H17" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M22 22L20 20" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="login.html">Log-In</a>
+    </div>
+</nav>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Bienvenido a Ticket Event!</div>
+        <div class="masthead-heading text-uppercase">Los mejores eventos en un mismo sitio</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#eventosDestacados">Eventos Destacados</a>
+    </div>
+</header>
+<!-- Destacados-->
+<section class="page-section" id="eventosDestacados">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-sm-5 mb-xl-2 mb-5">
+                <div class="card">
+                    <div class="card-header p-4 pt-5">
+                        <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                            <i class="fa-solid fa-lg fa-2x fa-person opacity-10">person</i>
+                        </div>
+                        <div class="text-end pt-1">
+                            <p class="text-sm mb-0 text-center">Total de usuarios</p>
+                            <h4 class="mb-0">2,300</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-sm-6 mb-xl-2 mb-6">
+                <div class="card">
+                    <div class="card-header p-4 pt-5">
+                        <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                            <i class="fa-solid fa-person opacity-10">person</i>
+                        </div>
+                        <div class="text-end pt-1">
+                            <p class="text-sm mb-0 text-capitalize">Total de eventos</p>
+                            <h4 class="mb-0">3,462</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr class="horizontal light mt-3 mb-5">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Destacados</h2>
+            <h3 class="section-subheading text-muted">Los eventos más destacados hasta ahora.</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                <h4 class="my-3">Grafico 1</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                <h4 class="my-3">Grafico 2</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                <h4 class="my-3">Grafico 3</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Eventos Recientes-->
+<section class="page-section bg-light" id="eventosRecientes">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Eventos Recientes</h2>
+            <h3 class="section-subheading text-muted">Puedes ver los últimos eventos añadidos.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Conferencia Magistral de Ciencias</div>
+                        <div class="portfolio-caption-subheading text-muted">Ciencias</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="https://www.escueladesarts.com/wp-content/uploads/galerias-de-arte.jpg" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Festival Cultural Universitario</div>
+                        <div class="portfolio-caption-subheading text-muted">Cultura</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="https://st.adasistemas.com/PortalesWeb/Geologos/WebCGeologos/_Private/Imagenes_Menu/231_2018_7_24_21_25_52.jpg" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Taller de Desarrollo Profesional</div>
+                        <div class="portfolio-caption-subheading text-muted">Desarrollo Profesional</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <!-- Portfolio item 4-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="https://static4.depositphotos.com/1030387/398/v/450/depositphotos_3984648-stock-illustration-diversity-hands.jpg" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Noche de Gala Benéfica</div>
+                        <div class="portfolio-caption-subheading text-muted">Beneficencia</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <!-- Portfolio item 5-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="https://www.magisnet.com/wp-content/uploads/2023/07/Debates-en-clase.jpg" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Torneo Interuniversitario de Debate</div>
+                        <div class="portfolio-caption-subheading text-muted">Debate</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <!-- Portfolio item 6-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="https://muzikalia.com/wp-content/uploads/2022/09/DCODE-800x445.jpg" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Concierto de Fin de Semestre</div>
+                        <div class="portfolio-caption-subheading text-muted">Entretenimiento</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="">Más Eventos</a>
+    </div>
+
+</section>
+<!-- Equipo-->
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Nuestro increible Equipo</h2>
+            <h3 class="section-subheading text-muted">Conocenos un poco más.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="../assets/img/team/1.jpg" alt="..." />
+                    <h4>Andrés Carretero</h4>
+                    <p class="text-muted">Lead Designer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="../assets/img/team/2.jpg" alt="..." />
+                    <h4>Almudena López</h4>
+                    <p class="text-muted">Lead Marketer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="../assets/img/team/3.jpg" alt="..." />
+                    <h4>Irene Pérez</h4>
+                    <p class="text-muted">Lead Developer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="text-center" class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="../assets/img/team/2.jpg" alt="..." />
+                    <h4>Alba Velasco</h4>
+                    <p class="text-muted">Lead Marketer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Portfolio Modals-->
+<!-- Portfolio item 1 modal popup -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Conferencia Magistral de Ciencias</h2>
+                            <p class="item-intro text-muted">Ciencias</p>
+                            <img class="img-fluid d-block mx-auto" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." />
+                            <p>Un evento donde destacados científicos compartirán sus últimos descubrimientos y experiencias en el mundo de las ciencias.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Fecha:</strong>
+                                    15 de marzo de 2024
+                                </li>
+                                <li>
+                                    <strong>Lugar:</strong>
+                                    Auditorio Principal, Universidad Rey Juan Carlos
+                                </li>
+                                <li>
+                                    <strong>Duración:</strong>
+                                    3 horas
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar
+                            </button>
+                            <button class="btn btn-warning btn-xl text-uppercase" type="button" onclick="window.location.href='inscripcion.html';">
+                                <i class="fas fa-edit me-1"></i>
+                                Inscribirme
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio item 2 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Festival Cultural Universitario</h2>
+                            <p class="item-intro text-muted">Cultura</p>
+                            <img class="img-fluid d-block mx-auto" src="https://www.escueladesarts.com/wp-content/uploads/galerias-de-arte.jpg" alt="..." />
+                            <p>Un fin de semana lleno de actividades culturales, incluyendo actuaciones musicales, exposiciones de arte y presentaciones de danza.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Fecha:</strong>
+                                    5 al 7 de abril de 2024
+                                </li>
+                                <li>
+                                    <strong>Lugar:</strong>
+                                    Campus Universitario, Universidad Rey Juan Carlos
+                                </li>
+                                <li>
+                                    <strong>Duración:</strong>
+                                    3 días
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar
+                            </button>
+                            <button class="btn btn-warning btn-xl text-uppercase" type="button" onclick="window.location.href='inscripcion.html';">
+                                <i class="fas fa-edit me-1"></i>
+                                Inscribirme
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 3 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Taller de Desarrollo Profesional</h2>
+                            <p class="item-intro text-muted">Desarrollo Profesional</p>
+                            <img class="img-fluid d-block mx-auto" src="https://st.adasistemas.com/PortalesWeb/Geologos/WebCGeologos/_Private/Imagenes_Menu/231_2018_7_24_21_25_52.jpg" alt="..." />
+                            <p>Expertos en desarrollo profesional brindarán talleres interactivos sobre habilidades clave para el éxito laboral, como la comunicación efectiva y la gestión del tiempo.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Fecha:</strong>
+                                    20 de mayo de 2024
+                                </li>
+                                <li>
+                                    <strong>Lugar:</strong>
+                                    Salones de Conferencias, Edificio de Administración
+                                </li>
+                                <li>
+                                    <strong>Duración:</strong>
+                                    5 horas
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar
+                            </button>
+                            <button class="btn btn-warning btn-xl text-uppercase" type="button" onclick="window.location.href='inscripcion.html';">
+                                <i class="fas fa-edit me-1"></i>
+                                Inscribirme
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 4 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="../assets/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Noche de Gala Benéfica</h2>
+                            <p class="item-intro text-muted">Beneficencia</p>
+                            <img class="img-fluid d-block mx-auto" src="https://static4.depositphotos.com/1030387/398/v/450/depositphotos_3984648-stock-illustration-diversity-hands.jpg" alt="..." />
+                            <p>Una elegante velada con cena, música en vivo y subastas, cuyos fondos recaudados se destinarán a becas universitarias para estudiantes necesitados.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Fecha:</strong>
+                                    10 de junio de 2024
+                                </li>
+                                <li>
+                                    <strong>Lugar:</strong>
+                                    Salón de Eventos Elegance
+                                </li>
+                                <li>
+                                    <strong>Duración:</strong>
+                                    4 horas
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar
+                            </button>
+                            <button class="btn btn-warning btn-xl text-uppercase" type="button" onclick="window.location.href='inscripcion.html';">
+                                <i class="fas fa-edit me-1"></i>
+                                Inscribirme
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 5 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Torneo Interuniversitario de Debate</h2>
+                            <p class="item-intro text-muted">Debate</p>
+                            <img class="img-fluid d-block mx-auto" src="https://www.magisnet.com/wp-content/uploads/2023/07/Debates-en-clase.jpg" alt="..." />
+                            <p>Equipos de diferentes universidades competirán en debates sobre temas relevantes, promoviendo el pensamiento crítico y el intercambio de ideas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Fecha:</strong>
+                                    1 al 3 de julio de 2024
+                                </li>
+                                <li>
+                                    <strong>Lugar:</strong>
+                                    Sala de conferencias, Universidad Rey Juan Carlos
+                                </li>
+                                <li>
+                                    <strong>Duración:</strong>
+                                    3 días
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar
+                            </button>
+                            <button class="btn btn-warning btn-xl text-uppercase" type="button" data-bs-toggle="modal" data-bs-target="#inscriptionModal">
+                                <button class="btn btn-warning btn-xl text-uppercase" type="button" onclick="window.location.href='inscripcion.html';">
+                                    <i class="fas fa-edit me-1"></i>
+                                    Inscribirme
+                                </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 6 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Concierto de Fin de Semestre</h2>
+                            <p class="item-intro text-muted">Entretenimiento</p>
+                            <img class="img-fluid d-block mx-auto" src="https://muzikalia.com/wp-content/uploads/2022/09/DCODE-800x445.jpg" alt="..." />
+                            <p>Una noche llena de música y diversión para celebrar el fin del semestre, con bandas locales y actividades interactivas para los estudiantes.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Fecha:</strong>
+                                    4 de julio de 2024
+                                </li>
+                                <li>
+                                    <strong>Lugar:</strong>
+                                    Frente al rectorado, Universidad Rey Juan Carlos
+                                </li>
+                                <li>
+                                    <strong>Duración:</strong>
+                                    4 horas
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar
+                            </button>
+                            <button class="btn btn-warning btn-xl text-uppercase" type="button" onclick="window.location.href='inscripcion.html';">
+                                <i class="fas fa-edit me-1"></i>
+                                Inscribirme
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="../assets/js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>
