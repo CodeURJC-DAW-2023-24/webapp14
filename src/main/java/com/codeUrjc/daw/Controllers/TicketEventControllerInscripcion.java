@@ -1,13 +1,12 @@
-package com.codeUrjc.daw.TicketEvent;
+package com.codeUrjc.daw.Controllers;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-public class TicketEventController {
-
-    @GetMapping("/")
+public class TicketEventControllerInscripcion {
+    @GetMapping("/inscripcion")
     public String showMain(Model model){
 
-        return "index";
+        return "inscripcion";
     }
 }
