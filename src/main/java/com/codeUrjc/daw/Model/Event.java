@@ -13,8 +13,10 @@ public class Event {
     private int n_tickets;
     private int n_registered;
     private EventState state;
+    //Usuario encargado de editar el evento. Es decir el que tiene acceso a el.
+    private Usuario chargeUser;
 
-    public Event(long idEvent, String title, String description, String place, Date date, int duration, int n_tickets, int n_registered) {
+    public Event(long idEvent, String title, String description, String place, Date date, int duration, int n_tickets, int n_registered, Usuario chargeUser) {
         this.idEvent = idEvent;
         this.title = title;
         this.description = description;
@@ -23,6 +25,7 @@ public class Event {
         this.duration = duration;
         this.n_tickets = n_tickets;
         this.n_registered = n_registered;
+        this.chargeUser = chargeUser;
     }
 
     public long getIdEvent() {
@@ -87,5 +90,21 @@ public class Event {
 
     public void setN_registered(int n_registered) {
         this.n_registered = n_registered;
+    }
+
+    public EventState getState() {
+        return state;
+    }
+
+    public void setState(EventState state) {
+        this.state = state;
+    }
+
+    public Usuario getChargeUser() {
+        return chargeUser;
+    }
+
+    public void setChargeUser(Usuario chargeUser) {
+        this.chargeUser = chargeUser;
     }
 }
