@@ -1,38 +1,46 @@
 package com.codeUrjc.daw.Model;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class Event {
 
-    private long idEvent;
+    private Long idEvent;
     private String title;
     private String description;
     private String place;
     private Date date;
+    private int hour;
     private int duration;
     private int n_tickets;
     private int n_registered;
     private EventState state;
     //Usuario encargado de editar el evento. Es decir el que tiene acceso a el.
     private User chargeUser;
+    private float price;
+    private String category;
 
-    public Event(long idEvent, String title, String description, String place, Date date, int duration, int n_tickets, int n_registered, User chargeUser) {
+    public Event(long idEvent, String title, String description, String place, Date date, int hour, int duration, int n_tickets, int n_registered, User chargeUser, float price, String category) {
+        super();
         this.idEvent = idEvent;
         this.title = title;
         this.description = description;
         this.place = place;
         this.date = date;
+        this.hour = hour;
         this.duration = duration;
         this.n_tickets = n_tickets;
         this.n_registered = n_registered;
         this.chargeUser = chargeUser;
+        this.price=price;
+        this.category = category;
     }
 
-    public long getIdEvent() {
+    public Long getIdEvent() {
         return idEvent;
     }
 
-    public void setIdEvent(long idEvent) {
+    public void setIdEvent(Long idEvent) {
         this.idEvent = idEvent;
     }
 
@@ -66,6 +74,14 @@ public class Event {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
     }
 
     public int getDuration() {
@@ -106,5 +122,21 @@ public class Event {
 
     public void setChargeUser(User chargeUser) {
         this.chargeUser = chargeUser;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
