@@ -3,6 +3,8 @@ package com.codeUrjc.daw.Services;
 import com.codeUrjc.daw.Model.Event;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -13,10 +15,12 @@ public class EventService {
 
     //Faltaría crear operacion de buscar todos los eventos y la de los precargados.
     public Event findById(long id){
+
         return events.get(id);
     }
     public void save(Event event){
         long id = nextId.getAndIncrement();
-        this.events.remove(id);
+        //Creamos el nuevo id
+        event.setIdEvent(id);
     }
 }
