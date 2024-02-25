@@ -1,8 +1,16 @@
 package com.codeUrjc.daw.Model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 import java.util.List;
 
+
+@Entity
 public class Ticket {
+    @Id
+    @GeneratedValue
     private String id;
     private String name;
     private String surname;
@@ -78,4 +86,6 @@ public class Ticket {
     public void setPrice(List<Integer> price) {
         this.price = price;
     }
+
+
 }

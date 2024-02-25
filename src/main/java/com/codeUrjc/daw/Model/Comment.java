@@ -1,8 +1,25 @@
 package com.codeUrjc.daw.Model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Comment {
+
+    @Id
+    @GeneratedValue
+    private String id;
+
+
+    @Column
     private String nick;
+
+    @Column
     private String description;
+
+    @Column
     private String likes;
 
     public Comment(){}
@@ -13,6 +30,11 @@ public class Comment {
         this.likes = likes;
     }
 
+
+    // Getters
+    public String getId() {
+        return id;
+    }
     public String getNick() {
         return nick;
     }
@@ -25,6 +47,8 @@ public class Comment {
         return likes;
     }
 
+
+    // Setters
     public void setNick(String nick) {
         this.nick = nick;
     }
@@ -36,4 +60,10 @@ public class Comment {
     public void setLikes(String likes) {
         this.likes = likes;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
 }

@@ -14,38 +14,44 @@ public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native",strategy = "native")
-    private Long id;
+    private String id;
 
     @Column
     private String name;
+    @Column
+    private String description;
+
+
+
+    // Constructor
+
+    // Getters
+
+    public String getId() {
+        return id;
+    }
 
     public String getDescription() {
         return description;
     }
-
-    @Column
-    private String description;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public Long getId() {
-        return id;
-    }
     public String getName() {
         return name;
     }
+
+    // Setters
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
+
+
+
+
+    // Other methods
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,5 +61,14 @@ public class Role implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getName(), getDescription());
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
