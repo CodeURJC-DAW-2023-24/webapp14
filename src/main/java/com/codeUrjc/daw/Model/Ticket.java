@@ -11,6 +11,8 @@ public class Ticket {
     private String email;
     private List<Integer> price;
 
+    public Ticket() {} //Contructor necesario para la carga desde BBDD
+
     public Ticket(String id, String name, String surname, String phone, String description, String email, List<Integer> price) {
         this.id = id;
         this.name = name;
