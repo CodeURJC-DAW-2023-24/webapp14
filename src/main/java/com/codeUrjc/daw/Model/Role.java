@@ -1,4 +1,4 @@
-package com.codeUrjc.daw.Entity;
+package com.codeUrjc.daw.Model;
 
 
 import jakarta.persistence.*;
