@@ -1,13 +1,11 @@
 package com.codeUrjc.daw.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Event {
@@ -25,15 +23,15 @@ public class Event {
     private int n_tickets;
     private int n_registered;
     private EventState state;
-    //Usuario encargado de editar el evento. Es decir el que tiene acceso a el.
-    private User chargeUser;
-    private float price;
+
+    @ManyToMany(mappedBy = "event")
+    private List<User> users ;
     private String category;
 
     public Event() {
 
     }
-    public Event(Long id, String title, String description, String place, Date date, int hour, int duration, int n_tickets, int n_registered, User chargeUser, float price, String category) {
+    public Event(Long id, String title, String description, String place, Date date, int hour, int duration, int n_tickets, int n_registered, List<User> users, String category) {
         super();
         this.id = id;
         this.title = title;
@@ -44,8 +42,7 @@ public class Event {
         this.duration = duration;
         this.n_tickets = n_tickets;
         this.n_registered = n_registered;
-        this.chargeUser = chargeUser;
-        this.price=price;
+        this.users = users;
         this.category = category;
     }
 
@@ -131,20 +128,12 @@ public class Event {
         this.state = state;
     }
 
-    public User getChargeUser() {
-        return chargeUser;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setChargeUser(User chargeUser) {
-        this.chargeUser = chargeUser;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public String getCategory() {
@@ -155,9 +144,6 @@ public class Event {
         this.category = category;
     }
 
-    @Override
-    public String toString(){
-        return "Event [id=" + id + ", user=" + chargeUser + ", title=" + title + "]";
-    }
+
 
 }
