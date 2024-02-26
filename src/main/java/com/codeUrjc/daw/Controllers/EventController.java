@@ -11,12 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class EventController {
 
-    @PostMapping("/eventos/new")
-    public String newEvent(Model model, Event event, @RequestParam("date") String dateStr, @RequestParam("hour") String hourStr, @RequestParam("duration") String durationStr, @RequestParam("n_tickets") String n_ticketsStr) {
-
-
-    return "eventos";
-
 
     }
 }

@@ -28,10 +28,16 @@ public class Event {
     private List<User> users ;
     private String category;
 
+    @OneToMany
+    private List<Ticket> tickets;
+
+    @OneToMany
+    private List<Comment> comments;
+
     public Event() {
 
     }
-    public Event(Long id, String title, String description, String place, Date date, int hour, int duration, int n_tickets, int n_registered, List<User> users, String category) {
+    public Event(Long id, String title, String description, String place, Date date, int hour, int duration, int n_tickets, int n_registered, List<User> users, String category, List<Ticket> tickets, List<Comment> comments) {
         super();
         this.id = id;
         this.title = title;
@@ -44,6 +50,8 @@ public class Event {
         this.n_registered = n_registered;
         this.users = users;
         this.category = category;
+        this.tickets = tickets;
+        this.comments = comments;
     }
 
 
@@ -145,5 +153,19 @@ public class Event {
     }
 
 
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
 
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 }
