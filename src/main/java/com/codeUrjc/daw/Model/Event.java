@@ -1,11 +1,21 @@
 package com.codeUrjc.daw.Model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
 import java.sql.Time;
 import java.util.Date;
 
+@Entity
 public class Event {
 
-    private Long idEvent;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private Long id;
+
     private String title;
     private String description;
     private String place;
@@ -20,9 +30,12 @@ public class Event {
     private float price;
     private String category;
 
-    public Event(long idEvent, String title, String description, String place, Date date, int hour, int duration, int n_tickets, int n_registered, User chargeUser, float price, String category) {
+    public Event() {
+
+    }
+    public Event(Long id, String title, String description, String place, Date date, int hour, int duration, int n_tickets, int n_registered, User chargeUser, float price, String category) {
         super();
-        this.idEvent = idEvent;
+        this.id = id;
         this.title = title;
         this.description = description;
         this.place = place;
@@ -36,12 +49,14 @@ public class Event {
         this.category = category;
     }
 
-    public Long getIdEvent() {
-        return idEvent;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public void setIdEvent(Long idEvent) {
-        this.idEvent = idEvent;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -139,4 +154,10 @@ public class Event {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    @Override
+    public String toString(){
+        return "Event [id=" + id + ", user=" + chargeUser + ", title=" + title + "]";
+    }
+
 }
