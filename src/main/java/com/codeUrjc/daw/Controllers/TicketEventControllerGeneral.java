@@ -30,8 +30,6 @@ public class TicketEventControllerGeneral {
        return "index";
    }
 
-
-
     @GetMapping("/dashboard")
     public String showDashboard(Model model){
 

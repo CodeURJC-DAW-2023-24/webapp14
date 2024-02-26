@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 
 
 import java.sql.Time;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 public class Event {
@@ -24,21 +23,16 @@ public class Event {
     private int n_registered;
     private EventState state;
 
-    @ManyToMany(mappedBy = "event")
-    private List<User> users ;
+
     private String category;
 
-    @OneToMany
-    private List<Ticket> tickets;
 
-    @OneToMany
-    private List<Comment> comments;
 
     public Event() {
 
     }
-    public Event(Long id, String title, String description, String place, Date date, int hour, int duration, int n_tickets, int n_registered, List<User> users, String category, List<Ticket> tickets, List<Comment> comments) {
-        super();
+
+    public Event(Long id, String title, String description, String place, Date date, int hour, int duration, int n_tickets, int n_registered, EventState state, String category) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -48,13 +42,11 @@ public class Event {
         this.duration = duration;
         this.n_tickets = n_tickets;
         this.n_registered = n_registered;
-        this.users = users;
+        this.state = state;
+
         this.category = category;
-        this.tickets = tickets;
-        this.comments = comments;
+
     }
-
-
 
     public Long getId() {
         return id;
@@ -136,13 +128,7 @@ public class Event {
         this.state = state;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 
     public String getCategory() {
         return category;
@@ -153,19 +139,7 @@ public class Event {
     }
 
 
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
 
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-    }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 }
