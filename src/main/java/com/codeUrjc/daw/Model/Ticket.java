@@ -2,6 +2,7 @@ package com.codeUrjc.daw.Model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 @Entity
 public class Ticket {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String name;
     private String surname;
@@ -19,7 +20,7 @@ public class Ticket {
     private String email;
     private List<Integer> price;
 
-    public Ticket() {} //Contructor necesario para la carga desde BBDD
+    public Ticket() {}
 
     public Ticket(String id, String name, String surname, String phone, String description, String email, List<Integer> price) {
         this.id = id;
