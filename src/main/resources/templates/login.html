@@ -17,35 +17,17 @@
                         <h3 class="login-heading mb-4">Bienvenido! Inicie sesion</h3>
 
                         <!-- Sign In Form -->
-                        <form>
+                        <form action="/login" method="post">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email</label>
+                            <label for="floatingInput">Username</label>
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="username">
+
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Contraseña</label>
+                            <label for="floatingPassword">Password</label>
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                         </div>
-
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                            <label class="form-check-label" for="rememberPasswordCheck">
-                            Recordar contraseña
-                            </label>
-                        </div>
-
-                        <div class="d-grid">
-                            <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Inicie sesion</button>
-                            <div class="text-center">
-                            <a class="small" href="#">¿Olvidaste tu contraseña?</a>
-                            </div>
-                        </div>
-                            <div class="d-grid">
-                                <h3 class="login-heading mb-4">    </h3>
-                                <h3 class="login-heading mb-4">    </h3>
-                                <h3 class="login-heading mb-4">No tienes cuenta todavía?</h3>
-                                <a class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" href="registrar">Regístrate</a>
-                            </div>
+                            <input type="submit" value="Iniciar Sesion">
 
                         </form>
                     </div>

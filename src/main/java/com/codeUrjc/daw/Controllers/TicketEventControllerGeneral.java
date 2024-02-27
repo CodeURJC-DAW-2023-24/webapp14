@@ -76,4 +76,9 @@ public class TicketEventControllerGeneral {
         return "usuarios";
     }
 
+    @GetMapping("/error")
+    public String showError(Model model){
+        return "loginerror";
+    }
+
 }
