@@ -1,168 +1,53 @@
 package com.codeUrjc.daw.Model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
-
-
-import java.io.Serializable;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-
 
 @Entity
-public class User implements Serializable {
+public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
-    @GenericGenerator(name="native",strategy="native")
-    private String id;
+	private String name;
 
-    @Column
-    private String name;
+	private String encodedPassword;
 
-   @Column
-    private String surname;
-   @Column
-   private String nick;
-   @Column
-   private String password;
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
 
-   @Column
-   private String phone;
+	public User() {
+	}
 
-   @Column
-   private String email;
+	public User(String name, String encodedPassword, String... roles) {
+		this.name = name;
+		this.encodedPassword = encodedPassword;
+		this.roles = List.of(roles);
+	}
 
-   @Column
-   private String studyCenter;
+	public String getName() {
+		return name;
+	}
 
-    //usamos Set para que no se repitan los roles
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable( name ="user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+	public void setName(String name) {
+		this.name = name;
+	}
 
+	public String getEncodedPassword() {
+		return encodedPassword;
+	}
 
-    public User(){}
+	public void setEncodedPassword(String encodedPassword) {
+		this.encodedPassword = encodedPassword;
+	}
 
-    public User(String id, String name, String surname, String nick, String password, String phone, String email, String studyCenter) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.nick = nick;
-        this.password = password;
-        this.phone = phone;
-        this.email = email;
-        this.studyCenter = studyCenter;
-    }
+	public List<String> getRoles() {
+		return roles;
+	}
 
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
 
-    //getters
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getNick() {
-        return nick;
-    }
-
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getStudyCenter() {
-        return studyCenter;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-
-    //setters
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-    public void setNick(String nick) {
-        this.nick = nick;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setStudyCenter(String studyCenter) {
-        this.studyCenter = studyCenter;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", nick='" + nick + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", studyCenter='" + studyCenter + '\'' +
-                ", roles=" + roles +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User user)) return false;
-        return Objects.equals(getId(), user.getId()) && Objects.equals(getName(), user.getName()) && Objects.equals(getSurname(), user.getSurname()) && Objects.equals(getNick(), user.getNick()) && Objects.equals(getPassword(), user.getPassword()) && Objects.equals(getPhone(), user.getPhone()) && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getStudyCenter(), user.getStudyCenter()) && Objects.equals(getRoles(), user.getRoles());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName(), getSurname(), getNick(), getPassword(), getPhone(), getEmail(), getStudyCenter(), getRoles());
-    }
 }

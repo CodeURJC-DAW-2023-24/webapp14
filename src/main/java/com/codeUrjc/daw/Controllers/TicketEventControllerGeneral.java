@@ -1,9 +1,6 @@
 package com.codeUrjc.daw.Controllers;
 
-import com.codeUrjc.daw.Repository.CommentRepository;
-import com.codeUrjc.daw.Repository.EventRepository;
-import com.codeUrjc.daw.Repository.TicketRepository;
-import com.codeUrjc.daw.Repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,17 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TicketEventControllerGeneral {
 
-    @Autowired
-    private CommentRepository comments;
-
-    @Autowired
-    private EventRepository events;
-
-    @Autowired
-    private TicketRepository tickets;
-
-    @Autowired
-    private UserRepository users;
 
    @GetMapping("/")
     public String showMain(Model model){
@@ -78,7 +64,7 @@ public class TicketEventControllerGeneral {
 
     @GetMapping("/error")
     public String showError(Model model){
-        return "loginerror";
+        return "usuarios";
     }
 
 }
