@@ -39,8 +39,9 @@ public class SecurityConfiguration {
 
 		http
 			.authorizeHttpRequests(authorize -> authorize
+					.requestMatchers("/css/**","/fonts/**","/img/**","/js/**","/scss/**").permitAll()
 					// PUBLIC PAGES
-					.requestMatchers("/","/css/**","/js/**","/fonts/**","/img/**","/scss/**").permitAll()
+					.requestMatchers("/").permitAll()
 					// PRIVATE PAGES
 					.requestMatchers("/profile").hasAnyRole("USER")
 					.requestMatchers("/dashboard").hasAnyRole("ADMIN")
@@ -56,6 +57,10 @@ public class SecurityConfiguration {
 					.logoutSuccessUrl("/")
 					.permitAll()
 			);
+
+		// Disable CSRF at the moment
+		http.csrf(csrf -> csrf.disable());
+
 
 		return http.build();
 	}
