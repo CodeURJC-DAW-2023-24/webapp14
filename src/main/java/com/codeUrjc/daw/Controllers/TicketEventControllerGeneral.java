@@ -1,6 +1,9 @@
 package com.codeUrjc.daw.Controllers;
 
 
+import com.codeUrjc.daw.security.User;
+import com.codeUrjc.daw.security.UserRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TicketEventControllerGeneral {
 
+    @Autowired
+    private UserRepository userRepository;
 
    @GetMapping("/")
     public String showMain(Model model){
@@ -65,6 +70,20 @@ public class TicketEventControllerGeneral {
     @GetMapping("/error")
     public String showError(Model model){
         return "usuarios";
+    }
+
+    //La idea es que este controler se asocie a la dashboard para que solo la pueda el admin ver esa pagina
+    @GetMapping("/private")
+    public String privatePage(Model model, HttpServletRequest request){
+
+       String name = request.getUserPrincipal().getName();
+
+        User user = userRepository.findByName(name).orElseThrow();
+
+        model.addAttribute("username", user.getName());
+        model.addAttribute("admin", request.isUserInRole("ADMIN"));
+
+       return "dashboard";
     }
 
 }
