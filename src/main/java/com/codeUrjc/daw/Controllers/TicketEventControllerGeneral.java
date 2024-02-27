@@ -67,9 +67,9 @@ public class TicketEventControllerGeneral {
         return "usuarios";
     }
 
-    @GetMapping("/error")
+    @GetMapping("/loginerror")
     public String showError(Model model){
-        return "usuarios";
+        return "loginerror";
     }
 
     //La idea es que este controler se asocie a la dashboard para que solo la pueda el admin ver esa pagina
