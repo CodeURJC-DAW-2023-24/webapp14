@@ -1,59 +1,63 @@
 package com.codeUrjc.daw.security;
 
-import java.security.SecureRandom;
-
-import com.codeUrjc.daw.Repository.RepositoryUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity
+public class SecurityConfiguration {
 
 	@Autowired
-	RepositoryUserDetailsService userDetailsService;
+    public RepositoryUserDetailsService userDetailService;
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder(10, new SecureRandom());
+		return new BCryptPasswordEncoder();
 	}
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	@Bean
+	public DaoAuthenticationProvider authenticationProvider() {
+		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 
-		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+		authProvider.setUserDetailsService(userDetailService);
+		authProvider.setPasswordEncoder(passwordEncoder());
+
+		return authProvider;
 	}
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-		// Public pages
-		http.authorizeRequests().antMatchers("/").permitAll();
-		http.authorizeRequests().antMatchers("/login").permitAll();
-		http.authorizeRequests().antMatchers("/loginerror").permitAll();
+		http.authenticationProvider(authenticationProvider());
 
-		// Private pages (all other pages)
-		http.authorizeRequests().antMatchers("/profile").hasAnyRole("USER");
-		http.authorizeRequests().antMatchers("/dashboard").hasAnyRole("ADMIN");
+		http
+			.authorizeHttpRequests(authorize -> authorize
+					// PUBLIC PAGES
+					.requestMatchers("/","/css/**","/js/**","/fonts/**","/img/**","/scss/**").permitAll()
+					// PRIVATE PAGES
+					.requestMatchers("/profile").hasAnyRole("USER")
+					.requestMatchers("/dashboard").hasAnyRole("ADMIN")
+			)
+			.formLogin(formLogin -> formLogin
+					.loginPage("/login")
+					.failureUrl("/error")
+					.defaultSuccessUrl("/profile")
+					.permitAll()
+			)
+			.logout(logout -> logout
+					.logoutUrl("/logout")
+					.logoutSuccessUrl("/")
+					.permitAll()
+			);
 
-		// Login form
-		http.formLogin().loginPage("/login");
-		http.formLogin().usernameParameter("username");
-		http.formLogin().passwordParameter("password");
-		http.formLogin().defaultSuccessUrl("/profile");
-		http.formLogin().failureUrl("/loginerror");
-
-
-
-		// Disable CSRF at the moment
-		http.csrf().disable();
-
-
-
+		return http.build();
 	}
+
 }
