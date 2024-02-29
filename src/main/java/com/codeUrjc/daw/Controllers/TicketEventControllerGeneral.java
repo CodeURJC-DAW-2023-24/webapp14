@@ -16,8 +16,10 @@ public class TicketEventControllerGeneral {
     private UserRepository userRepository;
 
    @GetMapping("/")
-    public String showMain(Model model){
+    public String showMain(Model model, HttpServletRequest request){
 
+       model.addAttribute("admin", request.isUserInRole("ADMIN"));
+       model.addAttribute("user", request.isUserInRole("USER"));
        return "index";
    }
 
@@ -61,10 +63,10 @@ public class TicketEventControllerGeneral {
 
         return "registrar";
     }
-    @GetMapping("/usuarios")
+    @GetMapping("/permisosUsuarios")
     public String showUsuarios(Model model){
 
-        return "usuarios";
+        return "permisosUsuarios";
     }
 
     @GetMapping("/loginerror")
@@ -73,7 +75,7 @@ public class TicketEventControllerGeneral {
     }
 
     //La idea es que este controler se asocie a la dashboard para que solo la pueda el admin ver esa pagina
-    @GetMapping("/private")
+    /*@GetMapping("/dashboard")
     public String privatePage(Model model, HttpServletRequest request){
 
        String name = request.getUserPrincipal().getName();
@@ -84,6 +86,8 @@ public class TicketEventControllerGeneral {
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
 
        return "dashboard";
-    }
+    }*/
+
+
 
 }
