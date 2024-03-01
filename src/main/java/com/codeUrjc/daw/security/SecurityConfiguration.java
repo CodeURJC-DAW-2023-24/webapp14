@@ -45,14 +45,19 @@ public class SecurityConfiguration {
 					.requestMatchers("/css/**","/fonts/**","/img/**","/js/**","/scss/**").permitAll()
 					// PUBLIC PAGES
 					.requestMatchers("/").permitAll()
+					.requestMatchers("/registrar").permitAll()
+					.requestMatchers("/error").permitAll()
 					// PRIVATE PAGES
 					.requestMatchers("/profile").hasAnyRole("USER")
 					.requestMatchers("/inscripcion").hasAnyRole("USER")
 					.requestMatchers("/dashboard").hasAnyRole("ADMIN")
+					.requestMatchers("/NewEvent").hasAnyRole("ADMIN")
+					.requestMatchers("/eventos").hasAnyRole("ADMIN")
+					.requestMatchers("/permisosUsuarios").hasAnyRole("ADMIN")
 			)
 			.formLogin(formLogin -> formLogin
 					.loginPage("/login")
-					.failureUrl("/error")
+					.failureUrl("/loginerror")
 					.defaultSuccessUrl("/")
 					.permitAll()
 			)
@@ -61,6 +66,8 @@ public class SecurityConfiguration {
 					.logoutSuccessUrl("/")
 					.permitAll()
 			);
+
+
 
 		// Disable CSRF at the moment
 		http.csrf(csrf -> csrf.disable());
