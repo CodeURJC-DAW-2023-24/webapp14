@@ -10,11 +10,13 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	@Column(unique = true)
+	private String NICK;
 	private String name;
 
 	private String encodedPassword;
-
+	@OneToMany(mappedBy = "autor")
+	private List<Comment> comentarios;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 
