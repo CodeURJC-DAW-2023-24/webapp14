@@ -21,16 +21,22 @@ public class Ticket {
     @JsonIgnore
     private Event event;
 
+    @ManyToOne
+    @JsonIgnore
+    private User user;
+
 
     public Ticket() {}
 
-    public Ticket(String id, String name, String surname, String phone, String description, String email) {
+    public Ticket(String id, String name, String surname, String phone, String description, String email, Event event, User user) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.description = description;
         this.email = email;
+        this.event = event;
+        this.user = user;
     }
 
     public String getId() {
@@ -47,6 +53,14 @@ public class Ticket {
 
     public void setEvent(Event event) {
         this.event = event;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getName() {

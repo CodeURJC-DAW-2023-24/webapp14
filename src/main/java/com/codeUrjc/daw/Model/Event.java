@@ -27,6 +27,9 @@ public class Event {
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets = new ArrayList<>();
 
+    @ManyToMany(mappedBy="events")
+    private List<User> users;
+
     public Event(String title, String description, String place, String fecha, String duration, List<Comment> comments, List<Ticket> tickets) {
         super();
         this.title = title;
@@ -70,6 +73,13 @@ public class Event {
         return id;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 
     public String getTitle() {
         return title;
