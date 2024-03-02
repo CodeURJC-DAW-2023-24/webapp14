@@ -19,7 +19,7 @@ public class Comment {
     @Column
     private String likes;
     @ManyToOne
-    @JoinColumn(name = "autor_nick")
+    @JoinColumn(name = "autor")
     private User autor;
 
     public Comment(){}
