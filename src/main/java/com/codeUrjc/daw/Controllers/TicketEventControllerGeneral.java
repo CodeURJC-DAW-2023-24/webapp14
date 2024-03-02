@@ -12,12 +12,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
 import java.util.List;
@@ -195,18 +192,29 @@ public class TicketEventControllerGeneral {
 
             return "permisosUsuarios";
     }
+    @GetMapping("/editForm")
+    public String showEditForm(Model model, Principal principal) {
+        String username = principal.getName();
+        Optional<User> userOptional = userRepository.findByNICK(username);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            model.addAttribute("user", user);
+            return "editForm";
+        } else {
+            return "error";
+        }
+    }
 
+    @PostMapping("/editForm")
+    public String saveEditedData(@ModelAttribute User editedUser) {
+        userRepository.save(editedUser);
 
-
-
-
+        return "profile";
+    }
 
     @GetMapping("/loginerror")
     public String showError(Model model){
         return "loginerror";
     }
-
-
-
 
 }

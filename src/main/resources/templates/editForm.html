@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar perfil</title>
+    <link href="/css/stylesInsc.css" rel="stylesheet" />
+</head>
+<body>
+
+<form action="/editForm" method="post">
+    <label for="floatingName">Nombre:</label>
+    <input type="text" id="floatingName" name="name" value={{user.name}} required>
+
+    <label for="floatingSurname">Apellido</label>
+    <input type="text" class="form-control" id="floatingSurname" name="surname" value={{user.surname}} required>
+
+    <label for="floatingNick">Nick</label>
+    <input type="text" class="form-control" id="floatingNick" name="nick" value={{user.NICK}} required>
+
+    <label for="floatingEmail">Email</label>
+    <input type="text" class="form-control" id="floatingEmail" name="email" value={{user.email}} required>
+
+    <label for="floatingPassword">Contraseña</label>
+    <input type="text" class="form-control" id="floatingPassword" name="password" value={{user.encodedPassword}} required>
+
+    <label for="floatingStudyCenter">Centro de estudios</label>
+    <input type="text" class="form-control" id="floatingStudyCenter" name="studyCenter" value={{user.studyCenter}} required>
+
+    <label for="floatingPhone">Numero de contacto</label>
+    <input type="text" class="form-control" id="floatingPhone" name="phone" value={{user.phone}} required>
+
+    <button type="submit">Guardar cambios</button>
+</form>
+</body>
+</html>
