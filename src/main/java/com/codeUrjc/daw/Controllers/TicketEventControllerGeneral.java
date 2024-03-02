@@ -8,15 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
+import java.util.Collections;
 import java.util.Optional;
 
 @Controller
@@ -25,7 +28,11 @@ public class TicketEventControllerGeneral {
     @Autowired
     private UserRepository userRepository;
 
-   @GetMapping("/")
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    private java.util.Collections Collections;
+
+    @GetMapping("/")
     public String showMain(Model model, HttpServletRequest request){
 
        model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -148,12 +155,21 @@ public class TicketEventControllerGeneral {
         }
     }
 
-
     @GetMapping("/registrar")
-    public String showRegistrar(Model model){
-
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("user", new User());
         return "registrar";
     }
+
+    @PostMapping("/registrar")
+    public String registerUser(User user) {
+        user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
+        user.setRoles(Collections.singletonList("USER"));
+        user.setEditor(false);
+        userRepository.save(user);
+        return "login";
+    }
+
     @GetMapping("/permisosUsuarios")
     public String showUsuarios(Model model, HttpServletRequest request, Principal principal){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));

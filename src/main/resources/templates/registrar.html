@@ -17,47 +17,41 @@
                             <h3 class="login-heading mb-4">Bienvenido! Registrate</h3>
 
                             <!-- Sign In Form -->
-                            <form>
+                            <form action="/registrar" method="post">
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="Nombre">
-                                    <label for="floatingInput">Nombre</label>
+                                    <input type="text" class="form-control" id="floatingName" placeholder="Nombre" name="name">
+                                    <label for="floatingName">Nombre</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="Apellidos">
-                                    <label for="floatingInput">Apellidos</label>
+                                    <input type="text" class="form-control" id="floatingSurname" placeholder="Apellido" name="surname">
+                                    <label for="floatingSurname">Apellido</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                    <label for="floatingInput">Email</label>
+                                    <input type="text" class="form-control" id="floatingNick" placeholder="Nick" name="NICK">
+                                    <label for="floatingNick">Nick</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                    <input type="text" class="form-control" id="floatingEmail" placeholder="name@example.com" name="email">
+                                    <label for="floatingEmail">Email</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="encodedPassword">
                                     <label for="floatingPassword">Contraseña</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="Centro de estudios">
-                                    <label for="floatingInput">Centro de estudios</label>
+                                    <input type="text" class="form-control" id="floatingStudyCenter" placeholder="Centro de estudios" name="studyCenter">
+                                    <label for="floatingStudyCenter">Centro de estudios</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="Numero de contacto">
-                                    <label for="floatingInput">Numero de contacto</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <textarea type="email" class="form-control" id="floatingInput" placeholder="Descripcion"></textarea>
-                                    <label for="floatingInput">Descripcion</label>
-                                </div>
-
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                                    <label class="form-check-label" for="rememberPasswordCheck">
-                                        Recordar contraseña
-                                    </label>
+                                    <input type="text" class="form-control" id="floatingPhone" placeholder="Numero de contacto" name="phone">
+                                    <label for="floatingPhone">Numero de contacto</label>
                                 </div>
 
                                 <div class="d-grid">
                                     <h3 class="login-heading mb-4">    </h3>
                                     <h3 class="login-heading mb-4">    </h3>
-                                    <a class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Regístrate</a>
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                                    <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Regístrate</button>
                                 </div>
 
                             </form>
