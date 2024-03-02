@@ -1,5 +1,6 @@
 package com.codeUrjc.daw.security;
 
+import com.codeUrjc.daw.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

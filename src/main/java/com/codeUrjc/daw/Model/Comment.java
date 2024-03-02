@@ -1,5 +1,6 @@
-package com.codeUrjc.daw.security;
+package com.codeUrjc.daw.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,20 +17,26 @@ public class Comment {
     @Column
     private String description;
 
-    @Column
-    private String likes;
     @ManyToOne
     @JoinColumn(name = "autor")
     private User autor;
 
-    public Comment(){}
+    @ManyToOne
+    @JsonIgnore
+    private Event event;
 
-    public Comment(String nick, String description, String likes) {
+
+
+
+
+    public Comment(String id, String nick, String description, User autor) {
+        this.id = id;
         this.nick = nick;
         this.description = description;
-        this.likes = likes;
+        this.autor = autor;
     }
 
+    public Comment(){}
 
     // Getters
     public String getId() {
@@ -43,10 +50,21 @@ public class Comment {
         return description;
     }
 
-    public String getLikes() {
-        return likes;
+    public User getAutor() {
+        return autor;
     }
 
+    public void setAutor(User autor) {
+        this.autor = autor;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
 
     // Setters
     public void setNick(String nick) {
@@ -57,9 +75,7 @@ public class Comment {
         this.description = description;
     }
 
-    public void setLikes(String likes) {
-        this.likes = likes;
-    }
+
 
     public void setId(String id) {
         this.id = id;

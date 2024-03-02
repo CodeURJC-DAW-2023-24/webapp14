@@ -1,7 +1,6 @@
 package com.codeUrjc.daw.Controllers;
 
 
-import com.codeUrjc.daw.security.User;
 import com.codeUrjc.daw.security.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +75,7 @@ public class TicketEventControllerGeneral {
 
     //La idea es que este controler se asocie a la dashboard para que solo la pueda el admin ver esa pagina
     /*@GetMapping("/dashboard")
-    public String privatePage(Model model, HttpServletRequest request){
+    public String privatePage(com.codeUrjc.daw.Model model, HttpServletRequest request){
 
        String name = request.getUserPrincipal().getName();
 
