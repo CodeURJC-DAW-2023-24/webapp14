@@ -29,6 +29,8 @@ public class User {
 	private String studyCenter;
 
 	private long phone;
+
+	private boolean editor;
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Ticket> tickets = new ArrayList<>();
 
@@ -42,7 +44,7 @@ public class User {
        this.encodedPassword = encodedPassword;
        this.roles = List.of(roles);
     }*/
-	public User(String NICK, String name, String surname, String email, String encodedPassword, String studyCenter, long phone ,String... roles) {
+	public User(String NICK, String name, String surname, String email, String encodedPassword, String studyCenter, long phone, boolean editor ,String... roles) {
 		this.NICK = NICK;
 		this.name = name;
 		this.surname = surname;
@@ -50,6 +52,7 @@ public class User {
 		this.encodedPassword = encodedPassword;
 		this.studyCenter = studyCenter;
 		this.phone = phone;
+		this.editor = editor;
 		this.roles = List.of(roles);
 	}
 
@@ -89,6 +92,7 @@ public class User {
 	public String getNICK() {
 		return NICK;
 	}
+
 	public void setNICK(String NICK) {
 		this.NICK = NICK;
 	}
@@ -122,6 +126,15 @@ public class User {
 	public void setPhone(long phone) {
 		this.phone = phone;
 	}
+
+	public boolean isEditor() {
+		return editor;
+	}
+
+	public void setEditor(boolean editor) {
+		this.editor = editor;
+	}
+
 	public void setEncodedPassword(String encodedPassword) {
 		this.encodedPassword = encodedPassword;
 	}
