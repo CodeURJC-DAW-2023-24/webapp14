@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -174,46 +177,24 @@ public class TicketEventControllerGeneral {
     public String showUsuarios(Model model, HttpServletRequest request, Principal principal){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
-        String username = principal.getName(); // Obtener el nombre de usuario autenticado
 
-        // Buscar el usuario en la base de datos por su NICK
-        Optional<User> userOptional = userRepository.findByNICK(username);
-
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
-            boolean isEditor = user.isEditor();
-
-            // Agregar la información del usuario y si es editor al modelo
-            model.addAttribute("user", user);
-            model.addAttribute("isEditor", isEditor);
-
-            // Aquí puedes agregar otros atributos al modelo según sea necesario
+            // Obtener la lista de todos los usuarios
+            List<User> allUsers = userRepository.findAll();
+            model.addAttribute("allUsers", allUsers);
 
             return "permisosUsuarios";
-        } else {
-            // Manejar el caso en el que el usuario no exista en la base de datos
-            return "error"; // O devuelve a una página de error
-        }
     }
+
+
+
+
+
 
     @GetMapping("/loginerror")
     public String showError(Model model){
         return "loginerror";
     }
 
-    //La idea es que este controler se asocie a la dashboard para que solo la pueda el admin ver esa pagina
-    /*@GetMapping("/dashboard")
-    public String privatePage(com.codeUrjc.daw.Model model, HttpServletRequest request){
-
-       String name = request.getUserPrincipal().getName();
-
-        User user = userRepository.findByName(name).orElseThrow();
-
-        model.addAttribute("username", user.getName());
-        model.addAttribute("admin", request.isUserInRole("ADMIN"));
-
-       return "dashboard";
-    }*/
 
 
 
