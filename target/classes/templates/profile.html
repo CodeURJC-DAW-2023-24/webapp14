@@ -44,15 +44,16 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-2 fixed-start ms-2   bg-gradient-dark" id="sidenav-main">
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-    <a class="navbar-brand m-0" href="index" target="_blank">
-      <span class="ms-1 font-weight-bold text-white" >TicketEvent Administracion</span>
+    <a class="navbar-brand m-0" href="/" target="_blank">
+      <span class="ms-1 font-weight-bold text-white" >Volver a TicketEvent</span>
     </a>
   </div>
   <hr class="horizontal light mt-0 mb-2">
   <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
     <ul class="navbar-nav">
+      {{#admin}}
       <li class="nav-item">
-        <a class="nav-link text-white " href="dashboard">
+        <a class="nav-link text-white" href="dashboard">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">table_view</i>
           </div>
@@ -60,18 +61,30 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white " href="eventos">
+        <a class="nav-link text-white" href="permisosUsuarios">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">table_view</i>
+          </div>
+          <span class="nav-link-text ms-1">Permisos Edicion</span>
+        </a>
+      </li>
+      <li class="nav-item mt-3">
+        <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Gestion de cuentas</h6>
+      </li>
+      {{/admin}}
+
+      {{#user.editor}}
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/eventos">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">table_view</i>
           </div>
           <span class="nav-link-text ms-1">Gestión de Eventos</span>
         </a>
       </li>
-      <li class="nav-item mt-3">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Gestion de cuentas</h6>
-      </li>
+      {{/user.editor}}
       <li class="nav-item">
-        <a class="nav-link text-white " href="profile">
+        <a class="nav-link text-white" href="profile">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">person</i>
           </div>
@@ -114,9 +127,7 @@
       <div class="card card-body mx-3 mx-md-4 mt-n6">
         <div class="row gx-4 mb-2">
           <div class="col-auto">
-            <div class="avatar avatar-xl position-relative">
-              <img src="/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-            </div>
+
           </div>
           <div class="col-auto my-auto">
             <div class="h-100">
@@ -155,18 +166,6 @@
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; alecthompson@mail.com</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; USA</li>
-                    <li class="list-group-item border-0 ps-0 pb-0">
-                      <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                      <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                        <i class="fab fa-facebook fa-lg"></i>
-                      </a>
-                      <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                        <i class="fab fa-twitter fa-lg"></i>
-                      </a>
-                      <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                        <i class="fab fa-instagram fa-lg"></i>
-                      </a>
-                    </li>
                   </ul>
                 </div>
               </div>
@@ -195,7 +194,7 @@
                         Music is something that every person has his or her own specific opinion about.
                       </p>
                       <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">Agregar comentario</button>
                       </div>
                     </div>
                   </div>
@@ -218,7 +217,7 @@
                         Music is something that every person has his or her own specific opinion about.
                       </p>
                       <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">Agregar comentario</button>
                       </div>
                     </div>
                   </div>
@@ -241,7 +240,7 @@
                         Music is something that every person has his or her own specific opinion about.
                       </p>
                       <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">Agregar comentario</button>
                       </div>
                     </div>
                   </div>
@@ -264,7 +263,7 @@
                         Music is something that every person has his or her own specific opinion about.
                       </p>
                       <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">Agregar comentario</button>
                       </div>
                     </div>
                   </div>

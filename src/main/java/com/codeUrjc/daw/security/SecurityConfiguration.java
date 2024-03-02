@@ -51,8 +51,8 @@ public class SecurityConfiguration {
 					.requestMatchers("/profile").hasAnyRole("USER")
 					.requestMatchers("/inscripcion").hasAnyRole("USER")
 					.requestMatchers("/dashboard").hasAnyRole("ADMIN")
-					.requestMatchers("/NewEvent").hasAnyRole("ADMIN")
-					.requestMatchers("/eventos").hasAnyRole("ADMIN")
+					.requestMatchers("/NewEvent").hasAnyRole("ADMIN", "USER")
+					.requestMatchers("/eventos").hasAnyRole("ADMIN", "USER")
 					.requestMatchers("/permisosUsuarios").hasAnyRole("ADMIN")
 			)
 			.formLogin(formLogin -> formLogin
