@@ -60,7 +60,7 @@
         <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Gestion de cuentas</h6>
       </li>
       {{/admin}}
-
+      {{#admin}}
       {{#user.editor}}
       <li class="nav-item">
         <a class="nav-link text-white" href="/eventos">
@@ -71,6 +71,7 @@
         </a>
       </li>
       {{/user.editor}}
+      {{/admin}}
       <li class="nav-item">
         <a class="nav-link text-white" href="profile">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
