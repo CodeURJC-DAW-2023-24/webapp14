@@ -54,6 +54,8 @@ public class SecurityConfiguration {
 					.requestMatchers("/NewEvent").hasAnyRole("ADMIN", "USER")
 					.requestMatchers("/eventos").hasAnyRole("ADMIN", "USER")
 					.requestMatchers("/permisosUsuarios").hasAnyRole("ADMIN")
+					.requestMatchers("/otorgarPermisos").hasRole("ADMIN")
+					.requestMatchers("/quitarPermisos").hasRole("ADMIN")
 			)
 			.formLogin(formLogin -> formLogin
 					.loginPage("/login")

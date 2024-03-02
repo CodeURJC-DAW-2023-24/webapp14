@@ -182,6 +182,7 @@ public class TicketEventControllerGeneral {
         // Buscar el usuario en la base de datos por su NICK
         Optional<User> userOptional = userRepository.findByNICK(username);
 
+
             User user = userOptional.get();
             boolean isEditor = user.isEditor();
 
@@ -193,12 +194,46 @@ public class TicketEventControllerGeneral {
             List<User> allUsers = userRepository.findAll();
             model.addAttribute("allUsers", allUsers);
 
-            return "permisosUsuarios";
+
+        return "permisosUsuarios";
     }
 
 
+    @PostMapping("/otorgarPermisos")
+    public String otorgarPermisos(@RequestParam("id") Long id) {
+        Optional<User> userOptional = userRepository.findById(id);
 
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            if (!user.isEditor()) {
+                user.setEditor(true); // Otorgar permisos de editor al usuario
+                userRepository.save(user); // Guardar el usuario actualizado en la base de datos
+            }
+            // Redirigir a la página de permisos de usuario o a donde desees
+            return "redirect:/permisosUsuarios";
+        } else {
+            // Manejar el caso en el que el usuario no exista en la base de datos
+            return "error"; // O devuelve a una página de error
+        }
+    }
 
+    @PostMapping("/quitarPermisos")
+    public String quitarPermisos(@RequestParam("id") Long id) {
+        Optional<User> userOptional = userRepository.findById(id);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            if (user.isEditor()) {
+                user.setEditor(false); // Otorgar permisos de editor al usuario
+                userRepository.save(user); // Guardar el usuario actualizado en la base de datos
+            }
+            // Redirigir a la página de permisos de usuario o a donde desees
+            return "redirect:/permisosUsuarios";
+        } else {
+            // Manejar el caso en el que el usuario no exista en la base de datos
+            return "error"; // O devuelve a una página de error
+        }
+    }
 
 
     @GetMapping("/loginerror")
