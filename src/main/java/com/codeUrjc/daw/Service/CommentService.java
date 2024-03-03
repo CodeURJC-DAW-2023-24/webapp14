@@ -21,6 +21,17 @@ public class CommentService {
     private CommentRepository comments;
 
 
+    @PostConstruct
+    public void init(){
+
+        if(comments.count()==0){
+            save(new Comment("opaaa","yipiiii"));
+
+        }
+
+    }
+
+
 
 
 

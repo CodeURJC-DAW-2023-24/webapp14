@@ -9,7 +9,7 @@ public class Comment {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Long id;
 
 
     @Column
@@ -29,7 +29,7 @@ public class Comment {
     public Comment(){}
 
     // Getters
-    public String getId() {
+    public Long getId() {
         return id;
     }
     public String getNick() {
@@ -50,7 +50,7 @@ public class Comment {
     }
 
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
