@@ -47,7 +47,7 @@ public class SecurityConfiguration {
 					.requestMatchers("/").permitAll()
 					.requestMatchers("/registrar").permitAll()
 					.requestMatchers("/error").permitAll()
-					.requestMatchers("/event/*").permitAll()
+					.requestMatchers("/event/{id}").permitAll()
 					// PRIVATE PAGES
 					.requestMatchers("/profile").hasAnyRole("USER")
 					.requestMatchers("/inscripcion").hasAnyRole("USER")

@@ -50,7 +50,15 @@ public class TicketEventControllerGeneral {
         model.addAttribute("events", events);
         model.addAttribute("hasNext", events.hasNext());
         model.addAttribute("nextPage", events.getNumber()+1);
-        model.addAttribute("prevPage", events.getNumber()-1);
+        //model.addAttribute("prevPage", events.getNumber()-1);
+        // Verifica si hay una página anterior antes de calcular su número
+        if (events.getNumber() > 0) {
+            model.addAttribute("hasPrev", true);
+            model.addAttribute("prevPage", events.getNumber() - 1);
+        } else {
+            model.addAttribute("hasPrev", false);
+            model.addAttribute("prevPage", 0); // O cualquier otro valor adecuado
+        }
 
 
         return "index";

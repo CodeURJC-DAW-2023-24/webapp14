@@ -77,11 +77,21 @@
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">{{title}}</div>
                         <div class="portfolio-caption-subheading text-muted">{{description}}</div>
-
+                        <a class="btn btn-primary btn-xl text-uppercase" href="event/{{id}}">Más información</a>
                     </div>
                 </div>
             </div>
             {{/events}}
+            <br>
+            {{#hasPrev}}
+            <a class="btn btn-primary btn-xl text-uppercase" href="/?page={{prevPage}}">Prev</a>
+            {{/hasPrev}}
+
+            {{#hasNext}}
+            <a class="btn btn-primary btn-xl text-uppercase" href="/?page={{nextPage}}">Next</a>
+            {{/hasNext}}
+
+            <br>
         </div>
     </div>
 </section>
