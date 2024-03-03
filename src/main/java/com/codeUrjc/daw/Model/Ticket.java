@@ -3,8 +3,6 @@ package com.codeUrjc.daw.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.List;
-
 
 @Entity
 public class Ticket {

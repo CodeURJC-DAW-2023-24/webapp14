@@ -1,29 +1,36 @@
 package com.codeUrjc.daw.Controllers;
 
 
+import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
-import com.codeUrjc.daw.security.UserRepository;
+import com.codeUrjc.daw.Service.EventService;
+import com.codeUrjc.daw.repository.EventRepository;
+import com.codeUrjc.daw.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class TicketEventControllerGeneral {
+
+    @Autowired
+    private EventService eventService;
 
     @Autowired
     private UserRepository userRepository;
@@ -32,13 +39,42 @@ public class TicketEventControllerGeneral {
     private PasswordEncoder passwordEncoder;
     private java.util.Collections Collections;
 
-    @GetMapping("/")
-    public String showMain(Model model, HttpServletRequest request){
 
-       model.addAttribute("admin", request.isUserInRole("ADMIN"));
-       model.addAttribute("user", request.isUserInRole("USER"));
-       return "index";
-   }
+
+    @GetMapping("/")
+    public String showMain(Model model, HttpServletRequest request, Pageable page){
+
+        model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("user", request.isUserInRole("USER"));
+
+        Page<Event> events = eventService.findAll(page);
+
+        model.addAttribute("events", events.getContent()); // Cambio aquí para enviar solo el contenido de la página
+
+        return "index";
+    }
+
+    @GetMapping("/event/{id}")
+    public String showEvent(Model model, HttpServletRequest request, @PathVariable long id) {
+
+        model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("user", request.isUserInRole("USER"));
+
+        Optional<Event> optionalEvent = eventService.findById(id);
+        if(optionalEvent.isPresent()){
+            Event event = optionalEvent.get();
+            model.addAttribute("event", event);
+
+            return "showEvent";
+        }else {
+            return "error";
+        }
+
+    }
+
+
+
+
 
     @GetMapping("/dashboard")
     public String showDashboard(Model model, HttpServletRequest request, Principal principal){
@@ -131,8 +167,8 @@ public class TicketEventControllerGeneral {
 
     @GetMapping("/profile")
     public String showProfile(Model model, HttpServletRequest request, Principal principal){
-       model.addAttribute("admin", request.isUserInRole("ADMIN"));
-       model.addAttribute("user", request.isUserInRole("USER"));
+        model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("user", request.isUserInRole("USER"));
         String username = principal.getName(); // Obtener el nombre de usuario autenticado
 
         // Buscar el usuario en la base de datos por su NICK
@@ -179,18 +215,16 @@ public class TicketEventControllerGeneral {
         // Buscar el usuario en la base de datos por su NICK
         Optional<User> userOptional = userRepository.findByNICK(username);
 
+        User user = userOptional.get();
+        boolean isEditor = user.isEditor();
 
-            User user = userOptional.get();
-            boolean isEditor = user.isEditor();
+        // Agregar la información del usuario y si es editor al modelo
+        model.addAttribute("user", user);
+        model.addAttribute("isEditor", isEditor);
 
-            // Agregar la información del usuario y si es editor al modelo
-            model.addAttribute("user", user);
-            model.addAttribute("isEditor", isEditor);
-
-            // Obtener la lista de todos los usuarios
-            List<User> allUsers = userRepository.findAll();
-            model.addAttribute("allUsers", allUsers);
-
+        // Obtener la lista de todos los usuarios
+        List<User> allUsers = userRepository.findAll();
+        model.addAttribute("allUsers", allUsers);
 
         return "permisosUsuarios";
     }

@@ -1,6 +1,5 @@
 
 package com.codeUrjc.daw.Model;
-import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
