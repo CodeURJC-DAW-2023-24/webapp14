@@ -47,6 +47,7 @@ public class SecurityConfiguration {
 					.requestMatchers("/").permitAll()
 					.requestMatchers("/registrar").permitAll()
 					.requestMatchers("/error").permitAll()
+					.requestMatchers("/event/*").permitAll()
 					// PRIVATE PAGES
 					.requestMatchers("/profile").hasAnyRole("USER")
 					.requestMatchers("/inscripcion").hasAnyRole("USER")
@@ -54,6 +55,7 @@ public class SecurityConfiguration {
 					.requestMatchers("/NewEvent").hasAnyRole("ADMIN", "USER")
 					.requestMatchers("/eventos").hasAnyRole("ADMIN", "USER")
 					.requestMatchers("/permisosUsuarios").hasAnyRole("ADMIN")
+
 			)
 			.formLogin(formLogin -> formLogin
 					.loginPage("/login")

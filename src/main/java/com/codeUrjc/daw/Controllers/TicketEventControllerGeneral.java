@@ -56,7 +56,7 @@ public class TicketEventControllerGeneral {
         return "index";
     }
 
-    @GetMapping("/event{id}")
+    @GetMapping("/event/{id}")
     public String showEvent(Model model, @PathVariable long id) {
 
         Event event = eventService.findById(id).orElseThrow();
