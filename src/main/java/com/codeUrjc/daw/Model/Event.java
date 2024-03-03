@@ -22,8 +22,7 @@ public class Event {
 
     private String duration;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> comments = new ArrayList<>();
+
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets = new ArrayList<>();
@@ -39,16 +38,6 @@ public class Event {
         this.duration = duration;
     }
 
-
-    public void addComment(Comment comment){
-        comments.add(comment);
-        comment.setEvent(this);
-    }
-
-    public void removeComment(Comment comment){
-        comments.remove(comment);
-        comment.setEvent(null);
-    }
 
     public void addTicket(Ticket ticket){
         tickets.add(ticket);

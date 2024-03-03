@@ -1,6 +1,7 @@
 package com.codeUrjc.daw.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 import jakarta.persistence.*;
 
 @Entity
@@ -8,7 +9,7 @@ public class Comment {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Long id;
 
 
     @Column
@@ -17,29 +18,18 @@ public class Comment {
     @Column
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "autor")
-    private User autor;
-
-    @ManyToOne
-    @JsonIgnore
-    private Event event;
 
 
 
-
-
-    public Comment(String id, String nick, String description, User autor) {
-        this.id = id;
+    public Comment(String nick, String description) {
         this.nick = nick;
         this.description = description;
-        this.autor = autor;
     }
 
     public Comment(){}
 
     // Getters
-    public String getId() {
+    public Long getId() {
         return id;
     }
     public String getNick() {
@@ -48,22 +38,6 @@ public class Comment {
 
     public String getDescription() {
         return description;
-    }
-
-    public User getAutor() {
-        return autor;
-    }
-
-    public void setAutor(User autor) {
-        this.autor = autor;
-    }
-
-    public Event getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
     }
 
     // Setters
@@ -76,8 +50,7 @@ public class Comment {
     }
 
 
-
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

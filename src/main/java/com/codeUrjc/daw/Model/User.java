@@ -21,8 +21,7 @@ public class User {
 	private String email;
 
 	private String encodedPassword;
-	@OneToMany(mappedBy = "autor")
-	private List<Comment> comentarios;
+
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 
@@ -108,12 +107,7 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public List<Comment> getComentarios() {
-		return comentarios;
-	}
-	public void setComentarios(List<Comment> comentarios) {
-		this.comentarios = comentarios;
-	}
+
 	public String getStudyCenter() {
 		return studyCenter;
 	}

@@ -1,9 +1,12 @@
 package com.codeUrjc.daw.Controllers;
 
 
+import com.codeUrjc.daw.Model.Comment;
 import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
+import com.codeUrjc.daw.Service.CommentService;
 import com.codeUrjc.daw.Service.EventService;
+import com.codeUrjc.daw.repository.CommentRepository;
 import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,6 +25,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.print.DocFlavor;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
@@ -36,7 +40,13 @@ public class TicketEventControllerGeneral {
     private EventRepository eventRepository;
 
     @Autowired
+    private CommentService commentService;
+
+    @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -368,4 +378,62 @@ public class TicketEventControllerGeneral {
         Page<Event> eventsPage = eventService.findAll(PageRequest.of(page, size));
         return eventsPage.getContent();
     }
+
+    @GetMapping("/review")
+    public String showReview(Model model, HttpServletRequest request){
+        boolean isAdmin = request.isUserInRole("ADMIN");
+        boolean isUser = request.isUserInRole("USER");
+
+        model.addAttribute("admin", isAdmin);
+        model.addAttribute("user", isUser);
+
+        if (isAdmin || isUser) {
+            List<Comment> allComments = commentRepository.findAll();
+            model.addAttribute("allComments", allComments);
+        }
+
+        return "review";
+    }
+
+    @GetMapping("/CreateReview")
+    public String showCreateReview(Model model, HttpServletRequest request, Principal principal){
+
+        model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("user", request.isUserInRole("USER"));
+        String username = principal.getName(); // Obtener el nombre de usuario autenticado
+
+        // Buscar el usuario en la base de datos por su NICK
+        Optional<User> userOptional = userRepository.findByNICK(username);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            boolean isEditor = user.isEditor();
+
+            // Agregar la información del usuario y si es editor al modelo
+            model.addAttribute("user", user);
+            model.addAttribute("isEditor", isEditor);
+
+            // Aquí puedes agregar otros atributos al modelo según sea necesario
+
+            return "createReview";
+        } else {
+            // Manejar el caso en el que el usuario no exista en la base de datos
+            return "error"; // O devuelve a una página de error
+        }
+
+
+    }
+    @PostMapping("/CreateReview")
+    public String registerReview(@ModelAttribute Comment comment, Model model) {
+        commentService.save(comment);
+        return "redirect:/";
+
+
+    }
+
+
+
+
+
+
 }
