@@ -206,10 +206,32 @@ public class TicketEventControllerGeneral {
     }
 
     @PostMapping("/editForm")
-    public String saveEditedData(@ModelAttribute User editedUser) {
-        userRepository.save(editedUser);
+    public String saveEditedData(@ModelAttribute User updatedUser) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<User> userOptional = userRepository.findByNICK(username);
 
-        return "profile";
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            // Actualizar los datos del usuario con los valores recibidos del formulario
+            user.setName(updatedUser.getName());
+            user.setSurname(updatedUser.getSurname());
+            user.setEmail(updatedUser.getEmail());
+            user.setStudyCenter(updatedUser.getStudyCenter());
+            user.setPhone(updatedUser.getPhone());
+
+            // Guardar los cambios en la base de datos
+            userRepository.save(user);
+
+            return "redirect:/profile"; // Redirigir al perfil después de guardar los cambios
+        } else {
+            return "error"; // O devuelve a una página de error si el usuario no existe
+        }
+    }
+
+    @GetMapping("/editEvent")
+    public String showeditEvent(Model model){
+
+        return "editEvent";
     }
 
     @GetMapping("/loginerror")

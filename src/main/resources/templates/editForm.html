@@ -20,15 +20,13 @@
     <label for="floatingEmail">Email</label>
     <input type="text" class="form-control" id="floatingEmail" name="email" value={{user.email}} required>
 
-    <label for="floatingPassword">Contraseña</label>
-    <input type="text" class="form-control" id="floatingPassword" name="password" value={{user.encodedPassword}} required>
-
     <label for="floatingStudyCenter">Centro de estudios</label>
     <input type="text" class="form-control" id="floatingStudyCenter" name="studyCenter" value={{user.studyCenter}} required>
 
     <label for="floatingPhone">Numero de contacto</label>
     <input type="text" class="form-control" id="floatingPhone" name="phone" value={{user.phone}} required>
 
+    <input type="hidden" name="_csrf" value="{{token}}"/>
     <button type="submit">Guardar cambios</button>
 </form>
 </body>
