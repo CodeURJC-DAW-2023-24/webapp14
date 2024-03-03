@@ -16,7 +16,7 @@ public class EventService {
     private EventRepository events;
 
     @PostConstruct
-  public void init() {
+    public void init() {
 
         save(new Event("Festival Cultural Universitario", "Un fin de semana lleno de actividades culturales, incluyendo actuaciones musicales, exposiciones de arte y presentaciones de danza", "Campus Universitario, Universidad Rey Juan Carlos","5 al 7 de abril de 2024"," días"));
 

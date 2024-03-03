@@ -35,8 +35,8 @@ public class TicketEventControllerGeneral {
     @GetMapping("/")
     public String showMain(Model model, HttpServletRequest request, Pageable pageable){
 
-       model.addAttribute("admin", request.isUserInRole("ADMIN"));
-       model.addAttribute("user", request.isUserInRole("USER"));
+        model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("user", request.isUserInRole("USER"));
 
         Page<Event> events = eventService.findAll(pageable);
 
@@ -50,7 +50,7 @@ public class TicketEventControllerGeneral {
 
 
         return "index";
-   }
+    }
 
     @GetMapping("/dashboard")
     public String showDashboard(Model model, HttpServletRequest request, Principal principal){
@@ -143,8 +143,8 @@ public class TicketEventControllerGeneral {
 
     @GetMapping("/profile")
     public String showProfile(Model model, HttpServletRequest request, Principal principal){
-       model.addAttribute("admin", request.isUserInRole("ADMIN"));
-       model.addAttribute("user", request.isUserInRole("USER"));
+        model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("user", request.isUserInRole("USER"));
         String username = principal.getName(); // Obtener el nombre de usuario autenticado
 
         // Buscar el usuario en la base de datos por su NICK
@@ -191,18 +191,18 @@ public class TicketEventControllerGeneral {
         // Buscar el usuario en la base de datos por su NICK
         Optional<User> userOptional = userRepository.findByNICK(username);
 
-            User user = userOptional.get();
-            boolean isEditor = user.isEditor();
+        User user = userOptional.get();
+        boolean isEditor = user.isEditor();
 
-            // Agregar la información del usuario y si es editor al modelo
-            model.addAttribute("user", user);
-            model.addAttribute("isEditor", isEditor);
+        // Agregar la información del usuario y si es editor al modelo
+        model.addAttribute("user", user);
+        model.addAttribute("isEditor", isEditor);
 
-            // Obtener la lista de todos los usuarios
-            List<User> allUsers = userRepository.findAll();
-            model.addAttribute("allUsers", allUsers);
+        // Obtener la lista de todos los usuarios
+        List<User> allUsers = userRepository.findAll();
+        model.addAttribute("allUsers", allUsers);
 
-            return "permisosUsuarios";
+        return "permisosUsuarios";
     }
 
 

@@ -141,7 +141,7 @@
                         <img class="img-fluid" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Conferencia Magistral de Ciencias</div>
+                        <div class="portfolio-caption-heading">{{event.title}}</div>
                         <div class="portfolio-caption-subheading text-muted">Ciencias</div>
                     </div>
                 </div>
@@ -222,7 +222,7 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-primary btn-xl text-uppercase" href="">Más Eventos</a>
+        <a class="btn btn-primary btn-xl text-uppercase" href="/nextPage">Más Eventos</a>
     </div>
 
 </section>
@@ -293,22 +293,22 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project details-->
-                            <h2 class="text-uppercase">Conferencia Magistral de Ciencias</h2>
+                            <h2 class="text-uppercase">{{event.title}}</h2>
                             <p class="item-intro text-muted">Ciencias</p>
                             <img class="img-fluid d-block mx-auto" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." />
-                            <p>Un evento donde destacados científicos compartirán sus últimos descubrimientos y experiencias en el mundo de las ciencias.</p>
+                            <p>{{event.description}}</p>
                             <ul class="list-inline">
                                 <li>
                                     <strong>Fecha:</strong>
-                                    15 de marzo de 2024
+                                    {{event.fecha}}
                                 </li>
                                 <li>
                                     <strong>Lugar:</strong>
-                                    Auditorio Principal, Universidad Rey Juan Carlos
+                                    {{event.place}}
                                 </li>
                                 <li>
                                     <strong>Duración:</strong>
-                                    3 horas
+                                    {{event.duration}}
                                 </li>
                             </ul>
                             <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
