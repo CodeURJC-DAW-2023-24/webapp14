@@ -124,39 +124,39 @@
     </div>
 </section>
 
-
-
-
-<!-- Eventos Recientes-->
-
-<section class="page-section bg-light" id="eventosRecientes">
+<section>
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Eventos Recientes</h2>
             <h3 class="section-subheading text-muted">Puedes ver los últimos eventos añadidos.</h3>
         </div>
+    </div>
+</section>
+{{#events}}
+<!-- Eventos Recientes-->
+<section class="page-section bg-light" id="eventosRecientes">
+
+
         <div class="row">
-            {{#events}}
             <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Portfolio item 1-->
                 <div class="portfolio-item">
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">{{title}}</div>
-                        <div class="portfolio-caption-subheading text-muted">{{description}}}</div>
-                        <a href="event/{{id}}}">Más informacion</a>
+                        <div class="portfolio-caption-subheading text-muted">{{description}}</div>
+                        <a href="event/{{id}}">Más información</a>
                     </div>
                 </div>
             </div>
-            {{/events}}
-            <br>
         </div>
-        {{#hasNext}}
-        <a class="btn btn-primary btn-xl text-uppercase" href="/?page={{nextPage}}">Más Eventos</a>
-        {{/hasNext}}
-        <br>
-    </div>
+
 
 </section>
+{{/events}}
+<br>
+
+
+
 
 
 <!-- Equipo-->

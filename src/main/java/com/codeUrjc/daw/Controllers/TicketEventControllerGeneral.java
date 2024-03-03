@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,7 @@ import java.util.Optional;
 public class TicketEventControllerGeneral {
 
     @Autowired
+    private EventRepository eventRepository;
     private EventRepository eventService;
 
     @Autowired
@@ -38,20 +40,17 @@ public class TicketEventControllerGeneral {
 
 
     @GetMapping("/")
-    public String showMain(Model model, HttpServletRequest request, Pageable pageable){
+    public String showMain(Model model, HttpServletRequest request, Pageable page){
 
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
 
-        Page<Event> events = eventService.findAll(pageable);
+        Page<Event> events = eventRepository.findAll(page);
 
         model.addAttribute("events", events);
         model.addAttribute("hasNext", events.hasNext());
         model.addAttribute("nextPage", events.getNumber()+1);
         model.addAttribute("prevPage", events.getNumber()-1);
-
-        //model.addAttribute("welcome", session.isNew());
-
 
 
         return "index";

@@ -20,6 +20,7 @@ public class EventService {
 
         save(new Event("Festival Cultural Universitario", "Un fin de semana lleno de actividades culturales, incluyendo actuaciones musicales, exposiciones de arte y presentaciones de danza"));
 
+
         for(int i=0; i<100; i++) {
             save(new Event("title"+i, "description"+i));
         }
