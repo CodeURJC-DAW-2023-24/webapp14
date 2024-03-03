@@ -18,10 +18,11 @@ public class EventService {
     @PostConstruct
     public void init() {
 
-        save(new Event("Festival Cultural Universitario", "Un fin de semana lleno de actividades culturales, incluyendo actuaciones musicales, exposiciones de arte y presentaciones de danza", "Campus Universitario, Universidad Rey Juan Carlos","5 al 7 de abril de 2024"," días"));
+        save(new Event("Festival Cultural Universitario", "Un fin de semana lleno de actividades culturales, incluyendo actuaciones musicales, exposiciones de arte y presentaciones de danza"));
 
-
-
+        for(int i=0; i<100; i++) {
+            save(new Event("title"+i, "description"+i));
+        }
     }
 
     public Collection<Event> findAll() {
@@ -42,12 +43,5 @@ public class EventService {
         events.save(post);
     }
 
-    public boolean exist(long id) {
-        return events.existsById(id);
-    }
-
-    public void delete(long id) {
-        events.deleteById(id);
-    }
 
 }

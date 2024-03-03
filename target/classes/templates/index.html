@@ -123,7 +123,12 @@
         </div>
     </div>
 </section>
+
+
+
+
 <!-- Eventos Recientes-->
+
 <section class="page-section bg-light" id="eventosRecientes">
     <div class="container">
         <div class="text-center">
@@ -131,101 +136,29 @@
             <h3 class="section-subheading text-muted">Puedes ver los últimos eventos añadidos.</h3>
         </div>
         <div class="row">
+            {{#events}}
             <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Portfolio item 1-->
                 <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." />
-                    </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">{{event.title}}</div>
-                        <div class="portfolio-caption-subheading text-muted">Ciencias</div>
+                        <div class="portfolio-caption-heading">{{title}}</div>
+                        <div class="portfolio-caption-subheading text-muted">{{description}}}</div>
+                        <a href="event/{{id}}}">Más informacion</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 2-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="https://www.escueladesarts.com/wp-content/uploads/galerias-de-arte.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Festival Cultural Universitario</div>
-                        <div class="portfolio-caption-subheading text-muted">Cultura</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 3-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="https://st.adasistemas.com/PortalesWeb/Geologos/WebCGeologos/_Private/Imagenes_Menu/231_2018_7_24_21_25_52.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Taller de Desarrollo Profesional</div>
-                        <div class="portfolio-caption-subheading text-muted">Desarrollo Profesional</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <!-- Portfolio item 4-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="https://static4.depositphotos.com/1030387/398/v/450/depositphotos_3984648-stock-illustration-diversity-hands.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Noche de Gala Benéfica</div>
-                        <div class="portfolio-caption-subheading text-muted">Beneficencia</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <!-- Portfolio item 5-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="https://www.magisnet.com/wp-content/uploads/2023/07/Debates-en-clase.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Torneo Interuniversitario de Debate</div>
-                        <div class="portfolio-caption-subheading text-muted">Debate</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <!-- Portfolio item 6-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="https://muzikalia.com/wp-content/uploads/2022/09/DCODE-800x445.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Concierto de Fin de Semestre</div>
-                        <div class="portfolio-caption-subheading text-muted">Entretenimiento</div>
-                    </div>
-                </div>
-            </div>
+            {{/events}}
+            <br>
         </div>
-        <a class="btn btn-primary btn-xl text-uppercase" href="/nextPage">Más Eventos</a>
+        {{#hasNext}}
+        <a class="btn btn-primary btn-xl text-uppercase" href="/?page={{nextPage}}">Más Eventos</a>
+        {{/hasNext}}
+        <br>
     </div>
 
 </section>
+
+
 <!-- Equipo-->
 <section class="page-section bg-light" id="team">
     <div class="container">
@@ -338,22 +271,22 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project details-->
-                            <h2 class="text-uppercase">Festival Cultural Universitario</h2>
-                            <p class="item-intro text-muted">Cultura</p>
-                            <img class="img-fluid d-block mx-auto" src="https://www.escueladesarts.com/wp-content/uploads/galerias-de-arte.jpg" alt="..." />
-                            <p>Un fin de semana lleno de actividades culturales, incluyendo actuaciones musicales, exposiciones de arte y presentaciones de danza.</p>
+                            <h2 class="text-uppercase">{{event.title}}</h2>
+                            <p class="item-intro text-muted">Ciencias</p>
+                            <img class="img-fluid d-block mx-auto" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." />
+                            <p>{{event.description}}</p>
                             <ul class="list-inline">
                                 <li>
                                     <strong>Fecha:</strong>
-                                    5 al 7 de abril de 2024
+                                    {{event.fecha}}
                                 </li>
                                 <li>
                                     <strong>Lugar:</strong>
-                                    Campus Universitario, Universidad Rey Juan Carlos
+                                    {{event.place}}
                                 </li>
                                 <li>
                                     <strong>Duración:</strong>
-                                    3 días
+                                    {{event.duration}}
                                 </li>
                             </ul>
                             <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">

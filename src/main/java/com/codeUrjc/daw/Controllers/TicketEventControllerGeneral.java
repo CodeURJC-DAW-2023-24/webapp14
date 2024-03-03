@@ -7,6 +7,7 @@ import com.codeUrjc.daw.Service.EventService;
 import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
@@ -33,6 +35,8 @@ public class TicketEventControllerGeneral {
     private PasswordEncoder passwordEncoder;
     private java.util.Collections Collections;
 
+
+
     @GetMapping("/")
     public String showMain(Model model, HttpServletRequest request, Pageable pageable){
 
@@ -41,7 +45,7 @@ public class TicketEventControllerGeneral {
 
         Page<Event> events = eventService.findAll(pageable);
 
-        //model.addAttribute("posts", posts);
+        model.addAttribute("events", events);
         model.addAttribute("hasNext", events.hasNext());
         model.addAttribute("nextPage", events.getNumber()+1);
         model.addAttribute("prevPage", events.getNumber()-1);
@@ -52,6 +56,20 @@ public class TicketEventControllerGeneral {
 
         return "index";
     }
+
+    @GetMapping("/event{id}")
+    public String showEvent(Model model, @PathVariable long id) {
+
+        Event event = eventService.findById(id).orElseThrow();
+
+        model.addAttribute("event", event);
+
+        return "showEvent";
+    }
+
+
+
+
 
     @GetMapping("/dashboard")
     public String showDashboard(Model model, HttpServletRequest request, Principal principal){
