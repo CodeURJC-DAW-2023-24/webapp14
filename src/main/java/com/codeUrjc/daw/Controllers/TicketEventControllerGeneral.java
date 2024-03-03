@@ -33,6 +33,9 @@ public class TicketEventControllerGeneral {
     private EventService eventService;
 
     @Autowired
+    private EventRepository eventRepository;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -119,7 +122,11 @@ public class TicketEventControllerGeneral {
             model.addAttribute("user", user);
             model.addAttribute("isEditor", isEditor);
 
+
             // Aquí puedes agregar otros atributos al modelo según sea necesario
+            // Obtener la lista de todos los usuarios
+            List<Event> allEvents = eventRepository.findAll();
+            model.addAttribute("allEvents", allEvents);
 
             return "eventos";
         } else {

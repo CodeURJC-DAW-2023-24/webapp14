@@ -114,6 +114,8 @@
               <h6 class="text-white text-capitalize ps-3">Tabla de usuarios</h6>
             </div>
           </div>
+
+
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
               <table class="table align-items-center mb-0">
@@ -123,6 +125,7 @@
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nombre</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Editor</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 justify-content-center">Gestionar Permiso Editar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -147,7 +150,32 @@
                   </td>
                   <td>
                     <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-0 text-sm">{{#editor}}Si{{/editor}}{{^editor}}No{{/editor}}</h6>
+                      <h6 class="mb-0 text-sm">
+                        {{#editor}}
+                        Si
+                        {{/editor}}
+                        {{^editor}}
+                        No
+                        {{/editor}}
+                      </h6>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-check mb-3 d-flex flex-column justify-content-center">
+                      {{^editor}}
+                      <form action="/otorgarPermisos" method="post">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <button type="submit" class="btn btn-primary">Otorgar permisos</button>
+                        <input type="hidden" name="_csrf" value="{{token}}"/>
+                      </form>
+                      {{/editor}}
+                      {{#editor}}
+                      <form action="/quitarPermisos" method="post">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <button type="submit" class="btn btn-danger">Quitar permisos</button>
+                        <input type="hidden" name="_csrf" value="{{token}}"/>
+                      </form>
+                      {{/editor}}
                     </div>
                   </td>
                 </tr>

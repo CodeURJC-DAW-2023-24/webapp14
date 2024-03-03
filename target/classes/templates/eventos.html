@@ -128,196 +128,63 @@
             <h6 class="text-white text-capitalize ps-3">Tabla de eventos</h6>
           </div>
         </div>
+
+        <!--tabla-->
         <div class="card-body px-0 pb-2">
           <div class="table-responsive p-0">
-            <table class="table align-items-center justify-content-center mb-0">
+            <table class="table align-items-center mb-0">
               <thead>
               <tr>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Eventos</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Numero de inscritos</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Estado</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Otras acciones</th>
-                <th></th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Evento</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Lugar</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fecha</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Duracion</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 justify-content-center">Descripcion</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 justify-content-center">Editar</th>
               </tr>
               </thead>
               <tbody>
+              {{#allEvents}}
               <tr>
                 <td>
-                  <div class="d-flex px-2">
-                    <div>
-                      <img src="/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
-                    </div>
-                    <div class="my-auto">
-                      <h6 class="mb-0 text-sm">Asana</h6>
-                    </div>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="mb-0 text-sm">{{title}}</h6>
+                    <p class="text-xs text-secondary mb-0">{{id}}</p>
                   </div>
                 </td>
                 <td>
-                  <p class="text-sm font-weight-bold mb-0">$2,500</p>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="mb-0 text-sm">{{place}}</h6>
+                  </div>
                 </td>
                 <td>
-                  <span class="text-xs font-weight-bold">working</span>
-                </td>
-
-                <td class="align-middle">
-                  <div class="dropdown">
-                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-1 py-2 ms-sm-n3 ms-n3" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Editar</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Borrar</a></li>
-                    </ul>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="mb-0 text-sm">{{fecha}}</h6>
                   </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="mb-0 text-sm">
+                      {{duration}}
+                    </h6>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="mb-0 text-sm">
+                      {{description}}
+                    </h6>
+                  </div>
+                </td>
+                <td>
+                  <form action="/editEvent" method="post">
+                    <input type="hidden" name="id" value="{{id}}">
+                    <button type="submit" class="btn btn-danger">Editar Evento</button>
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                  </form>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <div class="d-flex px-2">
-                    <div>
-                      <img src="/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
-                    </div>
-                    <div class="my-auto">
-                      <h6 class="mb-0 text-sm">Asana</h6>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p class="text-sm font-weight-bold mb-0">$2,500</p>
-                </td>
-                <td>
-                  <span class="text-xs font-weight-bold">working</span>
-                </td>
-
-                <td class="align-middle">
-                  <div class="dropdown">
-                    <a class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-1 py-2 ms-sm-n3 ms-n3" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Editar</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Borrar</a></li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex px-2">
-                    <div>
-                      <img src="/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
-                    </div>
-                    <div class="my-auto">
-                      <h6 class="mb-0 text-sm">Asana</h6>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p class="text-sm font-weight-bold mb-0">$2,500</p>
-                </td>
-                <td>
-                  <span class="text-xs font-weight-bold">working</span>
-                </td>
-                <td class="align-middle">
-                  <div class="dropdown">
-                    <a class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-1 py-2 ms-sm-n3 ms-n3" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Editar</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Borrar</a></li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex px-2">
-                    <div>
-                      <img src="/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
-                    </div>
-                    <div class="my-auto">
-                      <h6 class="mb-0 text-sm">Asana</h6>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p class="text-sm font-weight-bold mb-0">$2,500</p>
-                </td>
-                <td>
-                  <span class="text-xs font-weight-bold">working</span>
-                </td>
-                <td class="align-middle">
-                  <div class="dropdown">
-                    <a class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-1 py-2 ms-sm-n3 ms-n3" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Editar</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Borrar</a></li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex px-2">
-                    <div>
-                      <img src="/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
-                    </div>
-                    <div class="my-auto">
-                      <h6 class="mb-0 text-sm">Asana</h6>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p class="text-sm font-weight-bold mb-0">$2,500</p>
-                </td>
-                <td>
-                  <span class="text-xs font-weight-bold">working</span>
-                </td>
-                <td class="align-middle">
-                  <div class="dropdown">
-                    <a class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-1 py-2 ms-sm-n3 ms-n3" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Editar</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Borrar</a></li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <div class="d-flex px-2">
-                    <div>
-                      <img src="/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
-                    </div>
-                    <div class="my-auto">
-                      <h6 class="mb-0 text-sm">Asana</h6>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p class="text-sm font-weight-bold mb-0">$2,500</p>
-                </td>
-                <td>
-                  <span class="text-xs font-weight-bold">working</span>
-                </td>
-                <td class="align-middle">
-                  <div class="dropdown">
-                    <a class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-1 py-2 ms-sm-n3 ms-n3" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Editar</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Borrar</a></li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
+              {{/allEvents}}
               </tbody>
             </table>
           </div>
