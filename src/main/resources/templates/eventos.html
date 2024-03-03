@@ -177,11 +177,11 @@
                   </div>
                 </td>
                 <td>
-                  <form action="/editEvent" method="post">
                     <input type="hidden" name="id" value="{{id}}">
-                    <button type="submit" class="btn btn-danger">Editar Evento</button>
+                    <a href="/editEvent?id={{id}}">
+                    <button type="button" class="btn btn-danger">Editar Evento</button>
+                    </a>
                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                  </form>
                 </td>
               </tr>
               {{/allEvents}}

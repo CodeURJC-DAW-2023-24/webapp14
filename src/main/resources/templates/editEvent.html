@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -17,48 +17,36 @@
               <h3 class="login-heading mb-4">Editar evento</h3>
 
               <!-- Sign In Form -->
-              <form action="/editEvent" method="post">
+              <form action="/editEvent/{id}" method="post">
                 <div class="form-floating mb-3">
                   <p>Evento:</p>
-                  <input type="text" class="form-control" name="title" placeholder="Evento"/>
+                  <input type="text" class="form-control" name="title" value={{event.title}}/>
 
                 </div>
                 <div class="form-floating mb-3">
                   <p>Fecha:</p>
-                  <input type="Date" class="form-control" name="date" placeholder="Fecha"/>
+                  <input type="text" class="form-control" name="fecha" value={{event.fecha}}/>
                 </div>
-                <div class="form-floating mb-3">
-                  <p>Hora del evento:</p>
-                  <input type="Time" class="form-control" name="hour" placeholder="Hora"/>
-                </div>
+
                 <div class="form-floating mb-3">
                   <p>Duracion del evento:</p>
-                  <input type="number" class="form-control" name="duration" placeholder="Duracion"/>
+                  <input type="text" class="form-control" name="duration" value={{event.duration}}/>
                 </div>
                 <div class="form-floating mb-3">
                   <p>Lugar:</p>
-                  <input type="text" class="form-control" name="place" placeholder="Lugar"/>
+                  <input type="text" class="form-control" name="place" value={{event.place}}/>
 
                 </div>
-                <div class="form-floating mb-3">
-                  <p>Categoria:</p>
-                  <input type="text" class="form-control" name="category" placeholder="Categoria"/>
 
-                </div>
-                <div class="form-floating mb-3">
-                  <p>Plazas:</p>
-                  <input type="number" class="form-control" name="n_tickets" placeholder="Plazas"/>
-
-                </div>
                 <div class="form-floating mb-3">
                   <p>Descripcion:</p>
-                  <textarea class="form-control" name="description" placeholder="Descripcion"></textarea>
-
+                  <input type ="text" class="form-control" name="description" value={{event.description}}></input>
                 </div>
                 <div class="d-grid">
                   <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Añadir foto</button>
                 </div>
                 <div class="d-grid">
+                  <input type="hidden" name="_csrf" value="{{token}}"/>
                   <input class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" value="Guardar cambios"/>
                 </div>
               </form>
