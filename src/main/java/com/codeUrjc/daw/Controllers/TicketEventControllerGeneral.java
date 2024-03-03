@@ -340,24 +340,19 @@ public class TicketEventControllerGeneral {
 
     @GetMapping("/review")
     public String showReview(Model model, HttpServletRequest request){
+        boolean isAdmin = request.isUserInRole("ADMIN");
+        boolean isUser = request.isUserInRole("USER");
 
-        model.addAttribute("admin", request.isUserInRole("ADMIN"));
-        model.addAttribute("user", request.isUserInRole("USER"));
+        model.addAttribute("admin", isAdmin);
+        model.addAttribute("user", isUser);
 
-        List<Comment> allComments = commentRepository.findAll();
-
-        model.addAttribute("allComments",allComments);
-
+        if (isAdmin || isUser) {
+            List<Comment> allComments = commentRepository.findAll();
+            model.addAttribute("allComments", allComments);
+        }
 
         return "review";
     }
-
-
-
-
-
-
-
 
     @GetMapping("/CreateReview")
     public String showCreateReview(Model model, HttpServletRequest request, Principal principal){
@@ -387,7 +382,6 @@ public class TicketEventControllerGeneral {
 
 
     }
-
     @PostMapping("/CreateReview")
     public String registerReview(@ModelAttribute Comment comment, Model model) {
         commentService.save(comment);
