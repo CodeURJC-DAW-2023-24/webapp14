@@ -339,7 +339,14 @@ public class TicketEventControllerGeneral {
     }
 
     @GetMapping("/review")
-    public String showReview(Model model){
+    public String showReview(Model model, HttpServletRequest request){
+
+        model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("user", request.isUserInRole("USER"));
+
+
+
+
         return "review";
     }
 
