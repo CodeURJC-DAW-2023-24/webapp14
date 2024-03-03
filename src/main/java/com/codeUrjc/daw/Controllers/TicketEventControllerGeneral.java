@@ -3,28 +3,37 @@ package com.codeUrjc.daw.Controllers;
 
 import com.codeUrjc.daw.Model.Comment;
 import com.codeUrjc.daw.Model.Event;
+import com.codeUrjc.daw.Model.Ticket;
 import com.codeUrjc.daw.Model.User;
 import com.codeUrjc.daw.Service.CommentService;
 import com.codeUrjc.daw.Service.EventService;
 import com.codeUrjc.daw.repository.CommentRepository;
 import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
+import com.codeUrjc.daw.service.TicketService;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.io.IOException;
 import javax.print.DocFlavor;
 import java.security.Principal;
 import java.util.List;
@@ -54,6 +63,8 @@ public class TicketEventControllerGeneral {
     @Autowired
     private EventRepository eventRepository;
     private java.util.Collections Collections;
+    @Autowired
+    private TicketService ticketService;
 
 
 
@@ -153,11 +164,10 @@ public class TicketEventControllerGeneral {
         }
     }
 
-    @GetMapping("/inscripcion")
-    public String showInscripcion(Model model){
 
-        return "inscripcion";
-    }
+
+
+
     @GetMapping("/login")
     public String showLogin(Model model){
 
@@ -441,4 +451,57 @@ public class TicketEventControllerGeneral {
 
 
 
+
+    @GetMapping("/inscripcion")
+    public String showInscripcion(Model model){
+
+        return "inscripcion";
+    }
+
+    @PostMapping("/inscripcion")
+    public ResponseEntity<byte[]> createTicket(@ModelAttribute Ticket ticket) {
+        // Guardar el ticket en la base de datos
+        ticketService.save(ticket);
+
+        // Generar el PDF con los detalles de la inscripción
+        byte[] pdfContent = generatePdf(ticket.getName(), ticket.getEmail());
+
+        // Configurar los encabezados de la respuesta para indicar que se está enviando un archivo PDF
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "inscription_details.pdf");
+
+        // Devolver una respuesta con el contenido del PDF y los encabezados configurados
+        return new ResponseEntity<>(pdfContent, headers, HttpStatus.OK);
+    }
+
+    private byte[] generatePdf(String name, String email) {
+        try (PDDocument document = new PDDocument()) {
+            PDPage page = new PDPage();
+            document.addPage(page);
+
+            try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+                contentStream.beginText();
+                contentStream.setFont(PDType1Font.HELVETICA, 12);
+                contentStream.newLineAtOffset(100, 700);
+                contentStream.newLine();
+                contentStream.showText("Detalles de la inscripción:");
+                contentStream.newLine(); // Agregar salto de línea después de esta línea
+                contentStream.newLineAtOffset(0, -20);
+                contentStream.showText("Nombre: " + name);
+                contentStream.newLineAtOffset(200, 0);
+                contentStream.showText("Email: " + email);
+                contentStream.newLine(); // Agregar salto de línea después de esta línea
+                contentStream.endText();
+            }
+
+            // Convertir el documento PDF a un array de bytes
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            document.save(outputStream);
+            return outputStream.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
