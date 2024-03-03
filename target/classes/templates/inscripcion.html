@@ -7,54 +7,34 @@
 </head>
 <body>
 
-<form>
-    <input type="text" class="form-control" id="floatingName" placeholder="Nombre" name="name">
-    <label for="floatingName">Nombre</label>
+<form action="/inscripcion" method="post">
+    <div class="form-floating mb-3">
+        <p>Nombre:</p>
+        <input type="text" class="form-control" name="name" placeholder="Nombre"/>
 
-    <label for="apellidos">Apellidos:</label>
-    <input type="text" id="apellidos" name="apellidos" required>
+    </div>
+    <div class="form-floating mb-3">
+        <p>Apellido:</p>
+        <input type="text" class="form-control" name="surname" placeholder="Apellido"/>
+    </div>
+    <div class="form-floating mb-3">
+        <p>email:</p>
+        <input type="text" class="form-control" name="email" placeholder="email"/>
+    </div>
+    <div class="form-floating mb-3">
+        <p>Telefono:</p>
+        <input type="text" class="form-control" name="phone" placeholder="Telefono"/>
 
-    <label for="dni">DNI:</label>
-    <input type="text" id="dni" name="dni" required>
-
-    <label for="correo">Correo:</label>
-    <input type="email" id="correo" name="correo" required>
-
-    <label for="telefono">Teléfono:</label>
-    <input type="tel" id="telefono" name="telefono" required>
-
-    <div class="entry-type">
-        <label>Tipo de entrada:</label>
-        <div class="entry-option">
-            <div class="checkmark" id="generalCheck"></div>
-            <label for="general">General: Gratis</label>
-            <input type="radio" name="entrada" id="general" value="general" required>
-        </div>
-        <div class="entry-option">
-            <div class="checkmark" id="movilidadCheck"></div>
-            <label for="movilidad_reducida">Movilidad reducida: Gratis</label>
-            <input type="radio" name="entrada" id="movilidad_reducida" value="movilidad_reducida" required>
-        </div>
-        <div class="entry-option">
-            <div class="checkmark" id="vipCheck"></div>
-            <label for="vip">VIP: 9€</label>
-            <input type="radio" name="entrada" id="vip" value="vip" required>
-        </div>
     </div>
 
-    <button type="submit">Inscribirme</button>
+
+
+    <div class="d-grid">
+
+        <input type="hidden" name="_csrf" value="{{token}}"/>
+        <input class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" value="Registrate"/>
+    </div>
 </form>
-
-<script>
-    const checkboxes = document.querySelectorAll('.checkmark');
-
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('click', () => {
-            checkboxes.forEach(c => c.classList.remove('checked'));
-            checkbox.classList.add('checked');
-        });
-    });
-</script>
 
 </body>
 </html>

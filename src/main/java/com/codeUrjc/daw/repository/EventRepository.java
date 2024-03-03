@@ -1,6 +1,8 @@
 package com.codeUrjc.daw.repository;
 
 import com.codeUrjc.daw.Model.Event;
+import com.codeUrjc.daw.Model.User;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
@@ -12,4 +14,8 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     Optional<Event> findById(Long id);
 
     void deleteById(Long id);
+    Optional<Event> findById(Long id);
+
+    List<Event> findAll();
+
 }

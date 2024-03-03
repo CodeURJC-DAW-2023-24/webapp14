@@ -51,6 +51,7 @@ public class SecurityConfiguration {
 					.requestMatchers("/load-more-events").permitAll()
 					// PRIVATE PAGES
 					.requestMatchers("/profile").hasAnyRole("USER")
+					.requestMatchers("/event/inscripcion").hasAnyRole("USER")
 					.requestMatchers("/inscripcion").hasAnyRole("USER")
 					.requestMatchers("/dashboard").hasAnyRole("ADMIN")
 					.requestMatchers("/NewEvent").hasAnyRole("ADMIN", "USER")

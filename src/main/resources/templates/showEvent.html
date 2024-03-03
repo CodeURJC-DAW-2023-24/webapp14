@@ -42,11 +42,12 @@
     Volver
     </a>
     {{#user}}
-    <button class="btn btn-warning btn-xl text-uppercase" type="button" onclick="window.location.href='inscripcion';">
+    <input type="hidden" name="id" value="{{id}}">
+    <a class="btn btn-warning btn-xl text-uppercase" href="/inscripcion">
         <i class="fas fa-edit me-1"></i>
         Inscribirme
 
-    </button>
+    </a>
     {{/user}}
 
 

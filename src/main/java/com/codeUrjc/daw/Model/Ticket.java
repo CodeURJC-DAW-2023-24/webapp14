@@ -8,11 +8,10 @@ import jakarta.persistence.*;
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
     private String name;
     private String surname;
     private String phone;
-    private String description;
     private String email;
 
     @ManyToOne
@@ -26,22 +25,20 @@ public class Ticket {
 
     public Ticket() {}
 
-    public Ticket(String id, String name, String surname, String phone, String description, String email, Event event, User user) {
-        this.id = id;
+    public Ticket(String name, String surname, String phone, String email, Event event, User user) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
-        this.description = description;
         this.email = email;
         this.event = event;
         this.user = user;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -84,14 +81,7 @@ public class Ticket {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    
 
     public String getEmail() {
         return email;
