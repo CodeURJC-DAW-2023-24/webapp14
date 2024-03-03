@@ -60,8 +60,6 @@ public class TicketEventControllerGeneral {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private EventRepository eventRepository;
     private java.util.Collections Collections;
     @Autowired
     private TicketService ticketService;

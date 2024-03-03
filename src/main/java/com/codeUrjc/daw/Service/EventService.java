@@ -20,7 +20,7 @@ import java.util.Optional;
 
             @PostConstruct
             public void init() {
-                if(events.count() == 0) { // Verifica si la base de datos está vacía
+                if(events.count() == 0) { // Verify if the data base is empty
                     save(new Event("Festival Cultural Universitario", "Un fin de semana lleno de actividades culturales, incluyendo actuaciones musicales, exposiciones de arte y presentaciones de danza", "URJC", "12-Oct", "2 dias"));
                     save(new Event("Conferencia de Innovación Tecnológica", "Explora las últimas tendencias en tecnología, con charlas de expertos y demostraciones de productos innovadores.", "Centro de Convenciones TechHub", "15-Marzo", "1 día"));
                     save(new Event("Fiesta de la Creatividad Artística", "Sumérgete en el mundo del arte con exhibiciones de pinturas, esculturas y performances en vivo.", "Galería de Arte Vanguardia", "22-Abril", "2 días"));
