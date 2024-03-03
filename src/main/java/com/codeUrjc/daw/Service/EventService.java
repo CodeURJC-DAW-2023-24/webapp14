@@ -43,6 +43,10 @@ import java.util.Optional;
             public void save(Event event) {
                 events.save(event);
             }
+
+            public void deleteById(Long id) {
+                events.deleteById(id);
+            }
         }
 
 

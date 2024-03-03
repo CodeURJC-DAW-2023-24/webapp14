@@ -311,6 +311,11 @@ public class TicketEventControllerGeneral {
         return "loginerror";
     }
 
+    @PostMapping("/deleteEvent")
+    public String deleteEvent(@RequestParam Long id) {
+        eventService.deleteById(id);
+        return "redirect:/eventos";
+    }
 
 
     @PostMapping("/otorgarPermisos")
