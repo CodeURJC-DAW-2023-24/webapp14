@@ -351,27 +351,21 @@ public class TicketEventControllerGeneral {
 
 
     @GetMapping("/CreateReview")
-    public String showCreateReview(Model model, HttpServletRequest request, Principal principal){
-
-
+    public String showCreateReview(Model model){
         return "createReview";
-
-
     }
 
     @PostMapping("/CreateReview")
-    public String registerReview(@ModelAttribute Comment comment){
-
-        comment.setNick(comment.getNick());
-        comment.setDescription(comment.getDescription());
-
-
-        commentService.save(comment);
-        return "redirect:/";
-
-
-
+    public String registerReview(@ModelAttribute Comment comment, Model model) {
+        try {
+            commentService.save(comment);
+            return "redirect:/";
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al guardar el comentario: " + e.getMessage());
+            return "createReview";
+        }
     }
+
 
 
 
