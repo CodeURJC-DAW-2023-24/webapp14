@@ -271,7 +271,7 @@ public class TicketEventControllerGeneral {
         }
     }
     @GetMapping("/editEvent")
-    public String mostrarFormularioEdicion(@RequestParam("id") Long eventId, Model model) {
+    public String showEditEvent(@RequestParam("id") Long eventId, Model model) {
         Optional<Event> eventOptional = eventService.findById(eventId);
 
         if (eventOptional.isPresent()) {
@@ -283,25 +283,23 @@ public class TicketEventControllerGeneral {
         }
     }
 
-    @PostMapping("/editEvent/{id}")
-    public String guardarCambiosEvento(@PathVariable Long id, @ModelAttribute Event updatedEvent) {
-        Optional<Event> eventOptional = eventService.findById(id);
+    @PostMapping("/editEvent")
+    public String saveEditedEvent(@PathVariable Long id, @ModelAttribute Event updatedEvent) {
+        Optional<Event> eventOptional = eventRepository.findById(id);
 
         if (eventOptional.isPresent()) {
             Event event = eventOptional.get();
             // Actualizar los datos del evento con los valores recibidos del formulario
             event.setTitle(updatedEvent.getTitle());
-            event.setDescription(updatedEvent.getDescription());
-            event.setDuration(updatedEvent.getDuration());
             event.setFecha(updatedEvent.getFecha());
+            event.setDuration(updatedEvent.getDuration());
             event.setPlace(updatedEvent.getPlace());
 
-            // Guardar los cambios en la base de datos
-            eventService.save(event);
+            eventRepository.save(event);
 
-            return "redirect:/eventos"; // Redirigir a la página de eventos después de guardar los cambios
+            return "redirect:/eventos"; // Redirigir al perfil después de guardar los cambios
         } else {
-            return "error";
+            return "error"; // O devuelve a una página de error si el usuario no existe
         }
     }
 
