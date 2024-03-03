@@ -17,7 +17,7 @@
                         <h3 class="login-heading mb-4">Nuevo Evento</h3>
         
                         <!-- Sign In Form -->
-                        <form action="/eventos/new" method="post">
+                        <form action="/NewEvent" method="post">
                             <div class="form-floating mb-3">
                                 <p>Evento:</p>
                                 <input type="text" class="form-control" name="title" placeholder="Evento"/>
@@ -25,15 +25,15 @@
                             </div>
                             <div class="form-floating mb-3">
                                 <p>Fecha:</p>
-                                <input type="Date" class="form-control" name="date" placeholder="Fecha"/>
+                                <input type="text" class="form-control" name="fecha" placeholder="Fecha"/>
                             </div>
                             <div class="form-floating mb-3">
                                 <p>Hora del evento:</p>
-                                <input type="Time" class="form-control" name="hour" placeholder="Hora"/>
+                                <input type="text" class="form-control" name="hour" placeholder="Hora"/>
                             </div>
                             <div class="form-floating mb-3">
                                 <p>Duracion del evento:</p>
-                                <input type="number" class="form-control" name="duration" placeholder="Duracion"/>
+                                <input type="text" class="form-control" name="duration" placeholder="Duracion"/>
                             </div>
                             <div class="form-floating mb-3">
                                 <p>Lugar:</p>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="form-floating mb-3">
                                 <p>Plazas:</p>
-                                <input type="number" class="form-control" name="n_tickets" placeholder="Plazas"/>
+                                <input type="text" class="form-control" name="n_tickets" placeholder="Plazas"/>
 
                             </div>
                             <div class="form-floating mb-3">
@@ -59,6 +59,7 @@
                                 <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Añadir foto</button>
                             </div>
                             <div class="d-grid">
+                                <input type="hidden" name="_csrf" value="{{token}}"/>
                                 <input class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" value="Guardar"/>
                             </div>
                         </form>
