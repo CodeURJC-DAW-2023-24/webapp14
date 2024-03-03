@@ -284,7 +284,8 @@ public class TicketEventControllerGeneral {
     }
 
     @PostMapping("/editEvent")
-    public String saveEditedEvent(@PathVariable Long id, @ModelAttribute Event updatedEvent) {
+    public String saveEditedEvent(@ModelAttribute Event updatedEvent, @RequestParam("id") Long id) {
+        // Obtener el ID del evento actualizado
         Optional<Event> eventOptional = eventRepository.findById(id);
 
         if (eventOptional.isPresent()) {
@@ -294,12 +295,13 @@ public class TicketEventControllerGeneral {
             event.setFecha(updatedEvent.getFecha());
             event.setDuration(updatedEvent.getDuration());
             event.setPlace(updatedEvent.getPlace());
+            event.setDescription(updatedEvent.getDescription()); // Asegúrate de actualizar la descripción también
 
             eventRepository.save(event);
 
             return "redirect:/eventos"; // Redirigir al perfil después de guardar los cambios
         } else {
-            return "error"; // O devuelve a una página de error si el usuario no existe
+            return "error"; // O devuelve a una página de error si el evento no existe
         }
     }
 
