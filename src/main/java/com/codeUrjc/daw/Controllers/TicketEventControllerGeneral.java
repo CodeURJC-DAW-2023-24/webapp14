@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.print.DocFlavor;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
@@ -342,21 +343,31 @@ public class TicketEventControllerGeneral {
         return "review";
     }
 
-    @GetMapping("/CreateReview")
-    public String showCreateReview(Model model){
 
-        model.addAttribute("comment", new Comment());
+
+
+
+
+
+
+    @GetMapping("/CreateReview")
+    public String showCreateReview(Model model, HttpServletRequest request, Principal principal){
+
 
         return "createReview";
+
+
     }
 
     @PostMapping("/CreateReview")
-    public String registerReview(Comment comment, Principal principal){
+    public String registerReview(@ModelAttribute Comment comment){
+
+        comment.setNick(comment.getNick());
+        comment.setDescription(comment.getDescription());
+
 
         commentService.save(comment);
-        return "/";
-
-
+        return "redirect:/";
 
 
 
