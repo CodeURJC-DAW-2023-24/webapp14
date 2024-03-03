@@ -19,6 +19,7 @@ public class Event {
 
     private String fecha;
 
+
     private String duration;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -167,6 +167,11 @@ public class TicketEventControllerGeneral {
             return "error"; // O devuelve a una página de error
         }
     }
+    @PostMapping("/NewEvent")
+    public String createNewEvent(@ModelAttribute Event event) {
+        eventService.save(event);
+        return "redirect:/";
+    }
 
     @GetMapping("/profile")
     public String showProfile(Model model, HttpServletRequest request, Principal principal){
