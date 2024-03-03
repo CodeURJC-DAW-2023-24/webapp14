@@ -4,6 +4,7 @@ package com.codeUrjc.daw.Controllers;
 import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
 import com.codeUrjc.daw.Service.EventService;
+import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ import java.util.Optional;
 public class TicketEventControllerGeneral {
 
     @Autowired
-    private EventService eventService;
+    private EventRepository eventService;
 
     @Autowired
     private UserRepository userRepository;
