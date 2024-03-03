@@ -1,32 +1,29 @@
 package com.codeUrjc.daw.Controllers;
 
 
+import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
-import com.codeUrjc.daw.security.UserRepository;
+import com.codeUrjc.daw.Service.EventService;
+import com.codeUrjc.daw.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class TicketEventControllerGeneral {
+
+    @Autowired
+    private EventService eventService;
 
     @Autowired
     private UserRepository userRepository;
@@ -36,11 +33,23 @@ public class TicketEventControllerGeneral {
     private java.util.Collections Collections;
 
     @GetMapping("/")
-    public String showMain(Model model, HttpServletRequest request){
+    public String showMain(Model model, HttpServletRequest request, Pageable pageable){
 
        model.addAttribute("admin", request.isUserInRole("ADMIN"));
        model.addAttribute("user", request.isUserInRole("USER"));
-       return "index";
+
+        Page<Event> events = eventService.findAll(pageable);
+
+        //model.addAttribute("posts", posts);
+        model.addAttribute("hasNext", events.hasNext());
+        model.addAttribute("nextPage", events.getNumber()+1);
+        model.addAttribute("prevPage", events.getNumber()-1);
+
+        //model.addAttribute("welcome", session.isNew());
+
+
+
+        return "index";
    }
 
     @GetMapping("/dashboard")
