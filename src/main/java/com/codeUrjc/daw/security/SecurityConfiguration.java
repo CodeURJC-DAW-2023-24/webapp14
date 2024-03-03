@@ -60,6 +60,7 @@ public class SecurityConfiguration {
 					.requestMatchers("/editEvent").hasAnyRole("ADMIN")
 					.requestMatchers("/otorgarPermisos").hasRole("ADMIN")
 					.requestMatchers("/quitarPermisos").hasRole("ADMIN")
+					.requestMatchers("/deleteEvent").hasRole("ADMIN")
 			)
 			.formLogin(formLogin -> formLogin
 					.loginPage("/login")

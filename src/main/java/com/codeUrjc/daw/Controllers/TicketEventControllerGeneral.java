@@ -33,6 +33,9 @@ public class TicketEventControllerGeneral {
     private EventService eventService;
 
     @Autowired
+    private EventRepository eventRepository;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -122,7 +125,11 @@ public class TicketEventControllerGeneral {
             model.addAttribute("user", user);
             model.addAttribute("isEditor", isEditor);
 
+
             // Aquí puedes agregar otros atributos al modelo según sea necesario
+            // Obtener la lista de todos los usuarios
+            List<Event> allEvents = eventRepository.findAll();
+            model.addAttribute("allEvents", allEvents);
 
             return "eventos";
         } else {
@@ -271,18 +278,52 @@ public class TicketEventControllerGeneral {
             return "error"; // O devuelve a una página de error si el usuario no existe
         }
     }
-
     @GetMapping("/editEvent")
-    public String showeditEvent(Model model){
+    public String showEditEvent(@RequestParam("id") Long eventId, Model model) {
+        Optional<Event> eventOptional = eventService.findById(eventId);
 
-        return "editEvent";
+        if (eventOptional.isPresent()) {
+            Event event = eventOptional.get();
+            model.addAttribute("event", event);
+            return "editEvent";
+        } else {
+            return "error";
+        }
     }
+
+    @PostMapping("/editEvent")
+    public String saveEditedEvent(@ModelAttribute Event updatedEvent, @RequestParam("id") Long id) {
+        // Obtener el ID del evento actualizado
+        Optional<Event> eventOptional = eventRepository.findById(id);
+
+        if (eventOptional.isPresent()) {
+            Event event = eventOptional.get();
+            // Actualizar los datos del evento con los valores recibidos del formulario
+            event.setTitle(updatedEvent.getTitle());
+            event.setFecha(updatedEvent.getFecha());
+            event.setDuration(updatedEvent.getDuration());
+            event.setPlace(updatedEvent.getPlace());
+            event.setDescription(updatedEvent.getDescription()); // Asegúrate de actualizar la descripción también
+
+            eventRepository.save(event);
+
+            return "redirect:/eventos"; // Redirigir al perfil después de guardar los cambios
+        } else {
+            return "error"; // O devuelve a una página de error si el evento no existe
+        }
+    }
+
 
     @GetMapping("/loginerror")
     public String showError(Model model){
         return "loginerror";
     }
 
+    @PostMapping("/deleteEvent")
+    public String deleteEvent(@RequestParam Long id) {
+        eventService.deleteById(id);
+        return "redirect:/eventos";
+    }
 
 
     @PostMapping("/otorgarPermisos")
