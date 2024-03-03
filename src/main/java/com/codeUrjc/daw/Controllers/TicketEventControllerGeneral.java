@@ -27,8 +27,7 @@ import java.util.Optional;
 public class TicketEventControllerGeneral {
 
     @Autowired
-    private EventRepository eventRepository;
-    private EventRepository eventService;
+    private EventService eventService;
 
     @Autowired
     private UserRepository userRepository;
@@ -45,33 +44,29 @@ public class TicketEventControllerGeneral {
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
 
-        Page<Event> events = eventRepository.findAll(page);
+        Page<Event> events = eventService.findAll(page);
 
-        model.addAttribute("events", events);
-        model.addAttribute("hasNext", events.hasNext());
-        model.addAttribute("nextPage", events.getNumber()+1);
-        //model.addAttribute("prevPage", events.getNumber()-1);
-        // Verifica si hay una página anterior antes de calcular su número
-        if (events.getNumber() > 0) {
-            model.addAttribute("hasPrev", true);
-            model.addAttribute("prevPage", events.getNumber() - 1);
-        } else {
-            model.addAttribute("hasPrev", false);
-            model.addAttribute("prevPage", 0); // O cualquier otro valor adecuado
-        }
-
+        model.addAttribute("events", events.getContent()); // Cambio aquí para enviar solo el contenido de la página
 
         return "index";
     }
 
     @GetMapping("/event/{id}")
-    public String showEvent(Model model, @PathVariable long id) {
+    public String showEvent(Model model, HttpServletRequest request, @PathVariable long id) {
 
-        Event event = eventService.findById(id).orElseThrow();
+        model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("user", request.isUserInRole("USER"));
 
-        model.addAttribute("event", event);
+        Optional<Event> optionalEvent = eventService.findById(id);
+        if(optionalEvent.isPresent()){
+            Event event = optionalEvent.get();
+            model.addAttribute("event", event);
 
-        return "showEvent";
+            return "showEvent";
+        }else {
+            return "error";
+        }
+
     }
 
 

@@ -30,16 +30,14 @@ public class Event {
     @ManyToMany(mappedBy="events")
     private List<User> users;
 
-    public Event(String title, String description) {
-        super();
+    public Event(String title, String description, String place, String fecha, String duration) {
         this.title = title;
         this.description = description;
         this.place = place;
         this.fecha = fecha;
         this.duration = duration;
-        this.comments = comments;
-        this.tickets = tickets;
     }
+
 
     public void addComment(Comment comment){
         comments.add(comment);

@@ -10,39 +10,39 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
-@Service
-public class EventService {
-    @Autowired
-    private EventRepository events;
-
-    @PostConstruct
-    public void init() {
-
-        save(new Event("Festival Cultural Universitario", "Un fin de semana lleno de actividades culturales, incluyendo actuaciones musicales, exposiciones de arte y presentaciones de danza"));
 
 
-        for(int i=0; i<100; i++) {
-            save(new Event("title"+i, "description"+i));
+        @Service
+        public class EventService {
+            @Autowired
+            private EventRepository events;
+
+            @PostConstruct
+            public void init() {
+                if(events.count() == 0) { // Verifica si la base de datos está vacía
+                    save(new Event("Festival Cultural Universitario", "Un fin de semana lleno de actividades culturales, incluyendo actuaciones musicales, exposiciones de arte y presentaciones de danza", "URJC", "12-Oct", "2 dias"));
+
+                    for(int i = 0; i < 100; i++) {
+                        save(new Event("title" + i, "description" + i, "place" + i, "fecha" + i, "duration" + i));
+                    }
+                }
+            }
+
+            public Collection<Event> findAll() {
+                return events.findAll();
+            }
+
+            public Page<Event> findAll(Pageable pageable) {
+                return events.findAll(pageable);
+            }
+
+            public Optional<Event> findById(long id) {
+                return events.findById(id);
+            }
+
+            public void save(Event event) {
+                events.save(event);
+            }
         }
-    }
-
-    public Collection<Event> findAll() {
-        return events.findAll();
-    }
-
-    public Page<Event> findAll(Pageable pageable) {
-        return events.findAll(pageable);
-    }
 
 
-    public Optional<Event> findById(long id) {
-        return events.findById(id);
-    }
-
-    public void save(Event post) {
-
-        events.save(post);
-    }
-
-
-}
