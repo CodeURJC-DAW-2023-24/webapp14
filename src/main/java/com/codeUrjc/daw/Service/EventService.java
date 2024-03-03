@@ -62,6 +62,10 @@ import java.util.Optional;
 
                 events.save(event);
             }
+
+            public void deleteById(Long id) {
+                events.deleteById(id);
+            }
         }
 
 

@@ -369,10 +369,12 @@ public class TicketEventControllerGeneral {
                 contentStream.beginText();
                 contentStream.setFont(PDType1Font.HELVETICA, 12);
                 contentStream.newLineAtOffset(100, 700);
+                contentStream.newLine();
                 contentStream.showText("Detalles de la inscripción:");
                 contentStream.newLine(); // Agregar salto de línea después de esta línea
+                contentStream.newLineAtOffset(0, -20);
                 contentStream.showText("Nombre: " + name);
-                contentStream.newLine(); // Agregar salto de línea después de esta línea
+                contentStream.newLineAtOffset(200, 0);
                 contentStream.showText("Email: " + email);
                 contentStream.newLine(); // Agregar salto de línea después de esta línea
                 contentStream.endText();
