@@ -1,5 +1,7 @@
 package com.codeUrjc.daw.Model;
 
+
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -17,23 +19,12 @@ public class Comment {
     @Column
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "autor")
-    private User autor;
-
-    @ManyToOne
-    @JsonIgnore
-    private Event event;
 
 
 
-
-
-    public Comment(String id, String nick, String description, User autor) {
-        this.id = id;
+    public Comment(String nick, String description) {
         this.nick = nick;
         this.description = description;
-        this.autor = autor;
     }
 
     public Comment(){}
@@ -50,22 +41,6 @@ public class Comment {
         return description;
     }
 
-    public User getAutor() {
-        return autor;
-    }
-
-    public void setAutor(User autor) {
-        this.autor = autor;
-    }
-
-    public Event getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
-    }
-
     // Setters
     public void setNick(String nick) {
         this.nick = nick;
@@ -74,7 +49,6 @@ public class Comment {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
 
     public void setId(String id) {

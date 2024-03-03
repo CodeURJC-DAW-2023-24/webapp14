@@ -14,6 +14,7 @@ import java.util.Optional;
 
         @Service
         public class EventService {
+
             @Autowired
             private EventRepository events;
 

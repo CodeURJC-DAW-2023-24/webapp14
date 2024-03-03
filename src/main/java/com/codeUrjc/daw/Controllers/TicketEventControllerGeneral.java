@@ -1,9 +1,12 @@
 package com.codeUrjc.daw.Controllers;
 
 
+import com.codeUrjc.daw.Model.Comment;
 import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
+import com.codeUrjc.daw.Service.CommentService;
 import com.codeUrjc.daw.Service.EventService;
+import com.codeUrjc.daw.repository.CommentRepository;
 import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,7 +36,13 @@ public class TicketEventControllerGeneral {
     private EventService eventService;
 
     @Autowired
+    private CommentService commentService;
+
+    @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -327,4 +336,37 @@ public class TicketEventControllerGeneral {
         Page<Event> eventsPage = eventService.findAll(PageRequest.of(page, size));
         return eventsPage.getContent();
     }
+
+    @GetMapping("/review")
+    public String showReview(Model model){
+        return "review";
+    }
+
+    @GetMapping("/CreateReview")
+    public String showCreateReview(Model model){
+
+        model.addAttribute("comment", new Comment());
+
+        return "createReview";
+    }
+
+    @PostMapping("/CreateReview")
+    public String registerReview(Comment comment, Principal principal){
+
+        commentService.save(comment);
+        return "/";
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
 }

@@ -169,16 +169,15 @@
                     // Itera sobre cada evento y genera el HTML correspondiente
                     events.forEach(event => {
                         const eventHTML = `
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="portfolio-item">
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">${event.title}</div>
-                            <div class="portfolio-caption-subheading text-muted">${event.description}</div>
-                            <a class="btn btn-primary btn-xl text-uppercase" href="event/${event.id}">Más información</a>
-                        </div>
-                    </div>
-                </div>
-            `;
+                            <div class="col-lg-4 col-sm-6 mb-4">
+                                <div class="portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <div class="portfolio-caption-heading">${event.title}</div>
+                                        <div class="portfolio-caption-subheading text-muted">${event.description}</div>
+                                        <a class="btn btn-primary btn-xl text-uppercase" href="event/${event.id}">Más información</a>
+                                    </div>
+                                </div>
+                            </div>`;
                         // Agrega el HTML generado al contenedor de eventos
                         eventsRow.innerHTML += eventHTML;
                     });

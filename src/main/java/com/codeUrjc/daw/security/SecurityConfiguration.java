@@ -60,6 +60,8 @@ public class SecurityConfiguration {
 					.requestMatchers("/editEvent").hasAnyRole("ADMIN")
 					.requestMatchers("/otorgarPermisos").hasRole("ADMIN")
 					.requestMatchers("/quitarPermisos").hasRole("ADMIN")
+					.requestMatchers("/CreateReview").hasAnyRole("ADMIN","USER")
+					.requestMatchers("/review").hasAnyRole("ADMIN","USER")
 			)
 			.formLogin(formLogin -> formLogin
 					.loginPage("/login")
