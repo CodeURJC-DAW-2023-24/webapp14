@@ -50,6 +50,9 @@ public class TicketEventControllerGeneral {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private EventRepository eventRepository;
     private java.util.Collections Collections;
 
 
@@ -110,6 +113,8 @@ public class TicketEventControllerGeneral {
             model.addAttribute("isEditor", isEditor);
 
             // Aquí puedes agregar otros atributos al modelo según sea necesario
+            model.addAttribute("countEvents",eventRepository.count());
+            model.addAttribute("countUsers",userRepository.count());
 
             return "dashboard";
         } else {
