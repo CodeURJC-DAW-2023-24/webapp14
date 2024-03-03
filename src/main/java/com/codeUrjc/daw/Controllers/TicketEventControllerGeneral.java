@@ -344,7 +344,9 @@ public class TicketEventControllerGeneral {
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
 
+        List<Comment> allComments = commentRepository.findAll();
 
+        model.addAttribute("allComments",allComments);
 
 
         return "review";

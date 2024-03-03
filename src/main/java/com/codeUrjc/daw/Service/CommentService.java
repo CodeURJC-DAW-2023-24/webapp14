@@ -32,9 +32,6 @@ public class CommentService {
     }
 
 
-
-
-
     public Collection<Comment> findAll() {
         return comments.findAll();
     }
@@ -46,7 +43,6 @@ public class CommentService {
     public Optional<Comment> findById(long id) {
         return comments.findById(id);
     }
-
 
 
     public void save(Comment comment) {

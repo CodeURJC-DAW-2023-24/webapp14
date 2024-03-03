@@ -127,6 +127,8 @@
               </thead>
               <tbody>
 
+
+            {{#allComents}}
               <tr>
                 <td>
                   <div class="d-flex px-2">
@@ -134,28 +136,15 @@
                       <img src="/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                     </div>
                     <div class="my-auto">
-                      <h6 class="mb-0 text-sm">Asana</h6>
+                      <h6 class="mb-0 text-sm">{{nick}}}</h6>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <p class="text-sm font-weight-bold mb-0">$2,500</p>
-                </td>
-
-
-                <td class="align-middle">
-                  <div class="dropdown">
-                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-1 py-2 ms-sm-n3 ms-n3" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="/editEvent">Editar</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Borrar</a></li>
-                    </ul>
-                  </div>
+                  <p class="text-sm font-weight-bold mb-0">{{description}}</p>
                 </td>
               </tr>
-
+            {{/allComents}}
 
 
               </tbody>
