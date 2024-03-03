@@ -42,14 +42,17 @@ public class TicketEventControllerGeneral {
 
 
     @GetMapping("/")
-    public String showMain(Model model, HttpServletRequest request, Pageable page){
-
+    public String showMain(Model model, HttpServletRequest request){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
 
-        Page<Event> events = eventService.findAll(page);
+        // Crear un objeto PageRequest con el número de página 0 y el tamaño de página 10
+        PageRequest pageRequest = PageRequest.of(0, 10);
 
-        model.addAttribute("events", events.getContent()); // Cambio aquí para enviar solo el contenido de la página
+        // Utilizar el objeto PageRequest para obtener la primera página de eventos
+        Page<Event> events = eventService.findAll(pageRequest);
+
+        model.addAttribute("events", events.getContent());
 
         return "index";
     }
@@ -311,5 +314,12 @@ public class TicketEventControllerGeneral {
             // Manejar el caso en el que el usuario no exista en la base de datos
             return "error"; // O devuelve a una página de error
         }
+    }
+
+    @GetMapping("/load-more-events")
+    @ResponseBody
+    public List<Event> loadMoreEvents(@RequestParam int page, @RequestParam int size) {
+        Page<Event> eventsPage = eventService.findAll(PageRequest.of(page, size));
+        return eventsPage.getContent();
     }
 }
