@@ -59,6 +59,7 @@ import java.util.Optional;
             }
 
             public void save(Event event) {
+
                 events.save(event);
             }
         }

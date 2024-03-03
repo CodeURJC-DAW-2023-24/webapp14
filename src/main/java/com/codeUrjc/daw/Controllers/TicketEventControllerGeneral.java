@@ -2,10 +2,12 @@ package com.codeUrjc.daw.Controllers;
 
 
 import com.codeUrjc.daw.Model.Event;
+import com.codeUrjc.daw.Model.Ticket;
 import com.codeUrjc.daw.Model.User;
 import com.codeUrjc.daw.Service.EventService;
 import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
+import com.codeUrjc.daw.service.TicketService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,8 @@ public class TicketEventControllerGeneral {
     @Autowired
     private PasswordEncoder passwordEncoder;
     private java.util.Collections Collections;
+    @Autowired
+    private TicketService ticketService;
 
 
 
@@ -136,6 +140,15 @@ public class TicketEventControllerGeneral {
 
         return "inscripcion";
     }
+
+    @PostMapping("/inscripcion")
+    public String createTicket(@ModelAttribute Ticket ticket) {
+        ticketService.save(ticket);
+        return "redirect:/";
+    }
+
+
+
     @GetMapping("/login")
     public String showLogin(Model model){
 
