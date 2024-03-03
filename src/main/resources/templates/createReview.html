@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container-fluid ps-md-0">
+    <div class="row g-0">
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+        <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto">
+                            <h3 class="login-heading mb-4">Bienvenido! A la seccion de opiniones</h3>
+                            <h4 class="login-heading mb-4">Añada tu opinión</h4>
+
+                            <!-- Sign In Form -->
+                            <form action="/CreateReview" method="post">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingName" placeholder="Nombre" name="nick">
+                                    <label for="floatingName">Pon tu pseudonimo</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" id="floatingPhone" placeholder="Deja tu comentario" name="description"></textarea>
+                                    <label for="floatingPhone">Deja tu comentario</label>
+                                </div>
+                                <form href="/CreateReview" method="post">
+                                <div class="d-grid">
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                                    <input class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" value="Guardar"/>
+                                </div>
+                                </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
