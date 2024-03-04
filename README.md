@@ -141,23 +141,41 @@ En la fase 2, se han realizado los siguientes cambios:
 
 ## PARTICIPACIÓN
 
+| Nombre | Participación |
+|----------|----------|
+| Andrés Carretero Jiménez  | 100%  | 
+| Almudena López Rodríguez	    | 100%  | 
+| Irene Pérez Santiago   | 100%| 
+|  Alba Velasco Marqués        |   100%   |   
+
+
 ### Alba Velasco Marqués 
 
 Durante esta fase mis tareas principales han sido:
   -	Poder editar los eventos y la gestión de estos datos editados.
   -	Poder editar la información del perfil y la gestión de estos datos editados.
+    
 Los 5 commits más significativos han sido:
-  -	Conseguido que se muestren los elementos por id
-  -	Guardar en base de datos la edicion de perfil y formulario editEvent
-  -	Mostrar bien PDF
-  -	Prueba editar-evento 2
-  -	Conseguido que se borren los eventos por id
+
+| Commit| Enlace |
+|----------|----------|
+| Conseguido que se muestren los elementos por id | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/74002419c7c926445ab9dad2aa0f7fb0f32094b0| 
+| Guardar en base de datos la edicion de perfil y formulario editEvent  | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/66de93f3c15089f88823500ccdae27eedcb12196| 
+| Mostrar bien PDF | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/ce2e118bc82f19c5057763eaafc9ec6548159c71| 
+| Prueba editar-evento 2    |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/094c8f2820c9d3fe8e3b4ea3ab3fbd8e03f8f0dc  |
+| Conseguido que se borren los eventos por id  |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/99f3ac4b68da400f5743cce20eb69b1bd2f92820 |  
+
+
 Los 5 ficheros en los que más he participado han sido:
-  -	TicketEventControllerGeneral
-  -	EditForm.html
-  -	EditEvent.html
-  -	Eventos
-  -	User
+
+| Fichero | Enlace|
+|----------|----------|
+| TicketEventControllerGeneral.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Controllers/TicketEventControllerGeneral.java | 
+| EditForm.html    | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/editForm.html|
+| EditEvent.html | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/editEvent.html|
+| Eventos.html   | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/eventos.html| 
+| User.java      |   https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Model/User.java   |   
+
 
 ### Almudena López Rodríguez
 
@@ -165,18 +183,28 @@ Tareas:
   -	Ayudar con moustache
   -	Gestionar rol de editor
   -	Configurar la seguridad
+
 Los 5 commits más significativos han sido:
-  -	pdf en proceso
-  -	Gráficos de contadores funcionan
-  -	Mostrar Eventos Ajax
-  -	Arreglamos paginación
-  -	Funciona el gestionar Permiso de edición
+
+| Commit | Enlace|
+|----------|----------|
+| pdf en proceso | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/cf8965d9a12fadef7ec341bcc37d08a4fe54225a | 
+| Gráficos de contadores funcionan    | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/b985fae3b98db5736cfd822bb30b81c3698c62a1 | 
+| Mostrar Eventos Ajax  | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/a1c989c337acf0c28f872fdeeecec7f807ebae92 | 
+|  Arreglamos paginación      |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/559b8d9cea5de93effc5db3d83ca8b6a2903123a | 
+|  Funciona el gestionar Permiso de edición    |   https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/3c5fa9cccf20333693b5e3f38b00b572f23d0c2c  | 
+
+    
 Los 5 ficheros en los que más he participado han sido:
-  -	TicketEventControllerGeneral
-  -	SecurityConfiguration
-  -	showEvent.html
-  -	Index.html
-  -	permisosUsuarios.html
+
+| Fichero | Enlace|
+|----------|----------|
+| TicketEventControllerGeneral.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Controllers/TicketEventControllerGeneral.java | 
+| SecurityConfiguration.java   | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/security/SecurityConfiguration.java| 
+| showEvent.html | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/showEvent.html| 
+| Index.html    |   https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/index.html |   
+| permisosUsuarios.html  |   https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/permisosUsuarios.html  |   
+
 
 ### Andrés Carretero Jiménez 
 
@@ -185,18 +213,28 @@ Tareas:
   -	Creación de eventos
   -	Creación de entradas
   -	Mostrar la información del usuario en el perfil
+    
 Los 5 commits más significativos han sido:
-  -	Ya funciona el registro
-  -	Se crea evento correctamente
-  -	Se crea el ticket
-  -	Se muestra tu información en el perfil correctamente
-  -	Repositorios metidos en el controller
+
+| Commit | Enlace |
+|----------|----------|
+| Ya funciona el registro  | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/01d45c37be3604677a1a3920954f2f9cbed88471 | 
+| Se crea evento correctamente    | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/1cea32702524ae619e7a4cc66fc699693a2c2dca | 
+| Se crea el ticket   | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/b61c3fa0739865d739781950e9a51c46645bf9e8| 
+|  Se muestra tu información en el perfil correctamente     |  https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/62f8e2aad7ef5a6153a34ede9b28fe4e2d78cd84  |   
+|  Repositorios metidos en el controller    |   https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/569634a6c347c96303b4294308adc3afcff6513b  |   
+
+    
 Los 5 ficheros en los que más he participado han sido:
-  -	TicketEventControllerGeneral
-  -	registrar.html
-  -	inscripción.html
-  -	Event
-  -	profile.html
+
+| Fichero | Enlace|
+|----------|----------|
+| TicketEventControllerGeneral.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Controllers/TicketEventControllerGeneral.java | 
+| registrar.html  |https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/registrar.html| 
+| inscripcion.html | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/inscripcion.html| 
+| event.html  | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Model/Event.java|   
+| profile.html | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/profile.html |   
+
 
 ### Irene Pérez Santiago
 
@@ -205,19 +243,28 @@ Tareas:
 -	Primera version de seguridad
 -	Gestión comments
 -	Primera integración de los modelos de usuarios y eventos
+
 Los 5 commits más significativos han sido:
-  - funciona, puto ID de los huevos
-  - integracion del user
-  - update del maven
-  - config del pom
-  - gestion para meter eventos en base de datos
+
+| Commit| Enlace |
+|----------|----------|
+| funciona, puto ID de los huevos| https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/55863ec2cffff2e0bb376ec11d114be5f337ad9c| 
+| se arregla el pom    | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/773b1096bf3b7054447a7b0ee28242a7ce5617c6 | 
+| configurado para eventos, pero no funciona el html | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/3ea5b1004a589f14e6a185e117a46d71f668924c| 
+|  arreglado el css     |  https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/b3265fe7a405c8de0ed2b67abe33d83dd046df87  |
+|  actualizacion de las clases con notacion para base de datos   |  https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/c7742b535c969253014478da634d00edef0c5142 |  
+
+    
 Los 5 ficheros en los que más he participado han sido:
-  - SecurityConfiguration.java
-  - EventService.java
-  - CommentService.java
-  - Event.java
-  - Comment.java
-  - TicketEventControllerGeneral.java
+
+| Fichero | Enlace|
+|----------|----------|
+| SecurityConfiguration.java |https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/security/SecurityConfiguration.java| 
+| EventService.java |https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Service/EventService.java| 
+| CommentService.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Service/CommentService.java| 
+| Event.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Model/Event.java|   
+| Comment.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Model/Comment.java|   
+
 
 
 ## DIAGRAMAS
@@ -238,7 +285,8 @@ Este es el resultado final:
 
 ### DIAGRAMA DE CLASES
 
-![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/7bdb5360-5c50-435b-87c4-312d2f27f447)
+<img width="496" alt="image" src="https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/76d2d62d-51f6-4868-9ffe-a02e44f1e52b">
+
 
 
 
