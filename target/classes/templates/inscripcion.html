@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscripción</title>
+    <link href="/css/stylesInsc.css" rel="stylesheet" />
+</head>
+<body>
+
+<form action="/inscripcion" method="post">
+    <div class="form-floating mb-3">
+        <p>Nombre:</p>
+        <input type="text" class="form-control" name="name" placeholder="Nombre"/>
+
+    </div>
+    <div class="form-floating mb-3">
+        <p>Apellido:</p>
+        <input type="text" class="form-control" name="surname" placeholder="Apellido"/>
+    </div>
+    <div class="form-floating mb-3">
+        <p>email:</p>
+        <input type="text" class="form-control" name="email" placeholder="email"/>
+    </div>
+    <div class="form-floating mb-3">
+        <p>Telefono:</p>
+        <input type="text" class="form-control" name="phone" placeholder="Telefono"/>
+
+    </div>
+
+
+
+    <div class="d-grid">
+
+        <input type="hidden" name="_csrf" value="{{token}}"/>
+        <input class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" value="Registrate"/>
+    </div>
+</form>
+
+</body>
+</html>

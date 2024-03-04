@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar evento</title>
+  <link href="/css/stylesInsc.css" rel="stylesheet" />
+</head>
+<body>
+
+<form action="/editEvent" method="post">
+  <label for="floatingTitle">Evento:</label>
+  <input type="text" id="floatingTitle" name="title" value="{{event.title}}" required>
+
+  <label for="floatingDate">Fecha</label>
+  <input type="text" class="form-control" id="floatingDate" name="fecha" value="{{event.fecha}}" required>
+
+  <label for="floatingDuration">Duracion</label>
+  <input type="text" class="form-control" id="floatingDuration" name="duration" value="{{event.duration}}" required>
+
+  <label for="floatingPlace">Lugar</label>
+  <input type="text" class="form-control" id="floatingPlace" name="place" value="{{event.place}}" required>
+
+  <label for="floatingDescription">Lugar</label>
+  <input type="text" class="form-control" id="floatingDescription" name="description" value="{{event.description}}" required>
+
+  <input type="hidden" name="_csrf" value="{{token}}"/>
+  <input type="hidden" name="id" value="{{event.id}}" />
+  <button type="submit">Guardar cambios</button>
+</form>
+</body>
+</html>
