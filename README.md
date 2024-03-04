@@ -132,7 +132,7 @@ Esta es la manera en la cual interactuan nuestras pantallas, en el diagrama: fle
 ![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/e33ceee6-ab4a-436d-b865-2e195566971f)
 
 
-#FASE 2
+# FASE 2
 
 Tendras que crear un esquema en la base de datos, que sea ticketeventaplicacion. Los datos de accesos por contraseña, para admin, o user, predeterminado se encuentran en DatabaseUsersLoader.java. Para ejecutar nuestra aplicación tienes que darle a “Run as SpringBootApplication” en TicketEventApplication.
 
