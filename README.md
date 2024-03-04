@@ -131,3 +131,115 @@ Esta es la manera en la cual interactuan nuestras pantallas, en el diagrama: fle
 
 ![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/e33ceee6-ab4a-436d-b865-2e195566971f)
 
+
+#FASE 2
+
+Tendras que crear un esquema en la base de datos, que sea ticketeventaplicacion. Los datos de accesos por contraseña, para admin, o user, predeterminado se encuentran en DatabaseUsersLoader.java. Para ejecutar nuestra aplicación tienes que darle a “Run as SpringBootApplication” en TicketEventApplication.
+
+
+En la fase 2, se han realizado los siguientes cambios:
+
+## PARTICIPACIÓN
+
+### Alba Velasco Marqués 
+
+Durante esta fase mis tareas principales han sido:
+  -	Poder editar los eventos y la gestión de estos datos editados.
+  -	Poder editar la información del perfil y la gestión de estos datos editados.
+Los 5 commits más significativos han sido:
+  -	Conseguido que se muestren los elementos por id
+  -	Guardar en base de datos la edicion de perfil y formulario editEvent
+  -	Mostrar bien PDF
+  -	Prueba editar-evento 2
+  -	Conseguido que se borren los eventos por id
+Los 5 ficheros en los que más he participado han sido:
+  -	TicketEventControllerGeneral
+  -	EditForm.html
+  -	EditEvent.html
+  -	Eventos
+  -	User
+
+### Almudena López Rodríguez
+
+Tareas:
+  -	Ayudar con moustache
+  -	Gestionar rol de editor
+  -	Configurar la seguridad
+Los 5 commits más significativos han sido:
+  -	pdf en proceso
+  -	Gráficos de contadores funcionan
+  -	Mostrar Eventos Ajax
+  -	Arreglamos paginación
+  -	Funciona el gestionar Permiso de edición
+Los 5 ficheros en los que más he participado han sido:
+  -	TicketEventControllerGeneral
+  -	SecurityConfiguration
+  -	showEvent.html
+  -	Index.html
+  -	permisosUsuarios.html
+
+### Andrés Carretero Jiménez 
+
+Tareas:
+  -	Registro de usuarios
+  -	Creación de eventos
+  -	Creación de entradas
+  -	Mostrar la información del usuario en el perfil
+Los 5 commits más significativos han sido:
+  -	Ya funciona el registro
+  -	Se crea evento correctamente
+  -	Se crea el ticket
+  -	Se muestra tu información en el perfil correctamente
+  -	Repositorios metidos en el controller
+Los 5 ficheros en los que más he participado han sido:
+  -	TicketEventControllerGeneral
+  -	registrar.html
+  -	inscripción.html
+  -	Event
+  -	profile.html
+
+### Irene Pérez Santiago
+
+Tareas:
+-	Configuración de la base de datos 
+-	Primera version de seguridad
+-	Gestión comments
+-	Primera integración de los modelos de usuarios y eventos
+Los 5 commits más significativos han sido:
+  - funciona, puto ID de los huevos
+  - integracion del user
+  - update del maven
+  - config del pom
+  - gestion para meter eventos en base de datos
+Los 5 ficheros en los que más he participado han sido:
+  - SecurityConfiguration.java
+  - EventService.java
+  - CommentService.java
+  - Event.java
+  - Comment.java
+  - TicketEventControllerGeneral.java
+
+
+## DIAGRAMAS
+
+### DIAGRAMA DE NAVEGACIÓN
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/af22c70e-c3dc-4428-8a8a-88f16abe0a5d)
+
+### DIAGRAMA DE ENTIDAD - RELACION
+
+Esto es la primera versión que se ha realizado:
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/4f1707a9-0a6b-491a-9260-3efdd31d900f)
+
+Este es el resultado final:
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/442bdf6c-ff59-4425-a9b1-71770ea2cafa)
+
+### DIAGRAMA DE CLASES
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/7bdb5360-5c50-435b-87c4-312d2f27f447)
+
+
+
+
