@@ -462,7 +462,7 @@ public class TicketEventControllerGeneral {
         ticketService.save(ticket);
 
         // Generar el PDF con los detalles de la inscripción
-        byte[] pdfContent = generatePdf(ticket.getName(), ticket.getEmail());
+        byte[] pdfContent = generatePdf(ticket.getName(), ticket.getEmail(),ticket.getSurname());
 
         // Configurar los encabezados de la respuesta para indicar que se está enviando un archivo PDF
         HttpHeaders headers = new HttpHeaders();
@@ -473,7 +473,7 @@ public class TicketEventControllerGeneral {
         return new ResponseEntity<>(pdfContent, headers, HttpStatus.OK);
     }
 
-    private byte[] generatePdf(String name, String email) {
+    private byte[] generatePdf(String name, String email,String surname) {
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage();
             document.addPage(page);
@@ -484,16 +484,18 @@ public class TicketEventControllerGeneral {
                 contentStream.newLineAtOffset(100, 700);
                 contentStream.newLine();
                 contentStream.showText("Detalles de la inscripción:");
-                contentStream.newLine(); // Agregar salto de línea después de esta línea
+                contentStream.newLine();
                 contentStream.newLineAtOffset(0, -20);
                 contentStream.showText("Nombre: " + name);
                 contentStream.newLineAtOffset(200, 0);
+                contentStream.showText("Apellidos: " + surname);
+                contentStream.newLineAtOffset(0, -40);
                 contentStream.showText("Email: " + email);
-                contentStream.newLine(); // Agregar salto de línea después de esta línea
+                contentStream.newLine();
                 contentStream.endText();
             }
 
-            // Convertir el documento PDF a un array de bytes
+
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             document.save(outputStream);
             return outputStream.toByteArray();

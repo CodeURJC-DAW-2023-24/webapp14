@@ -19,11 +19,10 @@
 <body id="page-top">
 <!-- Navigation-->
 
-
     <h2 class="text-uppercase">{{event.title}}</h2>
     <p class="item-intro text-muted">Ciencias</p>
     <img class="img-fluid d-block mx-auto" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." />
-    <p>{{event.description}}</p>
+    <p class="list-inline">{{event.description}}</p>
     <ul class="list-inline">
         <li>
             <strong>Fecha:</strong>
@@ -38,15 +37,14 @@
             {{event.duration}}
         </li>
     </ul>
-    <a class="btn btn-primary btn-xl text-uppercase" href="/">
+    <a class="btn btn-primary btn-xl text-uppercase list-inline" href="/">
     Volver
     </a>
     {{#user}}
     <input type="hidden" name="id" value="{{id}}">
-    <a class="btn btn-warning btn-xl text-uppercase" href="/inscripcion">
+    <a class="btn btn-warning btn-xl text-uppercase list-inline" href="/inscripcion">
         <i class="fas fa-edit me-1"></i>
         Inscribirme
-
     </a>
     {{/user}}
 

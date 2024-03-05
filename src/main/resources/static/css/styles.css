@@ -566,6 +566,7 @@ progress {
 .list-inline {
   padding-left: 0;
   list-style: none;
+  text-align: center;
 }
 
 .list-inline-item {
@@ -8013,6 +8014,7 @@ textarea.form-control-lg {
 
 .text-uppercase {
   text-transform: uppercase !important;
+  text-align: center;
 }
 
 .text-capitalize {
@@ -8092,6 +8094,7 @@ textarea.form-control-lg {
 .text-muted {
   --bs-text-opacity: 1;
   color: #6c757d !important;
+  text-align: center;
 }
 
 .text-black-50 {
