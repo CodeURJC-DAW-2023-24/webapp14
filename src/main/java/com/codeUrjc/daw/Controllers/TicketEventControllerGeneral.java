@@ -437,17 +437,18 @@ public class TicketEventControllerGeneral {
 
     }
     @PostMapping("/CreateReview")
-    public String registerReview(@ModelAttribute Comment comment, Model model) {
+    public String registerReview(@ModelAttribute Comment comment, Model model, Principal principal) {
+        // Obtener el nombre de usuario del objeto Principal
+        String nick = principal.getName();
+
+        // Establecer el nick del usuario en el comentario
+        comment.setNick(nick);
+
+        // Guardar el comentario en la base de datos
         commentService.save(comment);
+
         return "redirect:/";
-
-
     }
-
-
-
-
-
 
 
     @GetMapping("/inscripcion")
