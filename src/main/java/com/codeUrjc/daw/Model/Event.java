@@ -1,7 +1,9 @@
 package com.codeUrjc.daw.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +21,16 @@ public class Event {
 
     private String fecha;
 
-
     private String duration;
 
 
+
+    private String image;
+
+
+    @Lob
+    @JsonIgnore
+    private Blob imageFile;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets = new ArrayList<>();
@@ -107,6 +115,22 @@ public class Event {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public Blob getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override

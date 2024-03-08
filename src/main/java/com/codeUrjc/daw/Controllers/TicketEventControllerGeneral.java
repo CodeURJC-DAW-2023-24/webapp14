@@ -10,14 +10,17 @@ import com.codeUrjc.daw.Service.EventService;
 import com.codeUrjc.daw.repository.CommentRepository;
 import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
-import com.codeUrjc.daw.service.TicketService;
+import com.codeUrjc.daw.Service.TicketService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
@@ -32,12 +35,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import javax.print.DocFlavor;
+import java.net.URI;
 import java.security.Principal;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
+
+import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
 @Controller
 public class TicketEventControllerGeneral {
@@ -502,4 +510,41 @@ public class TicketEventControllerGeneral {
             return null;
         }
     }
+
+    @GetMapping("/event/{id}/image")
+    public ResponseEntity<Object> dowlandImage(@PathVariable long id) throws SQLException {
+
+        Event event = eventService.findById(id).orElseThrow();
+
+        if (event.getImageFile() != null){
+
+            Resource file = new InputStreamResource(event.getImageFile().getBinaryStream());
+
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(event.getImageFile().length()).body(file);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/NewEvent/{id}/image")
+    public ResponseEntity<Object> uploadImage (@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException{
+
+        Event event = eventService.findById(id).orElseThrow();
+
+        URI location = fromCurrentRequest().build().toUri();
+
+        event.setImage(location.toString());
+
+        event.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(),imageFile.getSize()));
+
+        eventService.save(event);
+
+        return ResponseEntity.created(location).build();
+
+
+
+    }
+
+
+
 }
