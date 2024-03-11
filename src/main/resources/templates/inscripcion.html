@@ -11,28 +11,25 @@
     <div class="form-floating mb-3">
         <p>Nombre:</p>
         <input type="text" class="form-control" name="name" placeholder="Nombre"/>
-
     </div>
     <div class="form-floating mb-3">
         <p>Apellido:</p>
         <input type="text" class="form-control" name="surname" placeholder="Apellido"/>
     </div>
     <div class="form-floating mb-3">
-        <p>email:</p>
-        <input type="text" class="form-control" name="email" placeholder="email"/>
+        <p>Email:</p>
+        <input type="text" class="form-control" name="email" placeholder="Email"/>
     </div>
     <div class="form-floating mb-3">
-        <p>Telefono:</p>
-        <input type="text" class="form-control" name="phone" placeholder="Telefono"/>
-
+        <p>Teléfono:</p>
+        <input type="text" class="form-control" name="phone" placeholder="Teléfono"/>
     </div>
-
-
+    <!-- Campo oculto para almacenar el ID del evento -->
+    <input type="hidden" name="id" value="{{id}}"/>
 
     <div class="d-grid">
-
         <input type="hidden" name="_csrf" value="{{token}}"/>
-        <input class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" value="Registrate"/>
+        <input class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" value="Registrarse"/>
     </div>
 </form>
 

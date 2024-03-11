@@ -39,14 +39,12 @@
         </li>
     </ul>
     <a class="btn btn-primary btn-xl text-uppercase" href="/">
-    Volver
+        Volver
     </a>
     {{#user}}
-    <input type="hidden" name="id" value="{{id}}">
-    <a class="btn btn-warning btn-xl text-uppercase" href="/inscripcion">
+    <a class="btn btn-warning btn-xl text-uppercase" href="/inscripcion?id={{event.id}}">
         <i class="fas fa-edit me-1"></i>
         Inscribirme
-
     </a>
     {{/user}}
 
