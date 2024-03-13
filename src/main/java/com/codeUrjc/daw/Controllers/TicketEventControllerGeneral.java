@@ -92,6 +92,8 @@ public class TicketEventControllerGeneral {
         if(optionalEvent.isPresent()){
             Event event = optionalEvent.get();
             model.addAttribute("event", event);
+            List<Comment> allComments = commentRepository.findAll();
+            model.addAttribute("allComments", allComments);
 
             return "showEvent";
         }else {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,45 +14,139 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/css/styles.css" rel="stylesheet" />
+    <link href="/css/styles-showEvent.css" rel="stylesheet" />
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body id="page-top">
-<!-- Navigation-->
+    <!-- Product section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." /></div>
+                <div class="col-md-6">
+                    <h1 class="display-5 fw-bolder">{{event.title}}</h1>
+                    <div class="fs-5 mb-5">
+                        <span>Ciencias</span>
+                    </div>
+                    <ul class="list-inline">
+                        <li>
+                            <strong>Fecha:</strong>
+                            {{event.fecha}}
+                        </li>
+                        <li>
+                            <strong>Lugar:</strong>
+                            {{event.place}}
+                        </li>
+                        <li>
+                            <strong>Duración:</strong>
+                            {{event.duration}}
+                        </li>
+                    </ul>
+                    <p class="lead">{{event.description}}</p>
+                    <div class="d-flex">
+                        <a class="btn btn-warning btn-xl text-uppercase list-inline" href="/">
+                            Volver
+                        </a>
+                        {{#user}}
+                        <input type="hidden" name="id" value="{{id}}">
+                        <a class="btn btn-warning btn-xl text-uppercase list-inline" href="/inscripcion">
+                            <i class="fas fa-edit me-1"></i>
+                            Inscribirme
+                        </a>
+                        <a class="btn btn-warning btn-xl text-uppercase list-inline" href="#" onclick="toggleCommentSection()">
+                            <input type="hidden" name="_csrf" value="{{token}}"/>
+                            <i class="fas fa-edit me-1"></i>
+                            Agregar comentario
+                        </a>
+                        {{/user}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        {{#user}}
+        <form action="/CreateReview" method="post" class="hidden" id="commentSection">
+            <!-- Your existing form code -->
+        <div class="col-md-9 col-lg-8 mx-auto">
+            <h3 class="login-heading mb-4">Bienvenido! A la seccion de opiniones</h3>
+            <h4 class="login-heading mb-4">Añada tu opinión</h4>
 
-    <h2 class="text-uppercase">{{event.title}}</h2>
-    <p class="item-intro text-muted">Ciencias</p>
-    <img class="img-fluid d-block mx-auto" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." />
-    <p class="list-inline">{{event.description}}</p>
-    <ul class="list-inline">
-        <li>
-            <strong>Fecha:</strong>
-            {{event.fecha}}
-        </li>
-        <li>
-            <strong>Lugar:</strong>
-            {{event.place}}
-        </li>
-        <li>
-            <strong>Duración:</strong>
-            {{event.duration}}
-        </li>
-    </ul>
-    <a class="btn btn-primary btn-xl text-uppercase list-inline" href="/">
-    Volver
-    </a>
-    {{#user}}
-    <input type="hidden" name="id" value="{{id}}">
-    <a class="btn btn-warning btn-xl text-uppercase list-inline" href="/inscripcion">
-        <i class="fas fa-edit me-1"></i>
-        Inscribirme
-    </a>
-    <a class="btn btn-warning btn-xl text-uppercase list-inline" href="/CreateReview">
-        <input type="hidden" name="_csrf" value="{{token}}"/>
-        <i class="fas fa-edit me-1"></i>
-        Agregar comentario
-    </a>
-    {{/user}}
+            <!-- Sign In Form -->
+            <form action="/CreateReview" method="post">
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="floatingPhone" placeholder="Deja tu comentario" name="description"></textarea>
+                    <label for="floatingPhone">Deja tu comentario</label>
+                </div>
+                <form href="/CreateReview" method="post">
+                    <div class="d-grid">
+                        <input type="hidden" name="_csrf" value="{{token}}"/>
+                        <input class="btn btn-warning btn-xl text-uppercase list-inline" type="submit" value="Guardar"/>
+                    </div>
+                </form>
+            </form>
+        </div>
+        </form>
+        {{/user}}
+    </section>
+    <section>
+        {{#user}}
+        <div class="container-fluid row py-4">
+            <div class="col-12">
+                <div class="card my-4">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                            <h6 class="text-white text-capitalize ps-3">Tabla de comentarios</h6>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center justify-content-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nickname</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Descripcion</th>
+                                </tr>
+                                </thead>
+                                <tbody>
 
 
+                                {{#allComments}}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">{{nick}}</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h6 class="d-flex flex-column justify-content-center">{{description}}</h6>
+                                    </td>
+                                </tr>
+                                {{/allComments}}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/user}}
+    </section>
+
+    <script>
+        function toggleCommentSection() {
+            var commentSection = document.getElementById("commentSection");
+            if (commentSection.classList.contains("hidden")) {
+                commentSection.classList.remove("hidden");
+            } else {
+                commentSection.classList.add("hidden");
+            }
+        }
+    </script>
 </body>
 </html>
