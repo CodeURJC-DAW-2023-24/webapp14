@@ -462,7 +462,7 @@ public class TicketEventControllerGeneral {
     }
 
     @PostMapping("/inscripcion")
-    public String createTicket(@ModelAttribute Ticket ticket, @RequestParam("id") Long eventId, Principal principal) {
+    public ResponseEntity<byte[]> createTicket(@ModelAttribute Ticket ticket, @RequestParam("id") Long eventId, Principal principal) {
         String username = principal.getName();
         Optional<User> userOptional = userRepository.findByNICK(username);
         Optional<Event> eventOptional = eventRepository.findById(eventId);
@@ -478,20 +478,16 @@ public class TicketEventControllerGeneral {
             // Guardar el ticket
             ticketService.save(ticket);
 
-            // Generar el PDF con los detalles de la inscripción
-            byte[] pdfContent = generatePdf(ticket.getName(), ticket.getEmail());
-
-            // Configurar los encabezados de la respuesta para indicar que se está enviando un archivo PDF
+            byte[] pdfContent = this.generatePdf(ticket.getName(), ticket.getEmail());
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_PDF);
             headers.setContentDispositionFormData("attachment", "inscription_details.pdf");
-
-            // Devolver una respuesta con el contenido del PDF y los encabezados configurados
-            return "redirect:/"; // Redirigir a la página de inicio u otra página deseada
+            return new ResponseEntity(pdfContent, headers, HttpStatus.OK);
         }
 
-        return "error"; // Manejar el caso donde el usuario o el evento no se encuentran
+        return null;
     }
+
 
     private byte[] generatePdf(String name, String email) {
         try (PDDocument document = new PDDocument()) {
