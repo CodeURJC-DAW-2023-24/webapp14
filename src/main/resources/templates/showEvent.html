@@ -23,35 +23,6 @@
 </head>
 <body id="page-top">
 <!-- Navigation-->
-
-
-    <h2 class="text-uppercase">{{event.title}}</h2>
-    <p class="item-intro text-muted">Ciencias</p>
-    <img class="img-fluid d-block mx-auto" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." />
-    <p>{{event.description}}</p>
-    <ul class="list-inline">
-        <li>
-            <strong>Fecha:</strong>
-            {{event.fecha}}
-        </li>
-        <li>
-            <strong>Lugar:</strong>
-            {{event.place}}
-        </li>
-        <li>
-            <strong>Duración:</strong>
-            {{event.duration}}
-        </li>
-    </ul>
-    <a class="btn btn-primary btn-xl text-uppercase" href="/">
-        Volver
-    </a>
-    {{#user}}
-    <a class="btn btn-warning btn-xl text-uppercase" href="/inscripcion?id={{event.id}}">
-        <i class="fas fa-edit me-1"></i>
-        Inscribirme
-    </a>
-    {{/user}}
     <!-- Product section-->
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
@@ -60,7 +31,7 @@
                 <div class="col-md-6">
                     <h1 class="display-5 fw-bolder">{{event.title}}</h1>
                     <div class="fs-5 mb-5">
-                        <span>Ciencias</span>
+                        <span>{{event.categoria}}</span>
                     </div>
                     <ul class="list-inline">
                         <li>
@@ -83,7 +54,7 @@
                         </a>
                         {{#user}}
                         <input type="hidden" name="id" value="{{id}}">
-                        <a class="btn btn-warning btn-xl text-uppercase list-inline" href="/inscripcion">
+                        <a class="btn btn-warning btn-xl text-uppercase list-inline" href="/inscripcion?id={{event.id}}">
                             <i class="fas fa-edit me-1"></i>
                             Inscribirme
                         </a>

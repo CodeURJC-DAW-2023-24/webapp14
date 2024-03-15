@@ -1,4 +1,4 @@
-package com.codeUrjc.daw.service;
+package com.codeUrjc.daw.Service;
 
 import com.codeUrjc.daw.Model.Ticket;
 import com.codeUrjc.daw.repository.TicketRepository;

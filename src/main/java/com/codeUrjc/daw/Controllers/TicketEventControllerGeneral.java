@@ -11,7 +11,7 @@ import com.codeUrjc.daw.Service.UserService;
 import com.codeUrjc.daw.repository.CommentRepository;
 import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
-import com.codeUrjc.daw.service.TicketService;
+import com.codeUrjc.daw.Service.TicketService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -481,14 +481,8 @@ public class TicketEventControllerGeneral {
             // Guardar el ticket
             ticketService.save(ticket);
 
-        // Generar el PDF con los detalles de la inscripción
-        byte[] pdfContent = generatePdf(ticket.getName(), ticket.getEmail(),ticket.getSurname());
-
         // Configurar los encabezados de la respuesta para indicar que se está enviando un archivo PDF
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("attachment", "inscription_details.pdf");
-            byte[] pdfContent = this.generatePdf(ticket.getName(), ticket.getEmail());
+            byte[] pdfContent = this.generatePdf(ticket.getName(), ticket.getEmail(),ticket.getSurname());
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_PDF);
             headers.setContentDispositionFormData("attachment", "inscription_details.pdf");
