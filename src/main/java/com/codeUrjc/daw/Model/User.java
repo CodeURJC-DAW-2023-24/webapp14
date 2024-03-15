@@ -31,7 +31,7 @@ public class User {
 
 	private boolean editor;
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Ticket> tickets = new ArrayList<>();
+	private List<Ticket> tickets;
 
 	@ManyToMany
 	private List<Event> events;
@@ -43,7 +43,7 @@ public class User {
        this.encodedPassword = encodedPassword;
        this.roles = List.of(roles);
     }*/
-	public User(String NICK, String name, String surname, String email, String encodedPassword, String studyCenter, long phone, boolean editor ,String... roles) {
+	public User(String NICK, String name, String surname, String email, String encodedPassword, String studyCenter, long phone, boolean editor ,List<Ticket> tickets, String... roles) {
 		this.NICK = NICK;
 		this.name = name;
 		this.surname = surname;
@@ -52,6 +52,7 @@ public class User {
 		this.studyCenter = studyCenter;
 		this.phone = phone;
 		this.editor = editor;
+		this.tickets = tickets;
 		this.roles = List.of(roles);
 	}
 

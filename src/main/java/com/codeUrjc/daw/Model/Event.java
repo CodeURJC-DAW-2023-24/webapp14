@@ -22,6 +22,8 @@ public class Event {
 
     private String duration;
 
+    private Categoria categoria;
+
 
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -30,12 +32,14 @@ public class Event {
     @ManyToMany(mappedBy="events")
     private List<User> users;
 
-    public Event(String title, String description, String place, String fecha, String duration) {
+    public Event(String title, String description, String place, String fecha, String duration, List<Ticket> tickets, Categoria categoria) {
         this.title = title;
         this.description = description;
         this.place = place;
         this.fecha = fecha;
         this.duration = duration;
+        this.tickets = tickets;
+        this.categoria = categoria;
     }
 
 

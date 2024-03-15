@@ -7,6 +7,7 @@ import com.codeUrjc.daw.Model.Ticket;
 import com.codeUrjc.daw.Model.User;
 import com.codeUrjc.daw.Service.CommentService;
 import com.codeUrjc.daw.Service.EventService;
+import com.codeUrjc.daw.Service.UserService;
 import com.codeUrjc.daw.repository.CommentRepository;
 import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
@@ -44,6 +45,9 @@ public class TicketEventControllerGeneral {
 
     @Autowired
     private EventService eventService;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private EventRepository eventRepository;
@@ -454,15 +458,28 @@ public class TicketEventControllerGeneral {
 
 
     @GetMapping("/inscripcion")
-    public String showInscripcion(Model model){
-
-        return "inscripcion";
+    public String showInscripcion(@RequestParam("id") Long eventId, Model model) {
+        model.addAttribute("id", eventId); // Pasar el ID del evento a la plantilla
+        model.addAttribute("token", "your_csrf_token_here"); // Agregar el token CSRF si es necesario
+        return "inscripcion"; // Renderizar la página de inscripción
     }
 
     @PostMapping("/inscripcion")
-    public ResponseEntity<byte[]> createTicket(@ModelAttribute Ticket ticket) {
-        // Guardar el ticket en la base de datos
-        ticketService.save(ticket);
+    public ResponseEntity<byte[]> createTicket(@ModelAttribute Ticket ticket, @RequestParam("id") Long eventId, Principal principal) {
+        String username = principal.getName();
+        Optional<User> userOptional = userRepository.findByNICK(username);
+        Optional<Event> eventOptional = eventRepository.findById(eventId);
+
+        if (userOptional.isPresent() && eventOptional.isPresent()) {
+            User user = userOptional.get();
+            Event event = eventOptional.get();
+
+            // Asignar el usuario y el evento al ticket
+            ticket.setUser(user);
+            ticket.setEvent(event);
+
+            // Guardar el ticket
+            ticketService.save(ticket);
 
         // Generar el PDF con los detalles de la inscripción
         byte[] pdfContent = generatePdf(ticket.getName(), ticket.getEmail(),ticket.getSurname());
@@ -471,10 +488,16 @@ public class TicketEventControllerGeneral {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
         headers.setContentDispositionFormData("attachment", "inscription_details.pdf");
+            byte[] pdfContent = this.generatePdf(ticket.getName(), ticket.getEmail());
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_PDF);
+            headers.setContentDispositionFormData("attachment", "inscription_details.pdf");
+            return new ResponseEntity(pdfContent, headers, HttpStatus.OK);
+        }
 
-        // Devolver una respuesta con el contenido del PDF y los encabezados configurados
-        return new ResponseEntity<>(pdfContent, headers, HttpStatus.OK);
+        return null;
     }
+
 
     private byte[] generatePdf(String name, String email,String surname) {
         try (PDDocument document = new PDDocument()) {
