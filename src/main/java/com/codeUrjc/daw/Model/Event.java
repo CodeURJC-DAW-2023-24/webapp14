@@ -32,6 +32,9 @@ public class Event {
     @ManyToMany(mappedBy="events")
     private List<User> users;
 
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
+
     public Event(String title, String description, String place, String fecha, String duration, List<Ticket> tickets, Categoria categoria) {
         this.title = title;
         this.description = description;

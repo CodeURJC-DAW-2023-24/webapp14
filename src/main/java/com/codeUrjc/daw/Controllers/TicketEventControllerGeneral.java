@@ -87,28 +87,25 @@ public class TicketEventControllerGeneral {
     }
 
     @GetMapping("/event/{id}")
-    public String showEvent(Model model, HttpServletRequest request, @PathVariable long id) {
+    public String showEvent(@PathVariable long id, Model model, HttpServletRequest request) {
 
-        model.addAttribute("admin", request.isUserInRole("ADMIN"));
-        model.addAttribute("user", request.isUserInRole("USER"));
+        model.addAttribute("admin",request.isUserInRole("ADMIN"));
+        model.addAttribute("user",request.isUserInRole("USER"));
 
-        Optional<Event> optionalEvent = eventService.findById(id);
-        if(optionalEvent.isPresent()){
-            Event event = optionalEvent.get();
+        Optional<Event> eventOptional = eventRepository.findById(id);
+
+        if (eventOptional.isPresent()) {
+            Event event = eventOptional.get();
             model.addAttribute("event", event);
-            List<Comment> allComments = commentRepository.findAll();
-            model.addAttribute("allComments", allComments);
+
+            List<Comment> eventComments = commentRepository.findByEventId(id);
+            model.addAttribute("eventComments", eventComments);
 
             return "showEvent";
-        }else {
+        } else {
             return "error";
         }
-
     }
-
-
-
-
 
     @GetMapping("/dashboard")
     public String showDashboard(Model model, HttpServletRequest request, Principal principal){
@@ -443,15 +440,22 @@ public class TicketEventControllerGeneral {
 
     }
     @PostMapping("/CreateReview")
-    public String registerReview(@ModelAttribute Comment comment, Model model, Principal principal) {
+    public String registerReview(@ModelAttribute Comment comment,@RequestParam("id") Long eventid, Model model, Principal principal) {
         // Obtener el nombre de usuario del objeto Principal
         String nick = principal.getName();
+        Optional<User> userOptional = userRepository.findByNICK(nick);
+        Optional<Event> eventOptional = eventRepository.findById(eventid);
+        if(userOptional.isPresent()&& eventOptional.isPresent()){
+            User user = userOptional.get();
+            Event event = eventOptional.get();
 
-        // Establecer el nick del usuario en el comentario
-        comment.setNick(nick);
+            comment.setEvent(event);
+            comment.setUser(user);
 
-        // Guardar el comentario en la base de datos
-        commentService.save(comment);
+            // Guardar el comentario en la base de datos
+            commentService.save(comment);
+
+        }
 
         return "redirect:/";
     }

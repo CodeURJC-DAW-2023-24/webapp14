@@ -25,7 +25,7 @@ public class CommentService {
     public void init(){
 
         if(comments.count()==0){
-            save(new Comment("opaaa","yipiiii"));
+            save(new Comment("yipiiii","pepito"));
 
         }
 

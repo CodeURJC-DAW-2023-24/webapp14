@@ -33,6 +33,10 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Ticket> tickets;
 
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Comment> comments;
+
+
 	@ManyToMany
 	private List<Event> events;
 

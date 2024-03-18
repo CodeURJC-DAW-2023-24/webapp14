@@ -83,7 +83,7 @@
                     <textarea class="form-control" id="floatingPhone" placeholder="Deja tu comentario" name="description"></textarea>
                     <label for="floatingPhone">Deja tu comentario</label>
                 </div>
-                <form href="/CreateReview" method="post">
+                <form href="/CreateReview?={{event.id}}" method="post">
                     <div class="d-grid">
                         <input type="hidden" name="_csrf" value="{{token}}"/>
                         <input class="btn btn-warning btn-xl text-uppercase list-inline" type="submit" value="Guardar"/>
@@ -96,46 +96,44 @@
     </section>
     <section>
         {{#user}}
-        <div class="container-fluid row py-4">
-            <div class="col-12">
-                <div class="card my-4">
-                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Tabla de comentarios</h6>
+
+            <div class="container-fluid row py-4">
+                <div class="col-12">
+                    <div class="card my-4">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                                <h6 class="text-white text-capitalize ps-3">Comentarios del Evento</h6>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body px-0 pb-2">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center justify-content-center mb-0">
-                                <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nickname</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Descripcion</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-
-                                {{#allComments}}
-                                <tr>
-                                    <td>
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">{{nick}}</h6>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h6 class="d-flex flex-column justify-content-center">{{description}}</h6>
-                                    </td>
-                                </tr>
-                                {{/allComments}}
-
-                                </tbody>
-                            </table>
+                        <div class="card-body px-0 pb-2">
+                            <div class="table-responsive p-0">
+                                <table class="table align-items-center justify-content-center mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nickname</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Descripcion</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#eventComments}}
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">{{nick}}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h6 class="d-flex flex-column justify-content-center">{{description}}</h6>
+                                        </td>
+                                    </tr>
+                                    {{/eventComments}}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         {{/user}}
     </section>
 
