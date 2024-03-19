@@ -1,5 +1,5 @@
 package com.codeUrjc.daw.Model;
 
-public enum Categoria {
+public enum Category {
     tecnologia, humanidades, saitario, artes;
 }

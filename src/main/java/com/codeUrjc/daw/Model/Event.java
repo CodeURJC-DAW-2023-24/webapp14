@@ -17,12 +17,12 @@ public class Event {
 
     private String place;
 
-    private String fecha;
+    private String date;
 
 
     private String duration;
 
-    private Categoria categoria;
+    private Category category;
 
 
 
@@ -35,14 +35,14 @@ public class Event {
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 
-    public Event(String title, String description, String place, String fecha, String duration, List<Ticket> tickets, Categoria categoria) {
+    public Event(String title, String description, String place, String date, String duration, List<Ticket> tickets, Category category) {
         this.title = title;
         this.description = description;
         this.place = place;
-        this.fecha = fecha;
+        this.date = date;
         this.duration = duration;
         this.tickets = tickets;
-        this.categoria = categoria;
+        this.category = category;
     }
 
 
@@ -88,8 +88,8 @@ public class Event {
         return place;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getDate() {
+        return date;
     }
 
     public String getDuration() {
@@ -108,12 +108,20 @@ public class Event {
         this.place = place;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
@@ -123,7 +131,7 @@ public class Event {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", place='" + place + '\'' +
-                ", fecha='" + fecha + '\'' +
+                ", date='" + date + '\'' +
                 ", duration='" + duration + '\'' +
                 '}';
     }

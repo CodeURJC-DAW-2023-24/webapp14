@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
 
-import static com.codeUrjc.daw.Model.Categoria.*;
+import static com.codeUrjc.daw.Model.Category.*;
 
 
 @Service

@@ -68,34 +68,24 @@ public class TicketEventControllerGeneral {
     @Autowired
     private TicketService ticketService;
 
-
-
     @GetMapping("/")
     public String showMain(Model model, HttpServletRequest request){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
-
-        // Crear un objeto PageRequest con el número de página 0 y el tamaño de página 10
         PageRequest pageRequest = PageRequest.of(0, 10);
-
-        // Utilizar el objeto PageRequest para obtener la primera página de eventos
         Page<Event> events = eventService.findAll(pageRequest);
-
         model.addAttribute("events", events.getContent());
-
         return "index";
     }
 
     @GetMapping("/event/{id}")
     public String showEvent(@PathVariable long id, Model model, HttpServletRequest request) {
-
         model.addAttribute("admin",request.isUserInRole("ADMIN"));
         model.addAttribute("user",request.isUserInRole("USER"));
 
         Optional<Event> eventOptional = eventRepository.findById(id);
         List<Comment> allComments = commentRepository.findAll();
         model.addAttribute("allComments", allComments);
-
 
         if (eventOptional.isPresent()) {
             Event event = eventOptional.get();
@@ -114,27 +104,24 @@ public class TicketEventControllerGeneral {
     public String showDashboard(Model model, HttpServletRequest request, Principal principal){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
-        String username = principal.getName(); // Obtener el nombre de usuario autenticado
+        String username = principal.getName();
 
-        // Buscar el usuario en la base de datos por su NICK
         Optional<User> userOptional = userRepository.findByNICK(username);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             boolean isEditor = user.isEditor();
 
-            // Agregar la información del usuario y si es editor al modelo
             model.addAttribute("user", user);
             model.addAttribute("isEditor", isEditor);
 
-            // Aquí puedes agregar otros atributos al modelo según sea necesario
             model.addAttribute("countEvents",eventRepository.count());
             model.addAttribute("countUsers",userRepository.count());
 
             return "dashboard";
         } else {
-            // Manejar el caso en el que el usuario no exista en la base de datos
-            return "error"; // O devuelve a una página de error
+
+            return "error";
         }
     }
 
@@ -142,39 +129,28 @@ public class TicketEventControllerGeneral {
     public String showEventos(Model model, HttpServletRequest request, Principal principal){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
-        String username = principal.getName(); // Obtener el nombre de usuario autenticado
+        String username = principal.getName();
 
-        // Buscar el usuario en la base de datos por su NICK
         Optional<User> userOptional = userRepository.findByNICK(username);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             boolean isEditor = user.isEditor();
 
-            // Agregar la información del usuario y si es editor al modelo
             model.addAttribute("user", user);
             model.addAttribute("isEditor", isEditor);
 
-
-            // Aquí puedes agregar otros atributos al modelo según sea necesario
-            // Obtener la lista de todos los usuarios
             List<Event> allEvents = eventRepository.findAll();
             model.addAttribute("allEvents", allEvents);
 
             return "eventos";
         } else {
-            // Manejar el caso en el que el usuario no exista en la base de datos
-            return "error"; // O devuelve a una página de error
+            return "error";
         }
     }
 
-
-
-
-
     @GetMapping("/login")
     public String showLogin(Model model){
-
         return "login";
     }
 
@@ -182,25 +158,21 @@ public class TicketEventControllerGeneral {
     public String showNewEvent(Model model, HttpServletRequest request, Principal principal){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
-        String username = principal.getName(); // Obtener el nombre de usuario autenticado
+        String username = principal.getName();
 
-        // Buscar el usuario en la base de datos por su NICK
         Optional<User> userOptional = userRepository.findByNICK(username);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             boolean isEditor = user.isEditor();
 
-            // Agregar la información del usuario y si es editor al modelo
             model.addAttribute("user", user);
             model.addAttribute("isEditor", isEditor);
 
-            // Aquí puedes agregar otros atributos al modelo según sea necesario
 
             return "NewEvent";
         } else {
-            // Manejar el caso en el que el usuario no exista en la base de datos
-            return "error"; // O devuelve a una página de error
+            return "error";
         }
     }
     @PostMapping("/NewEvent")
@@ -213,25 +185,21 @@ public class TicketEventControllerGeneral {
     public String showProfile(Model model, HttpServletRequest request, Principal principal){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
-        String username = principal.getName(); // Obtener el nombre de usuario autenticado
+        String username = principal.getName();
 
-        // Buscar el usuario en la base de datos por su NICK
         Optional<User> userOptional = userRepository.findByNICK(username);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             boolean isEditor = user.isEditor();
 
-            // Agregar la información del usuario y si es editor al modelo
             model.addAttribute("user", user);
             model.addAttribute("isEditor", isEditor);
 
-            // Aquí puedes agregar otros atributos al modelo según sea necesario
 
             return "profile";
         } else {
-            // Manejar el caso en el que el usuario no exista en la base de datos
-            return "error"; // O devuelve a una página de error
+            return "error";
         }
     }
 
@@ -254,24 +222,22 @@ public class TicketEventControllerGeneral {
     public String showUsuarios(Model model, HttpServletRequest request, Principal principal){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
-        String username = principal.getName(); // Obtener el nombre de usuario autenticado
+        String username = principal.getName();
 
-        // Buscar el usuario en la base de datos por su NICK
         Optional<User> userOptional = userRepository.findByNICK(username);
 
         User user = userOptional.get();
         boolean isEditor = user.isEditor();
 
-        // Agregar la información del usuario y si es editor al modelo
         model.addAttribute("user", user);
         model.addAttribute("isEditor", isEditor);
 
-        // Obtener la lista de todos los usuarios
         List<User> allUsers = userRepository.findAll();
         model.addAttribute("allUsers", allUsers);
 
         return "permisosUsuarios";
     }
+
     @GetMapping("/editForm")
     public String showEditForm(Model model, Principal principal) {
         String username = principal.getName();
@@ -292,21 +258,20 @@ public class TicketEventControllerGeneral {
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            // Actualizar los datos del usuario con los valores recibidos del formulario
             user.setName(updatedUser.getName());
             user.setSurname(updatedUser.getSurname());
             user.setEmail(updatedUser.getEmail());
             user.setStudyCenter(updatedUser.getStudyCenter());
             user.setPhone(updatedUser.getPhone());
 
-            // Guardar los cambios en la base de datos
             userRepository.save(user);
 
-            return "redirect:/profile"; // Redirigir al perfil después de guardar los cambios
+            return "redirect:/profile";
         } else {
-            return "error"; // O devuelve a una página de error si el usuario no existe
+            return "error";
         }
     }
+
     @GetMapping("/editEvent")
     public String showEditEvent(@RequestParam("id") Long eventId, Model model) {
         Optional<Event> eventOptional = eventService.findById(eventId);
@@ -322,26 +287,23 @@ public class TicketEventControllerGeneral {
 
     @PostMapping("/editEvent")
     public String saveEditedEvent(@ModelAttribute Event updatedEvent, @RequestParam("id") Long id) {
-        // Obtener el ID del evento actualizado
         Optional<Event> eventOptional = eventRepository.findById(id);
 
         if (eventOptional.isPresent()) {
             Event event = eventOptional.get();
-            // Actualizar los datos del evento con los valores recibidos del formulario
             event.setTitle(updatedEvent.getTitle());
-            event.setFecha(updatedEvent.getFecha());
+            event.setDate(updatedEvent.getDate());
             event.setDuration(updatedEvent.getDuration());
             event.setPlace(updatedEvent.getPlace());
-            event.setDescription(updatedEvent.getDescription()); // Asegúrate de actualizar la descripción también
+            event.setDescription(updatedEvent.getDescription());
 
             eventRepository.save(event);
 
-            return "redirect:/eventos"; // Redirigir al perfil después de guardar los cambios
+            return "redirect:/eventos";
         } else {
-            return "error"; // O devuelve a una página de error si el evento no existe
+            return "error";
         }
     }
-
 
     @GetMapping("/loginerror")
     public String showError(Model model){
@@ -354,7 +316,6 @@ public class TicketEventControllerGeneral {
         return "redirect:/eventos";
     }
 
-
     @PostMapping("/otorgarPermisos")
     public String otorgarPermisos(@RequestParam("id") Long id) {
         Optional<User> userOptional = userRepository.findById(id);
@@ -362,14 +323,12 @@ public class TicketEventControllerGeneral {
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             if (!user.isEditor()) {
-                user.setEditor(true); // Otorgar permisos de editor al usuario
-                userRepository.save(user); // Guardar el usuario actualizado en la base de datos
+                user.setEditor(true);
+                userRepository.save(user);
             }
-            // Redirigir a la página de permisos de usuario o a donde desees
             return "redirect:/permisosUsuarios";
         } else {
-            // Manejar el caso en el que el usuario no exista en la base de datos
-            return "error"; // O devuelve a una página de error
+            return "error";
         }
     }
 
@@ -411,7 +370,6 @@ public class TicketEventControllerGeneral {
             List<Comment> userComments = commentRepository.findByUserNICK(currentUserNickname);
             model.addAttribute("userComments", userComments);
         }
-
         return "review";
     }
 
@@ -435,12 +393,10 @@ public class TicketEventControllerGeneral {
 
             return "redirect:/event/" + eventId;
         } else {
-
             return "error";
         }
-
-
     }
+
     @PostMapping("/CreateReview")
     public String registerReview(@ModelAttribute Comment comment,@RequestParam("id") Long eventid, Model model, Principal principal) {
         String nick = principal.getName();
@@ -457,16 +413,14 @@ public class TicketEventControllerGeneral {
             commentService.save(comment);
 
         }
-
         return "redirect:/event/" + eventid;
     }
 
-
     @GetMapping("/inscripcion")
     public String showInscripcion(@RequestParam("id") Long eventId, Model model) {
-        model.addAttribute("id", eventId); // Pasar el ID del evento a la plantilla
-        model.addAttribute("token", "your_csrf_token_here"); // Agregar el token CSRF si es necesario
-        return "inscripcion"; // Renderizar la página de inscripción
+        model.addAttribute("id", eventId);
+        model.addAttribute("token", "your_csrf_token_here");
+        return "inscripcion";
     }
 
     @PostMapping("/inscripcion")
@@ -479,24 +433,19 @@ public class TicketEventControllerGeneral {
             User user = userOptional.get();
             Event event = eventOptional.get();
 
-            // Asignar el usuario y el evento al ticket
             ticket.setUser(user);
             ticket.setEvent(event);
 
-            // Guardar el ticket
             ticketService.save(ticket);
 
-        // Configurar los encabezados de la respuesta para indicar que se está enviando un archivo PDF
             byte[] pdfContent = this.generatePdf(ticket.getName(), ticket.getEmail(),ticket.getSurname());
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_PDF);
             headers.setContentDispositionFormData("attachment", "inscription_details.pdf");
             return new ResponseEntity(pdfContent, headers, HttpStatus.OK);
         }
-
         return null;
     }
-
 
     private byte[] generatePdf(String name, String email,String surname) {
         try (PDDocument document = new PDDocument()) {
@@ -519,7 +468,6 @@ public class TicketEventControllerGeneral {
                 contentStream.newLine();
                 contentStream.endText();
             }
-
 
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             document.save(outputStream);
