@@ -407,8 +407,9 @@ public class TicketEventControllerGeneral {
         model.addAttribute("user", isUser);
 
         if (isAdmin || isUser) {
-            List<Comment> allComments = commentRepository.findAll();
-            model.addAttribute("allComments", allComments);
+            String currentUserNickname = request.getUserPrincipal().getName();
+            List<Comment> userComments = commentRepository.findByUserNICK(currentUserNickname);
+            model.addAttribute("userComments", userComments);
         }
 
         return "review";
