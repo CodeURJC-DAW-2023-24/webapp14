@@ -49,16 +49,16 @@
                     </ul>
                     <p class="lead">{{event.description}}</p>
                     <div class="d-flex">
-                        <a class="btn btn-warning btn-xl text-uppercase list-inline" href="/">
+                        <a class="btn btn-primary btn-xl text-uppercase me-2" href="/">
                             Volver
                         </a>
                         {{#user}}
                         <input type="hidden" name="id" value="{{id}}">
-                        <a class="btn btn-warning btn-xl text-uppercase list-inline" href="/inscripcion?id={{event.id}}">
+                        <a class="btn btn-primary btn-xl text-uppercase me-2" href="/inscripcion?id={{event.id}}">
                             <i class="fas fa-edit me-1"></i>
                             Inscribirme
                         </a>
-                        <a class="btn btn-warning btn-xl text-uppercase list-inline" href="#" onclick="toggleCommentSection()">
+                        <a class="btn btn-primary btn-xl text-uppercase me-2" href="#" onclick="toggleCommentSection()">
                             <input type="hidden" name="_csrf" value="{{token}}"/>
                             <i class="fas fa-edit me-1"></i>
                             Agregar comentario
@@ -84,7 +84,7 @@
                     </div>
                     <div class="d-grid">
                         <input type="hidden" name="_csrf" value="{{token}}"/>
-                        <input class="btn btn-warning btn-xl text-uppercase list-inline" type="submit" value="Guardar" href="/CreateReview?id={{event.id}}"/>
+                        <input class="btn btn-primary btn-xl text-uppercase" type="submit" value="Guardar" href="/CreateReview?id={{event.id}}"/>
                     </div>
             </div>
         </form>
