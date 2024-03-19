@@ -45,7 +45,7 @@ public class ImageService {
         if(!Files.exists(imagePath)) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(file);
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "img/png").body(file);
         }
     }
 
