@@ -176,11 +176,13 @@
                     <a href="/editEvent?id={{id}}">
                     <button type="button" class="btn btn-danger">Editar Evento</button>
                     </a>
+                  {{#admin}}
                   <form action="/deleteEvent" method="post">
                     <input type="hidden" name="id" value="{{id}}">
                     <input type="hidden" name="_csrf" value="{{token}}">
                     <button type="submit" class="btn btn-danger">Borrar Evento</button>
                   </form>
+                  {{/admin}}
                 </td>
               </tr>
               {{/allEvents}}
