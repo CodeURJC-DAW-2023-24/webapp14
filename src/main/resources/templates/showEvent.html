@@ -72,31 +72,26 @@
     <section>
         {{#user}}
         <form action="/CreateReview" method="post" class="hidden" id="commentSection">
+            <input type="hidden" name="id" value="{{event.id}}">
             <!-- Your existing form code -->
-        <div class="col-md-9 col-lg-8 mx-auto">
-            <h3 class="login-heading mb-4">Bienvenido! A la seccion de opiniones</h3>
-            <h4 class="login-heading mb-4">Añada tu opinión</h4>
-
-            <!-- Sign In Form -->
-            <form action="/CreateReview" method="post">
-                <div class="form-floating mb-3">
-                    <textarea class="form-control" id="floatingPhone" placeholder="Deja tu comentario" name="description"></textarea>
-                    <label for="floatingPhone">Deja tu comentario</label>
-                </div>
-                <form href="/CreateReview?={{event.id}}" method="post">
+            <div class="col-md-9 col-lg-8 mx-auto">
+                <h3 class="login-heading mb-4">Bienvenido! A la seccion de opiniones</h3>
+                <h4 class="login-heading mb-4">Añada tu opinión</h4>
+                <!-- Sign In Form -->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="floatingPhone" placeholder="Deja tu comentario" name="description"></textarea>
+                        <label for="floatingPhone">Deja tu comentario</label>
+                    </div>
                     <div class="d-grid">
                         <input type="hidden" name="_csrf" value="{{token}}"/>
-                        <input class="btn btn-warning btn-xl text-uppercase list-inline" type="submit" value="Guardar"/>
+                        <input class="btn btn-warning btn-xl text-uppercase list-inline" type="submit" value="Guardar" href="/CreateReview?id={{event.id}}"/>
                     </div>
-                </form>
-            </form>
-        </div>
+            </div>
         </form>
         {{/user}}
     </section>
     <section>
         {{#user}}
-
             <div class="container-fluid row py-4">
                 <div class="col-12">
                     <div class="card my-4">
@@ -115,7 +110,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {{#eventComments}}
+                                    {{#allComments}}
                                     <tr>
                                         <td>
                                             <div class="d-flex flex-column justify-content-center">
@@ -126,7 +121,7 @@
                                             <h6 class="d-flex flex-column justify-content-center">{{description}}</h6>
                                         </td>
                                     </tr>
-                                    {{/eventComments}}
+                                    {{/allComments}}
                                     </tbody>
                                 </table>
                             </div>
@@ -136,7 +131,6 @@
             </div>
         {{/user}}
     </section>
-
     <script>
         function toggleCommentSection() {
             var commentSection = document.getElementById("commentSection");

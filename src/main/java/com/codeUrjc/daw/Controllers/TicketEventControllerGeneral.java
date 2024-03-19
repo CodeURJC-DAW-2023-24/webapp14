@@ -93,6 +93,9 @@ public class TicketEventControllerGeneral {
         model.addAttribute("user",request.isUserInRole("USER"));
 
         Optional<Event> eventOptional = eventRepository.findById(id);
+        List<Comment> allComments = commentRepository.findAll();
+        model.addAttribute("allComments", allComments);
+
 
         if (eventOptional.isPresent()) {
             Event event = eventOptional.get();
@@ -377,14 +380,14 @@ public class TicketEventControllerGeneral {
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             if (user.isEditor()) {
-                user.setEditor(false); // Otorgar permisos de editor al usuario
-                userRepository.save(user); // Guardar el usuario actualizado en la base de datos
+                user.setEditor(false);
+                userRepository.save(user);
             }
-            // Redirigir a la página de permisos de usuario o a donde desees
+
             return "redirect:/permisosUsuarios";
         } else {
-            // Manejar el caso en el que el usuario no exista en la base de datos
-            return "error"; // O devuelve a una página de error
+
+            return "error";
         }
     }
 
@@ -412,52 +415,49 @@ public class TicketEventControllerGeneral {
     }
 
     @GetMapping("/CreateReview")
-    public String showCreateReview(Model model, HttpServletRequest request, Principal principal){
+    public String showCreateReview(@RequestParam("id") Long eventId,Model model, HttpServletRequest request, Principal principal){
 
+        model.addAttribute("id", eventId);
+        model.addAttribute("token", "your_csrf_token_here");
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
-        String username = principal.getName(); // Obtener el nombre de usuario autenticado
+        String username = principal.getName();
 
-        // Buscar el usuario en la base de datos por su NICK
         Optional<User> userOptional = userRepository.findByNICK(username);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             boolean isEditor = user.isEditor();
 
-            // Agregar la información del usuario y si es editor al modelo
             model.addAttribute("user", user);
             model.addAttribute("isEditor", isEditor);
 
-            // Aquí puedes agregar otros atributos al modelo según sea necesario
-
-            return "createReview";
+            return "redirect:/event/" + eventId;
         } else {
-            // Manejar el caso en el que el usuario no exista en la base de datos
-            return "error"; // O devuelve a una página de error
+
+            return "error";
         }
 
 
     }
     @PostMapping("/CreateReview")
     public String registerReview(@ModelAttribute Comment comment,@RequestParam("id") Long eventid, Model model, Principal principal) {
-        // Obtener el nombre de usuario del objeto Principal
         String nick = principal.getName();
         Optional<User> userOptional = userRepository.findByNICK(nick);
         Optional<Event> eventOptional = eventRepository.findById(eventid);
-        if(userOptional.isPresent()&& eventOptional.isPresent()){
+        if(userOptional.isPresent() && eventOptional.isPresent()){
             User user = userOptional.get();
             Event event = eventOptional.get();
 
             comment.setEvent(event);
             comment.setUser(user);
+            comment.setNick(nick);
 
-            // Guardar el comentario en la base de datos
             commentService.save(comment);
 
         }
 
-        return "redirect:/";
+        return "redirect:/event/" + eventid;
     }
 
 
