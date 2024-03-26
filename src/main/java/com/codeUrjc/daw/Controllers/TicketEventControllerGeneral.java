@@ -435,6 +435,7 @@ public class TicketEventControllerGeneral {
             if (event.getMax_people() > event.getPeople_inscribed()) {
                 int people = event.getPeople_inscribed() + 1;
                 event.setPeople_inscribed(people);
+                eventService.save(event);
                 ticket.setUser(user);
                 ticket.setEvent(event);
 
