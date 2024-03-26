@@ -182,26 +182,26 @@ public class TicketEventControllerGeneral {
     }
 
     @GetMapping("/profile")
-    public String showProfile(Model model, HttpServletRequest request, Principal principal){
-        model.addAttribute("admin", request.isUserInRole("ADMIN"));
-        model.addAttribute("user", request.isUserInRole("USER"));
+    public String showProfile(Model model, HttpServletRequest request, Principal principal) {
         String username = principal.getName();
-
         Optional<User> userOptional = userRepository.findByNICK(username);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
+            List<Event> events = eventRepository.findByUsersContaining(user); // Obtener los eventos asociados al usuario
+
             boolean isEditor = user.isEditor();
 
             model.addAttribute("user", user);
             model.addAttribute("isEditor", isEditor);
-
+            model.addAttribute("events", events); // Agregar los eventos al modelo
 
             return "profile";
         } else {
             return "error";
         }
     }
+
 
     @GetMapping("/registrar")
     public String showRegistrationForm(Model model) {
@@ -441,6 +441,10 @@ public class TicketEventControllerGeneral {
 
                 ticketService.save(ticket);
 
+                // Agregar el evento al usuario
+                user.addEvent(event);
+                userRepository.save(user); // Guardar los cambios en la base de datos
+
                 byte[] pdfContent = this.generatePdf(ticket.getName(), ticket.getEmail(), ticket.getSurname());
                 HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_PDF);
@@ -450,6 +454,7 @@ public class TicketEventControllerGeneral {
         }
         return null;
     }
+
 
     private byte[] generatePdf(String name, String email,String surname) {
         try (PDDocument document = new PDDocument()) {

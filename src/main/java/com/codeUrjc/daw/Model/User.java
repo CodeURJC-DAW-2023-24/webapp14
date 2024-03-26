@@ -143,4 +143,12 @@ public class User {
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
+
+	public void addEvent(Event event) {
+		if (events == null) {
+			events = new ArrayList<>();
+		}
+		events.add(event);
+	}
+
 }
