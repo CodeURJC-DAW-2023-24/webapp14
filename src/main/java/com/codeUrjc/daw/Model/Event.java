@@ -24,6 +24,9 @@ public class Event {
 
     private Category category;
 
+    private int people_inscribed;
+    private int max_people;
+
 
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -35,7 +38,7 @@ public class Event {
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 
-    public Event(String title, String description, String place, String date, String duration, List<Ticket> tickets, Category category) {
+    public Event(String title, String description, String place, String date, String duration, List<Ticket> tickets, Category category, int max_people, int people_inscribed) {
         this.title = title;
         this.description = description;
         this.place = place;
@@ -43,6 +46,8 @@ public class Event {
         this.duration = duration;
         this.tickets = tickets;
         this.category = category;
+        this.max_people = max_people;
+        this.people_inscribed = people_inscribed;
     }
 
 
@@ -122,6 +127,38 @@ public class Event {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public int getMax_people() {
+        return max_people;
+    }
+
+    public void setMax_people(int max_people) {
+        this.max_people = max_people;
+    }
+
+    public int getPeople_inscribed() {
+        return people_inscribed;
+    }
+
+    public void setPeople_inscribed(int people_inscribed) {
+        this.people_inscribed = people_inscribed;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override

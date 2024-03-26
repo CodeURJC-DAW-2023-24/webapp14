@@ -432,17 +432,20 @@ public class TicketEventControllerGeneral {
         if (userOptional.isPresent() && eventOptional.isPresent()) {
             User user = userOptional.get();
             Event event = eventOptional.get();
+            if (event.getMax_people() > event.getPeople_inscribed()) {
+                int people = event.getPeople_inscribed() + 1;
+                event.setPeople_inscribed(people);
+                ticket.setUser(user);
+                ticket.setEvent(event);
 
-            ticket.setUser(user);
-            ticket.setEvent(event);
+                ticketService.save(ticket);
 
-            ticketService.save(ticket);
-
-            byte[] pdfContent = this.generatePdf(ticket.getName(), ticket.getEmail(),ticket.getSurname());
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_PDF);
-            headers.setContentDispositionFormData("attachment", "inscription_details.pdf");
-            return new ResponseEntity(pdfContent, headers, HttpStatus.OK);
+                byte[] pdfContent = this.generatePdf(ticket.getName(), ticket.getEmail(), ticket.getSurname());
+                HttpHeaders headers = new HttpHeaders();
+                headers.setContentType(MediaType.APPLICATION_PDF);
+                headers.setContentDispositionFormData("attachment", "inscription_details.pdf");
+                return new ResponseEntity(pdfContent, headers, HttpStatus.OK);
+            }
         }
         return null;
     }
