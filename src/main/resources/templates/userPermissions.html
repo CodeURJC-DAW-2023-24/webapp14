@@ -47,7 +47,7 @@
       {{/admin}}
       {{#admin}}
       <li class="nav-item">
-        <a class="nav-link text-white" href="permisosUsuarios">
+        <a class="nav-link text-white" href="userPermissions">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">table_view</i>
           </div>
@@ -63,7 +63,7 @@
       {{#admin}}
       {{#user.editor}}
       <li class="nav-item">
-        <a class="nav-link text-white" href="/eventos">
+        <a class="nav-link text-white" href="/events">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">table_view</i>
           </div>
@@ -171,14 +171,14 @@
                   <td>
                     <div class="form-check mb-3 d-flex flex-column justify-content-center">
                       {{^editor}}
-                      <form action="/otorgarPermisos" method="post">
+                      <form action="/grantPermissions" method="post">
                         <input type="hidden" name="id" value="{{id}}">
                         <button type="submit" class="btn btn-primary">Otorgar permisos</button>
                         <input type="hidden" name="_csrf" value="{{token}}"/>
                       </form>
                       {{/editor}}
                       {{#editor}}
-                      <form action="/quitarPermisos" method="post">
+                      <form action="/removePermissions" method="post">
                         <input type="hidden" name="id" value="{{id}}">
                         <button type="submit" class="btn btn-danger">Quitar permisos</button>
                         <input type="hidden" name="_csrf" value="{{token}}"/>

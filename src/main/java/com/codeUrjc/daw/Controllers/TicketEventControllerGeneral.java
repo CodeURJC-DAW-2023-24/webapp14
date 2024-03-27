@@ -125,7 +125,7 @@ public class TicketEventControllerGeneral {
         }
     }
 
-    @GetMapping("/eventos")
+    @GetMapping("/events")
     public String showEventos(Model model, HttpServletRequest request, Principal principal){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
@@ -143,7 +143,7 @@ public class TicketEventControllerGeneral {
             List<Event> allEvents = eventRepository.findAll();
             model.addAttribute("allEvents", allEvents);
 
-            return "eventos";
+            return "events";
         } else {
             return "error";
         }
@@ -203,13 +203,13 @@ public class TicketEventControllerGeneral {
     }
 
 
-    @GetMapping("/registrar")
+    @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
-        return "registrar";
+        return "register";
     }
 
-    @PostMapping("/registrar")
+    @PostMapping("/register")
     public String registerUser(User user) {
         user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
         user.setRoles(Collections.singletonList("USER"));
@@ -218,7 +218,7 @@ public class TicketEventControllerGeneral {
         return "login";
     }
 
-    @GetMapping("/permisosUsuarios")
+    @GetMapping("/userPermissions")
     public String showUsuarios(Model model, HttpServletRequest request, Principal principal){
         model.addAttribute("admin", request.isUserInRole("ADMIN"));
         model.addAttribute("user", request.isUserInRole("USER"));
@@ -235,7 +235,7 @@ public class TicketEventControllerGeneral {
         List<User> allUsers = userRepository.findAll();
         model.addAttribute("allUsers", allUsers);
 
-        return "permisosUsuarios";
+        return "userPermissions";
     }
 
     @GetMapping("/editForm")
@@ -316,8 +316,8 @@ public class TicketEventControllerGeneral {
         return "redirect:/eventos";
     }
 
-    @PostMapping("/otorgarPermisos")
-    public String otorgarPermisos(@RequestParam("id") Long id) {
+    @PostMapping("/grantPermissions")
+    public String grantPermissions(@RequestParam("id") Long id) {
         Optional<User> userOptional = userRepository.findById(id);
 
         if (userOptional.isPresent()) {
@@ -326,14 +326,14 @@ public class TicketEventControllerGeneral {
                 user.setEditor(true);
                 userRepository.save(user);
             }
-            return "redirect:/permisosUsuarios";
+            return "redirect:/userPermissions";
         } else {
             return "error";
         }
     }
 
-    @PostMapping("/quitarPermisos")
-    public String quitarPermisos(@RequestParam("id") Long id) {
+    @PostMapping("/removePermissions")
+    public String removePermissions(@RequestParam("id") Long id) {
         Optional<User> userOptional = userRepository.findById(id);
 
         if (userOptional.isPresent()) {
@@ -343,7 +343,7 @@ public class TicketEventControllerGeneral {
                 userRepository.save(user);
             }
 
-            return "redirect:/permisosUsuarios";
+            return "redirect:/userPermissions";
         } else {
 
             return "error";
@@ -416,14 +416,14 @@ public class TicketEventControllerGeneral {
         return "redirect:/event/" + eventid;
     }
 
-    @GetMapping("/inscripcion")
-    public String showInscripcion(@RequestParam("id") Long eventId, Model model) {
+    @GetMapping("/inscription")
+    public String showInscription(@RequestParam("id") Long eventId, Model model) {
         model.addAttribute("id", eventId);
         model.addAttribute("token", "your_csrf_token_here");
-        return "inscripcion";
+        return "inscription";
     }
 
-    @PostMapping("/inscripcion")
+    @PostMapping("/inscription")
     public ResponseEntity<byte[]> createTicket(@ModelAttribute Ticket ticket, @RequestParam("id") Long eventId, Principal principal) {
         String username = principal.getName();
         Optional<User> userOptional = userRepository.findByNICK(username);
@@ -441,9 +441,8 @@ public class TicketEventControllerGeneral {
 
                 ticketService.save(ticket);
 
-                // Agregar el evento al usuario
                 user.addEvent(event);
-                userRepository.save(user); // Guardar los cambios en la base de datos
+                userRepository.save(user);
 
                 byte[] pdfContent = this.generatePdf(ticket.getName(), ticket.getEmail(), ticket.getSurname());
                 HttpHeaders headers = new HttpHeaders();
