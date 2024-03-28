@@ -17,7 +17,7 @@ public class CommentRestController {
     @Autowired
     private CommentService commentService;
 
-    @GetMapping("/review")
+    @GetMapping("/")
     public Collection<Comment> getComments(){
         return commentService.findAll();
     }
@@ -33,7 +33,7 @@ public class CommentRestController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
     public Comment createComment(@RequestBody Comment comment){
         commentService.save(comment);
