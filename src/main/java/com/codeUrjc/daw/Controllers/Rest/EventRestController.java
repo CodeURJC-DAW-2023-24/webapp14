@@ -2,6 +2,11 @@ package com.codeUrjc.daw.Controllers.Rest;
 
 import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Service.EventService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -28,10 +33,25 @@ public class EventRestController {
     @Autowired
     private EventService eventService;
 
+    @Operation(summary = "Get all events")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the events", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Events not found", content = @Content)
+    })
     @GetMapping("/")
     public Collection<Event> getEvents(){
         return eventService.findAll();
     }
+
+    @Operation(summary = "Get a event by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the event", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+           @ApiResponse(responseCode = "404", description = "Event not found", content = @Content)
+    })
 
     @GetMapping("/{id}")
     public ResponseEntity<Event> getEvent(@PathVariable long id){
@@ -44,6 +64,13 @@ public class EventRestController {
         }
     }
 
+    @Operation(summary = "Post a new event")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Event created", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Event not created", content = @Content)
+    })
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
     public Event createEvent(@RequestBody Event event){
@@ -51,6 +78,13 @@ public class EventRestController {
         return event;
     }
 
+    @Operation(summary = "Put a event by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Event updated", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Event not update", content = @Content)
+    })
     @PutMapping("/{id}")
     public ResponseEntity<Event> updateEvent(@PathVariable long id, @RequestBody Event updateEvent) throws SQLException{
         if (eventService.exits(id)){
@@ -69,6 +103,13 @@ public class EventRestController {
         }
     }
 
+    @Operation(summary = "Delete a event by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Event deleted", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Event not deleted", content = @Content)
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<Event> deleteEvent(@PathVariable long id){
         try{
@@ -80,6 +121,13 @@ public class EventRestController {
         }
     }
 
+    @Operation(summary = "Post a image ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Event image created", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Event image not created", content = @Content)
+    })
     @PostMapping("/{id}/image")
     public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException {
 
@@ -94,6 +142,13 @@ public class EventRestController {
         return ResponseEntity.created(location).build();
     }
 
+    @Operation(summary = "Get a image event by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Event image found", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Event image not found", content = @Content)
+    })
     @GetMapping("/{id}/image")
     public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
 
@@ -111,6 +166,13 @@ public class EventRestController {
         }
     }
 
+    @Operation(summary = "Delete a image event by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Event image deleted", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Event not deleted", content = @Content)
+    })
     @DeleteMapping("/{id}/image")
     public ResponseEntity<Object> deleteImage(@PathVariable long id) throws IOException {
 
