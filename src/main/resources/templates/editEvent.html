@@ -22,8 +22,22 @@
 
   <label for="floatingDescription">Lugar</label>
   <input type="text" class="form-control" id="floatingDescription" name="description" value="{{event.description}}" required>
+  <p>Image: </p>
 
+  {{#event.image}}
+  <img src="/events/{{event.id}}/image">
+  <br><input type='checkbox' name='removeImage'> <label>Remove image</label><br>
+        {{/event.image}}
+
+        {{^event.image}}
+        <img src="/images/no_image.png"><br>
+          {{/event.image}}
+
+  <label>Upload image: </label><br>
+  <input type='file' name='imageField' accept=".jpg, .jpeg" />
   <input type="hidden" name="_csrf" value="{{token}}"/>
+  <br>
+  <br>
   <input type="hidden" name="id" value="{{event.id}}" />
   <button type="submit">Guardar cambios</button>
 </form>

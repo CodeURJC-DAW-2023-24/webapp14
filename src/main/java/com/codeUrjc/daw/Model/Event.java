@@ -1,7 +1,9 @@
 package com.codeUrjc.daw.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,11 @@ public class Event {
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
+
+    @Lob
+    @JsonIgnore
+    private Blob imageFile;
+    private boolean image;
 
     public Event(String title, String description, String place, String date, String duration, List<Ticket> tickets, Category category, int max_people, int people_inscribed) {
         this.title = title;
@@ -159,6 +166,22 @@ public class Event {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public Blob getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
+    }
+
+
+    public boolean getImage(){
+        return this.image;
+    }
+    public void setImage(boolean image) {
+        this.image = image;
     }
 
     @Override

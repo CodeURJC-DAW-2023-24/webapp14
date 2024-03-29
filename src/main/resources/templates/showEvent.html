@@ -27,7 +27,13 @@
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://www.educaciontrespuntocero.com/wp-content/uploads/2022/10/semana-de-la-ciencia-978x652.jpg" alt="..." /></div>
+                {{#event.image}}
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/events/{{event.id}}/image"></div>
+                {{/event.image}}
+
+                {{^event.image}}
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/images/no_image.png"></div>
+                {{/event.image}}
                 <div class="col-md-6">
                     <h1 class="display-5 fw-bolder">{{event.title}}</h1>
                     <div class="fs-5 mb-5">

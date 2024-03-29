@@ -55,9 +55,12 @@
                                 <textarea class="form-control" name="description" placeholder="Descripcion"></textarea>
 
                             </div>
-                            <div class="d-grid">
-                                <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Añadir foto</button>
+                            <div class="form-floating mb-3">
+                                <p>Foto:</p>
+                                <input class="form-control" type= 'file' name="imageField" accept=".jpg, .jpeg"/>
+
                             </div>
+
                             <div class="d-grid">
                                 <input type="hidden" name="_csrf" value="{{token}}"/>
                                 <input class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" value="Guardar"/>
