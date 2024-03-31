@@ -1,0 +1,757 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8443
+  description: Generated server url
+paths:
+  /api/users/{id}:
+    get:
+      tags:
+      - user-rest-controller
+      summary: Get a user by its id
+      operationId: getUserById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: User not found
+        "200":
+          description: Found the user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      tags:
+      - user-rest-controller
+      summary: Put a user by its id
+      operationId: updateUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: User not found
+        "200":
+          description: User updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags:
+      - user-rest-controller
+      summary: Delete a user by its id
+      operationId: deleteUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: User not deleted
+        "400":
+          description: Invalid id supplied
+        "200":
+          description: User deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/tickets/{id}:
+    get:
+      tags:
+      - ticket-rest-controller
+      summary: Get a ticket by its id
+      operationId: getTicketById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid id supplied
+        "200":
+          description: Found the ticket
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        "404":
+          description: Ticket not found
+    put:
+      tags:
+      - ticket-rest-controller
+      summary: Put a ticket by its id
+      operationId: updateTicket
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ticket'
+        required: true
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Ticket not update
+        "200":
+          description: Ticket updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+    delete:
+      tags:
+      - ticket-rest-controller
+      summary: Delete a ticket by its id
+      operationId: deleteTicket
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid id supplied
+        "200":
+          description: Ticket deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        "404":
+          description: Ticket not deleted
+  /api/events/{id}:
+    get:
+      tags:
+      - event-rest-controller
+      summary: Get a event by its id
+      operationId: getEvent
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Event not found
+        "200":
+          description: Found the event
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+    put:
+      tags:
+      - event-rest-controller
+      summary: Put a event by its id
+      operationId: updateEvent
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      responses:
+        "200":
+          description: Event updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Event not update
+    delete:
+      tags:
+      - event-rest-controller
+      summary: Delete a event by its id
+      operationId: deleteEvent
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid id supplied
+        "200":
+          description: Event deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        "404":
+          description: Event not deleted
+  /api/comments/{id}:
+    get:
+      tags:
+      - comment-rest-controller
+      summary: Get a comment by its id
+      operationId: getCommentById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Found the comment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        "404":
+          description: Comment not found
+        "400":
+          description: Invalid id supplied
+    put:
+      tags:
+      - comment-rest-controller
+      summary: Put a comment by its id
+      operationId: updateComment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      responses:
+        "200":
+          description: Comment updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Comment not update
+    delete:
+      tags:
+      - comment-rest-controller
+      summary: Delete a comment by its id
+      operationId: deleteComment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: Comment not deleted
+        "400":
+          description: Invalid id supplied
+        "200":
+          description: Comment deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+  /api/users/:
+    get:
+      tags:
+      - user-rest-controller
+      summary: Get all users
+      operationId: getAllUsers
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: User not found
+        "200":
+          description: Found the users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    post:
+      tags:
+      - user-rest-controller
+      summary: Post a new user
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: User not found
+        "200":
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/tickets:
+    get:
+      tags:
+      - ticket-rest-controller
+      summary: Get all tickets
+      operationId: getTickets
+      responses:
+        "400":
+          description: Invalid id supplied
+        "200":
+          description: Found the tickets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        "404":
+          description: Tickets not found
+    post:
+      tags:
+      - ticket-rest-controller
+      summary: Post a new ticket
+      operationId: createTicket
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ticket'
+        required: true
+      responses:
+        "201":
+          description: Ticket created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Ticket not created
+  /api/events/{id}/image:
+    get:
+      tags:
+      - event-rest-controller
+      summary: Get a image event by its id
+      operationId: downloadImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Event image not found
+        "200":
+          description: Event image found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+    post:
+      tags:
+      - event-rest-controller
+      summary: 'Post a image '
+      operationId: uploadImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - imageFile
+              type: object
+              properties:
+                imageFile:
+                  type: string
+                  format: binary
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Event image not created
+        "200":
+          description: Event image created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+    delete:
+      tags:
+      - event-rest-controller
+      summary: Delete a image event by its id
+      operationId: deleteImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Event not deleted
+        "200":
+          description: Event image deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+  /api/events/:
+    get:
+      tags:
+      - event-rest-controller
+      summary: Get all events
+      operationId: getEvents
+      responses:
+        "404":
+          description: Events not found
+        "400":
+          description: Invalid id supplied
+        "200":
+          description: Found the events
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+    post:
+      tags:
+      - event-rest-controller
+      summary: Post a new event
+      operationId: createEvent
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      responses:
+        "400":
+          description: Invalid id supplied
+        "201":
+          description: Event created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        "404":
+          description: Event not created
+  /api/comments/:
+    get:
+      tags:
+      - comment-rest-controller
+      summary: Get all comments
+      operationId: getComments
+      responses:
+        "400":
+          description: Invalid id supplied
+        "200":
+          description: Found the comments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        "404":
+          description: Comments not found
+    post:
+      tags:
+      - comment-rest-controller
+      summary: Post a new comment
+      operationId: createComment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Comment not created
+        "201":
+          description: Comment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+  /api/auth/refresh:
+    post:
+      tags:
+      - login-controller
+      summary: 'Post a token '
+      operationId: refreshToken
+      parameters:
+      - name: refreshToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      responses:
+        "400":
+          description: Invalid id supplied
+        "200":
+          description: token refresh
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        "404":
+          description: token not refresh
+  /api/auth/logout:
+    post:
+      tags:
+      - login-controller
+      summary: Post logout
+      operationId: logOut
+      responses:
+        "200":
+          description: logout success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        "404":
+          description: logout not do
+        "400":
+          description: Invalid id supplied
+  /api/auth/login:
+    post:
+      tags:
+      - login-controller
+      summary: Post a login
+      operationId: login
+      parameters:
+      - name: accessToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      - name: refreshToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "404":
+          description: login not created
+        "200":
+          description: login created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        "400":
+          description: Invalid ids supplied
+  /load-more-events:
+    get:
+      tags:
+      - event-controller
+      operationId: loadMoreEvents
+      parameters:
+      - name: page
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+components:
+  schemas:
+    Comment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        nick:
+          type: string
+        description:
+          type: string
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        place:
+          type: string
+        date:
+          type: string
+        duration:
+          type: string
+        category:
+          type: string
+          enum:
+          - tecnologia
+          - humanidades
+          - saitario
+          - artes
+        people_inscribed:
+          type: integer
+          format: int32
+        max_people:
+          type: integer
+          format: int32
+        tickets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ticket'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+        image:
+          type: boolean
+    Ticket:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        surname:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        surname:
+          type: string
+        email:
+          type: string
+        encodedPassword:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        studyCenter:
+          type: string
+        phone:
+          type: integer
+          format: int64
+        editor:
+          type: boolean
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+        nick:
+          type: string
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
