@@ -1,7 +1,9 @@
 package com.codeUrjc.daw.Controllers.Rest;
 
+import com.codeUrjc.daw.Model.Comment;
 import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
+import com.codeUrjc.daw.Service.UserService;
 import com.codeUrjc.daw.repository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -14,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +27,8 @@ public class UserRestController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -36,9 +41,8 @@ public class UserRestController {
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
     })
     @GetMapping("/")
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userRepository.findAll();
-        return new ResponseEntity<>(users, HttpStatus.OK);
+    public Collection<User> getComments(){
+        return userService.findAll();
     }
 
     @Operation(summary = "Get a user by its id")
@@ -49,10 +53,14 @@ public class UserRestController {
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
     })
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") Long id) {
-        Optional<User> userOptional = userRepository.findById(id);
-        return userOptional.map(user -> new ResponseEntity<>(user, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<User> getUserById(@PathVariable long id){
+        Optional<User> optionalUser = userService.findById(id);
+        if(optionalUser.isPresent()){
+            User user = optionalUser.get();
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 

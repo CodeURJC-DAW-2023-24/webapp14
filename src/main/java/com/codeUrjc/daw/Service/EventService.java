@@ -10,6 +10,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -145,6 +146,10 @@ import static com.codeUrjc.daw.Model.Category.*;
         Resource image = new ClassPathResource(classpathResource);
         event.setImageFile(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
     }
-        }
+    public void setEventImageFromMultipartFile(Event event, MultipartFile multipartFile) throws IOException {
+        event.setImage(true);
+        event.setImageFile(BlobProxy.generateProxy(multipartFile.getInputStream(), multipartFile.getSize()));
+    }
+}
 
 

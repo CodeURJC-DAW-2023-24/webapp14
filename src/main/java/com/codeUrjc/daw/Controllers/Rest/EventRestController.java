@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
 import java.net.URI;
@@ -128,18 +129,23 @@ public class EventRestController {
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "Event image not created", content = @Content)
     })
-    @PostMapping("/{id}/image")
-    public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException {
-
-        Event event = eventService.findById(id).orElseThrow();
-
-        URI location = fromCurrentRequest().build().toUri();
-
-        event.setImage(true);
-        event.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
-        eventService.save(event);
-
-        return ResponseEntity.created(location).build();
+    @PostMapping("/{id}/image") // Cambio en la anotación de la URL
+    public ResponseEntity<String> uploadEventImage(@PathVariable long id, @RequestParam("imageFile") MultipartFile imageFile) {
+        try {
+            // Obtener el evento por su ID
+            Optional<Event> eventOptional = eventService.findById(id);
+            if (eventOptional.isPresent()) {
+                Event event = eventOptional.get();
+                // Establecer la imagen del evento utilizando el archivo multipart proporcionado
+                eventService.setEventImageFromMultipartFile(event, imageFile);
+                eventService.save(event); // Guardar el evento actualizado en la base de datos
+                return ResponseEntity.ok("Imagen subida correctamente para el evento con ID: " + id);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Evento no encontrado con ID: " + id);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al subir la imagen para el evento con ID: " + id);
+        }
     }
 
     @Operation(summary = "Get a image event by its id")

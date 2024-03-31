@@ -89,10 +89,10 @@ public class SecurityConfiguration {
 						.requestMatchers(HttpMethod.PUT, "/api/events/**").hasAnyRole("USER")
 						.requestMatchers(HttpMethod.DELETE, "/api/events/**").hasAnyRole("USER")
 
-						/*.requestMatchers(HttpMethod.POST, "/api/comments/**").hasAnyRole("USER")
+						.requestMatchers(HttpMethod.POST, "/api/comments/**").hasAnyRole("USER")
 						.requestMatchers(HttpMethod.PUT, "/api/comments/**").hasAnyRole("USER")
 						.requestMatchers(HttpMethod.DELETE, "/api/comments/**").hasAnyRole("USER")
-						*/
+
 
 						.requestMatchers(HttpMethod.POST, "/api/users").hasAnyRole("USER")
 						.requestMatchers(HttpMethod.POST, "/api/users/**").hasAnyRole("USER")
