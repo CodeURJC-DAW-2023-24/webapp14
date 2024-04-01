@@ -31,6 +31,10 @@ WORKDIR /app
 
 COPY  target/TicketEvent-0.0.1-SNAPSHOT.jar app.jar
 
+
+
+
+
 # Indicates the port that the container exposes
 EXPOSE 8443
 
