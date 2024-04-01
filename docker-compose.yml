@@ -5,9 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
+    restart: on-failure
     ports:
-      - 8443:8443
+      - "8443:8443"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/ticketeventaplicacion
       - SPRING_DATASOURCE_USERNAME=root
@@ -18,8 +18,8 @@ services:
   db:
     image: "mysql:8.0.36"
     volumes:
-        - ./mysql:/var/lib/mysql
-        - mysql-data:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     restart: on-failure
     environment:
       MYSQL_DATABASE: "ticketeventaplicacion"
@@ -27,5 +27,5 @@ services:
 
 
 volumes:
-    mysql-data:
-      external: false
+  mysql-data:
+    external: false

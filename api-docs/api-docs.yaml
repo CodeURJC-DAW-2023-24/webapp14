@@ -20,8 +20,6 @@ paths:
           type: integer
           format: int64
       responses:
-        "404":
-          description: User not found
         "200":
           description: Found the user
           content:
@@ -30,6 +28,8 @@ paths:
                 $ref: '#/components/schemas/User'
         "400":
           description: Invalid id supplied
+        "404":
+          description: User not found
     put:
       tags:
       - user-rest-controller
@@ -49,8 +49,6 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       responses:
-        "404":
-          description: User not found
         "200":
           description: User updated
           content:
@@ -59,6 +57,8 @@ paths:
                 $ref: '#/components/schemas/User'
         "400":
           description: Invalid id supplied
+        "404":
+          description: User not found
     delete:
       tags:
       - user-rest-controller
@@ -72,16 +72,16 @@ paths:
           type: integer
           format: int64
       responses:
+        "404":
+          description: User not deleted
+        "400":
+          description: Invalid id supplied
         "200":
           description: User deleted
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-        "404":
-          description: User not deleted
-        "400":
-          description: Invalid id supplied
   /api/tickets/{id}:
     get:
       tags:
@@ -96,14 +96,14 @@ paths:
           type: integer
           format: int64
       responses:
+        "404":
+          description: Ticket not found
         "200":
           description: Found the ticket
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ticket'
-        "404":
-          description: Ticket not found
         "400":
           description: Invalid id supplied
     put:
@@ -125,16 +125,16 @@ paths:
               $ref: '#/components/schemas/Ticket'
         required: true
       responses:
-        "404":
-          description: Ticket not update
-        "400":
-          description: Invalid id supplied
         "200":
           description: Ticket updated
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ticket'
+        "404":
+          description: Ticket not update
+        "400":
+          description: Invalid id supplied
     delete:
       tags:
       - ticket-rest-controller
@@ -201,14 +201,14 @@ paths:
               $ref: '#/components/schemas/Event'
         required: true
       responses:
-        "404":
-          description: Event not update
         "200":
           description: Event updated
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Event'
+        "404":
+          description: Event not update
         "400":
           description: Invalid id supplied
     delete:
@@ -224,6 +224,8 @@ paths:
           type: integer
           format: int64
       responses:
+        "404":
+          description: Event not deleted
         "200":
           description: Event deleted
           content:
@@ -232,8 +234,6 @@ paths:
                 $ref: '#/components/schemas/Event'
         "400":
           description: Invalid id supplied
-        "404":
-          description: Event not deleted
   /api/events/{id}/image:
     get:
       tags:
@@ -248,16 +248,16 @@ paths:
           type: integer
           format: int64
       responses:
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Event image not found
         "200":
           description: Event image found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Event'
-        "404":
-          description: Event image not found
-        "400":
-          description: Invalid id supplied
     put:
       tags:
       - event-rest-controller
@@ -282,14 +282,14 @@ paths:
                   type: string
                   format: binary
       responses:
+        "404":
+          description: Event image not created
         "200":
           description: Event image updated
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Event'
-        "404":
-          description: Event image not created
         "400":
           description: Invalid id supplied
     post:
@@ -345,10 +345,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Event'
-        "400":
-          description: Invalid id supplied
         "404":
           description: Event not deleted
+        "400":
+          description: Invalid id supplied
   /api/comments/{id}:
     get:
       tags:
@@ -363,16 +363,16 @@ paths:
           type: integer
           format: int64
       responses:
-        "404":
-          description: Comment not found
-        "400":
-          description: Invalid id supplied
         "200":
           description: Found the comment
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Comment'
+        "404":
+          description: Comment not found
+        "400":
+          description: Invalid id supplied
     put:
       tags:
       - comment-rest-controller
@@ -392,16 +392,16 @@ paths:
               $ref: '#/components/schemas/Comment'
         required: true
       responses:
-        "404":
-          description: Comment not update
-        "400":
-          description: Invalid id supplied
         "200":
           description: Comment updated
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Comment'
+        "404":
+          description: Comment not update
+        "400":
+          description: Invalid id supplied
     delete:
       tags:
       - comment-rest-controller
@@ -415,16 +415,16 @@ paths:
           type: integer
           format: int64
       responses:
-        "404":
-          description: Comment not deleted
-        "400":
-          description: Invalid id supplied
         "200":
           description: Comment deleted
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Comment'
+        "404":
+          description: Comment not deleted
+        "400":
+          description: Invalid id supplied
   /api/users/:
     get:
       tags:
@@ -432,8 +432,6 @@ paths:
       summary: Get all users
       operationId: getUsers
       responses:
-        "404":
-          description: User not found
         "200":
           description: Found the users
           content:
@@ -442,6 +440,8 @@ paths:
                 $ref: '#/components/schemas/User'
         "400":
           description: Invalid id supplied
+        "404":
+          description: User not found
     post:
       tags:
       - user-rest-controller
@@ -454,8 +454,6 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       responses:
-        "404":
-          description: User not found
         "200":
           description: User created
           content:
@@ -464,6 +462,8 @@ paths:
                 $ref: '#/components/schemas/User'
         "400":
           description: Invalid id supplied
+        "404":
+          description: User not found
   /api/tickets:
     get:
       tags:
@@ -471,14 +471,14 @@ paths:
       summary: Get all tickets
       operationId: getTickets
       responses:
+        "404":
+          description: Tickets not found
         "200":
           description: Found the tickets
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ticket'
-        "404":
-          description: Tickets not found
         "400":
           description: Invalid id supplied
     post:
@@ -495,14 +495,14 @@ paths:
       responses:
         "404":
           description: Ticket not created
-        "400":
-          description: Invalid id supplied
         "201":
           description: Ticket created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ticket'
+        "400":
+          description: Invalid id supplied
   /api/events/:
     get:
       tags:
@@ -549,8 +549,6 @@ paths:
       summary: Get all comments
       operationId: getComments
       responses:
-        "404":
-          description: Comments not found
         "200":
           description: Found the comments
           content:
@@ -559,6 +557,8 @@ paths:
                 $ref: '#/components/schemas/Comment'
         "400":
           description: Invalid id supplied
+        "404":
+          description: Comments not found
     post:
       tags:
       - comment-rest-controller
@@ -577,10 +577,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Comment'
-        "400":
-          description: Invalid id supplied
         "404":
           description: Comment not created
+        "400":
+          description: Invalid id supplied
   /api/auth/refresh:
     post:
       tags:
@@ -611,14 +611,14 @@ paths:
       summary: Post logout
       operationId: logOut
       responses:
-        "404":
-          description: logout not do
         "200":
           description: logout success
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Event'
+        "404":
+          description: logout not do
         "400":
           description: Invalid id supplied
   /api/auth/login:
@@ -645,6 +645,8 @@ paths:
               $ref: '#/components/schemas/LoginRequest'
         required: true
       responses:
+        "400":
+          description: Invalid ids supplied
         "200":
           description: login created
           content:
@@ -653,8 +655,6 @@ paths:
                 $ref: '#/components/schemas/Event'
         "404":
           description: login not created
-        "400":
-          description: Invalid ids supplied
   /load-more-events:
     get:
       tags:
