@@ -1,7 +1,9 @@
 package com.codeUrjc.daw.Controllers.Rest;
 
 import com.codeUrjc.daw.Model.Event;
+import com.codeUrjc.daw.Model.User;
 import com.codeUrjc.daw.Service.EventService;
+import com.codeUrjc.daw.repository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -33,6 +35,9 @@ public class EventRestController {
 
     @Autowired
     private EventService eventService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Operation(summary = "Get all events")
     @ApiResponses(value = {
@@ -191,5 +196,24 @@ public class EventRestController {
 
         return ResponseEntity.noContent().build();
     }
+
+    @Operation(summary = "Get recommended events for a user")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found recommended events", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "404", description = "Recommended events not found", content = @Content)
+    })
+    @GetMapping("/{id}/recommendation")
+    public ResponseEntity<Collection<Event>> getRecommendedEventsForUser(@PathVariable long id) {
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            Collection<Event> recommendedEvents = eventService.findRecommendedEventsForUser(user);
+            return ResponseEntity.ok(recommendedEvents);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 }
