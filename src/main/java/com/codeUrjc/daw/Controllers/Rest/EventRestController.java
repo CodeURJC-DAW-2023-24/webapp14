@@ -129,22 +129,44 @@ public class EventRestController {
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "Event image not created", content = @Content)
     })
-    @PostMapping("/{id}/image") // Cambio en la anotación de la URL
-    public ResponseEntity<String> uploadEventImage(@PathVariable long id, @RequestParam("imageFile") MultipartFile imageFile) {
+    @PostMapping("/{id}/image")
+    public ResponseEntity<Event> uploadEventImage(@PathVariable long id, @RequestParam("imageFile") MultipartFile imageFile) {
         try {
-            // Obtener el evento por su ID
             Optional<Event> eventOptional = eventService.findById(id);
             if (eventOptional.isPresent()) {
                 Event event = eventOptional.get();
-                // Establecer la imagen del evento utilizando el archivo multipart proporcionado
                 eventService.setEventImageFromMultipartFile(event, imageFile);
-                eventService.save(event); // Guardar el evento actualizado en la base de datos
-                return ResponseEntity.ok("Imagen subida correctamente para el evento con ID: " + id);
+                eventService.save(event);
+                return ResponseEntity.ok(event);
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Evento no encontrado con ID: " + id);
+                return ResponseEntity.notFound().build();
             }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al subir la imagen para el evento con ID: " + id);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @Operation(summary = "Put a image ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Event image updated", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Event image not created", content = @Content)
+    })
+    @PutMapping("/{id}/image")
+    public ResponseEntity<Event> updateEventImage(@PathVariable long id, @RequestParam("imageFile") MultipartFile imageFile) {
+        try {
+            Optional<Event> eventOptional = eventService.findById(id);
+            if (eventOptional.isPresent()) {
+                Event event = eventOptional.get();
+                eventService.setEventImageFromMultipartFile(event, imageFile);
+                eventService.save(event);
+                return ResponseEntity.ok(event);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
