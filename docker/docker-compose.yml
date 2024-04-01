@@ -2,13 +2,10 @@ version: "3.9"
 services:
   app:
     container_name: ticketevent
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        - POM_FILE= /pom.xml
-        - JAR_FILE= /target/ticketevent-0.0.1-SNAPSHOT.jar
-        - SRC_DIR= /src
+    #build:
+      #context: ..
+      #dockerfile: docker/Dockerfile
+    image: iireenees012/webapp14:latest
     restart: on-failure
     ports:
       - "8443:8443"
