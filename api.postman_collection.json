@@ -718,6 +718,112 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "recomendados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/1/recommendation",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"1",
+						"recommendation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tecnology",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/tecnology",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"tecnology"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "art",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/art",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"art"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sanitario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/helth",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"helth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Humanidades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/human",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"human"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

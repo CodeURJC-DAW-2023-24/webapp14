@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
@@ -232,6 +233,68 @@ public class EventRestController {
             User user = userOptional.get();
             Collection<Event> recommendedEvents = eventService.findRecommendedEventsForUser(user);
             return ResponseEntity.ok(recommendedEvents);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(summary = "Get number tecnology events ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found tecnology events", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "404", description = "tecnology events not found", content = @Content)
+    })
+    @GetMapping("/tecnology")
+    public ResponseEntity<Long> getTecnologyEvents() {
+            long eventsTecnology = eventService.countTecnologia();
+            if (eventsTecnology != 0 ){
+                return ResponseEntity.ok(eventsTecnology);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @Operation(summary = "Get number Art events ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found Art events", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "404", description = "Art events not found", content = @Content)
+    })
+    @GetMapping("/art")
+    public ResponseEntity<Long> getArtEvents() {
+        long eventsArt = eventService.countArtes();
+        if (eventsArt != 0 ){
+            return ResponseEntity.ok(eventsArt);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @Operation(summary = "Get number Helth events ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found Helth events", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "404", description = "Helth events not found", content = @Content)
+    })
+    @GetMapping("/helth")
+    public ResponseEntity<Long> getHelthEvents() {
+        long eventsHelth = eventService.countSanitario();
+        if (eventsHelth != 0 ){
+            return ResponseEntity.ok(eventsHelth);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(summary = "Get number Human events ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found Human events", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "404", description = "Human events not found", content = @Content)
+    })
+    @GetMapping("/human")
+    public ResponseEntity<Long> getHumanEvents() {
+        long eventsHuman = eventService.countHumanidades();
+        if (eventsHuman != 0 ){
+            return ResponseEntity.ok(eventsHuman);
         } else {
             return ResponseEntity.notFound().build();
         }
