@@ -292,6 +292,145 @@ Este es el resultado final:
 
  # FASE 3
 
+## PARTICIPACIÓN
+
+| Nombre | Participación |
+|----------|----------|
+| Andrés Carretero Jiménez  | 100%  | 
+| Almudena López Rodríguez	    | 100%  | 
+| Irene Pérez Santiago   | 100%| 
+|  Alba Velasco Marqués        |   100%   |   
+
+
+### Alba Velasco Marqués 
+
+Durante esta fase mis tareas principales han sido:
+  -	Hacer el algortimo.
+  -	Mostrar en el perfil solo los eventos a los que se ha inscrito el usuario al que pertenece ese perfil.
+  -	Guardar y mostrar los comentarios en la misma pagina del evento en donde se han escrito.
+  -	Division de controladores.
+  -	Arreglar el estilo de la pagina de cada evento.
+  -	Arreglar que un editor no pueda borrar un evento.
+  -	Hacer el TicketRestController y el CommentRestController
+  -	Operaciones en la EventsRestController sobre las peticiones rest de los eventos recomendados.
+
+    
+Los 5 commits más significativos han sido:
+
+| Commit| Enlace |
+|----------|----------|
+| Finalizado algoritmo | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/a4356cc07b8d39609f0dc7ba374786e5f5bd2b5b | 
+| Conseguido que se muestren en el perfil los comenarios del propio usuario solo  | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/9b64f97fcd84919bd81c68b6c99acdd555031c83| 
+| Conseguido comentarios que se guarden y se muestren solo en el evento | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/d3991f30ff05ce35748a0193aa331819e2843573| 
+| ApirestControllers completos    |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/a90ab238f5721cc2e4e35fd0a799c1065112d91e  |
+| Hecho operacion de consultar eventos recomendados  | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/40c66be4676a86536f087c69dd843ced85663b10 |  
+
+
+Los 5 ficheros en los que más he participado han sido:
+
+| Fichero | Enlace|
+|----------|----------|
+| CommentRestController | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Controllers/Rest/CommentRestController.java | 
+| TicketRestController     | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Controllers/Rest/TicketRestController.java|
+| EventRestController | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Controllers/Rest/UserRestController.java|
+| showEvent.html   | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/resources/templates/showEvent.html| 
+| UserController      |   https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Controllers/UserController.java   |   
+
+
+### Almudena López Rodríguez
+
+Tareas:
+  -	Establecer la base de la API Rest
+  -	Crear la generación automática de la documentación de la API
+  -	Configurar la seguridad
+  -	Crear la colección de objetos JSON
+  -	Crear los gráficos con sus correspondientes operaciones de la API
+  -	Hacer las peticiones Rest de los eventos y del login
+  -	Añadir las imágenes a la base de datos
+
+Los 5 commits más significativos han sido:
+
+| Commit | Enlace|
+|----------|----------|
+| Operacion API Especial Datos Grafico | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/ddd88cbe986adfa76d68f8a6f02bf50f57408061 | 
+| Generación de la documentación automatica de la API    | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/d6ff7a1acc7c8f2d26b5ec89c6367b62d1007762 | 
+| Creacion de la nueva configuración de seguridad y programación del RESTEVENTOS  | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/1b08f273167d83296bec8b68d16c973af455553b | 
+|  Merge branch 'GraficosAdmin' into Imagenes      |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/1b4a2c7e288ae22a485b4309b134e52c5567b991 | 
+|  Se guarda el evento al que se registran y el ususario    |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/fe797f664dbfca78cefa4c4606a2185f59bb8a67  | 
+
+    
+Los 5 ficheros en los que más he participado han sido:
+
+| Fichero | Enlace|
+|----------|----------|
+| EventRestController | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/Rest/EventRestController.java | 
+| LoginController   | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/auth/LoginController.java| 
+| UserController | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/UserController.java| 
+| pom.xml    |   https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/pom.xml |   
+| api.postman_collection.json  |   https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/api.postman_collection.json  |   
+
+
+### Andrés Carretero Jiménez 
+
+Tareas:
+  -	Se muestran los eventos a los que se ha apuntado un usuario
+  -	Hacer el UserRestController
+  -	Que las imágenes de los eventos se puedan guardar y editar
+  -	Peticiones del User y de las imágenes
+  -	Diagrama de clases y templates
+    
+Los 5 commits más significativos han sido:
+
+| Commit | Enlace |
+|----------|----------|
+| Configuración API Rest del User  | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/f3504170e13ccd1d4414f517438d41ed351ce1e0 | 
+| Documentación API Rest del User    | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/49d3da1b890e1bf6e0a8ecf9e5f8fda4f52fcd1b | 
+| Se guardan y se muestran correctamente las imagenes al crear un evento.   | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/6544c40a42be3c163232b294b1c1366fa21bf48c| 
+|  Arreglado el editar evento. Se editan las imagenes correctamente.    |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/c13c62999d99544a4254d92563821828ee25901e  |   
+|  Api rest actualizada con las imagenes funcionando.    |   https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/d56fe17f357209fa4d3b8718bd72f66196b0beb2  |   
+
+    
+Los 5 ficheros en los que más he participado han sido:
+
+| Fichero | Enlace|
+|----------|----------|
+| UserRestController.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/Rest/UserRestController.java | 
+| EventController.java  |https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/EventController.java| 
+| EventRestController.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/Rest/EventRestController.java| 
+| editEvent.html  | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/resources/templates/editEvent.html|   
+| showEvent.html | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/resources/templates/showEvent.html |   
+
+
+### Irene Pérez Santiago
+
+Tareas:
+-	Configuración de la base de datos 
+-	Primera version de seguridad
+-	Gestión comments
+-	Primera integración de los modelos de usuarios y eventos
+
+Los 5 commits más significativos han sido:
+
+| Commit| Enlace |
+|----------|----------|
+| funciona, puto ID de los huevos| https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/55863ec2cffff2e0bb376ec11d114be5f337ad9c| 
+| se arregla el pom    | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/773b1096bf3b7054447a7b0ee28242a7ce5617c6 | 
+| configurado para eventos, pero no funciona el html | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/3ea5b1004a589f14e6a185e117a46d71f668924c| 
+|  arreglado el css     |  https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/b3265fe7a405c8de0ed2b67abe33d83dd046df87  |
+|  actualizacion de las clases con notacion para base de datos   |  https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/c7742b535c969253014478da634d00edef0c5142 |  
+
+    
+Los 5 ficheros en los que más he participado han sido:
+
+| Fichero | Enlace|
+|----------|----------|
+| SecurityConfiguration.java |https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/security/SecurityConfiguration.java| 
+| EventService.java |https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Service/EventService.java| 
+| CommentService.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Service/CommentService.java| 
+| Event.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Model/Event.java|   
+| Comment.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Model/Comment.java|   
+
+
 ### Documentación de la API REST: 
 
 Especificación OpenAPI: https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/Imagenes/api-docs/api-docs.yaml
@@ -301,7 +440,4 @@ Documentación HTML: https://rawcdn.githack.com/CodeURJC-DAW-2023-24/webapp14/2d
 ### Diagrama de clases y templates
 
 ![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/118294636/55d2012e-f54f-46e0-ab78-4549d2f7b296)
-
-
-
 
