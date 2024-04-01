@@ -1,5 +1,6 @@
 package com.codeUrjc.daw.repository;
 
+import com.codeUrjc.daw.Model.Category;
 import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
 import org.springframework.data.domain.Page;
@@ -17,4 +18,7 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     void deleteById(Long id);
 
     List<Event> findByUsersContaining(User user);
+
+    List<Event> findByCategory(Category category);
+
 }

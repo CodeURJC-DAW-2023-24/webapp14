@@ -1,6 +1,8 @@
 package com.codeUrjc.daw.Service;
 
+import com.codeUrjc.daw.Model.Category;
 import com.codeUrjc.daw.Model.Event;
+import com.codeUrjc.daw.Model.User;
 import com.codeUrjc.daw.repository.EventRepository;
 import jakarta.annotation.PostConstruct;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -15,7 +17,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static com.codeUrjc.daw.Model.Category.*;
 
@@ -149,6 +153,56 @@ import static com.codeUrjc.daw.Model.Category.*;
     public void setEventImageFromMultipartFile(Event event, MultipartFile multipartFile) throws IOException {
         event.setImage(true);
         event.setImageFile(BlobProxy.generateProxy(multipartFile.getInputStream(), multipartFile.getSize()));
+    }
+
+    public List<Event> findRecommendedEventsForUser(User user) {
+        List<Event> eventsUserIsSubscribedTo = events.findByUsersContaining(user);
+        for (Event event :eventsUserIsSubscribedTo){
+            System.out.println(event);
+        }
+        int contTecnologia = 0;
+        int contHumanidades = 0;
+        int contSanitario = 0;
+        int contArtes = 0;
+
+        for (Event event : eventsUserIsSubscribedTo) {
+            if(tecnologia.equals(event.getCategory())){
+                contTecnologia +=1;
+            }
+            else
+            if(humanidades.equals(event.getCategory())){
+                contHumanidades +=1;
+            }
+            else
+            if(saitario.equals(event.getCategory())){
+                contSanitario +=1;
+            }
+            else
+            if(artes.equals(event.getCategory())){
+                contArtes +=1;
+            }
+        }
+
+        Category mostFrequentCategory = tecnologia;
+        int maxFrequency = contTecnologia;
+
+        if (contHumanidades > maxFrequency) {
+            mostFrequentCategory = humanidades;
+            maxFrequency = contHumanidades;
+        }
+        if (contSanitario > maxFrequency) {
+            mostFrequentCategory = saitario;
+            maxFrequency = contSanitario;
+        }
+        if (contArtes > maxFrequency) {
+            mostFrequentCategory = artes;
+            maxFrequency = contArtes;
+        }
+        List<Event> recommendedEvents = new ArrayList<>();
+        for (Event event : events.findByCategory(mostFrequentCategory)){
+            recommendedEvents.add(event);
+        }
+        return recommendedEvents;
     }
 }
 

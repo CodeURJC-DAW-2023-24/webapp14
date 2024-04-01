@@ -1,7 +1,5 @@
 package com.codeUrjc.daw.Controllers.Rest;
 
-import com.codeUrjc.daw.Model.Comment;
-import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
 import com.codeUrjc.daw.Service.UserService;
 import com.codeUrjc.daw.repository.UserRepository;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -41,7 +38,7 @@ public class UserRestController {
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
     })
     @GetMapping("/")
-    public Collection<User> getComments(){
+    public Collection<User> getUsers(){
         return userService.findAll();
     }
 
