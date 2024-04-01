@@ -123,10 +123,21 @@ public class EventController {
     }
 
     @PostMapping("/NewEvent")
-    public String createNewEvent(@ModelAttribute Event event) {
-        eventService.save(event);
-        return "redirect:/";
+    public String createNewEvent(@ModelAttribute Event event, @RequestParam("imageField") MultipartFile imageFile) {
+        try {
+            if (!imageFile.isEmpty()) {
+                event.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+                event.setImage(true); // Asegúrate de setear el atributo 'image' como true
+            }
+            eventService.save(event);
+            return "redirect:/";
+        } catch (IOException e) {
+            return "error";
+        }
     }
+
+
+
 
     @GetMapping("/editEvent")
     public String showEditEvent(@RequestParam("id") Long eventId, Model model, Principal principal, HttpServletRequest request) {
