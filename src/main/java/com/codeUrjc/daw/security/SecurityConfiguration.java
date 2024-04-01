@@ -83,22 +83,28 @@ public class SecurityConfiguration {
 		http
 				.authorizeHttpRequests(authorize -> authorize
 						// PRIVATE ENDPOINTS
-						.requestMatchers(HttpMethod.POST, "/api/events").hasAnyRole("USER")
-						.requestMatchers(HttpMethod.POST, "/api/events/**").hasAnyRole("USER")
+						.requestMatchers(HttpMethod.POST, "/api/events").hasAnyRole("ADMIN")
+						.requestMatchers(HttpMethod.POST, "/api/events/**").hasAnyRole("ADMIN")
 
 						.requestMatchers(HttpMethod.PUT, "/api/events/**").hasAnyRole("USER")
-						.requestMatchers(HttpMethod.DELETE, "/api/events/**").hasAnyRole("USER")
+						.requestMatchers(HttpMethod.DELETE, "/api/events/**").hasAnyRole("ADMIN")
 
-						/*.requestMatchers(HttpMethod.POST, "/api/comments/**").hasAnyRole("USER")
+						.requestMatchers(HttpMethod.POST, "/api/comments/**").hasAnyRole("ADMIN")
 						.requestMatchers(HttpMethod.PUT, "/api/comments/**").hasAnyRole("USER")
-						.requestMatchers(HttpMethod.DELETE, "/api/comments/**").hasAnyRole("USER")*/
+						.requestMatchers(HttpMethod.DELETE, "/api/comments/**").hasAnyRole("ADMIN")
 
 
-						.requestMatchers(HttpMethod.POST, "/api/users").hasAnyRole("USER")
-						.requestMatchers(HttpMethod.POST, "/api/users/**").hasAnyRole("USER")
+						.requestMatchers(HttpMethod.POST, "/api/users").hasAnyRole("ADMIN")
+						.requestMatchers(HttpMethod.POST, "/api/users/**").hasAnyRole("ADMIN")
 
 						.requestMatchers(HttpMethod.PUT, "/api/users/**").hasAnyRole("USER")
-						.requestMatchers(HttpMethod.DELETE, "/api/users/**").hasAnyRole("USER")
+						.requestMatchers(HttpMethod.DELETE, "/api/users/**").hasAnyRole("ADMIN")
+
+						.requestMatchers(HttpMethod.POST, "/api/tickets").hasAnyRole("ADMIN")
+						.requestMatchers(HttpMethod.POST, "/api/tickets/**").hasAnyRole("ADMIN")
+
+						.requestMatchers(HttpMethod.PUT, "/api/tickets/**").hasAnyRole("USER")
+						.requestMatchers(HttpMethod.DELETE, "/api/tickets/**").hasAnyRole("ADMIN")
 
 						//.requestMatchers(HttpMethod.PUT, "/users/images").hasAnyRole("USER")
 						// PUBLIC ENDPOINTS
