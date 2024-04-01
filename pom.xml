@@ -18,18 +18,23 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>17</java.version>
+    <java.version>21</java.version>
+    <start-class>com.codeUrjc.daw.TicketEventApplication</start-class>
   </properties>
+
   <dependencies>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.19</version>
     </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-mustache</artifactId>
@@ -82,22 +87,25 @@
         <filtering>false</filtering>
       </resource>
     </resources>
+
     <plugins>
       <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>pre-integration-test</id>
-            <goals>
-              <goal>start</goal>
-            </goals>
-            <configuration>
-              <arguments>
-                <argument>--server.ssl.enabled=false</argument>
-              </arguments>
-            </configuration>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+            <executions>
+                 <execution>
+                      <id>pre-integration-test</id>
+                         <goals>
+                            <goal>start</goal>
+                          </goals>
+
+                      <configuration>
+                          <arguments>
+                            <argument>--server.ssl.enabled=false</argument>
+                          </arguments>
+                      </configuration>
           </execution>
+
           <execution>
             <id>post-integration-test</id>
             <goals>
@@ -106,6 +114,11 @@
           </execution>
         </executions>
       </plugin>
+
+
+
+
+
       <plugin>
         <groupId>org.springdoc</groupId>
         <artifactId>springdoc-openapi-maven-plugin</artifactId>
