@@ -287,10 +287,15 @@ Este es el resultado final:
 
 <img width="496" alt="image" src="https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/89156022/76d2d62d-51f6-4868-9ffe-a02e44f1e52b">
 
-FASE 3
 
-Documentación de la API REST: 
+
+
+ # FASE 3
+
+### Documentación de la API REST: 
+
 Especificación OpenAPI: https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/Imagenes/api-docs/api-docs.yaml
+
 Documentación HTML: https://rawcdn.githack.com/CodeURJC-DAW-2023-24/webapp14/2d27a247c7cc05efa489acf0fa83acbf3d8f6ba7/api-docs/api-docs.html
 
 
