@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import static com.codeUrjc.daw.Model.Category.*;
@@ -140,6 +141,43 @@ import static com.codeUrjc.daw.Model.Category.*;
             public void delete(Long id) {
                 events.deleteById(id);
             }
+
+    public int countTecnologia() {
+        int count = 0;
+        for (Event event : events.findAll()) {
+            if (tecnologia.equals(event.getCategory())) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public int countArtes() {
+        int count = 0;
+        for (Event event : events.findAll()) {
+            if (artes.equals(event.getCategory())) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public int countSanitario() {
+        int count = 0;
+        for (Event event : events.findAll()) {
+            if (saitario.equals(event.getCategory())) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public int countHumanidades() {
+        int count = 0;
+        for (Event event : events.findAll()) {
+            if (humanidades.equals(event.getCategory())) {
+                count++;
+            }
+        }
+        return count;
+    }
 
     public void setEventImage(Event event, String classpathResource) throws IOException {
         event.setImage(true);
