@@ -470,24 +470,24 @@ Tareas:
 Los 5 commits más significativos han sido:
 
 
-| Commit                                                      | Enlace                                                                                         |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| funciona, puto ID de los huevos                             | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/55863ec2cffff2e0bb376ec11d114be5f337ad9c |
-| se arregla el pom                                           | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/773b1096bf3b7054447a7b0ee28242a7ce5617c6 |
-| configurado para eventos, pero no funciona el html          | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/3ea5b1004a589f14e6a185e117a46d71f668924c |
-| arreglado el css                                            | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/b3265fe7a405c8de0ed2b67abe33d83dd046df87 |
-| actualizacion de las clases con notacion para base de datos | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/c7742b535c969253014478da634d00edef0c5142 |
+| Commit                                  | Enlace                                                                                         |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Se eliminan los problemas con el target | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/3ff8f23e26f59828403a3489efbc270715c451f6 |
+| Funciona el docker en carpeta           | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/d4a7c86be90e31010b87229e4929a8a12ab2daeb |
+| Eliminar lo repetido                    | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/ce179d9bcb957dd1d64ca5b36f1e5844b8b432d0 |
+| Docker on                               | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/6b8de1c99f5132110e9e1dbf40f04f7dca8e6af1 |
+| Update create_image.sh                  | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/e5be303a7a692d93a86370dcdaf31e720522f9dc |
 
 Los 5 ficheros en los que más he participado han sido:
 
 
-| Fichero                    | Enlace                                                                                                                        |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| SecurityConfiguration.java | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/security/SecurityConfiguration.java |
-| EventService.java          | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Service/EventService.java           |
-| CommentService.java        | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Service/CommentService.java         |
-| Event.java                 | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Model/Event.java                    |
-| Comment.java               | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/src/main/java/com/codeUrjc/daw/Model/Comment.java                  |
+| Fichero            | Enlace                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------ |
+| Dockerfile         | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/Dockerfile         |
+| create_image.sh    | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/create_image.sh    |
+| docker-compose.yml | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/docker-compose.yml |
+| pom.xml            | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/pom.xml                   |
+| README.md          | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/README.md                 |
 
 ### Documentación de la API REST:
 
