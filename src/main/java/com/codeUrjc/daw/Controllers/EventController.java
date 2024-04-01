@@ -95,9 +95,6 @@ public class EventController {
             List<Event> allEvents = eventRepository.findAll();
             model.addAttribute("allEvents", allEvents);
 
-            List<Event> recommendedEvents = eventService.findRecommendedEventsForUser(user);
-            model.addAttribute("recommendedEvents", recommendedEvents);
-
             return "events";
         } else {
             return "error";

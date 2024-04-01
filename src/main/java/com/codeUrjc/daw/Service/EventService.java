@@ -158,7 +158,7 @@ import static com.codeUrjc.daw.Model.Category.*;
     public List<Event> findRecommendedEventsForUser(User user) {
         List<Event> eventsUserIsSubscribedTo = events.findByUsersContaining(user);
         for (Event event :eventsUserIsSubscribedTo){
-            System.out.println(event);
+            System.out.println("Hola:" + event);
         }
         int contTecnologia = 0;
         int contHumanidades = 0;

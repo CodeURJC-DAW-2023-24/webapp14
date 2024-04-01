@@ -2,6 +2,7 @@ package com.codeUrjc.daw.Controllers;
 
 import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
+import com.codeUrjc.daw.Service.EventService;
 import com.codeUrjc.daw.repository.EventRepository;
 import com.codeUrjc.daw.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,6 +32,9 @@ public class UserController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private EventService eventService;
 
     @GetMapping("/dashboard")
     public String showDashboard(Model model, HttpServletRequest request, Principal principal){
@@ -77,11 +81,12 @@ public class UserController {
             List<Event> events = eventRepository.findByUsersContaining(user); // Obtener los eventos asociados al usuario
 
             boolean isEditor = user.isEditor();
+            List<Event> recommendedEvents = eventService.findRecommendedEventsForUser(user);
 
             model.addAttribute("user", user);
             model.addAttribute("isEditor", isEditor);
             model.addAttribute("events", events); // Agregar los eventos al modelo
-
+            model.addAttribute("recommendedEvents", recommendedEvents);
             return "profile";
         } else {
             return "error";
