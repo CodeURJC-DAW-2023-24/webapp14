@@ -8,13 +8,13 @@ FROM  maven:3.9.6-eclipse-temurin-17 as builder
 WORKDIR /app
 
 # Copies the project's dependencies
-COPY ../app/pom.xml ./pom.xml
+COPY ./pom.xml ./pom.xml
 
 # Downloads the project's dependencies
 #RUN mvn clean verify
 
 # Copies the project's code
-COPY ../app/src ./src
+COPY ./src ./src
 
 # Compiles the project
 RUN mvn clean package -DskipTests=true

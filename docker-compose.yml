@@ -3,7 +3,7 @@ services:
   app:
     container_name: ticketevent
     build:
-      context: .
+      context: docker
       dockerfile: Dockerfile
     restart: on-failure
     ports:
