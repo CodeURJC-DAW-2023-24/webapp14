@@ -162,26 +162,41 @@ public class EventController {
     }
 
     @PostMapping("/editEvent")
-    public String saveEditedEvent(@ModelAttribute Event updatedEvent, @RequestParam("id") Long id, boolean removeImage, MultipartFile imageField) throws  IOException, SQLException {
-        Optional<Event> eventOptional = eventRepository.findById(id);
+    public String saveEditedEvent(@ModelAttribute Event updatedEvent,
+                                  @RequestParam("id") Long id,
+                                  @RequestParam(value = "removeImage", required = false, defaultValue = "false") boolean removeImage,
+                                  @RequestParam("imageField") MultipartFile imageField) {
+        try {
+            Optional<Event> eventOptional = eventRepository.findById(id);
 
-        if (eventOptional.isPresent()) {
-            Event event = eventOptional.get();
-            event.setTitle(updatedEvent.getTitle());
-            event.setDate(updatedEvent.getDate());
-            event.setDuration(updatedEvent.getDuration());
-            event.setPlace(updatedEvent.getPlace());
-            event.setDescription(updatedEvent.getDescription());
+            if (eventOptional.isPresent()) {
+                Event event = eventOptional.get();
+                event.setTitle(updatedEvent.getTitle());
+                event.setDate(updatedEvent.getDate());
+                event.setDuration(updatedEvent.getDuration());
+                event.setPlace(updatedEvent.getPlace());
+                event.setDescription(updatedEvent.getDescription());
 
-            updateImage(updatedEvent, removeImage, imageField);
+                if (removeImage) {
+                    event.setImageFile(null);
+                    event.setImage(false);
+                } else if (imageField != null && !imageField.isEmpty()) {
+                    event.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+                    event.setImage(true);
+                } // Si no se selecciona una nueva imagen y no se elimina la actual, no es necesario hacer cambios.
 
-            eventRepository.save(event);
+                eventRepository.save(event);
 
-            return "redirect:/events";
-        } else {
+                return "redirect:/events";
+            } else {
+                return "error";
+            }
+        } catch (IOException e) {
             return "error";
         }
     }
+
+
 
     @PostMapping("/deleteEvent")
     public String deleteEvent(@RequestParam Long id) {
