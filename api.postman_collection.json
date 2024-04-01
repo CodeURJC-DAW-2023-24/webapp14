@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "a7bff08b-43b1-4d27-9d86-bafc449f9d90",
-		"name": "API REST Ejemplos",
+		"name": "ticketeventaplicacion",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33923179"
 	},
@@ -161,7 +161,7 @@
 			"response": []
 		},
 		{
-			"name": "Eliminar Eevnto",
+			"name": "Eliminar Evento",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -209,13 +209,17 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "file",
-					"file": {
-						"src": "postman-cloud:///1eeef7ce-c2d7-47d0-8066-cf91c2c9b08e"
-					}
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imageFile",
+							"type": "file",
+							"src": "postman-cloud:///1eeef7ce-c2d7-47d0-8066-cf91c2c9b08e"
+						}
+					]
 				},
 				"url": {
-					"raw": "https://localhost:8443/api/events/13/image",
+					"raw": "https://localhost:8443/api/events/1/image",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -224,7 +228,7 @@
 					"path": [
 						"api",
 						"events",
-						"13",
+						"1",
 						"image"
 					]
 				}
@@ -678,6 +682,38 @@
 						"api",
 						"users",
 						"52"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Imagen",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imageFile",
+							"type": "file",
+							"src": "postman-cloud:///1eeef7ce-c2d7-47d0-8066-cf91c2c9b08e"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/events/2/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"2",
+						"image"
 					]
 				}
 			},
