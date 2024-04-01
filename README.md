@@ -298,6 +298,9 @@ Especificación OpenAPI: https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/I
 
 Documentación HTML: https://rawcdn.githack.com/CodeURJC-DAW-2023-24/webapp14/2d27a247c7cc05efa489acf0fa83acbf3d8f6ba7/api-docs/api-docs.html
 
+### Diagrama de clases y templates
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/118294636/55d2012e-f54f-46e0-ab78-4549d2f7b296)
 
 
 
