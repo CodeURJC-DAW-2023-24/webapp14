@@ -44,7 +44,13 @@ public class CommentService {
         return comments.findById(id);
     }
 
+    public boolean exist(long id) {
+        return comments.existsById(id);
+    }
 
+    public void delete(long id) {
+        comments.deleteById(id);
+    }
     public void save(Comment comment) {
         comments.save(comment);
 

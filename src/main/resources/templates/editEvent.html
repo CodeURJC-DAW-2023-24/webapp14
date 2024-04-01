@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form action="/editEvent" method="post">
+<form action="/editEvent" method="post" enctype="multipart/form-data">
   <label for="floatingTitle">Evento:</label>
   <input type="text" id="floatingTitle" name="title" value="{{event.title}}" required>
 
@@ -20,12 +20,19 @@
   <label for="floatingPlace">Lugar</label>
   <input type="text" class="form-control" id="floatingPlace" name="place" value="{{event.place}}" required>
 
-  <label for="floatingDescription">Lugar</label>
+  <label for="floatingDescription">Descripcion</label>
   <input type="text" class="form-control" id="floatingDescription" name="description" value="{{event.description}}" required>
+
+  <label>Subir nueva imagen:</label><br>
+  <input type='file' name='imageField' accept=".jpg, .jpeg" /><br>
+
+  <input type='checkbox' name='removeImage'>
+  <label>Eliminar imagen actual</label><br>
 
   <input type="hidden" name="_csrf" value="{{token}}"/>
   <input type="hidden" name="id" value="{{event.id}}" />
   <button type="submit">Guardar cambios</button>
 </form>
+
 </body>
 </html>

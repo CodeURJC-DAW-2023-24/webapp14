@@ -7,6 +7,9 @@ import com.codeUrjc.daw.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.Optional;
+
 
 @Service
 
@@ -17,5 +20,13 @@ public class UserService {
     public void save(User user) {
 
         users.save(user);
+    }
+
+    public Collection<User> findAll() {
+        return users.findAll();
+    }
+
+    public Optional<User> findById(long id) {
+        return users.findById(id);
     }
 }

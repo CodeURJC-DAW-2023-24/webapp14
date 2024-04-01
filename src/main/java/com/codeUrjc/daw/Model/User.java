@@ -1,5 +1,6 @@
 
 package com.codeUrjc.daw.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class User {
 
 	private String email;
 
+	@JsonIgnore
 	private String encodedPassword;
 
 	@ElementCollection(fetch = FetchType.EAGER)
