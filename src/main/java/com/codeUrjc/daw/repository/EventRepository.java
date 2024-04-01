@@ -2,6 +2,7 @@ package com.codeUrjc.daw.repository;
 
 import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.User;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -17,4 +18,6 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     void deleteById(Long id);
 
     List<Event> findByUsersContaining(User user);
+
+
 }
