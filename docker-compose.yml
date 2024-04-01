@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - 8443:8443
+    environment:
+      - SPRING_DATASOURCE_URL= jdbc:mysql://localhost:3306/ticketeventaplicacion?serverTimezone=Europe/Madrid
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=papr0bar
+
+    restart: on-failure
+  db:
+    container_name: mysql-ticketEvent
+    image: mysql:8.0.36-oracle
+    restart: on-failure
+    environment:
+      - MYSQL_ROOT_PASSWORD=papr0bar
+      - MYSQL_DATABASE=ticketeventaplicacion
+    volumes:
+      - ./mysql:/var/lib/mysql
