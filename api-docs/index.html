@@ -986,9 +986,6 @@ ul.nav-tabs {
     "email" : {
       "type" : "string"
     },
-    "encodedPassword" : {
-      "type" : "string"
-    },
     "roles" : {
       "type" : "array",
       "items" : {
@@ -1067,11 +1064,26 @@ ul.nav-tabs {
                     <li data-group="EventRestController" data-name="downloadImage" class="">
                       <a href="#api-EventRestController-downloadImage">downloadImage</a>
                     </li>
+                    <li data-group="EventRestController" data-name="getArtEvents" class="">
+                      <a href="#api-EventRestController-getArtEvents">getArtEvents</a>
+                    </li>
                     <li data-group="EventRestController" data-name="getEvent" class="">
                       <a href="#api-EventRestController-getEvent">getEvent</a>
                     </li>
                     <li data-group="EventRestController" data-name="getEvents" class="">
                       <a href="#api-EventRestController-getEvents">getEvents</a>
+                    </li>
+                    <li data-group="EventRestController" data-name="getHelthEvents" class="">
+                      <a href="#api-EventRestController-getHelthEvents">getHelthEvents</a>
+                    </li>
+                    <li data-group="EventRestController" data-name="getHumanEvents" class="">
+                      <a href="#api-EventRestController-getHumanEvents">getHumanEvents</a>
+                    </li>
+                    <li data-group="EventRestController" data-name="getRecommendedEventsForUser" class="">
+                      <a href="#api-EventRestController-getRecommendedEventsForUser">getRecommendedEventsForUser</a>
+                    </li>
+                    <li data-group="EventRestController" data-name="getTecnologyEvents" class="">
+                      <a href="#api-EventRestController-getTecnologyEvents">getTecnologyEvents</a>
                     </li>
                     <li data-group="EventRestController" data-name="updateEvent" class="">
                       <a href="#api-EventRestController-updateEvent">updateEvent</a>
@@ -1441,6 +1453,28 @@ $(document).ready(function() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-CommentRestController-createComment-title-400"></h3>
+                            <p id="examples-CommentRestController-createComment-description-400" class="marked"></p>
+                            <script>
+                              var responseCommentRestController400_description = `Invalid id supplied`;
+                              var responseCommentRestController400_description_break = responseCommentRestController400_description.indexOf('\n');
+                              if (responseCommentRestController400_description_break == -1) {
+                                $("#examples-CommentRestController-createComment-title-400").text("Status: 400 - " + responseCommentRestController400_description);
+                              } else {
+                                $("#examples-CommentRestController-createComment-title-400").text("Status: 400 - " + responseCommentRestController400_description.substring(0, responseCommentRestController400_description_break));
+                                $("#examples-CommentRestController-createComment-description-400").html(responseCommentRestController400_description.substring(responseCommentRestController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-CommentRestController-createComment-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-CommentRestController-createComment-400-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-CommentRestController-createComment-title-201"></h3>
                             <p id="examples-CommentRestController-createComment-description-201" class="marked"></p>
                             <script>
@@ -1528,28 +1562,6 @@ $(document).ready(function() {
 
 
                             <div class="tab-content" id="responses-CommentRestController-createComment-404-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                            <h3 id="examples-CommentRestController-createComment-title-400"></h3>
-                            <p id="examples-CommentRestController-createComment-description-400" class="marked"></p>
-                            <script>
-                              var responseCommentRestController400_description = `Invalid id supplied`;
-                              var responseCommentRestController400_description_break = responseCommentRestController400_description.indexOf('\n');
-                              if (responseCommentRestController400_description_break == -1) {
-                                $("#examples-CommentRestController-createComment-title-400").text("Status: 400 - " + responseCommentRestController400_description);
-                              } else {
-                                $("#examples-CommentRestController-createComment-title-400").text("Status: 400 - " + responseCommentRestController400_description.substring(0, responseCommentRestController400_description_break));
-                                $("#examples-CommentRestController-createComment-description-400").html(responseCommentRestController400_description.substring(responseCommentRestController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-CommentRestController-createComment-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-CommentRestController-createComment-400-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -1892,28 +1904,6 @@ pub fn main() {
                                   <input id='responses-CommentRestController-deleteComment-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
-                            <h3 id="examples-CommentRestController-deleteComment-title-404"></h3>
-                            <p id="examples-CommentRestController-deleteComment-description-404" class="marked"></p>
-                            <script>
-                              var responseCommentRestController404_description = `Comment not deleted`;
-                              var responseCommentRestController404_description_break = responseCommentRestController404_description.indexOf('\n');
-                              if (responseCommentRestController404_description_break == -1) {
-                                $("#examples-CommentRestController-deleteComment-title-404").text("Status: 404 - " + responseCommentRestController404_description);
-                              } else {
-                                $("#examples-CommentRestController-deleteComment-title-404").text("Status: 404 - " + responseCommentRestController404_description.substring(0, responseCommentRestController404_description_break));
-                                $("#examples-CommentRestController-deleteComment-description-404").html(responseCommentRestController404_description.substring(responseCommentRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-CommentRestController-deleteComment-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-CommentRestController-deleteComment-404-wrapper" style='margin-bottom: 10px;'>
-                            </div>
                             <h3 id="examples-CommentRestController-deleteComment-title-400"></h3>
                             <p id="examples-CommentRestController-deleteComment-description-400" class="marked"></p>
                             <script>
@@ -1935,6 +1925,28 @@ pub fn main() {
 
 
                             <div class="tab-content" id="responses-CommentRestController-deleteComment-400-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                            <h3 id="examples-CommentRestController-deleteComment-title-404"></h3>
+                            <p id="examples-CommentRestController-deleteComment-description-404" class="marked"></p>
+                            <script>
+                              var responseCommentRestController404_description = `Comment not deleted`;
+                              var responseCommentRestController404_description_break = responseCommentRestController404_description.indexOf('\n');
+                              if (responseCommentRestController404_description_break == -1) {
+                                $("#examples-CommentRestController-deleteComment-title-404").text("Status: 404 - " + responseCommentRestController404_description);
+                              } else {
+                                $("#examples-CommentRestController-deleteComment-title-404").text("Status: 404 - " + responseCommentRestController404_description.substring(0, responseCommentRestController404_description_break));
+                                $("#examples-CommentRestController-deleteComment-description-404").html(responseCommentRestController404_description.substring(responseCommentRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-CommentRestController-deleteComment-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-CommentRestController-deleteComment-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -2556,6 +2568,28 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-CommentRestController-getComments-title-404"></h3>
+                            <p id="examples-CommentRestController-getComments-description-404" class="marked"></p>
+                            <script>
+                              var responseCommentRestController404_description = `Comments not found`;
+                              var responseCommentRestController404_description_break = responseCommentRestController404_description.indexOf('\n');
+                              if (responseCommentRestController404_description_break == -1) {
+                                $("#examples-CommentRestController-getComments-title-404").text("Status: 404 - " + responseCommentRestController404_description);
+                              } else {
+                                $("#examples-CommentRestController-getComments-title-404").text("Status: 404 - " + responseCommentRestController404_description.substring(0, responseCommentRestController404_description_break));
+                                $("#examples-CommentRestController-getComments-description-404").html(responseCommentRestController404_description.substring(responseCommentRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-CommentRestController-getComments-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-CommentRestController-getComments-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-CommentRestController-getComments-title-200"></h3>
                             <p id="examples-CommentRestController-getComments-description-200" class="marked"></p>
                             <script>
@@ -2643,28 +2677,6 @@ pub fn main() {
 
 
                             <div class="tab-content" id="responses-CommentRestController-getComments-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                            <h3 id="examples-CommentRestController-getComments-title-404"></h3>
-                            <p id="examples-CommentRestController-getComments-description-404" class="marked"></p>
-                            <script>
-                              var responseCommentRestController404_description = `Comments not found`;
-                              var responseCommentRestController404_description_break = responseCommentRestController404_description.indexOf('\n');
-                              if (responseCommentRestController404_description_break == -1) {
-                                $("#examples-CommentRestController-getComments-title-404").text("Status: 404 - " + responseCommentRestController404_description);
-                              } else {
-                                $("#examples-CommentRestController-getComments-title-404").text("Status: 404 - " + responseCommentRestController404_description.substring(0, responseCommentRestController404_description_break));
-                                $("#examples-CommentRestController-getComments-description-404").html(responseCommentRestController404_description.substring(responseCommentRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-CommentRestController-getComments-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-CommentRestController-getComments-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -4227,6 +4239,28 @@ pub fn main() {
 
                             <div class="tab-content" id="responses-EventRestController-deleteEvent-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
+                            <h3 id="examples-EventRestController-deleteEvent-title-400"></h3>
+                            <p id="examples-EventRestController-deleteEvent-description-400" class="marked"></p>
+                            <script>
+                              var responseEventRestController400_description = `Invalid id supplied`;
+                              var responseEventRestController400_description_break = responseEventRestController400_description.indexOf('\n');
+                              if (responseEventRestController400_description_break == -1) {
+                                $("#examples-EventRestController-deleteEvent-title-400").text("Status: 400 - " + responseEventRestController400_description);
+                              } else {
+                                $("#examples-EventRestController-deleteEvent-title-400").text("Status: 400 - " + responseEventRestController400_description.substring(0, responseEventRestController400_description_break));
+                                $("#examples-EventRestController-deleteEvent-description-400").html(responseEventRestController400_description.substring(responseEventRestController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-deleteEvent-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-deleteEvent-400-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-EventRestController-deleteEvent-title-200"></h3>
                             <p id="examples-EventRestController-deleteEvent-description-200" class="marked"></p>
                             <script>
@@ -4292,28 +4326,6 @@ pub fn main() {
                                   </div>
                                   <input id='responses-EventRestController-deleteEvent-200-schema-data' type='hidden' value=''></input>
                                 </div>
-                            </div>
-                            <h3 id="examples-EventRestController-deleteEvent-title-400"></h3>
-                            <p id="examples-EventRestController-deleteEvent-description-400" class="marked"></p>
-                            <script>
-                              var responseEventRestController400_description = `Invalid id supplied`;
-                              var responseEventRestController400_description_break = responseEventRestController400_description.indexOf('\n');
-                              if (responseEventRestController400_description_break == -1) {
-                                $("#examples-EventRestController-deleteEvent-title-400").text("Status: 400 - " + responseEventRestController400_description);
-                              } else {
-                                $("#examples-EventRestController-deleteEvent-title-400").text("Status: 400 - " + responseEventRestController400_description.substring(0, responseEventRestController400_description_break));
-                                $("#examples-EventRestController-deleteEvent-description-400").html(responseEventRestController400_description.substring(responseEventRestController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-EventRestController-deleteEvent-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-EventRestController-deleteEvent-400-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -4590,6 +4602,28 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-EventRestController-deleteImage-title-404"></h3>
+                            <p id="examples-EventRestController-deleteImage-description-404" class="marked"></p>
+                            <script>
+                              var responseEventRestController404_description = `Event not deleted`;
+                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
+                              if (responseEventRestController404_description_break == -1) {
+                                $("#examples-EventRestController-deleteImage-title-404").text("Status: 404 - " + responseEventRestController404_description);
+                              } else {
+                                $("#examples-EventRestController-deleteImage-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
+                                $("#examples-EventRestController-deleteImage-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-deleteImage-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-deleteImage-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-EventRestController-deleteImage-title-200"></h3>
                             <p id="examples-EventRestController-deleteImage-description-200" class="marked"></p>
                             <script>
@@ -4655,28 +4689,6 @@ pub fn main() {
                                   </div>
                                   <input id='responses-EventRestController-deleteImage-200-schema-data' type='hidden' value=''></input>
                                 </div>
-                            </div>
-                            <h3 id="examples-EventRestController-deleteImage-title-404"></h3>
-                            <p id="examples-EventRestController-deleteImage-description-404" class="marked"></p>
-                            <script>
-                              var responseEventRestController404_description = `Event not deleted`;
-                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
-                              if (responseEventRestController404_description_break == -1) {
-                                $("#examples-EventRestController-deleteImage-title-404").text("Status: 404 - " + responseEventRestController404_description);
-                              } else {
-                                $("#examples-EventRestController-deleteImage-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
-                                $("#examples-EventRestController-deleteImage-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-EventRestController-deleteImage-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-EventRestController-deleteImage-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
                             <h3 id="examples-EventRestController-deleteImage-title-400"></h3>
                             <p id="examples-EventRestController-deleteImage-description-400" class="marked"></p>
@@ -4975,50 +4987,6 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
-                            <h3 id="examples-EventRestController-downloadImage-title-400"></h3>
-                            <p id="examples-EventRestController-downloadImage-description-400" class="marked"></p>
-                            <script>
-                              var responseEventRestController400_description = `Invalid id supplied`;
-                              var responseEventRestController400_description_break = responseEventRestController400_description.indexOf('\n');
-                              if (responseEventRestController400_description_break == -1) {
-                                $("#examples-EventRestController-downloadImage-title-400").text("Status: 400 - " + responseEventRestController400_description);
-                              } else {
-                                $("#examples-EventRestController-downloadImage-title-400").text("Status: 400 - " + responseEventRestController400_description.substring(0, responseEventRestController400_description_break));
-                                $("#examples-EventRestController-downloadImage-description-400").html(responseEventRestController400_description.substring(responseEventRestController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-EventRestController-downloadImage-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-EventRestController-downloadImage-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                            <h3 id="examples-EventRestController-downloadImage-title-404"></h3>
-                            <p id="examples-EventRestController-downloadImage-description-404" class="marked"></p>
-                            <script>
-                              var responseEventRestController404_description = `Event image not found`;
-                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
-                              if (responseEventRestController404_description_break == -1) {
-                                $("#examples-EventRestController-downloadImage-title-404").text("Status: 404 - " + responseEventRestController404_description);
-                              } else {
-                                $("#examples-EventRestController-downloadImage-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
-                                $("#examples-EventRestController-downloadImage-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-EventRestController-downloadImage-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-EventRestController-downloadImage-404-wrapper" style='margin-bottom: 10px;'>
-                            </div>
                             <h3 id="examples-EventRestController-downloadImage-title-200"></h3>
                             <p id="examples-EventRestController-downloadImage-description-200" class="marked"></p>
                             <script>
@@ -5083,6 +5051,373 @@ pub fn main() {
                                     </script>
                                   </div>
                                   <input id='responses-EventRestController-downloadImage-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-EventRestController-downloadImage-title-400"></h3>
+                            <p id="examples-EventRestController-downloadImage-description-400" class="marked"></p>
+                            <script>
+                              var responseEventRestController400_description = `Invalid id supplied`;
+                              var responseEventRestController400_description_break = responseEventRestController400_description.indexOf('\n');
+                              if (responseEventRestController400_description_break == -1) {
+                                $("#examples-EventRestController-downloadImage-title-400").text("Status: 400 - " + responseEventRestController400_description);
+                              } else {
+                                $("#examples-EventRestController-downloadImage-title-400").text("Status: 400 - " + responseEventRestController400_description.substring(0, responseEventRestController400_description_break));
+                                $("#examples-EventRestController-downloadImage-description-400").html(responseEventRestController400_description.substring(responseEventRestController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-downloadImage-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-downloadImage-400-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                            <h3 id="examples-EventRestController-downloadImage-title-404"></h3>
+                            <p id="examples-EventRestController-downloadImage-description-404" class="marked"></p>
+                            <script>
+                              var responseEventRestController404_description = `Event image not found`;
+                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
+                              if (responseEventRestController404_description_break == -1) {
+                                $("#examples-EventRestController-downloadImage-title-404").text("Status: 404 - " + responseEventRestController404_description);
+                              } else {
+                                $("#examples-EventRestController-downloadImage-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
+                                $("#examples-EventRestController-downloadImage-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-downloadImage-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-downloadImage-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-EventRestController-getArtEvents">
+                      <article id="api-EventRestController-getArtEvents-0" data-group="User" data-name="getArtEvents" data-version="0">
+                        <div class="pull-left">
+                          <h1>getArtEvents</h1>
+                          <p>Get number Art events </p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/events/art</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-EventRestController-getArtEvents-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getArtEvents-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EventRestController-getArtEvents-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getArtEvents-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getArtEvents-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-EventRestController-getArtEvents-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getArtEvents-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getArtEvents-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-EventRestController-getArtEvents-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-EventRestController-getArtEvents-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getArtEvents-0-python">Python</a></li>
+                          <li class=""><a href="#examples-EventRestController-getArtEvents-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-EventRestController-getArtEvents-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "http://localhost:8443/api/events/art"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.EventRestControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+
+        try {
+            Event result = apiInstance.getArtEvents();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getArtEvents");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.EventRestControllerApi;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+
+        try {
+            Event result = apiInstance.getArtEvents();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getArtEvents");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+EventRestControllerApi *apiInstance = [[EventRestControllerApi alloc] init];
+
+// Get number Art events 
+[apiInstance getArtEventsWithCompletionHandler: 
+              ^(Event output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
+
+// Create an instance of the API class
+var api = new OpenApiDefinition.EventRestControllerApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getArtEvents(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-EventRestController-getArtEvents-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getArtEventsExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new EventRestControllerApi();
+
+            try {
+                // Get number Art events 
+                Event result = apiInstance.getArtEvents();
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling EventRestControllerApi.getArtEvents: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\EventRestControllerApi();
+
+try {
+    $result = $api_instance->getArtEvents();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EventRestControllerApi->getArtEvents: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::EventRestControllerApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::EventRestControllerApi->new();
+
+eval {
+    my $result = $api_instance->getArtEvents();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling EventRestControllerApi->getArtEvents: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.EventRestControllerApi()
+
+try:
+    # Get number Art events 
+    api_response = api_instance.get_art_events()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventRestControllerApi->getArtEvents: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getArtEvents-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate EventRestControllerApi;
+
+pub fn main() {
+
+    let mut context = EventRestControllerApi::Context::default();
+    let result = client.getArtEvents(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-EventRestController-getArtEvents-title-404"></h3>
+                            <p id="examples-EventRestController-getArtEvents-description-404" class="marked"></p>
+                            <script>
+                              var responseEventRestController404_description = `Art events not found`;
+                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
+                              if (responseEventRestController404_description_break == -1) {
+                                $("#examples-EventRestController-getArtEvents-title-404").text("Status: 404 - " + responseEventRestController404_description);
+                              } else {
+                                $("#examples-EventRestController-getArtEvents-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
+                                $("#examples-EventRestController-getArtEvents-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getArtEvents-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getArtEvents-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                            <h3 id="examples-EventRestController-getArtEvents-title-200"></h3>
+                            <p id="examples-EventRestController-getArtEvents-description-200" class="marked"></p>
+                            <script>
+                              var responseEventRestController200_description = `Found Art events`;
+                              var responseEventRestController200_description_break = responseEventRestController200_description.indexOf('\n');
+                              if (responseEventRestController200_description_break == -1) {
+                                $("#examples-EventRestController-getArtEvents-title-200").text("Status: 200 - " + responseEventRestController200_description);
+                              } else {
+                                $("#examples-EventRestController-getArtEvents-title-200").text("Status: 200 - " + responseEventRestController200_description.substring(0, responseEventRestController200_description_break));
+                                $("#examples-EventRestController-getArtEvents-description-200").html(responseEventRestController200_description.substring(responseEventRestController200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getArtEvents-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-EventRestController-getArtEvents-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getArtEvents-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-EventRestController-getArtEvents-200-schema">
+                                  <div id="responses-EventRestController-getArtEvents-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Found Art events",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Event"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-EventRestController-getArtEvents-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-EventRestController-getArtEvents-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-EventRestController-getArtEvents-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>
@@ -5705,6 +6040,28 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-EventRestController-getEvents-title-404"></h3>
+                            <p id="examples-EventRestController-getEvents-description-404" class="marked"></p>
+                            <script>
+                              var responseEventRestController404_description = `Events not found`;
+                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
+                              if (responseEventRestController404_description_break == -1) {
+                                $("#examples-EventRestController-getEvents-title-404").text("Status: 404 - " + responseEventRestController404_description);
+                              } else {
+                                $("#examples-EventRestController-getEvents-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
+                                $("#examples-EventRestController-getEvents-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getEvents-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getEvents-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-EventRestController-getEvents-title-200"></h3>
                             <p id="examples-EventRestController-getEvents-description-200" class="marked"></p>
                             <script>
@@ -5771,28 +6128,6 @@ pub fn main() {
                                   <input id='responses-EventRestController-getEvents-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
-                            <h3 id="examples-EventRestController-getEvents-title-404"></h3>
-                            <p id="examples-EventRestController-getEvents-description-404" class="marked"></p>
-                            <script>
-                              var responseEventRestController404_description = `Events not found`;
-                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
-                              if (responseEventRestController404_description_break == -1) {
-                                $("#examples-EventRestController-getEvents-title-404").text("Status: 404 - " + responseEventRestController404_description);
-                              } else {
-                                $("#examples-EventRestController-getEvents-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
-                                $("#examples-EventRestController-getEvents-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-EventRestController-getEvents-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-EventRestController-getEvents-404-wrapper" style='margin-bottom: 10px;'>
-                            </div>
                             <h3 id="examples-EventRestController-getEvents-title-400"></h3>
                             <p id="examples-EventRestController-getEvents-description-400" class="marked"></p>
                             <script>
@@ -5814,6 +6149,1338 @@ pub fn main() {
 
 
                             <div class="tab-content" id="responses-EventRestController-getEvents-400-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-EventRestController-getHelthEvents">
+                      <article id="api-EventRestController-getHelthEvents-0" data-group="User" data-name="getHelthEvents" data-version="0">
+                        <div class="pull-left">
+                          <h1>getHelthEvents</h1>
+                          <p>Get number Helth events </p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/events/helth</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-EventRestController-getHelthEvents-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHelthEvents-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHelthEvents-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getHelthEvents-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getHelthEvents-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHelthEvents-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getHelthEvents-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getHelthEvents-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHelthEvents-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHelthEvents-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHelthEvents-0-python">Python</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHelthEvents-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-EventRestController-getHelthEvents-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "http://localhost:8443/api/events/helth"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.EventRestControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+
+        try {
+            Event result = apiInstance.getHelthEvents();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getHelthEvents");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.EventRestControllerApi;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+
+        try {
+            Event result = apiInstance.getHelthEvents();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getHelthEvents");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+EventRestControllerApi *apiInstance = [[EventRestControllerApi alloc] init];
+
+// Get number Helth events 
+[apiInstance getHelthEventsWithCompletionHandler: 
+              ^(Event output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
+
+// Create an instance of the API class
+var api = new OpenApiDefinition.EventRestControllerApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getHelthEvents(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getHelthEventsExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new EventRestControllerApi();
+
+            try {
+                // Get number Helth events 
+                Event result = apiInstance.getHelthEvents();
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling EventRestControllerApi.getHelthEvents: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\EventRestControllerApi();
+
+try {
+    $result = $api_instance->getHelthEvents();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EventRestControllerApi->getHelthEvents: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::EventRestControllerApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::EventRestControllerApi->new();
+
+eval {
+    my $result = $api_instance->getHelthEvents();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling EventRestControllerApi->getHelthEvents: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.EventRestControllerApi()
+
+try:
+    # Get number Helth events 
+    api_response = api_instance.get_helth_events()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventRestControllerApi->getHelthEvents: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHelthEvents-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate EventRestControllerApi;
+
+pub fn main() {
+
+    let mut context = EventRestControllerApi::Context::default();
+    let result = client.getHelthEvents(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-EventRestController-getHelthEvents-title-404"></h3>
+                            <p id="examples-EventRestController-getHelthEvents-description-404" class="marked"></p>
+                            <script>
+                              var responseEventRestController404_description = `Helth events not found`;
+                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
+                              if (responseEventRestController404_description_break == -1) {
+                                $("#examples-EventRestController-getHelthEvents-title-404").text("Status: 404 - " + responseEventRestController404_description);
+                              } else {
+                                $("#examples-EventRestController-getHelthEvents-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
+                                $("#examples-EventRestController-getHelthEvents-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getHelthEvents-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getHelthEvents-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                            <h3 id="examples-EventRestController-getHelthEvents-title-200"></h3>
+                            <p id="examples-EventRestController-getHelthEvents-description-200" class="marked"></p>
+                            <script>
+                              var responseEventRestController200_description = `Found Helth events`;
+                              var responseEventRestController200_description_break = responseEventRestController200_description.indexOf('\n');
+                              if (responseEventRestController200_description_break == -1) {
+                                $("#examples-EventRestController-getHelthEvents-title-200").text("Status: 200 - " + responseEventRestController200_description);
+                              } else {
+                                $("#examples-EventRestController-getHelthEvents-title-200").text("Status: 200 - " + responseEventRestController200_description.substring(0, responseEventRestController200_description_break));
+                                $("#examples-EventRestController-getHelthEvents-description-200").html(responseEventRestController200_description.substring(responseEventRestController200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getHelthEvents-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-EventRestController-getHelthEvents-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getHelthEvents-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-EventRestController-getHelthEvents-200-schema">
+                                  <div id="responses-EventRestController-getHelthEvents-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Found Helth events",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Event"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-EventRestController-getHelthEvents-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-EventRestController-getHelthEvents-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-EventRestController-getHelthEvents-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-EventRestController-getHumanEvents">
+                      <article id="api-EventRestController-getHumanEvents-0" data-group="User" data-name="getHumanEvents" data-version="0">
+                        <div class="pull-left">
+                          <h1>getHumanEvents</h1>
+                          <p>Get number Human events </p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/events/human</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-EventRestController-getHumanEvents-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHumanEvents-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHumanEvents-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getHumanEvents-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getHumanEvents-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHumanEvents-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getHumanEvents-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getHumanEvents-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHumanEvents-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHumanEvents-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHumanEvents-0-python">Python</a></li>
+                          <li class=""><a href="#examples-EventRestController-getHumanEvents-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-EventRestController-getHumanEvents-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "http://localhost:8443/api/events/human"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.EventRestControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+
+        try {
+            Event result = apiInstance.getHumanEvents();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getHumanEvents");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.EventRestControllerApi;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+
+        try {
+            Event result = apiInstance.getHumanEvents();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getHumanEvents");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+EventRestControllerApi *apiInstance = [[EventRestControllerApi alloc] init];
+
+// Get number Human events 
+[apiInstance getHumanEventsWithCompletionHandler: 
+              ^(Event output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
+
+// Create an instance of the API class
+var api = new OpenApiDefinition.EventRestControllerApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getHumanEvents(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getHumanEventsExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new EventRestControllerApi();
+
+            try {
+                // Get number Human events 
+                Event result = apiInstance.getHumanEvents();
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling EventRestControllerApi.getHumanEvents: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\EventRestControllerApi();
+
+try {
+    $result = $api_instance->getHumanEvents();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EventRestControllerApi->getHumanEvents: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::EventRestControllerApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::EventRestControllerApi->new();
+
+eval {
+    my $result = $api_instance->getHumanEvents();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling EventRestControllerApi->getHumanEvents: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.EventRestControllerApi()
+
+try:
+    # Get number Human events 
+    api_response = api_instance.get_human_events()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventRestControllerApi->getHumanEvents: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getHumanEvents-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate EventRestControllerApi;
+
+pub fn main() {
+
+    let mut context = EventRestControllerApi::Context::default();
+    let result = client.getHumanEvents(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-EventRestController-getHumanEvents-title-200"></h3>
+                            <p id="examples-EventRestController-getHumanEvents-description-200" class="marked"></p>
+                            <script>
+                              var responseEventRestController200_description = `Found Human events`;
+                              var responseEventRestController200_description_break = responseEventRestController200_description.indexOf('\n');
+                              if (responseEventRestController200_description_break == -1) {
+                                $("#examples-EventRestController-getHumanEvents-title-200").text("Status: 200 - " + responseEventRestController200_description);
+                              } else {
+                                $("#examples-EventRestController-getHumanEvents-title-200").text("Status: 200 - " + responseEventRestController200_description.substring(0, responseEventRestController200_description_break));
+                                $("#examples-EventRestController-getHumanEvents-description-200").html(responseEventRestController200_description.substring(responseEventRestController200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getHumanEvents-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-EventRestController-getHumanEvents-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getHumanEvents-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-EventRestController-getHumanEvents-200-schema">
+                                  <div id="responses-EventRestController-getHumanEvents-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Found Human events",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Event"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-EventRestController-getHumanEvents-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-EventRestController-getHumanEvents-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-EventRestController-getHumanEvents-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-EventRestController-getHumanEvents-title-404"></h3>
+                            <p id="examples-EventRestController-getHumanEvents-description-404" class="marked"></p>
+                            <script>
+                              var responseEventRestController404_description = `Human events not found`;
+                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
+                              if (responseEventRestController404_description_break == -1) {
+                                $("#examples-EventRestController-getHumanEvents-title-404").text("Status: 404 - " + responseEventRestController404_description);
+                              } else {
+                                $("#examples-EventRestController-getHumanEvents-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
+                                $("#examples-EventRestController-getHumanEvents-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getHumanEvents-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getHumanEvents-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-EventRestController-getRecommendedEventsForUser">
+                      <article id="api-EventRestController-getRecommendedEventsForUser-0" data-group="User" data-name="getRecommendedEventsForUser" data-version="0">
+                        <div class="pull-left">
+                          <h1>getRecommendedEventsForUser</h1>
+                          <p>Get recommended events for a user</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/events/{id}/recommendation</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-EventRestController-getRecommendedEventsForUser-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-python">Python</a></li>
+                          <li class=""><a href="#examples-EventRestController-getRecommendedEventsForUser-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-EventRestController-getRecommendedEventsForUser-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "http://localhost:8443/api/events/{id}/recommendation"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.EventRestControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+        Long id = 789; // Long | 
+
+        try {
+            Event result = apiInstance.getRecommendedEventsForUser(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getRecommendedEventsForUser");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.EventRestControllerApi;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+        Long id = 789; // Long | 
+
+        try {
+            Event result = apiInstance.getRecommendedEventsForUser(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getRecommendedEventsForUser");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+EventRestControllerApi *apiInstance = [[EventRestControllerApi alloc] init];
+Long *id = 789; //  (default to null)
+
+// Get recommended events for a user
+[apiInstance getRecommendedEventsForUserWith:id
+              completionHandler: ^(Event output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
+
+// Create an instance of the API class
+var api = new OpenApiDefinition.EventRestControllerApi()
+var id = 789; // {Long} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getRecommendedEventsForUser(id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getRecommendedEventsForUserExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new EventRestControllerApi();
+            var id = 789;  // Long |  (default to null)
+
+            try {
+                // Get recommended events for a user
+                Event result = apiInstance.getRecommendedEventsForUser(id);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling EventRestControllerApi.getRecommendedEventsForUser: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\EventRestControllerApi();
+$id = 789; // Long | 
+
+try {
+    $result = $api_instance->getRecommendedEventsForUser($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EventRestControllerApi->getRecommendedEventsForUser: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::EventRestControllerApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::EventRestControllerApi->new();
+my $id = 789; # Long | 
+
+eval {
+    my $result = $api_instance->getRecommendedEventsForUser(id => $id);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling EventRestControllerApi->getRecommendedEventsForUser: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.EventRestControllerApi()
+id = 789 # Long |  (default to null)
+
+try:
+    # Get recommended events for a user
+    api_response = api_instance.get_recommended_events_for_user(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventRestControllerApi->getRecommendedEventsForUser: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getRecommendedEventsForUser-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate EventRestControllerApi;
+
+pub fn main() {
+    let id = 789; // Long
+
+    let mut context = EventRestControllerApi::Context::default();
+    let result = client.getRecommendedEventsForUser(id, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+<td>
+
+
+    <div id="d2e199_getRecommendedEventsForUser_id">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Long
+                </span>
+                    <span class="format">
+                        (int64)
+                    </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-EventRestController-getRecommendedEventsForUser-title-404"></h3>
+                            <p id="examples-EventRestController-getRecommendedEventsForUser-description-404" class="marked"></p>
+                            <script>
+                              var responseEventRestController404_description = `Recommended events not found`;
+                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
+                              if (responseEventRestController404_description_break == -1) {
+                                $("#examples-EventRestController-getRecommendedEventsForUser-title-404").text("Status: 404 - " + responseEventRestController404_description);
+                              } else {
+                                $("#examples-EventRestController-getRecommendedEventsForUser-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
+                                $("#examples-EventRestController-getRecommendedEventsForUser-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getRecommendedEventsForUser-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getRecommendedEventsForUser-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                            <h3 id="examples-EventRestController-getRecommendedEventsForUser-title-200"></h3>
+                            <p id="examples-EventRestController-getRecommendedEventsForUser-description-200" class="marked"></p>
+                            <script>
+                              var responseEventRestController200_description = `Found recommended events`;
+                              var responseEventRestController200_description_break = responseEventRestController200_description.indexOf('\n');
+                              if (responseEventRestController200_description_break == -1) {
+                                $("#examples-EventRestController-getRecommendedEventsForUser-title-200").text("Status: 200 - " + responseEventRestController200_description);
+                              } else {
+                                $("#examples-EventRestController-getRecommendedEventsForUser-title-200").text("Status: 200 - " + responseEventRestController200_description.substring(0, responseEventRestController200_description_break));
+                                $("#examples-EventRestController-getRecommendedEventsForUser-description-200").html(responseEventRestController200_description.substring(responseEventRestController200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getRecommendedEventsForUser-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-EventRestController-getRecommendedEventsForUser-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getRecommendedEventsForUser-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-EventRestController-getRecommendedEventsForUser-200-schema">
+                                  <div id="responses-EventRestController-getRecommendedEventsForUser-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Found recommended events",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Event"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-EventRestController-getRecommendedEventsForUser-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-EventRestController-getRecommendedEventsForUser-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-EventRestController-getRecommendedEventsForUser-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-EventRestController-getTecnologyEvents">
+                      <article id="api-EventRestController-getTecnologyEvents-0" data-group="User" data-name="getTecnologyEvents" data-version="0">
+                        <div class="pull-left">
+                          <h1>getTecnologyEvents</h1>
+                          <p>Get number tecnology events </p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/events/tecnology</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-EventRestController-getTecnologyEvents-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-python">Python</a></li>
+                          <li class=""><a href="#examples-EventRestController-getTecnologyEvents-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-EventRestController-getTecnologyEvents-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "http://localhost:8443/api/events/tecnology"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.EventRestControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+
+        try {
+            Event result = apiInstance.getTecnologyEvents();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getTecnologyEvents");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.EventRestControllerApi;
+
+public class EventRestControllerApiExample {
+    public static void main(String[] args) {
+        EventRestControllerApi apiInstance = new EventRestControllerApi();
+
+        try {
+            Event result = apiInstance.getTecnologyEvents();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EventRestControllerApi#getTecnologyEvents");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+EventRestControllerApi *apiInstance = [[EventRestControllerApi alloc] init];
+
+// Get number tecnology events 
+[apiInstance getTecnologyEventsWithCompletionHandler: 
+              ^(Event output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
+
+// Create an instance of the API class
+var api = new OpenApiDefinition.EventRestControllerApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getTecnologyEvents(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getTecnologyEventsExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new EventRestControllerApi();
+
+            try {
+                // Get number tecnology events 
+                Event result = apiInstance.getTecnologyEvents();
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling EventRestControllerApi.getTecnologyEvents: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\EventRestControllerApi();
+
+try {
+    $result = $api_instance->getTecnologyEvents();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EventRestControllerApi->getTecnologyEvents: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::EventRestControllerApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::EventRestControllerApi->new();
+
+eval {
+    my $result = $api_instance->getTecnologyEvents();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling EventRestControllerApi->getTecnologyEvents: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.EventRestControllerApi()
+
+try:
+    # Get number tecnology events 
+    api_response = api_instance.get_tecnology_events()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventRestControllerApi->getTecnologyEvents: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-EventRestController-getTecnologyEvents-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate EventRestControllerApi;
+
+pub fn main() {
+
+    let mut context = EventRestControllerApi::Context::default();
+    let result = client.getTecnologyEvents(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-EventRestController-getTecnologyEvents-title-200"></h3>
+                            <p id="examples-EventRestController-getTecnologyEvents-description-200" class="marked"></p>
+                            <script>
+                              var responseEventRestController200_description = `Found tecnology events`;
+                              var responseEventRestController200_description_break = responseEventRestController200_description.indexOf('\n');
+                              if (responseEventRestController200_description_break == -1) {
+                                $("#examples-EventRestController-getTecnologyEvents-title-200").text("Status: 200 - " + responseEventRestController200_description);
+                              } else {
+                                $("#examples-EventRestController-getTecnologyEvents-title-200").text("Status: 200 - " + responseEventRestController200_description.substring(0, responseEventRestController200_description_break));
+                                $("#examples-EventRestController-getTecnologyEvents-description-200").html(responseEventRestController200_description.substring(responseEventRestController200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getTecnologyEvents-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-EventRestController-getTecnologyEvents-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getTecnologyEvents-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-EventRestController-getTecnologyEvents-200-schema">
+                                  <div id="responses-EventRestController-getTecnologyEvents-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Found tecnology events",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Event"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-EventRestController-getTecnologyEvents-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-EventRestController-getTecnologyEvents-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-EventRestController-getTecnologyEvents-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-EventRestController-getTecnologyEvents-title-404"></h3>
+                            <p id="examples-EventRestController-getTecnologyEvents-description-404" class="marked"></p>
+                            <script>
+                              var responseEventRestController404_description = `tecnology events not found`;
+                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
+                              if (responseEventRestController404_description_break == -1) {
+                                $("#examples-EventRestController-getTecnologyEvents-title-404").text("Status: 404 - " + responseEventRestController404_description);
+                              } else {
+                                $("#examples-EventRestController-getTecnologyEvents-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
+                                $("#examples-EventRestController-getTecnologyEvents-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-getTecnologyEvents-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-getTecnologyEvents-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -6182,6 +7849,28 @@ $(document).ready(function() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-EventRestController-updateEvent-title-404"></h3>
+                            <p id="examples-EventRestController-updateEvent-description-404" class="marked"></p>
+                            <script>
+                              var responseEventRestController404_description = `Event not update`;
+                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
+                              if (responseEventRestController404_description_break == -1) {
+                                $("#examples-EventRestController-updateEvent-title-404").text("Status: 404 - " + responseEventRestController404_description);
+                              } else {
+                                $("#examples-EventRestController-updateEvent-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
+                                $("#examples-EventRestController-updateEvent-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-updateEvent-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-updateEvent-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-EventRestController-updateEvent-title-200"></h3>
                             <p id="examples-EventRestController-updateEvent-description-200" class="marked"></p>
                             <script>
@@ -6247,28 +7936,6 @@ $(document).ready(function() {
                                   </div>
                                   <input id='responses-EventRestController-updateEvent-200-schema-data' type='hidden' value=''></input>
                                 </div>
-                            </div>
-                            <h3 id="examples-EventRestController-updateEvent-title-404"></h3>
-                            <p id="examples-EventRestController-updateEvent-description-404" class="marked"></p>
-                            <script>
-                              var responseEventRestController404_description = `Event not update`;
-                              var responseEventRestController404_description_break = responseEventRestController404_description.indexOf('\n');
-                              if (responseEventRestController404_description_break == -1) {
-                                $("#examples-EventRestController-updateEvent-title-404").text("Status: 404 - " + responseEventRestController404_description);
-                              } else {
-                                $("#examples-EventRestController-updateEvent-title-404").text("Status: 404 - " + responseEventRestController404_description.substring(0, responseEventRestController404_description_break));
-                                $("#examples-EventRestController-updateEvent-description-404").html(responseEventRestController404_description.substring(responseEventRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-EventRestController-updateEvent-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-EventRestController-updateEvent-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
                             <h3 id="examples-EventRestController-updateEvent-title-400"></h3>
                             <p id="examples-EventRestController-updateEvent-description-400" class="marked"></p>
@@ -7092,28 +8759,6 @@ $(document).ready(function() {
 
                             <div class="tab-content" id="responses-EventRestController-uploadEventImage-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
-                            <h3 id="examples-EventRestController-uploadEventImage-title-400"></h3>
-                            <p id="examples-EventRestController-uploadEventImage-description-400" class="marked"></p>
-                            <script>
-                              var responseEventRestController400_description = `Invalid id supplied`;
-                              var responseEventRestController400_description_break = responseEventRestController400_description.indexOf('\n');
-                              if (responseEventRestController400_description_break == -1) {
-                                $("#examples-EventRestController-uploadEventImage-title-400").text("Status: 400 - " + responseEventRestController400_description);
-                              } else {
-                                $("#examples-EventRestController-uploadEventImage-title-400").text("Status: 400 - " + responseEventRestController400_description.substring(0, responseEventRestController400_description_break));
-                                $("#examples-EventRestController-uploadEventImage-description-400").html(responseEventRestController400_description.substring(responseEventRestController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-EventRestController-uploadEventImage-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-EventRestController-uploadEventImage-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
                             <h3 id="examples-EventRestController-uploadEventImage-title-200"></h3>
                             <p id="examples-EventRestController-uploadEventImage-description-200" class="marked"></p>
                             <script>
@@ -7179,6 +8824,28 @@ $(document).ready(function() {
                                   </div>
                                   <input id='responses-EventRestController-uploadEventImage-200-schema-data' type='hidden' value=''></input>
                                 </div>
+                            </div>
+                            <h3 id="examples-EventRestController-uploadEventImage-title-400"></h3>
+                            <p id="examples-EventRestController-uploadEventImage-description-400" class="marked"></p>
+                            <script>
+                              var responseEventRestController400_description = `Invalid id supplied`;
+                              var responseEventRestController400_description_break = responseEventRestController400_description.indexOf('\n');
+                              if (responseEventRestController400_description_break == -1) {
+                                $("#examples-EventRestController-uploadEventImage-title-400").text("Status: 400 - " + responseEventRestController400_description);
+                              } else {
+                                $("#examples-EventRestController-uploadEventImage-title-400").text("Status: 400 - " + responseEventRestController400_description.substring(0, responseEventRestController400_description_break));
+                                $("#examples-EventRestController-uploadEventImage-description-400").html(responseEventRestController400_description.substring(responseEventRestController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-EventRestController-uploadEventImage-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-EventRestController-uploadEventImage-400-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -7846,28 +9513,6 @@ $(document).ready(function() {
 
 
                           <h2>Responses</h2>
-                            <h3 id="examples-LoginController-login-title-400"></h3>
-                            <p id="examples-LoginController-login-description-400" class="marked"></p>
-                            <script>
-                              var responseLoginController400_description = `Invalid ids supplied`;
-                              var responseLoginController400_description_break = responseLoginController400_description.indexOf('\n');
-                              if (responseLoginController400_description_break == -1) {
-                                $("#examples-LoginController-login-title-400").text("Status: 400 - " + responseLoginController400_description);
-                              } else {
-                                $("#examples-LoginController-login-title-400").text("Status: 400 - " + responseLoginController400_description.substring(0, responseLoginController400_description_break));
-                                $("#examples-LoginController-login-description-400").html(responseLoginController400_description.substring(responseLoginController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-LoginController-login-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-LoginController-login-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
                             <h3 id="examples-LoginController-login-title-200"></h3>
                             <p id="examples-LoginController-login-description-200" class="marked"></p>
                             <script>
@@ -7933,6 +9578,28 @@ $(document).ready(function() {
                                   </div>
                                   <input id='responses-LoginController-login-200-schema-data' type='hidden' value=''></input>
                                 </div>
+                            </div>
+                            <h3 id="examples-LoginController-login-title-400"></h3>
+                            <p id="examples-LoginController-login-description-400" class="marked"></p>
+                            <script>
+                              var responseLoginController400_description = `Invalid ids supplied`;
+                              var responseLoginController400_description_break = responseLoginController400_description.indexOf('\n');
+                              if (responseLoginController400_description_break == -1) {
+                                $("#examples-LoginController-login-title-400").text("Status: 400 - " + responseLoginController400_description);
+                              } else {
+                                $("#examples-LoginController-login-title-400").text("Status: 400 - " + responseLoginController400_description.substring(0, responseLoginController400_description_break));
+                                $("#examples-LoginController-login-description-400").html(responseLoginController400_description.substring(responseLoginController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-LoginController-login-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-LoginController-login-400-wrapper" style='margin-bottom: 10px;'>
                             </div>
                             <h3 id="examples-LoginController-login-title-404"></h3>
                             <p id="examples-LoginController-login-description-404" class="marked"></p>
@@ -9407,6 +11074,28 @@ pub fn main() {
 
                             <div class="tab-content" id="responses-TicketRestController-getTicketById-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
+                            <h3 id="examples-TicketRestController-getTicketById-title-400"></h3>
+                            <p id="examples-TicketRestController-getTicketById-description-400" class="marked"></p>
+                            <script>
+                              var responseTicketRestController400_description = `Invalid id supplied`;
+                              var responseTicketRestController400_description_break = responseTicketRestController400_description.indexOf('\n');
+                              if (responseTicketRestController400_description_break == -1) {
+                                $("#examples-TicketRestController-getTicketById-title-400").text("Status: 400 - " + responseTicketRestController400_description);
+                              } else {
+                                $("#examples-TicketRestController-getTicketById-title-400").text("Status: 400 - " + responseTicketRestController400_description.substring(0, responseTicketRestController400_description_break));
+                                $("#examples-TicketRestController-getTicketById-description-400").html(responseTicketRestController400_description.substring(responseTicketRestController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-TicketRestController-getTicketById-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-TicketRestController-getTicketById-400-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-TicketRestController-getTicketById-title-200"></h3>
                             <p id="examples-TicketRestController-getTicketById-description-200" class="marked"></p>
                             <script>
@@ -9472,28 +11161,6 @@ pub fn main() {
                                   </div>
                                   <input id='responses-TicketRestController-getTicketById-200-schema-data' type='hidden' value=''></input>
                                 </div>
-                            </div>
-                            <h3 id="examples-TicketRestController-getTicketById-title-400"></h3>
-                            <p id="examples-TicketRestController-getTicketById-description-400" class="marked"></p>
-                            <script>
-                              var responseTicketRestController400_description = `Invalid id supplied`;
-                              var responseTicketRestController400_description_break = responseTicketRestController400_description.indexOf('\n');
-                              if (responseTicketRestController400_description_break == -1) {
-                                $("#examples-TicketRestController-getTicketById-title-400").text("Status: 400 - " + responseTicketRestController400_description);
-                              } else {
-                                $("#examples-TicketRestController-getTicketById-title-400").text("Status: 400 - " + responseTicketRestController400_description.substring(0, responseTicketRestController400_description_break));
-                                $("#examples-TicketRestController-getTicketById-description-400").html(responseTicketRestController400_description.substring(responseTicketRestController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-TicketRestController-getTicketById-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-TicketRestController-getTicketById-400-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -10179,6 +11846,50 @@ $(document).ready(function() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-TicketRestController-updateTicket-title-404"></h3>
+                            <p id="examples-TicketRestController-updateTicket-description-404" class="marked"></p>
+                            <script>
+                              var responseTicketRestController404_description = `Ticket not update`;
+                              var responseTicketRestController404_description_break = responseTicketRestController404_description.indexOf('\n');
+                              if (responseTicketRestController404_description_break == -1) {
+                                $("#examples-TicketRestController-updateTicket-title-404").text("Status: 404 - " + responseTicketRestController404_description);
+                              } else {
+                                $("#examples-TicketRestController-updateTicket-title-404").text("Status: 404 - " + responseTicketRestController404_description.substring(0, responseTicketRestController404_description_break));
+                                $("#examples-TicketRestController-updateTicket-description-404").html(responseTicketRestController404_description.substring(responseTicketRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-TicketRestController-updateTicket-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-TicketRestController-updateTicket-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                            <h3 id="examples-TicketRestController-updateTicket-title-400"></h3>
+                            <p id="examples-TicketRestController-updateTicket-description-400" class="marked"></p>
+                            <script>
+                              var responseTicketRestController400_description = `Invalid id supplied`;
+                              var responseTicketRestController400_description_break = responseTicketRestController400_description.indexOf('\n');
+                              if (responseTicketRestController400_description_break == -1) {
+                                $("#examples-TicketRestController-updateTicket-title-400").text("Status: 400 - " + responseTicketRestController400_description);
+                              } else {
+                                $("#examples-TicketRestController-updateTicket-title-400").text("Status: 400 - " + responseTicketRestController400_description.substring(0, responseTicketRestController400_description_break));
+                                $("#examples-TicketRestController-updateTicket-description-400").html(responseTicketRestController400_description.substring(responseTicketRestController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-TicketRestController-updateTicket-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-TicketRestController-updateTicket-400-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-TicketRestController-updateTicket-title-200"></h3>
                             <p id="examples-TicketRestController-updateTicket-description-200" class="marked"></p>
                             <script>
@@ -10245,50 +11956,6 @@ $(document).ready(function() {
                                   <input id='responses-TicketRestController-updateTicket-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
-                            <h3 id="examples-TicketRestController-updateTicket-title-404"></h3>
-                            <p id="examples-TicketRestController-updateTicket-description-404" class="marked"></p>
-                            <script>
-                              var responseTicketRestController404_description = `Ticket not update`;
-                              var responseTicketRestController404_description_break = responseTicketRestController404_description.indexOf('\n');
-                              if (responseTicketRestController404_description_break == -1) {
-                                $("#examples-TicketRestController-updateTicket-title-404").text("Status: 404 - " + responseTicketRestController404_description);
-                              } else {
-                                $("#examples-TicketRestController-updateTicket-title-404").text("Status: 404 - " + responseTicketRestController404_description.substring(0, responseTicketRestController404_description_break));
-                                $("#examples-TicketRestController-updateTicket-description-404").html(responseTicketRestController404_description.substring(responseTicketRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-TicketRestController-updateTicket-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-TicketRestController-updateTicket-404-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                            <h3 id="examples-TicketRestController-updateTicket-title-400"></h3>
-                            <p id="examples-TicketRestController-updateTicket-description-400" class="marked"></p>
-                            <script>
-                              var responseTicketRestController400_description = `Invalid id supplied`;
-                              var responseTicketRestController400_description_break = responseTicketRestController400_description.indexOf('\n');
-                              if (responseTicketRestController400_description_break == -1) {
-                                $("#examples-TicketRestController-updateTicket-title-400").text("Status: 400 - " + responseTicketRestController400_description);
-                              } else {
-                                $("#examples-TicketRestController-updateTicket-title-400").text("Status: 400 - " + responseTicketRestController400_description.substring(0, responseTicketRestController400_description_break));
-                                $("#examples-TicketRestController-updateTicket-description-400").html(responseTicketRestController400_description.substring(responseTicketRestController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-TicketRestController-updateTicket-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-TicketRestController-updateTicket-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
                         </article>
                       </div>
                       <hr>
@@ -10337,7 +12004,6 @@ $(document).ready(function() {
   &quot;editor&quot; : true,
   &quot;phone&quot; : 6,
   &quot;surname&quot; : &quot;surname&quot;,
-  &quot;encodedPassword&quot; : &quot;encodedPassword&quot;,
   &quot;roles&quot; : [ &quot;roles&quot;, &quot;roles&quot; ],
   &quot;studyCenter&quot; : &quot;studyCenter&quot;,
   &quot;name&quot; : &quot;name&quot;,
@@ -10665,6 +12331,28 @@ $(document).ready(function() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-UserRestController-createUser-title-404"></h3>
+                            <p id="examples-UserRestController-createUser-description-404" class="marked"></p>
+                            <script>
+                              var responseUserRestController404_description = `User not found`;
+                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
+                              if (responseUserRestController404_description_break == -1) {
+                                $("#examples-UserRestController-createUser-title-404").text("Status: 404 - " + responseUserRestController404_description);
+                              } else {
+                                $("#examples-UserRestController-createUser-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
+                                $("#examples-UserRestController-createUser-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-UserRestController-createUser-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-UserRestController-createUser-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-UserRestController-createUser-title-200"></h3>
                             <p id="examples-UserRestController-createUser-description-200" class="marked"></p>
                             <script>
@@ -10752,28 +12440,6 @@ $(document).ready(function() {
 
 
                             <div class="tab-content" id="responses-UserRestController-createUser-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                            <h3 id="examples-UserRestController-createUser-title-404"></h3>
-                            <p id="examples-UserRestController-createUser-description-404" class="marked"></p>
-                            <script>
-                              var responseUserRestController404_description = `User not found`;
-                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
-                              if (responseUserRestController404_description_break == -1) {
-                                $("#examples-UserRestController-createUser-title-404").text("Status: 404 - " + responseUserRestController404_description);
-                              } else {
-                                $("#examples-UserRestController-createUser-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
-                                $("#examples-UserRestController-createUser-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-UserRestController-createUser-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-UserRestController-createUser-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -11050,50 +12716,6 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
-                            <h3 id="examples-UserRestController-deleteUser-title-404"></h3>
-                            <p id="examples-UserRestController-deleteUser-description-404" class="marked"></p>
-                            <script>
-                              var responseUserRestController404_description = `User not deleted`;
-                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
-                              if (responseUserRestController404_description_break == -1) {
-                                $("#examples-UserRestController-deleteUser-title-404").text("Status: 404 - " + responseUserRestController404_description);
-                              } else {
-                                $("#examples-UserRestController-deleteUser-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
-                                $("#examples-UserRestController-deleteUser-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-UserRestController-deleteUser-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-UserRestController-deleteUser-404-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                            <h3 id="examples-UserRestController-deleteUser-title-400"></h3>
-                            <p id="examples-UserRestController-deleteUser-description-400" class="marked"></p>
-                            <script>
-                              var responseUserRestController400_description = `Invalid id supplied`;
-                              var responseUserRestController400_description_break = responseUserRestController400_description.indexOf('\n');
-                              if (responseUserRestController400_description_break == -1) {
-                                $("#examples-UserRestController-deleteUser-title-400").text("Status: 400 - " + responseUserRestController400_description);
-                              } else {
-                                $("#examples-UserRestController-deleteUser-title-400").text("Status: 400 - " + responseUserRestController400_description.substring(0, responseUserRestController400_description_break));
-                                $("#examples-UserRestController-deleteUser-description-400").html(responseUserRestController400_description.substring(responseUserRestController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-UserRestController-deleteUser-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-UserRestController-deleteUser-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
                             <h3 id="examples-UserRestController-deleteUser-title-200"></h3>
                             <p id="examples-UserRestController-deleteUser-description-200" class="marked"></p>
                             <script>
@@ -11159,6 +12781,50 @@ pub fn main() {
                                   </div>
                                   <input id='responses-UserRestController-deleteUser-200-schema-data' type='hidden' value=''></input>
                                 </div>
+                            </div>
+                            <h3 id="examples-UserRestController-deleteUser-title-404"></h3>
+                            <p id="examples-UserRestController-deleteUser-description-404" class="marked"></p>
+                            <script>
+                              var responseUserRestController404_description = `User not deleted`;
+                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
+                              if (responseUserRestController404_description_break == -1) {
+                                $("#examples-UserRestController-deleteUser-title-404").text("Status: 404 - " + responseUserRestController404_description);
+                              } else {
+                                $("#examples-UserRestController-deleteUser-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
+                                $("#examples-UserRestController-deleteUser-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-UserRestController-deleteUser-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-UserRestController-deleteUser-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                            <h3 id="examples-UserRestController-deleteUser-title-400"></h3>
+                            <p id="examples-UserRestController-deleteUser-description-400" class="marked"></p>
+                            <script>
+                              var responseUserRestController400_description = `Invalid id supplied`;
+                              var responseUserRestController400_description_break = responseUserRestController400_description.indexOf('\n');
+                              if (responseUserRestController400_description_break == -1) {
+                                $("#examples-UserRestController-deleteUser-title-400").text("Status: 400 - " + responseUserRestController400_description);
+                              } else {
+                                $("#examples-UserRestController-deleteUser-title-400").text("Status: 400 - " + responseUserRestController400_description.substring(0, responseUserRestController400_description_break));
+                                $("#examples-UserRestController-deleteUser-description-400").html(responseUserRestController400_description.substring(responseUserRestController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-UserRestController-deleteUser-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-UserRestController-deleteUser-400-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -11435,6 +13101,28 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-UserRestController-getUserById-title-404"></h3>
+                            <p id="examples-UserRestController-getUserById-description-404" class="marked"></p>
+                            <script>
+                              var responseUserRestController404_description = `User not found`;
+                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
+                              if (responseUserRestController404_description_break == -1) {
+                                $("#examples-UserRestController-getUserById-title-404").text("Status: 404 - " + responseUserRestController404_description);
+                              } else {
+                                $("#examples-UserRestController-getUserById-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
+                                $("#examples-UserRestController-getUserById-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-UserRestController-getUserById-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-UserRestController-getUserById-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-UserRestController-getUserById-title-200"></h3>
                             <p id="examples-UserRestController-getUserById-description-200" class="marked"></p>
                             <script>
@@ -11522,28 +13210,6 @@ pub fn main() {
 
 
                             <div class="tab-content" id="responses-UserRestController-getUserById-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                            <h3 id="examples-UserRestController-getUserById-title-404"></h3>
-                            <p id="examples-UserRestController-getUserById-description-404" class="marked"></p>
-                            <script>
-                              var responseUserRestController404_description = `User not found`;
-                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
-                              if (responseUserRestController404_description_break == -1) {
-                                $("#examples-UserRestController-getUserById-title-404").text("Status: 404 - " + responseUserRestController404_description);
-                              } else {
-                                $("#examples-UserRestController-getUserById-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
-                                $("#examples-UserRestController-getUserById-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-UserRestController-getUserById-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-UserRestController-getUserById-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
@@ -11780,6 +13446,50 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-UserRestController-getUsers-title-404"></h3>
+                            <p id="examples-UserRestController-getUsers-description-404" class="marked"></p>
+                            <script>
+                              var responseUserRestController404_description = `User not found`;
+                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
+                              if (responseUserRestController404_description_break == -1) {
+                                $("#examples-UserRestController-getUsers-title-404").text("Status: 404 - " + responseUserRestController404_description);
+                              } else {
+                                $("#examples-UserRestController-getUsers-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
+                                $("#examples-UserRestController-getUsers-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-UserRestController-getUsers-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-UserRestController-getUsers-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                            <h3 id="examples-UserRestController-getUsers-title-400"></h3>
+                            <p id="examples-UserRestController-getUsers-description-400" class="marked"></p>
+                            <script>
+                              var responseUserRestController400_description = `Invalid id supplied`;
+                              var responseUserRestController400_description_break = responseUserRestController400_description.indexOf('\n');
+                              if (responseUserRestController400_description_break == -1) {
+                                $("#examples-UserRestController-getUsers-title-400").text("Status: 400 - " + responseUserRestController400_description);
+                              } else {
+                                $("#examples-UserRestController-getUsers-title-400").text("Status: 400 - " + responseUserRestController400_description.substring(0, responseUserRestController400_description_break));
+                                $("#examples-UserRestController-getUsers-description-400").html(responseUserRestController400_description.substring(responseUserRestController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-UserRestController-getUsers-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-UserRestController-getUsers-400-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-UserRestController-getUsers-title-200"></h3>
                             <p id="examples-UserRestController-getUsers-description-200" class="marked"></p>
                             <script>
@@ -11846,50 +13556,6 @@ pub fn main() {
                                   <input id='responses-UserRestController-getUsers-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
-                            <h3 id="examples-UserRestController-getUsers-title-400"></h3>
-                            <p id="examples-UserRestController-getUsers-description-400" class="marked"></p>
-                            <script>
-                              var responseUserRestController400_description = `Invalid id supplied`;
-                              var responseUserRestController400_description_break = responseUserRestController400_description.indexOf('\n');
-                              if (responseUserRestController400_description_break == -1) {
-                                $("#examples-UserRestController-getUsers-title-400").text("Status: 400 - " + responseUserRestController400_description);
-                              } else {
-                                $("#examples-UserRestController-getUsers-title-400").text("Status: 400 - " + responseUserRestController400_description.substring(0, responseUserRestController400_description_break));
-                                $("#examples-UserRestController-getUsers-description-400").html(responseUserRestController400_description.substring(responseUserRestController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-UserRestController-getUsers-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-UserRestController-getUsers-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                            <h3 id="examples-UserRestController-getUsers-title-404"></h3>
-                            <p id="examples-UserRestController-getUsers-description-404" class="marked"></p>
-                            <script>
-                              var responseUserRestController404_description = `User not found`;
-                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
-                              if (responseUserRestController404_description_break == -1) {
-                                $("#examples-UserRestController-getUsers-title-404").text("Status: 404 - " + responseUserRestController404_description);
-                              } else {
-                                $("#examples-UserRestController-getUsers-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
-                                $("#examples-UserRestController-getUsers-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-UserRestController-getUsers-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-UserRestController-getUsers-404-wrapper" style='margin-bottom: 10px;'>
-                            </div>
                         </article>
                       </div>
                       <hr>
@@ -11935,7 +13601,6 @@ pub fn main() {
   &quot;editor&quot; : true,
   &quot;phone&quot; : 6,
   &quot;surname&quot; : &quot;surname&quot;,
-  &quot;encodedPassword&quot; : &quot;encodedPassword&quot;,
   &quot;roles&quot; : [ &quot;roles&quot;, &quot;roles&quot; ],
   &quot;studyCenter&quot; : &quot;studyCenter&quot;,
   &quot;name&quot; : &quot;name&quot;,
@@ -12303,6 +13968,50 @@ $(document).ready(function() {
 
 
                           <h2>Responses</h2>
+                            <h3 id="examples-UserRestController-updateUser-title-404"></h3>
+                            <p id="examples-UserRestController-updateUser-description-404" class="marked"></p>
+                            <script>
+                              var responseUserRestController404_description = `User not found`;
+                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
+                              if (responseUserRestController404_description_break == -1) {
+                                $("#examples-UserRestController-updateUser-title-404").text("Status: 404 - " + responseUserRestController404_description);
+                              } else {
+                                $("#examples-UserRestController-updateUser-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
+                                $("#examples-UserRestController-updateUser-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-UserRestController-updateUser-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-UserRestController-updateUser-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                            <h3 id="examples-UserRestController-updateUser-title-400"></h3>
+                            <p id="examples-UserRestController-updateUser-description-400" class="marked"></p>
+                            <script>
+                              var responseUserRestController400_description = `Invalid id supplied`;
+                              var responseUserRestController400_description_break = responseUserRestController400_description.indexOf('\n');
+                              if (responseUserRestController400_description_break == -1) {
+                                $("#examples-UserRestController-updateUser-title-400").text("Status: 400 - " + responseUserRestController400_description);
+                              } else {
+                                $("#examples-UserRestController-updateUser-title-400").text("Status: 400 - " + responseUserRestController400_description.substring(0, responseUserRestController400_description_break));
+                                $("#examples-UserRestController-updateUser-description-400").html(responseUserRestController400_description.substring(responseUserRestController400_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-UserRestController-updateUser-400" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-UserRestController-updateUser-400-wrapper" style='margin-bottom: 10px;'>
+                            </div>
                             <h3 id="examples-UserRestController-updateUser-title-200"></h3>
                             <p id="examples-UserRestController-updateUser-description-200" class="marked"></p>
                             <script>
@@ -12368,50 +14077,6 @@ $(document).ready(function() {
                                   </div>
                                   <input id='responses-UserRestController-updateUser-200-schema-data' type='hidden' value=''></input>
                                 </div>
-                            </div>
-                            <h3 id="examples-UserRestController-updateUser-title-400"></h3>
-                            <p id="examples-UserRestController-updateUser-description-400" class="marked"></p>
-                            <script>
-                              var responseUserRestController400_description = `Invalid id supplied`;
-                              var responseUserRestController400_description_break = responseUserRestController400_description.indexOf('\n');
-                              if (responseUserRestController400_description_break == -1) {
-                                $("#examples-UserRestController-updateUser-title-400").text("Status: 400 - " + responseUserRestController400_description);
-                              } else {
-                                $("#examples-UserRestController-updateUser-title-400").text("Status: 400 - " + responseUserRestController400_description.substring(0, responseUserRestController400_description_break));
-                                $("#examples-UserRestController-updateUser-description-400").html(responseUserRestController400_description.substring(responseUserRestController400_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-UserRestController-updateUser-400" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-UserRestController-updateUser-400-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                            <h3 id="examples-UserRestController-updateUser-title-404"></h3>
-                            <p id="examples-UserRestController-updateUser-description-404" class="marked"></p>
-                            <script>
-                              var responseUserRestController404_description = `User not found`;
-                              var responseUserRestController404_description_break = responseUserRestController404_description.indexOf('\n');
-                              if (responseUserRestController404_description_break == -1) {
-                                $("#examples-UserRestController-updateUser-title-404").text("Status: 404 - " + responseUserRestController404_description);
-                              } else {
-                                $("#examples-UserRestController-updateUser-title-404").text("Status: 404 - " + responseUserRestController404_description.substring(0, responseUserRestController404_description_break));
-                                $("#examples-UserRestController-updateUser-description-404").html(responseUserRestController404_description.substring(responseUserRestController404_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-UserRestController-updateUser-404" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-UserRestController-updateUser-404-wrapper" style='margin-bottom: 10px;'>
                             </div>
                         </article>
                       </div>
