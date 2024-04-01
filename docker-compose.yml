@@ -2,9 +2,10 @@ version: "3.9"
 services:
   app:
     container_name: ticketevent
-    build:
-      context: .
-      dockerfile: Dockerfile
+    #build:
+      #context: ..
+      #dockerfile: docker/Dockerfile
+    image: iireenees012/webapp14:latest
     restart: on-failure
     ports:
       - "8443:8443"
@@ -12,7 +13,6 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/ticketeventaplicacion
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=papr0bar
-
 
 
   db:
