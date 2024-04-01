@@ -36,8 +36,6 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private EventService eventService;
 
     @GetMapping("/dashboard")
     public String showDashboard(Model model, HttpServletRequest request, Principal principal){
