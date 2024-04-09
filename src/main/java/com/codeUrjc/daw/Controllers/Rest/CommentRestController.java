@@ -3,6 +3,7 @@ package com.codeUrjc.daw.Controllers.Rest;
 import com.codeUrjc.daw.Model.Comment;
 import com.codeUrjc.daw.Model.Ticket;
 import com.codeUrjc.daw.Service.CommentService;
+import com.codeUrjc.daw.repository.CommentRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -22,6 +23,9 @@ import java.util.Optional;
 public class CommentRestController {
     @Autowired
     private CommentService commentService;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     @Operation(summary = "Get all comments")
     @ApiResponses(value = {
@@ -110,4 +114,23 @@ public class CommentRestController {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
+
+    @Operation(summary = "Get comments by event id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the comments for the event", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Comment.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Comments for the event not found", content = @Content)
+    })
+
+    @GetMapping("/event/{eventId}")
+    public ResponseEntity<Collection<Comment>> getCommentsByEventId(@PathVariable long eventId){
+        Collection<Comment> comments = commentRepository.findByEventId(eventId);
+        if(comments != null && !comments.isEmpty()){
+            return new ResponseEntity<>(comments, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
