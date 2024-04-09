@@ -1,9 +1,14 @@
 package com.codeUrjc.daw.Controllers.Rest;
 
 import com.codeUrjc.daw.Model.Comment;
+import com.codeUrjc.daw.Model.Event;
 import com.codeUrjc.daw.Model.Ticket;
+import com.codeUrjc.daw.Model.User;
 import com.codeUrjc.daw.Service.CommentService;
+import com.codeUrjc.daw.Service.EventService;
+import com.codeUrjc.daw.Service.UserService;
 import com.codeUrjc.daw.repository.CommentRepository;
+import com.codeUrjc.daw.repository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -26,6 +31,15 @@ public class CommentRestController {
 
     @Autowired
     private CommentRepository commentRepository;
+
+    @Autowired
+    private EventService eventService;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserService userService;
 
     @Operation(summary = "Get all comments")
     @ApiResponses(value = {
@@ -132,5 +146,24 @@ public class CommentRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @Operation(summary = "Get comments by user id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the comments by the user", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Comment.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Comments by the user not found", content = @Content)
+    })
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<Collection<Comment>> getCommentsByUserId(@PathVariable long userId){
+        Collection<Comment> comments = commentRepository.findByUserId(userId);
+        if(comments != null && !comments.isEmpty()){
+            return new ResponseEntity<>(comments, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 
 }

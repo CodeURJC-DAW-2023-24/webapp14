@@ -89,7 +89,7 @@ public class SecurityConfiguration {
 						.requestMatchers(HttpMethod.PUT, "/api/events/**").hasAnyRole("USER")
 						.requestMatchers(HttpMethod.DELETE, "/api/events/**").hasAnyRole("ADMIN")
 
-						.requestMatchers(HttpMethod.POST, "/api/comments/**").hasAnyRole("ADMIN")
+						.requestMatchers(HttpMethod.POST, "/api/comments/**").hasAnyRole("ADMIN","USER")
 						.requestMatchers(HttpMethod.PUT, "/api/comments/**").hasAnyRole("USER")
 						.requestMatchers(HttpMethod.DELETE, "/api/comments/**").hasAnyRole("ADMIN")
 
