@@ -14,12 +14,14 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -163,6 +165,42 @@ public class CommentRestController {
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @Operation(summary = "Create a comment for a specific event")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Comment created for the event", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Comment.class))
+            }),
+            @ApiResponse(responseCode = "400", description = "Invalid data provided", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Event not found", content = @Content)
+    })
+
+    @PostMapping("/event/{eventId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Comment> createCommentForEvent(@PathVariable long eventId, HttpServletRequest request, @RequestBody Comment commentRequest){
+        Optional<Event> optionalEvent = eventService.findById(eventId);
+        String currentUserNickname = request.getUserPrincipal().getName();
+        Optional<User> optionalUser = userRepository.findByNICK(currentUserNickname);
+
+        if (!optionalEvent.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        if (!optionalUser.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        Event event = optionalEvent.get();
+        User user = optionalUser.get();
+
+        Comment comment = new Comment(commentRequest.getDescription(), commentRequest.getNick());
+        comment.setEvent(event);
+        comment.setUser(user);
+
+        commentService.save(comment);
+
+        return new ResponseEntity<>(comment, HttpStatus.CREATED);
     }
 
 
