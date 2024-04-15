@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -299,6 +301,24 @@ public class EventRestController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @Operation(summary = "Pageable Events ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found more events", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Event.class)) }),
+            @ApiResponse(responseCode = "404", description = "More events not found", content = @Content)
+    })
+    @GetMapping("/pageableEvents")
+    public ResponseEntity<List<Event>> loadMoreEvents(@RequestParam int page, @RequestParam int size) {
+        try {
+            Page<Event> eventsPage = eventService.findAll(PageRequest.of(page, size));
+            List<Event> events = eventsPage.getContent();
+            return ResponseEntity.ok(events);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
 
 
 }
