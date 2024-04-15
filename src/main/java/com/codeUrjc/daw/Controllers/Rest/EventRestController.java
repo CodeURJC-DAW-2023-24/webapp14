@@ -18,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
 import java.net.URI;
@@ -73,10 +74,14 @@ public class EventRestController {
             @ApiResponse(responseCode = "404", description = "Event not created", content = @Content)
     })
     @PostMapping("/")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Event createEvent(@RequestBody Event event){
+    public ResponseEntity<Event> createEvent(@RequestBody Event event){
         eventService.save(event);
-        return event;
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(event.getId())
+                .toUri();
+        return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(event);
     }
 
     @Operation(summary = "Put a event by its id")
@@ -139,7 +144,12 @@ public class EventRestController {
                 // Establecer la imagen del evento utilizando el archivo multipart proporcionado
                 eventService.setEventImageFromMultipartFile(event, imageFile);
                 eventService.save(event); // Guardar el evento actualizado en la base de datos
-                return ResponseEntity.ok("Imagen subida correctamente para el evento con ID: " + id);
+                URI location = ServletUriComponentsBuilder
+                        .fromCurrentRequest()
+                        .path("/{id}")
+                        .buildAndExpand(event.getId())
+                        .toUri();
+                return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body("Imagen subida correctamente para el evento con ID: " + id);
             } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Evento no encontrado con ID: " + id);
             }
