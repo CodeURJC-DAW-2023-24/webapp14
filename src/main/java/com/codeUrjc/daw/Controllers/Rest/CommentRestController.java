@@ -183,7 +183,6 @@ public class CommentRestController {
     })
 
     @PostMapping("/event/{eventId}")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Comment> createCommentForEvent(@PathVariable long eventId, HttpServletRequest request, @RequestBody Comment commentRequest){
         Optional<Event> optionalEvent = eventService.findById(eventId);
         String currentUserNickname = request.getUserPrincipal().getName();
@@ -205,8 +204,12 @@ public class CommentRestController {
         comment.setUser(user);
 
         commentService.save(comment);
-
-        return new ResponseEntity<>(comment, HttpStatus.CREATED);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(comment.getId())
+                .toUri();
+        return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(comment);
     }
 
 
