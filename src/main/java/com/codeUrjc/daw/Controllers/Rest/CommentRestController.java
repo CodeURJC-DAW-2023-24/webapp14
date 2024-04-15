@@ -13,7 +13,9 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -64,10 +66,14 @@ public class CommentRestController {
     })
 
     @PostMapping("/")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Comment createComment(@RequestBody Comment comment){
+    public ResponseEntity<Comment> createComment(@RequestBody Comment comment){
         commentService.save(comment);
-        return comment;
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(comment.getId())
+                .toUri();
+        return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(comment);
     }
 
     @Operation(summary = "Put a comment by its id")

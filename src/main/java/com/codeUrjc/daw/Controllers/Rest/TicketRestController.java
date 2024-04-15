@@ -12,7 +12,9 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -63,10 +65,14 @@ public class TicketRestController {
     })
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Ticket createTicket(@RequestBody Ticket ticket){
+    public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket){
         ticketService.save(ticket);
-        return ticket;
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(ticket.getId())
+                .toUri();
+        return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(ticket);
     }
 
     @Operation(summary = "Put a ticket by its id")

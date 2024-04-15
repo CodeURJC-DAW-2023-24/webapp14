@@ -13,7 +13,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;
@@ -74,7 +76,12 @@ public class UserRestController {
         user.setRoles(Collections.singletonList("USER"));
         user.setEditor(false);
         User savedUser = userRepository.save(user);
-        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(savedUser.getId())
+                .toUri();
+        return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(savedUser);
     }
 
     @Operation(summary = "Put a user by its id")
