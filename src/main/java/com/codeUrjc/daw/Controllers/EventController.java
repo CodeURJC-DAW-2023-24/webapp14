@@ -234,7 +234,6 @@ public class EventController {
                 event.setImageFile(null);
                 event.setImage(false);
             } else {
-                // Mantener la misma imagen cargándola antes de actualizar el evento
                 Event dbEvent = eventService.findById(event.getId()).orElseThrow();
                 if (dbEvent.getImage()) {
                     event.setImageFile(BlobProxy.generateProxy(dbEvent.getImageFile().getBinaryStream(),
