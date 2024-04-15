@@ -21,7 +21,7 @@ public class User {
 
 	private String email;
 
-	@JsonIgnore
+
 	private String encodedPassword;
 
 	@ElementCollection(fetch = FetchType.EAGER)

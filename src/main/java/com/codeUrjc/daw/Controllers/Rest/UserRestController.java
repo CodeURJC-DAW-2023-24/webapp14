@@ -1,6 +1,7 @@
 package com.codeUrjc.daw.Controllers.Rest;
 
 import com.codeUrjc.daw.Model.User;
+import com.codeUrjc.daw.Model.UserDto;
 import com.codeUrjc.daw.Service.UserService;
 import com.codeUrjc.daw.repository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;
@@ -40,8 +42,24 @@ public class UserRestController {
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
     })
     @GetMapping("/")
-    public Collection<User> getUsers(){
-        return userService.findAll();
+    public Collection<UserDto> getUsers() {
+        Collection<User> users = userService.findAll();
+        Collection<UserDto> userDtos = new ArrayList<>();
+
+        for (User user : users) {
+            UserDto userDto = new UserDto();
+            userDto.setId(user.getId());
+            userDto.setName(user.getName());
+            userDto.setSurname(user.getSurname());
+            userDto.setEmail(user.getEmail());
+            userDto.setEditor(user.isEditor());
+            userDto.setStudyCenter(user.getStudyCenter());
+            userDto.setPhone(user.getPhone());
+            userDto.setRoles(user.getRoles());
+            userDtos.add(userDto);
+        }
+
+        return userDtos;
     }
 
     @Operation(summary = "Get a user by its id")
@@ -71,17 +89,31 @@ public class UserRestController {
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
     })
     @PostMapping("/")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<UserDto> createUser(@RequestBody User user) {
+        if (user.getEncodedPassword() == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+
         user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
         user.setRoles(Collections.singletonList("USER"));
         user.setEditor(false);
         User savedUser = userRepository.save(user);
+
+        UserDto userDto = new UserDto();
+        userDto.setId(savedUser.getId());
+        userDto.setName(savedUser.getName());
+        userDto.setSurname(savedUser.getSurname());
+        userDto.setEmail(savedUser.getEmail());
+        userDto.setStudyCenter(savedUser.getStudyCenter());
+        userDto.setPhone(savedUser.getPhone());
+        userDto.setRoles(savedUser.getRoles());
+
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(savedUser.getId())
+                .buildAndExpand(userDto.getId())
                 .toUri();
-        return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(savedUser);
+        return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(userDto);
     }
 
     @Operation(summary = "Put a user by its id")

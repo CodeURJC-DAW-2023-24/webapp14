@@ -155,7 +155,7 @@ public class EventRestController {
                         .path("/{id}")
                         .buildAndExpand(event.getId())
                         .toUri();
-                return ResponseEntity.status(HttpStatus.CREATED).header(event);
+                return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(event);
             } else {
                 return ResponseEntity.notFound().build();
             }
