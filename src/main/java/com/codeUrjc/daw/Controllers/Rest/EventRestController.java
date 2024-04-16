@@ -19,6 +19,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
@@ -83,13 +84,17 @@ public class EventRestController {
     })
     @PostMapping("/")
     public ResponseEntity<Event> createEvent(@RequestBody Event event){
-        eventService.save(event);
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(event.getId())
-                .toUri();
-        return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(event);
+        Optional<User> userOptional = userRepository.findByNICK(SecurityContextHolder.getContext().getAuthentication().getName());
+        if (userOptional.isPresent() && userOptional.get().isEditor()) {
+            eventService.save(event);
+            URI location = fromCurrentRequest()
+                    .path("/{id}")
+                    .buildAndExpand(event.getId())
+                    .toUri();
+            return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(event);
+        } else {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
     }
 
     @Operation(summary = "Put a event by its id")
@@ -101,7 +106,11 @@ public class EventRestController {
     })
     @PutMapping("/{id}")
     public ResponseEntity<Event> updateEvent(@PathVariable long id, @RequestBody Event updateEvent) throws SQLException{
-        if (eventService.exits(id)){
+        if (!eventService.exits(id)){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        Optional<User> userOptional = userRepository.findByNICK(SecurityContextHolder.getContext().getAuthentication().getName());
+        if (userOptional.isPresent() && userOptional.get().isEditor()) {
             if (updateEvent.getImage()){
                 Event dbEvent = eventService.findById(id).orElseThrow();
                 if (dbEvent.getImage()){
@@ -112,8 +121,8 @@ public class EventRestController {
             eventService.save(updateEvent);
 
             return  new ResponseEntity<>(updateEvent, HttpStatus.OK);
-        }else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN); // Return 403 Forbidden if the user is not an editor
         }
     }
 
