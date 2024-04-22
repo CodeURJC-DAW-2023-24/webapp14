@@ -94,7 +94,9 @@ public class UserRestController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
 
-        user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
+
+        user.setEncodedPassword(user.getEncodedPassword());
+        //user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
         user.setRoles(Collections.singletonList("USER"));
         user.setEditor(false);
         User savedUser = userRepository.save(user);

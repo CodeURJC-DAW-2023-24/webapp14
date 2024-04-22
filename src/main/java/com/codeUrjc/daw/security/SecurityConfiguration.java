@@ -83,8 +83,8 @@ public class SecurityConfiguration {
 		http
 				.authorizeHttpRequests(authorize -> authorize
 						// PRIVATE ENDPOINTS
-						.requestMatchers(HttpMethod.POST, "/api/events").hasAnyRole("ADMIN")
-						.requestMatchers(HttpMethod.POST, "/api/events/**").hasAnyRole("ADMIN")
+						.requestMatchers(HttpMethod.POST, "/api/events").hasAnyRole("USER")
+						.requestMatchers(HttpMethod.POST, "/api/events/**").hasAnyRole("USER")
 
 						.requestMatchers(HttpMethod.PUT, "/api/events/**").hasAnyRole("USER")
 						.requestMatchers(HttpMethod.DELETE, "/api/events/**").hasAnyRole("ADMIN")
