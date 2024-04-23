@@ -10835,6 +10835,6 @@ textarea.form-control-lg {
   }
 }
 body {
-  background: url( "../img/header-bg.jpg");
+  background: url("../img/header-bg.jpg");
   background-size: cover;
 }

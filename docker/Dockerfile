@@ -9,7 +9,7 @@ FROM maven:3.9.6-amazoncorretto-21 as builder
 WORKDIR /project
 
 # Copies the project's dependencies
-COPY ../pom.xml /project/
+COPY ../backend/pom.xml /project/
 
 # Downloads the project's dependencies
 #RUN mvn clean verify
