@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/webapp14.iml" filepath="$PROJECT_DIR$/.idea/webapp14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TicketEvent.iml" filepath="$PROJECT_DIR$/TicketEvent.iml" />
     </modules>
   </component>
 </project>
