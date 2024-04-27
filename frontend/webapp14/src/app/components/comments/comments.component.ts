@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {LoginService} from "../../services/login.service";
-import {CommentsService} from "../../services/comments.services";
+import {CommentsServices} from "../../services/comments.services";
 import {Comment} from "../../models/comment.model";
 
 @Component({
@@ -14,7 +14,7 @@ import {Comment} from "../../models/comment.model";
 export class CommentsComponent {
   comment:Comment;
 
-  constructor(private router:Router,activatedRoute: ActivatedRoute, public service: CommentService, public loginService: LoginService) {
+  constructor(private router:Router,activatedRoute: ActivatedRoute, public service: CommentsServices, public loginService: LoginService) {
     const id = activatedRoute.snapshot.params['id'];
     service.getComment(id).subscribe(
       comment => this.comment = comment,
