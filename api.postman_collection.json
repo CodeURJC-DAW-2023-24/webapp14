@@ -1,30 +1,18 @@
 {
 	"info": {
-		"_postman_id": "96a6c431-0428-4d7e-bee6-e4cfb034ddf2",
-		"name": "TicketEvent",
+		"_postman_id": "a7bff08b-43b1-4d27-9d86-bafc449f9d90",
+		"name": "ticketevent",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33923179"
 	},
 	"item": [
 		{
-			"name": "https://localhost:8443/api/events/20",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "Obtener todos los eventos",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "https://localhost:8443/api/events/20",
+					"raw": "https://localhost:8443/api/events/",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -33,7 +21,805 @@
 					"path": [
 						"api",
 						"events",
-						"20"
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un evento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/12",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una imagen de un evento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/12/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"12",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar evento",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 12,\n    \"title\": \"Carrera Solidaria por la Educación\",\n    \"description\": \"Únete a la comunidad en esta carrera benéfica para recaudar fondos destinados a proyectos educativos.\",\n    \"place\": \"Parque Solidaridad Run\",\n    \"date\": \"22-Enero\",\n    \"duration\": \"3 días\",\n    \"category\": \"humanidades\",\n    \"people_inscribed\": 0,\n    \"max_people\": 100,\n    \"tickets\": [],\n    \"users\": [],\n    \"comments\": [],\n    \"image\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/events/12",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logeo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"adminpass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/auth/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 51,\n    \"title\": \"Carrera Solidaria por la Educación\",\n    \"description\": \"Únete a la comunidad en esta carrera benéfica para recaudar fondos destinados a proyectos educativos.\",\n    \"place\": \"Parque Solidaridad Run\",\n    \"date\": \"21-Enero\",\n    \"duration\": \"1 día\",\n    \"category\": \"humanidades\",\n    \"people_inscribed\": 0,\n    \"max_people\": 100,\n    \"tickets\": [],\n    \"users\": [],\n    \"comments\": [],\n    \"image\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/events/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Evento",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/102",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"102"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar imagen de un evento",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/20/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"20",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear nueva imagen para evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imageFile",
+							"type": "file",
+							"src": "postman-cloud:///1eeef7ce-c2d7-47d0-8066-cf91c2c9b08e"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/events/1/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"1",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/auth/logout",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/auth/refresh",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "load-more-events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/pageableEvents?page=1&size=10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"pageableEvents"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los comentarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/comments/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear nuevo comentario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"nick\": \"pepe\",\n        \"description\": \"que mal evento\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/comments/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar comentario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/comments/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"comments",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un comentario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/comments/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editar comentario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"nick\": \"jorgeLuis\",\n    \"description\": \"bellisimoooo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/comments/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obetener todos los tickets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/tickets",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear nuevo ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"name\": \"pedrin\",\n        \"surname\": \"montes\",\n        \"phone\": \"7879808\",\n        \"email\": \"b@gmail.com\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/tickets",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar ticket",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/tickets/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tickets",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un ticket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/tickets/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tickets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar ticket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 1,\n        \"name\": \"lcnldnclsdnc\",\n        \"surname\": \"lopez\",\n        \"phone\": \"6666666\",\n        \"email\": \"a@gmail.com\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/tickets/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tickets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener los usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/users/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/users/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 5,\n    \"name\": \"pepe\",\n    \"surname\": \"garrido\",\n    \"email\": \"pepatoperez@gmail.com\",\n    \"encodedPassword\": \"hola\",\n    \"roles\": [\n        \"USER\"\n    ],\n    \"studyCenter\": \"URJC\",\n    \"phone\": 666666688,\n    \"editor\": false,\n    \"events\": [],\n    \"nick\": \"pepitogp24\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/users/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 52,\n    \"name\": \"juan\",\n    \"surname\": \"gutierrez\",\n    \"email\": \"pepatoperez@gmail.com\",\n    \"encodedPassword\": \"$2a$10$KcOC0cIsWTyCjapXWUFcjeSbtsSyFaFGDTFNFhRd/5/JTAXHP1YKm\",\n    \"roles\": [\n        \"USER\"\n    ],\n    \"studyCenter\": \"URJC\",\n    \"phone\": 848484848,\n    \"editor\": false,\n    \"events\": [],\n    \"nick\": \"juanito\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/users/52",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						"52"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/users/52",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						"52"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Imagen",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imageFile",
+							"type": "file",
+							"src": "postman-cloud:///1eeef7ce-c2d7-47d0-8066-cf91c2c9b08e"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/events/2/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"2",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recomendados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/1/recommendation",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"1",
+						"recommendation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tecnology",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/tecnology",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"tecnology"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "art",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/art",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"art"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sanitario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/helth",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"helth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Humanidades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/events/human",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"events",
+						"human"
 					]
 				}
 			},
