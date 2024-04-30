@@ -17,6 +17,7 @@ import { RegisterComponent } from './templates/register/register.component';
 import { ReviewComponent } from './templates/review/review.component';
 import { ShowEventComponent } from './templates/show-event/show-event.component';
 import { UserPermissionsComponent } from './templates/user-permissions/user-permissions.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserPermissionsComponent } from './templates/user-permissions/user-perm
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
