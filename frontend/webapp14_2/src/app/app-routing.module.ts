@@ -6,7 +6,7 @@ import {ReviewComponent} from "./templates/review/review.component";
 
 const routes: Routes = [
   { path:'', component: PageComponent },
-
+  {path:'review', component:ReviewComponent}
 ];
 
 @NgModule({
