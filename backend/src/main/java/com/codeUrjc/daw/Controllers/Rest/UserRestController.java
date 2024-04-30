@@ -159,4 +159,22 @@ public class UserRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @Operation(summary = "Gets the currently authenticated user",
+            description = "Returns all information associated to the authenticated user. If no user is authenticated, returns 404 not found")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "User found",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = User.class)) }),
+            @ApiResponse(responseCode = "404", description = "No user currently authenticated", content = @Content)
+    })
+    @GetMapping("/me")
+    public ResponseEntity<User> getCurrentUser(HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        if(principal != null) {
+            return ResponseEntity.ok(new user(userRepository.findByNICK(principal.getNick()).orElseThrow()));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
