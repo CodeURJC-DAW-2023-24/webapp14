@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageComponent } from './templates/page/page.component';
+import { PageComponent } from './page/page.component';
 import { DashboardComponent } from './templates/dashboard/dashboard.component';
 import { EditEventComponent } from './templates/edit-event/edit-event.component';
 import { EditFormComponent } from './templates/edit-form/edit-form.component';
@@ -17,6 +17,8 @@ import { RegisterComponent } from './templates/register/register.component';
 import { ReviewComponent } from './templates/review/review.component';
 import { ShowEventComponent } from './templates/show-event/show-event.component';
 import { UserPermissionsComponent } from './templates/user-permissions/user-permissions.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { UserPermissionsComponent } from './templates/user-permissions/user-perm
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

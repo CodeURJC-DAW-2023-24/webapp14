@@ -1,0 +1,20 @@
+<section class="page-section bg-light" id="eventosRecientes">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Eventos Recientes</h2>
+      <h3 class="section-subheading text-muted">Puedes ver los últimos eventos añadidos.</h3>
+    </div>
+
+    <div class="row" id="eventsRow" *ngFor="let event of events">
+
+      <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="portfolio-item">
+          <div class="portfolio-caption">
+            <div class="portfolio-caption-heading">{{event.title}}</div>
+            <div class="portfolio-caption-subheading text-muted">{{event.description}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
