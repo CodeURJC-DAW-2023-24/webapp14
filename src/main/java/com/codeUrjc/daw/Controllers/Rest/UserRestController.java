@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -37,7 +39,7 @@ public class UserRestController {
     @Operation(summary = "Get all users")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the users", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
     })
@@ -65,17 +67,17 @@ public class UserRestController {
     @Operation(summary = "Get a user by its id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the user", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
     })
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable long id){
+    public ResponseEntity<User> getUserById(@PathVariable long id) {
         Optional<User> optionalUser = userService.findById(id);
-        if(optionalUser.isPresent()){
+        if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             return new ResponseEntity<>(user, HttpStatus.OK);
-        }else{
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
@@ -84,7 +86,7 @@ public class UserRestController {
     @Operation(summary = "Post a new user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User created", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
     })
@@ -121,7 +123,7 @@ public class UserRestController {
     @Operation(summary = "Put a user by its id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User updated", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
     })
@@ -145,7 +147,7 @@ public class UserRestController {
     @Operation(summary = "Delete a user by its id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User deleted", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = User.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "User not deleted", content = @Content)
     })
@@ -159,4 +161,27 @@ public class UserRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @Operation(summary = "Gets the currently authenticated user",
+            description = "Returns all information associated to the authenticated user. If no user is authenticated, returns 404 not found")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "User found",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = User.class))}),
+            @ApiResponse(responseCode = "404", description = "No user currently authenticated", content = @Content)
+    })
+    @GetMapping("/me")
+    public ResponseEntity<User> getCurrentUser(HttpServletRequest request, Principal principal) {
+        String username = principal.getName();
+        if (principal != null) {
+            Optional<User> userOptional = userRepository.findByNICK(username);
+            if (userOptional.isPresent()) {
+                User user = userOptional.get();
+                return ResponseEntity.ok(user);
+            }
+        }
+        return ResponseEntity.notFound().build();
+
+    }
+
 }

@@ -824,6 +824,27 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Obtener currentUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/users/me",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

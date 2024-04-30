@@ -29,4 +29,6 @@ public class UserService {
     public Optional<User> findById(long id) {
         return users.findById(id);
     }
+
+    public Optional<User> findByNICK(String nick) {return users.findByNICK(nick);}
 }
