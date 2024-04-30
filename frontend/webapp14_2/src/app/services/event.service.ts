@@ -12,7 +12,7 @@ export class EventService {
   constructor(private http: HttpClient) { }
 
   getEvents(): Observable<Event[]> {
-    return this.http.get<Event[]>(`/api/events`);
+    return this.http.get<Event[]>(`https://localhost:8443/api/events`);
   }
 
 }
