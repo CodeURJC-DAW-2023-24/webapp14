@@ -38,20 +38,22 @@
       <h3 class="section-subheading text-muted">Puedes ver los últimos eventos añadidos.</h3>
     </div>
 
-    <div class="row" id="eventsRow" *ngFor="let event of events">
-
-      <div class="col-lg-4 col-sm-6 mb-4">
-        <div class="portfolio-item">
-          <div class="portfolio-caption">
-            <div class="portfolio-caption-heading">{{event.title}}</div>
-            <div class="portfolio-caption-subheading text-muted">{{event.description}}</div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-sm-6 mb-4" *ngFor="let event of events">
+          <div class="portfolio-item">
+            <div class="portfolio-caption">
+              <div class="portfolio-caption-heading">{{event.title}}</div>
+              <div class="portfolio-caption-subheading text-muted">{{event.description}}</div>
+              <a class="btn btn-primary btn-xl text-uppercase" >Más información</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-12 text-center">
-        <a id="load-more-btn-events" class="btn btn-primary btn-xl text-uppercase">Cargar más eventos</a>
+        <button class="btn btn-primary btn-xl text-uppercase" (click)="loadEvents()">Cargar más eventos</button>
 
       </div>
     </div>

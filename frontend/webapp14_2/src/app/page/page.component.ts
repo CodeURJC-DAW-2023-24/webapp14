@@ -7,38 +7,37 @@ import { User } from '../models/user.model';
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
-  styleUrl: './page.component.css'
+  styleUrls: ['./page.component.css']
 })
 export class PageComponent {
-  constructor( private eventService: EventService, private userService: UserService ) {}
-
+  constructor(private eventService: EventService, private userService: UserService) {}
 
   events: Event[] = [];
-  currentUser: User | undefined ;
+  currentUser: User | undefined;
   isUser: boolean = false;
   isAdmin: boolean = false;
+  page: number = 0;
+  pageSize: number = 10;
 
   ngOnInit(): void {
-    this.eventService.getEvents().subscribe(
-      (events: Event[]) => {
-     this.events = events;
-    })
+    this.loadEvents();
     this.userService.getCurrentUser().subscribe(
       (currentUser: User) => {
         this.currentUser = currentUser;
-      })
-    if (this.currentUser != undefined) {
-      this.isUser = true;
-      for ( var i = 0; i < this.currentUser?.roles.length; i++){
-        let rol = this.currentUser.roles[i];
-        if (rol == 'admin') {
-          this.isAdmin = true;
+        if (this.currentUser) {
+          this.isUser = true;
+          this.isAdmin = this.currentUser.roles.includes('admin');
         }
       }
-    }
-
-
+    );
   }
 
-
+  loadEvents(): void {
+    this.eventService.loadEvents(this.page, this.pageSize).subscribe(
+      (events: Event[]) => {
+        this.events = this.events.concat(events);
+        this.page++;
+      }
+    );
+  }
 }
