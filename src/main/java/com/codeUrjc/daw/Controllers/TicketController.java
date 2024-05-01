@@ -83,7 +83,7 @@ public class TicketController {
     }
 
 
-    private byte[] generatePdf(String name, String email,String surname) {
+    private byte[] generatePdf(String name, String email, String surname) {
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage();
             document.addPage(page);
@@ -92,7 +92,6 @@ public class TicketController {
                 contentStream.beginText();
                 contentStream.setFont(PDType1Font.HELVETICA, 12);
                 contentStream.newLineAtOffset(100, 700);
-                contentStream.newLine();
                 contentStream.showText("Detalles de la inscripción:");
                 contentStream.newLine();
                 contentStream.newLineAtOffset(0, -20);

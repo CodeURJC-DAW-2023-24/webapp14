@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Event } from '../models/event.model';
 
@@ -13,6 +12,11 @@ export class EventService {
 
   getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(`/api/events/`);
+  }
+
+  loadEvents(page: number, pageSize: number): Observable<Event[]> {
+    const url = `/api/events/pageableEvents?page=${page}&size=${pageSize}`;
+    return this.http.get<Event[]>(url);
   }
 
 }

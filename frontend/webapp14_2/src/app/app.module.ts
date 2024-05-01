@@ -19,6 +19,8 @@ import { ShowEventComponent } from './templates/show-event/show-event.component'
 import { UserPermissionsComponent } from './templates/user-permissions/user-permissions.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

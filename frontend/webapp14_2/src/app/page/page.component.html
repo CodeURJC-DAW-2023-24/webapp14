@@ -1,3 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#page-top"><img src="assets/img/1200px-URJC_logo.svg.png" alt="..." /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars ms-1"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+        <li class="nav-item"><a class="nav-link" href="events" *ngIf="isAdmin">Gestion Ticket Event</a></li>
+        <li class="nav-item"><a class="nav-link" href="#eventosDestacados">Destacados</a></li>
+        <li class="nav-item"><a class="nav-link" href="#eventosRecientes">Recientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#team">Equipo</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile" *ngIf="isUser">Mi Perfil</a></li>
+
+      </ul>
+    </div>
+    <a class="btn btn-primary btn-xl text-uppercase" (click)="goToLogin()">Log-In</a>
+  </div>
+</nav>
+<!-- Masthead-->
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-subheading">Bienvenido a Ticket Event!</div>
+    <div class="masthead-heading text-uppercase">Los mejores eventos en un mismo sitio</div>
+    <a class="btn btn-primary btn-xl text-uppercase" href="#eventosDestacados">Eventos Destacados</a>
+  </div>
+</header>
+<!-- Destacados-->
+<section class="page-section" id="eventosDestacados">
+  <!-- Content -->
+</section>
+
 <section class="page-section bg-light" id="eventosRecientes">
   <div class="container">
     <div class="text-center">
@@ -5,16 +38,69 @@
       <h3 class="section-subheading text-muted">Puedes ver los últimos eventos añadidos.</h3>
     </div>
 
-    <div class="row" id="eventsRow" *ngFor="let event of events">
-
-      <div class="col-lg-4 col-sm-6 mb-4">
-        <div class="portfolio-item">
-          <div class="portfolio-caption">
-            <div class="portfolio-caption-heading">{{event.title}}</div>
-            <div class="portfolio-caption-subheading text-muted">{{event.description}}</div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-sm-6 mb-4" *ngFor="let event of events">
+          <div class="portfolio-item">
+            <div class="portfolio-caption">
+              <div class="portfolio-caption-heading">{{event.title}}</div>
+              <div class="portfolio-caption-subheading text-muted">{{event.description}}</div>
+              <a class="btn btn-primary btn-xl text-uppercase" >Más información</a>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <button class="btn btn-primary btn-xl text-uppercase" (click)="loadEvents()">Cargar más eventos</button>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Equipo-->
+<section class="page-section bg-light" id="team">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Nuestro increible Equipo</h2>
+      <h3 class="section-subheading text-muted">Conocenos un poco más.</h3>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="team-member">
+          <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
+          <h4>Andrés Carretero</h4>
+          <p class="text-muted">Lead Designer</p>
+
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="team-member">
+          <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
+          <h4>Almudena López</h4>
+          <p class="text-muted">Lead Marketer</p>
+
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="team-member">
+          <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
+          <h4>Irene Pérez</h4>
+          <p class="text-muted">Lead Developer</p>
+
+        </div>
+      </div>
+      <div class="text-center col-lg-4">
+        <div class="team-member">
+          <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
+          <h4>Alba Velasco</h4>
+          <p class="text-muted">Lead Marketer</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
     </div>
   </div>
 </section>
