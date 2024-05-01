@@ -1,1 +1,55 @@
-<p>register works!</p>
+<div class="container-fluid ps-md-0">
+  <div class="row g-0">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">Bienvenido! Registrate</h3>
+
+              <!-- Sign In Form -->
+              <form>
+                <div class="form-floating mb-3">
+                  <input type="text" [(ngModel)]="nameUser" class="form-control" id="floatingName" placeholder="Nombre" name="name">
+                  <label for="floatingName">Nombre</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" [(ngModel)]="surnameUser" class="form-control" id="floatingSurname" placeholder="Apellido" name="surname">
+                  <label for="floatingSurname">Apellido</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" [(ngModel)]="nikename" class="form-control" id="floatingNick" placeholder="Nick" name="NICK">
+                  <label for="floatingNick">Nick</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" [(ngModel)]="emailUser" class="form-control" id="floatingEmail" placeholder="name@example.com" name="email">
+                  <label for="floatingEmail">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" [(ngModel)]="passwordUser" class="form-control" id="floatingPassword" placeholder="Password" name="encodedPassword">
+                  <label for="floatingPassword">Contraseña</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" [(ngModel)]="studyCenterUser" class="form-control" id="floatingStudyCenter" placeholder="Centro de estudios" name="studyCenter">
+                  <label for="floatingStudyCenter">Centro de estudios</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" [(ngModel)]="phoneUser" class="form-control" id="floatingPhone" placeholder="Numero de contacto" name="phone">
+                  <label for="floatingPhone">Numero de contacto</label>
+                </div>
+
+                <div class="d-grid">
+                  <h3 class="login-heading mb-4">    </h3>
+                  <h3 class="login-heading mb-4">    </h3>
+                  <a class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" (click)="onSubmit()">Regístrate</a>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import java.util.List;
 
 public class UserDto {
     private Long id;
+    private String NICK;
     private String name;
     private String surname;
     private String email;
@@ -34,6 +35,14 @@ public class UserDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNick() {
+        return NICK;
+    }
+
+    public void setNick(String nick) {
+        NICK = nick;
     }
 
     public String getName() {
