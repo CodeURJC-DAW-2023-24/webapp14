@@ -4,6 +4,7 @@ import { PageComponent } from './page/page.component';
 import {LoginComponent} from "./templates/login/login.component";
 import {RegisterComponent} from "./templates/register/register.component";
 import {ReviewComponent} from "./templates/review/review.component";
+import {ShowEventComponent} from "./templates/show-event/show-event.component";
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path:'loginPage',component: LoginComponent },
   { path: 'registerPage', component: RegisterComponent },
   {path:'review', component:ReviewComponent},
+  { path: 'event/:id', component: ShowEventComponent }
 ];
 
 @NgModule({
