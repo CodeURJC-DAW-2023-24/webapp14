@@ -3,6 +3,7 @@ import { EventService } from '../services/event.service';
 import { UserService } from '../services/user.service';
 import { Event } from '../models/event.model';
 import { User } from '../models/user.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page',
@@ -10,7 +11,7 @@ import { User } from '../models/user.model';
   styleUrls: ['./page.component.css']
 })
 export class PageComponent {
-  constructor(private eventService: EventService, private userService: UserService) {}
+  constructor(private eventService: EventService, private userService: UserService, private router: Router) {}
 
   events: Event[] = [];
   currentUser: User | undefined;
@@ -26,7 +27,7 @@ export class PageComponent {
         this.currentUser = currentUser;
         if (this.currentUser) {
           this.isUser = true;
-          this.isAdmin = this.currentUser.roles.includes('admin');
+          this.isAdmin = (this.currentUser.roles.indexOf('ADMIN') > -1);
         }
       }
     );
@@ -39,5 +40,9 @@ export class PageComponent {
         this.page++;
       }
     );
+  }
+
+  goToLogin(): void {
+    this.router.navigate(['/loginPage']);
   }
 }

@@ -4,7 +4,7 @@ export interface User {
   name: string;
   surname: string;
   email: string;
-  encodedPassword: string;
+  password: string;
   roles: string[];
   studyCenter: string;
   phone: number;
