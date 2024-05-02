@@ -4,6 +4,9 @@ import {HttpClient} from "@angular/common/http";
 import {CommentService} from "../../services/comment.service";
 import {EventService} from "../../services/event.service";
 import {Comment} from "../../models/comment.model";
+import { Event } from "../../models/event.model";
+import {UserService} from "../../services/user.service";
+import {User} from "../../models/user.model";
 
 
 @Component({
@@ -17,19 +20,22 @@ import {Comment} from "../../models/comment.model";
   ]
 })
 export class ShowEventComponent {
-  eventId!: number;
-  event!: Event;
+  eventId: number = 0;
+  event: Event | undefined;
   user: any;
   eventComments: Comment[] = [];
   newComment: string = '';
   showCommentSection: boolean = false;
+  isUser: boolean = false;
+  nickname: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
     private commentService: CommentService,
     private eventService: EventService,
-    private router:Router
+    private router:Router,
+    private userService: UserService,
   ) { }
   ngOnInit(): void{
     this.route.params.subscribe(params => {
@@ -37,15 +43,18 @@ export class ShowEventComponent {
       this.loadEvent();
       this.loadComments();
     });
+    this.userService.getCurrentUser().subscribe(
+      (currentUser: User) => {
+        this.isUser = currentUser.roles.indexOf('USER') > -1;
+        this.nickname = currentUser.NICK;
+      }
+    )
   }
 
   loadEvent() {
     this.eventService.getEventById(this.eventId).subscribe(
       data => {
         this.event = data;
-      },
-      error => {
-        console.log('Error loading event:', error);
       }
     );
   }
@@ -54,18 +63,13 @@ export class ShowEventComponent {
     this.commentService.getCommentsByEventId(this.eventId).subscribe(
       data => {
         this.eventComments = data;
-      },
-      error => {
-        console.log('Error loading comments:', error);
       }
     )
   }
   addComment() {
-    const comment: Comment = {
-      id: 0,
+    const comment = {
       description: this.newComment,
-      nick: 'user',
-      event: this.event
+      nick: this.nickname,
     };
 
     // Llama al método addCommentForEvent con el objeto Comment completo
@@ -73,9 +77,6 @@ export class ShowEventComponent {
       () => {
         this.loadComments();
         this.newComment = ''; // Limpiar el campo de entrada después de agregar el comentario
-      },
-      error => {
-        console.log('Error adding comment:', error);
       }
     );
   }

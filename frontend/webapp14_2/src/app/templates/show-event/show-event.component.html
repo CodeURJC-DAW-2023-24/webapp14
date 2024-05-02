@@ -18,65 +18,25 @@
         <a class="btn btn-primary btn-xl text-uppercase me-2" routerLink="/">
           Volver
         </a>
-        <ng-container *ngIf="user">
+        <div *ngIf="isUser">
           <input type="hidden" name="id" [value]="user.id">
           <a class="btn btn-primary btn-xl text-uppercase me-2" (click)="navigateToInscription()">Inscribirme</a>
             <i class="fas fa-edit me-1"></i>
-            Inscribirme
-          </a>
-          <button class="btn btn-primary btn-xl text-uppercase me-2" (click)="toggleCommentSection()">
-            <i class="fas fa-edit me-1"></i>
-            Agregar comentario
-          </button>
-        </ng-container>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid row py-4" *ngIf="user && showCommentSection">
-  <div class="col-12">
-    <div class="card my-4">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-          <h6 class="text-white text-capitalize ps-3">Comentarios del Evento</h6>
-        </div>
-      </div>
-      <div class="card-body px-0 pb-2">
-        <div class="table-responsive p-0">
-          <table class="table align-items-center justify-content-center mb-0">
-            <thead>
-            <tr>
-              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nickname</th>
-              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Descripcion</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let comment of eventComments">
-              <td>
-                <div class="d-flex flex-column justify-content-center">
-                  <h6 class="mb-0 text-sm">{{ comment.nick }}</h6>
-                </div>
-              </td>
-              <td>
-                <h6 class="d-flex flex-column justify-content-center">{{ comment.description }}</h6>
-              </td>
-            </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<form [action]="'/CreateReview'" method="post" class="hidden" id="commentSection" *ngIf="user && showCommentSection">
+
+
+<form [action]="'/CreateReview'" method="post" class="hidden" id="commentSection" *ngIf="isUser">
   <input type="hidden" name="id" [value]="event?.id">
   <div class="col-md-9 col-lg-8 mx-auto">
     <h3 class="login-heading mb-4">Bienvenido! A la seccion de opiniones</h3>
     <h4 class="login-heading mb-4">Añada tu opinión</h4>
     <div class="form-floating mb-3">
-      <textarea class="form-control" id="floatingPhone" placeholder="Deja tu comentario" name="description"></textarea>
+      <textarea class="form-control" id="floatingPhone" placeholder="Deja tu comentario" [(ngModel)]="newComment" name="description"></textarea>
       <label for="floatingPhone">Deja tu comentario</label>
     </div>
     <div class="d-grid">

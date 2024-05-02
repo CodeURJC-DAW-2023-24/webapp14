@@ -30,7 +30,7 @@ export class CommentService {
     return this.http.post<Comment>(`/api/comments/`,comment);
   }
 
-  addCommentForEvent(eventId: number, comment: Comment): Observable<Comment>{
+  addCommentForEvent(eventId: number, comment: {description: string, nick: string}): Observable<Comment>{
     return this.http.post<Comment>(`api/comments/event/${eventId}`, comment);
   }
 
