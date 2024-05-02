@@ -65,21 +65,67 @@
             <div class="card-header p-4 pt-5">
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-text-capitalize">Total de usuarios</p>
-                <h4 class="mb-0">Users</h4>
+                <h4 class="mb-0">{{numUsers}}</h4>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-xl-12 col-sm-12 mb-xl-2 mb-6">
           <div class="card">
             <div class="card-header p-4 pt-5">
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-text-capitalize">Total de eventos</p>
-                <h4 class="mb-0">Eventos</h4>
+                <h4 class="mb-0">{{ numEvents }}</h4>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="col-xl-12 col-sm-12 mb-xl-2 mb-6">
+          <div class="card">
+            <div class="card-header p-4 pt-5">
+              <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-text-capitalize">Eventos de Tecnologia</p>
+                <h4 class="mb-0">{{ countTecnologias }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-12 col-sm-12 mb-xl-2 mb-6">
+          <div class="card">
+            <div class="card-header p-4 pt-5">
+              <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-text-capitalize">Total de Arte</p>
+                <h4 class="mb-0">{{ countArtes }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-12 col-sm-12 mb-xl-2 mb-6">
+          <div class="card">
+            <div class="card-header p-4 pt-5">
+              <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-text-capitalize">Total de Sanitarios</p>
+                <h4 class="mb-0">{{ countSanitarios }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-12 col-sm-12 mb-xl-2 mb-6">
+          <div class="card">
+            <div class="card-header p-4 pt-5">
+              <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-text-capitalize">Total de Humanidades</p>
+                <h4 class="mb-0">{{ countHumanidades }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
       <div class="col-lg-6">
         <div class="container-fluid">
@@ -98,7 +144,7 @@
                   <p class="text-sm">Proporción de eventos por categoría</p>
                   <hr class="dark horizontal">
                   <div class="d-flex">
-                    <i class="material-icons text-sm my-auto me-1">schedule</i>
+                    <i class="material-icons text-sm my-auto me-1"></i>
                     <p class="mb-0 text-sm">Actualizado hace 2 días</p>
                   </div>
                 </div>
