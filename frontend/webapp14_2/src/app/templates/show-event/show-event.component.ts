@@ -68,15 +68,16 @@ export class ShowEventComponent {
   }
   addComment() {
     const comment = {
+      id:0,
       description: this.newComment,
       nick: this.nickname,
+      event:this.event
     };
 
-    // Llama al método addCommentForEvent con el objeto Comment completo
     this.commentService.addCommentForEvent(this.eventId, comment).subscribe(
       () => {
         this.loadComments();
-        this.newComment = ''; // Limpiar el campo de entrada después de agregar el comentario
+        this.newComment = '';
       }
     );
   }

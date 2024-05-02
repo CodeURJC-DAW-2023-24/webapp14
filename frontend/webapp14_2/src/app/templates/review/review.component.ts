@@ -6,7 +6,11 @@ import {Comment} from "../../models/comment.model";
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
-  styleUrl: './review.component.css'
+  styleUrls:[
+    '../../../assets/css/material-dashboard.css',
+    '../../../assets/css/nucleo-icons.css',
+    '../../../assets/css/nucleo-svg.css',
+    '../../../styles.css']
 })
 export class ReviewComponent {
   userComments:Comment[] = [];
