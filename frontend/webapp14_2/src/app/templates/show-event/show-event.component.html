@@ -19,7 +19,7 @@
           Volver
         </a>
         <div *ngIf="isUser">
-          <input type="hidden" name="id" [value]="user.id">
+          <input type="hidden" name="id" [value]="user?.NICK">
           <a class="btn btn-primary btn-xl text-uppercase me-2" (click)="navigateToInscription()">Inscribirme</a>
             <i class="fas fa-edit me-1"></i>
         </div>
@@ -33,7 +33,7 @@
     <h3 class="login-heading mb-4">Bienvenido! A la seccion de opiniones</h3>
     <h4 class="login-heading mb-4">Añada tu opinión</h4>
     <div class="form-floating mb-3">
-      <textarea class="form-control" id="floatingPhone" placeholder="Deja tu comentario" [(ngModel)]="newComment" name="description"></textarea>
+      <textarea class="form-control" id="floatingPhone" placeholder="Deja tu comentario" type= "text" [(ngModel)]="newComment" name="description"></textarea>
       <label for="floatingPhone">Deja tu comentario</label>
     </div>
     <div class="d-grid">

@@ -22,12 +22,12 @@ import {User} from "../../models/user.model";
 export class ShowEventComponent {
   eventId: number = 0;
   event: Event | undefined;
-  user: any;
   eventComments: Comment[] = [];
   newComment: string = '';
   showCommentSection: boolean = false;
   isUser: boolean = false;
   nickname: string = '';
+  user: User | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,8 +45,9 @@ export class ShowEventComponent {
     });
     this.userService.getCurrentUser().subscribe(
       (currentUser: User) => {
+        this.user = currentUser;
+        this.nickname = this.user.NICK;
         this.isUser = currentUser.roles.indexOf('USER') > -1;
-        this.nickname = currentUser.NICK;
       }
     )
   }
@@ -67,19 +68,21 @@ export class ShowEventComponent {
     )
   }
   addComment() {
-    const comment = {
-      id:0,
+    const commentNew = {
+      id:this.event?.id,
       description: this.newComment,
       nick: this.nickname,
       event:this.event
     };
 
-    this.commentService.addCommentForEvent(this.eventId, comment).subscribe(
+    this.commentService.addCommentForEvent(this.eventId, commentNew).subscribe(
       () => {
-        this.loadComments();
-        this.newComment = '';
+        //this.loadComments();
       }
     );
+
+
+
   }
 
   navigateToInscription(): void {
