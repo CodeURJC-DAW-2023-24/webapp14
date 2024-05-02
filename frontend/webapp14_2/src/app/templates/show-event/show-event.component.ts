@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute,Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {CommentService} from "../../services/comment.service";
 import {EventService} from "../../services/event.service";
-import {Event} from "../../models/event.model";
 import {Comment} from "../../models/comment.model";
 
 
 @Component({
   selector: 'app-show-event',
   templateUrl: './show-event.component.html',
-  styleUrl: './show-event.component.css'
+  styleUrls:[
+    '../../../assets/css/material-dashboard.css',
+    '../../../assets/css/nucleo-icons.css',
+    '../../../assets/css/nucleo-svg.css',
+    '../../../styles.css'
+  ]
 })
 export class ShowEventComponent {
   eventId!: number;
@@ -18,12 +22,14 @@ export class ShowEventComponent {
   user: any;
   eventComments: Comment[] = [];
   newComment: string = '';
+  showCommentSection: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
     private commentService: CommentService,
-    private eventService: EventService
+    private eventService: EventService,
+    private router:Router
   ) { }
   ngOnInit(): void{
     this.route.params.subscribe(params => {
@@ -72,5 +78,16 @@ export class ShowEventComponent {
         console.log('Error adding comment:', error);
       }
     );
+  }
+
+  navigateToInscription(): void {
+    const eventId = this.event?.id;
+    if (eventId) {
+      this.router.navigate(['/inscription'], { queryParams: { id: eventId } });
+    }
+  }
+
+  toggleCommentSection(): void {
+    this.showCommentSection = !this.showCommentSection;
   }
 }

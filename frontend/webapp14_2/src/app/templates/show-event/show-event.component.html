@@ -1,12 +1,12 @@
 <div class="container px-4 px-lg-5 my-5">
   <div class="row gx-4 gx-lg-5 align-items-center">
     <div class="col-md-6">
-      <img class="card-img-top mb-5 mb-md-0" [src]="event?.image ? '/events/' + event.id + '/image' : '/images/no_image.png'" [alt]="event?.title ? event.title : 'No Image'">
+      <!--<img class="card-img-top mb-5 mb-md-0" [src]="event?.image ? '/events/' + event.id + '/image' : '/images/no_image.png'" [alt]="event?.title ? event.title : 'No Image'">-->
     </div>
     <div class="col-md-6">
       <h1 class="display-5 fw-bolder">{{ event?.title }}</h1>
       <div class="fs-5 mb-5">
-        <span>{{ event?.category }}</span>
+        <!--<span>{{ event?.category }}</span>-->
       </div>
       <ul class="list-inline">
         <li><strong>Fecha:</strong> {{ event?.date }}</li>
@@ -20,12 +20,11 @@
         </a>
         <ng-container *ngIf="user">
           <input type="hidden" name="id" [value]="user.id">
-          <a class="btn btn-primary btn-xl text-uppercase me-2" [routerLink]="['/inscription']" [queryParams]="{ id: event?.id }">
+          <a class="btn btn-primary btn-xl text-uppercase me-2" (click)="navigateToInscription()">Inscribirme</a>
             <i class="fas fa-edit me-1"></i>
             Inscribirme
           </a>
           <button class="btn btn-primary btn-xl text-uppercase me-2" (click)="toggleCommentSection()">
-            <input type="hidden" name="_csrf" [value]="token"/>
             <i class="fas fa-edit me-1"></i>
             Agregar comentario
           </button>
@@ -35,7 +34,7 @@
   </div>
 </div>
 
-<div class="container-fluid row py-4" *ngIf="user">
+<div class="container-fluid row py-4" *ngIf="user && showCommentSection">
   <div class="col-12">
     <div class="card my-4">
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -71,7 +70,7 @@
   </div>
 </div>
 
-<form [action]="'/CreateReview'" method="post" class="hidden" id="commentSection" *ngIf="user">
+<form [action]="'/CreateReview'" method="post" class="hidden" id="commentSection" *ngIf="user && showCommentSection">
   <input type="hidden" name="id" [value]="event?.id">
   <div class="col-md-9 col-lg-8 mx-auto">
     <h3 class="login-heading mb-4">Bienvenido! A la seccion de opiniones</h3>
@@ -81,10 +80,7 @@
       <label for="floatingPhone">Deja tu comentario</label>
     </div>
     <div class="d-grid">
-      <input type="hidden" name="_csrf" [value]="token"/>
-      <input class="btn btn-primary btn-xl text-uppercase" type="submit" value="Guardar" [href]="'/CreateReview?id=' + event?.id"/>
+      <input class="btn btn-primary btn-xl text-uppercase" type="submit" value="Guardar" (click)="addComment()"/>
     </div>
   </div>
 </form>
-
-
