@@ -4,13 +4,15 @@ import { PageComponent } from './page/page.component';
 import {LoginComponent} from "./templates/login/login.component";
 import {RegisterComponent} from "./templates/register/register.component";
 import {ReviewComponent} from "./templates/review/review.component";
+import {DashboardComponent} from "./templates/dashboard/dashboard.component";
 
 
 const routes: Routes = [
   { path:'', component: PageComponent },
   { path:'loginPage',component: LoginComponent },
   { path: 'registerPage', component: RegisterComponent },
-  {path:'review', component:ReviewComponent},
+  {path:'reviewPage', component:ReviewComponent},
+  { path:'dashboardPage', component: DashboardComponent },
 ];
 
 @NgModule({
