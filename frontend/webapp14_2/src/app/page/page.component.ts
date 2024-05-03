@@ -49,4 +49,8 @@ export class PageComponent {
   goToDashboard(): void {
     this.router.navigate(['/dashboardPage']);
   }
+
+  goToProfile(): void {
+    this.router.navigate(['/profilePage']);
+  }
 }
