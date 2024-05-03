@@ -1,1 +1,21 @@
-<p>edit-form works!</p>
+<form>
+  <label for="floatingName">Nombre:</label>
+  <input type="text" ngModel="nameUser" id="floatingName" name="name" value={{user.name}} required>
+
+  <label for="floatingSurname">Apellido</label>
+  <input type="text" ngModel="surnameUser" class="form-control" id="floatingSurname" name="surname" value={{user.surname}} required>
+
+  <label for="floatingNick">Nick</label>
+  <input type="text" ngModel="nickUser" class="form-control" id="floatingNick" name="nick" value={{user.NICK}} required>
+
+  <label for="floatingEmail">Email</label>
+  <input type="text" ngModel="emailUser" class="form-control" id="floatingEmail" name="email" value={{user.email}} required>
+
+  <label for="floatingStudyCenter">Centro de estudios</label>
+  <input type="text" ngModel="studyCenterUser" class="form-control" id="floatingStudyCenter" name="studyCenter" value={{user.studyCenter}} required>
+
+  <label for="floatingPhone">Numero de contacto</label>
+  <input type="text" ngModel="phoneUser" class="form-control" id="floatingPhone" name="phone" value={{user.phone}} required>
+
+  <button type="submit" (click)="onSubmit()">Guardar cambios</button>
+</form>

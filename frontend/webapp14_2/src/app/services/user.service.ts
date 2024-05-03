@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
-import { UserDto } from '../models/userDto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +22,11 @@ export class UserService {
     return this.http.post<User>(`/api/users/`, dataUser);
   }
 
+  getUserById(id:number): Observable<User>{
+    return this.http.get<User>(`/api/users/${id}`);
+  }
+
+  updateUser(id:number,user:User): Observable<any>{
+    return this.http.put(`/api/users/${id}`, user)
+  }
 }

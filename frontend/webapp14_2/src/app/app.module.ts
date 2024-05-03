@@ -19,7 +19,7 @@ import { ShowEventComponent } from './templates/show-event/show-event.component'
 import { UserPermissionsComponent } from './templates/user-permissions/user-permissions.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -40,12 +40,13 @@ import {FormsModule} from '@angular/forms';
     ShowEventComponent,
     UserPermissionsComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
