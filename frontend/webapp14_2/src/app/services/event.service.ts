@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Event } from '../models/event.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
 
   getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(`/api/events/`);
@@ -37,6 +38,14 @@ export class EventService {
 
   getHumanidades(): Observable<number>{
     return this.http.get<number>(`/api/events/human`);
+  }
+
+  public getImage(eventId: number): Observable<any> {
+    const url = `/api/events/${eventId}/image`;
+    return this.http.get(url, { responseType: 'blob' }).pipe(
+      map(blob => this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob)))
+    );
+
   }
 
 }

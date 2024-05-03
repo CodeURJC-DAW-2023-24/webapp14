@@ -28,6 +28,7 @@ export class ShowEventComponent {
   isUser: boolean = false;
   nickname: string = '';
   user: User | undefined;
+  imageUrl: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -58,6 +59,11 @@ export class ShowEventComponent {
         this.event = data;
       }
     );
+    this.eventService.getImage(this.eventId).subscribe(
+      imageUrl => {
+        this.imageUrl = imageUrl;
+      }
+    )
   }
 
   loadComments() {

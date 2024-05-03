@@ -6,4 +6,5 @@ export interface Event{
   date: string;
   duration: string;
   comments: Comment[];
+  imageUrl: string;
 }
