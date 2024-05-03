@@ -28,4 +28,8 @@ export class UserService {
     return this.http.get<Event[]>(`/api/users/${userId}/events`);
   }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`/api/users/`);
+  }
+
 }
