@@ -5,6 +5,9 @@ import {LoginComponent} from "./templates/login/login.component";
 import {RegisterComponent} from "./templates/register/register.component";
 import {ReviewComponent} from "./templates/review/review.component";
 import {DashboardComponent} from "./templates/dashboard/dashboard.component";
+import {ProfileComponent} from "./templates/profile/profile.component";
+import {EventsComponent} from "./templates/events/events.component";
+import {UserPermissionsComponent} from "./templates/user-permissions/user-permissions.component";
 
 
 const routes: Routes = [
@@ -13,6 +16,9 @@ const routes: Routes = [
   { path: 'registerPage', component: RegisterComponent },
   {path:'reviewPage', component:ReviewComponent},
   { path:'dashboardPage', component: DashboardComponent },
+  { path:'profilePage', component: ProfileComponent },
+  { path:'eventsPage', component: EventsComponent },
+  { path:'permissionPage', component: UserPermissionsComponent },
 ];
 
 @NgModule({
