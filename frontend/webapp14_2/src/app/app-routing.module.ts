@@ -6,6 +6,7 @@ import { RegisterComponent } from "./templates/register/register.component";
 import { ReviewComponent } from "./templates/review/review.component";
 import { ProfileComponent } from "./templates/profile/profile.component";
 import { ErrorComponent } from "./templates/error/error.component";
+import { EventsComponent } from './templates/events/events.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'registerPage', component: RegisterComponent },
   { path:'review', component:ReviewComponent},
   { path:'profile',component:ProfileComponent},
-  {path:'error', component:ErrorComponent}
+  {path:'error', component:ErrorComponent},
+  {path:'events',component:EventsComponent}
 ];
 
 @NgModule({
