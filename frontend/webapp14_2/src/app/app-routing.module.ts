@@ -21,7 +21,7 @@ const routes: Routes = [
   { path:'profilePage', component: ProfileComponent },
   { path:'eventsPage', component: EventsComponent },
   { path:'permissionPage', component: UserPermissionsComponent },
-  { path: 'event/:id', component: ShowEventComponent }
+  { path: 'event/:id', component: ShowEventComponent },
   {path:'review', component:ReviewComponent},
   { path: 'event/:id', component: ShowEventComponent },
   {path: 'editForm/:id', component: EditFormComponent}
