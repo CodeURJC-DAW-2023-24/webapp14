@@ -19,6 +19,7 @@ export class ReviewComponent {
   userComments:Comment[] = [];
   isAdmin:boolean = false;
   isEditor:boolean = false;
+  nick: string= '';
 
   constructor(private commentService:CommentService, private userService: UserService, private router: Router) {}
 
@@ -36,6 +37,8 @@ export class ReviewComponent {
   getCommentsByCurrentUser(): void {
     this.userService.getCurrentUser().subscribe(currentUser=> {
       const currentUserId = currentUser.id;
+      const currentUserNICK = currentUser.NICK;
+      this.nick = currentUserNICK;
       this.commentService.getCommentsByUserId(currentUserId)
         .subscribe((comments: Comment[]) => {
           this.userComments = comments;
