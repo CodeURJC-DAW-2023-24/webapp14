@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageComponent } from './page/page.component';
@@ -19,7 +20,7 @@ import { ShowEventComponent } from './templates/show-event/show-event.component'
 import { UserPermissionsComponent } from './templates/user-permissions/user-permissions.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -40,12 +41,13 @@ import {FormsModule} from '@angular/forms';
     ShowEventComponent,
     UserPermissionsComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

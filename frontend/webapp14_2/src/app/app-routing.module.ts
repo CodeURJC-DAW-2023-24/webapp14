@@ -9,6 +9,7 @@ import {ProfileComponent} from "./templates/profile/profile.component";
 import {EventsComponent} from "./templates/events/events.component";
 import {UserPermissionsComponent} from "./templates/user-permissions/user-permissions.component";
 import {ShowEventComponent} from "./templates/show-event/show-event.component";
+import {EditFormComponent} from "./templates/edit-form/edit-form.component";
 
 
 const routes: Routes = [
@@ -21,6 +22,9 @@ const routes: Routes = [
   { path:'eventsPage', component: EventsComponent },
   { path:'permissionPage', component: UserPermissionsComponent },
   { path: 'event/:id', component: ShowEventComponent }
+  {path:'review', component:ReviewComponent},
+  { path: 'event/:id', component: ShowEventComponent },
+  {path: 'editForm/:id', component: EditFormComponent}
 ];
 
 @NgModule({
