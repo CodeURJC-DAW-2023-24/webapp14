@@ -6,6 +6,7 @@ import {RegisterComponent} from "./templates/register/register.component";
 import {ReviewComponent} from "./templates/review/review.component";
 import {ShowEventComponent} from "./templates/show-event/show-event.component";
 import {EditFormComponent} from "./templates/edit-form/edit-form.component";
+import {EditEventComponent} from "./templates/edit-event/edit-event.component";
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'registerPage', component: RegisterComponent },
   {path:'review', component:ReviewComponent},
   { path: 'event/:id', component: ShowEventComponent },
-  {path: 'editForm/:id', component: EditFormComponent}
+  {path: 'editForm/:id', component: EditFormComponent},
+  {path: 'editEvent/:id', component: EditEventComponent}
 ];
 
 @NgModule({
