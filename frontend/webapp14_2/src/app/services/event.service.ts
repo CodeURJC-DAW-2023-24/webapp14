@@ -14,6 +14,10 @@ export class EventService {
     return this.http.get<Event[]>(`/api/events/`);
   }
 
+  getEventById(id:number): Observable<Event>{
+    return this.http.get<Event>(`/api/events/${id}`);
+  }
+
   loadEvents(page: number, pageSize: number): Observable<Event[]> {
     const url = `/api/events/pageableEvents?page=${page}&size=${pageSize}`;
     return this.http.get<Event[]>(url);

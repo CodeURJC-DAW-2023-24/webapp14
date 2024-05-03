@@ -8,6 +8,7 @@ import {DashboardComponent} from "./templates/dashboard/dashboard.component";
 import {ProfileComponent} from "./templates/profile/profile.component";
 import {EventsComponent} from "./templates/events/events.component";
 import {UserPermissionsComponent} from "./templates/user-permissions/user-permissions.component";
+import {ShowEventComponent} from "./templates/show-event/show-event.component";
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path:'profilePage', component: ProfileComponent },
   { path:'eventsPage', component: EventsComponent },
   { path:'permissionPage', component: UserPermissionsComponent },
+  { path: 'event/:id', component: ShowEventComponent }
 ];
 
 @NgModule({

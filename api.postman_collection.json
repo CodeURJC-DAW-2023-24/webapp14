@@ -283,7 +283,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:8443/api/events/pageableEvents?page=1&size=10",
+					"raw": "https://localhost:8443/api/events/pageableEvents?page=0&size=10",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -297,7 +297,7 @@
 					"query": [
 						{
 							"key": "page",
-							"value": "1"
+							"value": "0"
 						},
 						{
 							"key": "size",
@@ -458,7 +458,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"id\": 2,\n        \"name\": \"pedrin\",\n        \"surname\": \"montes\",\n        \"phone\": \"7879808\",\n        \"email\": \"b@gmail.com\"\n    }",
+					"raw": "{\n        \"id\": 2,\n        \"name\": \"pedrin\",\n        \"surname\": \"montes\",\n        \"phone\": \"7879808\",\n        \"email\": \"b@gmail.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -591,7 +591,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:8443/api/users/5",
+					"raw": "https://localhost:8443/api/users/3",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -600,7 +600,7 @@
 					"path": [
 						"api",
 						"users",
-						"5"
+						"3"
 					]
 				}
 			},
@@ -841,6 +841,81 @@
 						"api",
 						"users",
 						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comentario en eventoId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"description\": \"hola que tal\",\n    \"nick\": \"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/comments/event/12",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"comments",
+						"event",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Commentario por Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/comments/user/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"comments",
+						"user",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mostrar comentarios de evento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/comments/event/12",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"comments",
+						"event",
+						"12"
 					]
 				}
 			},

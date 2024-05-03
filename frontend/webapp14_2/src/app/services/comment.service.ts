@@ -19,7 +19,7 @@ export class CommentService {
     return this.http.get<Comment>(`/api/comments/${id}`);
   }
   getCommentsByEventId(eventId:number):Observable<Comment[]>{
-    return this.http.get<Comment[]>(`/api/commnets/event/${eventId}`);
+    return this.http.get<Comment[]>(`/api/comments/event/${eventId}`);
   }
 
   getCommentsByUserId(userId:number):Observable<Comment[]>{
@@ -30,7 +30,7 @@ export class CommentService {
     return this.http.post<Comment>(`/api/comments/`,comment);
   }
 
-  addCommentForEvent(eventId: number, comment: Comment): Observable<Comment>{
+  addCommentForEvent(eventId: number, comment: {description: string, nick: string}): Observable<Comment>{
     return this.http.post<Comment>(`api/comments/event/${eventId}`, comment);
   }
 
@@ -46,4 +46,6 @@ export class CommentService {
     console.error(error);
     return throwError(() => new Error('An error has occuried; please try again later.'));
   }
+
+
 }

@@ -45,7 +45,7 @@
             <div class="portfolio-caption">
               <div class="portfolio-caption-heading">{{event.title}}</div>
               <div class="portfolio-caption-subheading text-muted">{{event.description}}</div>
-              <a class="btn btn-primary btn-xl text-uppercase" >Más información</a>
+              <a class="btn btn-primary btn-xl text-uppercase" [routerLink]="['/event', event.id]">Más información</a>
             </div>
           </div>
         </div>
