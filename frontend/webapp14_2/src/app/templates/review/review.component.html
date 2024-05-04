@@ -68,15 +68,11 @@
           <table class="table align-items-center justify-content-center mb-0">
             <thead>
             <tr>
-              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nickname</th>
               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Descripcion</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let comment of userComments">
-              <td>
-                <h6 class="d-flex flex-column justify-content-center">{{nick}}</h6>
-              </td>
               <td>
                 <h6 class="d-flex flex-column justify-content-center">{{comment.description}}</h6>
               </td>
