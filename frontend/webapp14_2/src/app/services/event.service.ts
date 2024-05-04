@@ -19,6 +19,10 @@ export class EventService {
     return this.http.get<Event>(`/api/events/${id}`);
   }
 
+  createEvent(eventData: Event): Observable<any> {
+    return this.http.post('/api/events/', eventData);
+  }
+
   loadEvents(page: number, pageSize: number): Observable<Event[]> {
     const url = `/api/events/pageableEvents?page=${page}&size=${pageSize}`;
     return this.http.get<Event[]>(url);
@@ -47,6 +51,11 @@ export class EventService {
     );
 
   }
+
+  newImage(id: number, files: FormData){
+    return this.http.post(`/api/events/${id}/image`, files);
+  }
+
 
   uploadImage(id:number,file:FormData){
     return this.http.post(`/api/events/${id}/image`,file);

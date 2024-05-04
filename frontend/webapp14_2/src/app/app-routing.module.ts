@@ -9,6 +9,7 @@ import {ProfileComponent} from "./templates/profile/profile.component";
 import {EventsComponent} from "./templates/events/events.component";
 import {UserPermissionsComponent} from "./templates/user-permissions/user-permissions.component";
 import {ShowEventComponent} from "./templates/show-event/show-event.component";
+import {InscriptionComponent} from "./templates/inscription/inscription.component";
 import {EditFormComponent} from "./templates/edit-form/edit-form.component";
 import {EditEventComponent} from "./templates/edit-event/edit-event.component";
 import {NewEventComponent} from "./templates/new-event/new-event.component";
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path:'eventsPage', component: EventsComponent },
   { path:'permissionPage', component: UserPermissionsComponent },
   { path: 'event/:id', component: ShowEventComponent },
+  { path: 'inscriptionPage', component: InscriptionComponent},
   {path:'review', component:ReviewComponent},
   { path: 'event/:id', component: ShowEventComponent },
   {path: 'editForm/:id', component: EditFormComponent},

@@ -23,7 +23,6 @@ export class ProfileComponent implements OnInit {
   isEditor: boolean = false;
   isAdmin: boolean = false;
 
-
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {

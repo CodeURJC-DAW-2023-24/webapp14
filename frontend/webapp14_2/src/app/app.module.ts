@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageComponent } from './page/page.component';
@@ -41,13 +40,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ShowEventComponent,
     UserPermissionsComponent
   ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
