@@ -2,23 +2,23 @@ package com.codeUrjc.daw.security.jwt;
 
 public class LoginRequest {
 
-	private String NICK;
+	private String username;
 	private String password;
 
 	public LoginRequest() {
 	}
 
 	public LoginRequest(String username, String password) {
-		this.NICK = username;
+		this.username = username;
 		this.password = password;
 	}
 
 	public String getUsername() {
-		return NICK;
+		return username;
 	}
 
 	public void setUsername(String username) {
-		this.NICK = NICK;
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -31,6 +31,6 @@ public class LoginRequest {
 
 	@Override
 	public String toString() {
-		return "LoginRequest [username=" + NICK + ", password=" + password + "]";
+		return "LoginRequest [username=" + username + ", password=" + password + "]";
 	}
 }
