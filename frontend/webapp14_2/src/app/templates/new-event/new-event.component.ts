@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Event } from '../../models/event.model';
 import { EventService } from '../../services/event.service';
 
@@ -17,32 +18,17 @@ export class NewEventComponent {
     duration: '',
     comments: [],
     imageUrl: '',
-    category: '',
-    n_tickets: 0
   };
   imageFile: File | null = null;
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private router: Router) { }
 
   submitForm() {
-    if (this.newEvent && this.imageFile) {
-      const formData = new FormData();
-      formData.append('title', this.newEvent.title);
-      formData.append('description', this.newEvent.description);
-      formData.append('place', this.newEvent.place);
-      formData.append('date', this.newEvent.date);
-      formData.append('duration', this.newEvent.duration);
-      formData.append('category', this.newEvent.category);
-      formData.append('n_tickets', this.newEvent.n_tickets.toString());
-      formData.append('imageField', this.imageFile);
-
-      this.eventService.createEvent(formData).subscribe(
+    if (this.newEvent) {
+      this.eventService.createEvent(this.newEvent).subscribe(
         () => {
           console.log('Evento creado con éxito');
-          // Redirigir a la página principal u otra página deseada
-        },
-        error => {
-          console.error('Error al crear el evento:', error);
+          this.router.navigate(['/']); // Redirigir a la página de inicio
         }
       );
     } else {

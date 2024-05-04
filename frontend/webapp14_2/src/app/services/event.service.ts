@@ -19,8 +19,8 @@ export class EventService {
     return this.http.get<Event>(`/api/events/${id}`);
   }
 
-  createEvent(eventData: FormData): Observable<any> {
-    return this.http.post('/api/events', eventData, { responseType: 'text' });
+  createEvent(eventData: Event): Observable<any> {
+    return this.http.post('/api/events/', eventData);
   }
 
   loadEvents(page: number, pageSize: number): Observable<Event[]> {
