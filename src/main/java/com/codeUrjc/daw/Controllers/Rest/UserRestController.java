@@ -138,6 +138,7 @@ public class UserRestController {
             user.setStudyCenter(updatedUser.getStudyCenter());
             user.setPhone(updatedUser.getPhone());
             User savedUser = userRepository.save(user);
+
             return new ResponseEntity<>(savedUser, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -183,5 +184,72 @@ public class UserRestController {
         return ResponseEntity.notFound().build();
 
     }
+    @Operation(summary = "Put can edit user",
+            description = "Returns all information associated to the authenticated user. If no user is authenticated, returns 404 not found")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Permission change",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = User.class))}),
+            @ApiResponse(responseCode = "404", description = "No change", content = @Content)
+    })
+    @PostMapping("/grantPermissions/{id}")
+    public ResponseEntity<?> grantPermissions(@PathVariable("id") Long id) {
+        try {
+            Optional<User> userOptional = userRepository.findById(id);
+
+            if (userOptional.isPresent()) {
+                User user = userOptional.get();
+                if (!user.isEditor()) {
+                    user.setEditor(true);
+                    userRepository.save(user);
+                }
+                URI location = ServletUriComponentsBuilder
+                        .fromCurrentRequest()
+                        .path("/{id}")
+                        .buildAndExpand(user.getId())
+                        .toUri();
+                return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(user);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while processing the request");
+        }
+    }
+
+    @Operation(summary = "Put can edit user",
+            description = "Returns all information associated to the authenticated user. If no user is authenticated, returns 404 not found")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Permission change",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = User.class))}),
+            @ApiResponse(responseCode = "404", description = "No change", content = @Content)
+    })
+    @PostMapping("/quitPermission/{id}")
+    public ResponseEntity<?> quitPermissions(@PathVariable("id") Long id) {
+        try {
+            Optional<User> userOptional = userRepository.findById(id);
+
+            if (userOptional.isPresent()) {
+                User user = userOptional.get();
+                if (user.isEditor()) {
+                    user.setEditor(false);
+                    userRepository.save(user);
+                }
+                URI location = ServletUriComponentsBuilder
+                        .fromCurrentRequest()
+                        .path("/{id}")
+                        .buildAndExpand(user.getId())
+                        .toUri();
+                return ResponseEntity.status(HttpStatus.CREATED).header("Location", location.toString()).body(user);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while processing the request");
+        }
+    }
+
+
 
 }
