@@ -83,7 +83,6 @@ export class EventsComponent {
   deleteEvent(id: number){
     this.eventsService.deleteEvent(id).subscribe(
       (data: Event) => {
-        window.location.reload();
       }
     )
   }
