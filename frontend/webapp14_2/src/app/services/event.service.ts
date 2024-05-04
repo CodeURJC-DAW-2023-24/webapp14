@@ -50,4 +50,8 @@ export class EventService {
 
 
 
+  updateEvent(id:number, event:Event): Observable<any>{
+    return this.http.put(`/api/events/${id}`, event);
+  }
+
 }
