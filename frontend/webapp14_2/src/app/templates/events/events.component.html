@@ -1,1 +1,119 @@
-<p>events works!</p>
+<div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-2 fixed-start ms-2 bg-gradient-dark" id="sidenav-main">
+  <div class="sidenav-header">
+    <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+    <a class="navbar-brand m-0" (click)="goToIndex()" target="_blank">
+      <span class="ms-1 font-weight-bold text-white">Volver a TicketEvent</span>
+    </a>
+  </div>
+  <hr class="horizontal light mt-0 mb-2">
+  <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+    <ul class="navbar-nav">
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link text-white" (click)="goToDashboard()">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Panel de Administracion</span>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link text-white" (click)="goToUserPermissions()">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1" >Permisos Edicion</span>
+        </a>
+      </li>
+      <li class="nav-item mt-3">
+        <h5 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Gestion de cuentas</h5>
+      </li>
+      <li class="nav-item" *ngIf="isEditor">
+        <a class="nav-link text-white" (click)="goToEvents()">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1" >Gestión de Eventos</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" (click)="goToProfile()">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1" >Mi Perfil</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" (click)="goToReview()">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1" >Reviews</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+  <div class="container-fluid row py-4">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3">Tabla de comentarios</h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Evento</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Lugar</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fecha</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Duracion</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Descripcion</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Editar</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let event of eventsShow">
+                <td>
+                  <h6 class="d-flex flex-column justify-content-center">{{event.title}}</h6>
+                </td>
+                <td>
+                  <h6 class="d-flex flex-column justify-content-center">{{ event.place }}</h6>
+                </td>
+                <td>
+                  <h6 class="d-flex flex-column justify-content-center">{{ event.date }}</h6>
+                </td>
+                <td>
+                  <h6 class="d-flex flex-column justify-content-center">{{ event.duration }}</h6>
+                </td>
+                <td>
+                  <h6 class="d-flex flex-column justify-content-center">{{ event.description }}</h6>
+                </td>
+                <td>
+                  <a  (click)="goToEditEvent(event.id)">
+                    <button type="button" class="btn btn-danger">Editar Evento</button>
+                  </a>
+                  <a *ngIf="isAdmin" (click)="deleteEvent(event.id)">
+                    <button type="submit" class="btn btn-danger">Borrar Evento</button>
+                  </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <a class="btn btn-primary btn-xl w-100" (click)="goToNewEvent()">Crear Nuevo Evento</a>
+      </div>
+    </div>
+  </div>
+</div>
