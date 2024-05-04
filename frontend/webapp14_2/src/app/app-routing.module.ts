@@ -9,6 +9,7 @@ import {ProfileComponent} from "./templates/profile/profile.component";
 import {EventsComponent} from "./templates/events/events.component";
 import {UserPermissionsComponent} from "./templates/user-permissions/user-permissions.component";
 import {ShowEventComponent} from "./templates/show-event/show-event.component";
+import {InscriptionComponent} from "./templates/inscription/inscription.component";
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path:'profilePage', component: ProfileComponent },
   { path:'eventsPage', component: EventsComponent },
   { path:'permissionPage', component: UserPermissionsComponent },
-  { path: 'event/:id', component: ShowEventComponent }
+  { path: 'event/:id', component: ShowEventComponent },
+  { path: 'inscriptionPage', component: InscriptionComponent}
 ];
 
 @NgModule({

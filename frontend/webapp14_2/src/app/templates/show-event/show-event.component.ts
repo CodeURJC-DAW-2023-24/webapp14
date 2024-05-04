@@ -94,7 +94,7 @@ export class ShowEventComponent {
   navigateToInscription(): void {
     const eventId = this.event?.id;
     if (eventId) {
-      this.router.navigate(['/inscription'], { queryParams: { id: eventId } });
+      this.router.navigate(['/inscriptionPage'], { queryParams: { id: eventId } });
     }
   }
 
