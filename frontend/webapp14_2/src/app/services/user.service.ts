@@ -16,7 +16,7 @@ export class UserService {
     return this.http.get<User>(`/api/users/me`);
   }
 
-  doLogin(credentials:{ username: string, password: string } ): Observable<User> {
+  doLogin(credentials:{ NICK: string, password: string } ): Observable<User> {
     return this.http.post<User>(`api/auth/login`, credentials);
   }
 

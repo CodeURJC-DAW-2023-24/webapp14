@@ -59,7 +59,7 @@ export class EditFormComponent {
       };
       this.userService.updateUser(dataUser.id, dataUser).subscribe(() =>
       {
-        this.router.navigate(['/']);
+        this.router.navigate(['/profilePage']);
       }
       )
     };

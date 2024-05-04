@@ -7,4 +7,5 @@ export interface UserDto {
   studyCenter: string;
   phone: number;
   editor: boolean;
+  NICK: string;
 }

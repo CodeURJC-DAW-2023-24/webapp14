@@ -65,4 +65,7 @@ export class ProfileComponent implements OnInit {
   goToEvents(){
     this.router.navigate(['/eventsPage']);
   }
+  goToEditProfile(userId: number){
+    this.router.navigate(['/editForm', userId]);
+  }
 }

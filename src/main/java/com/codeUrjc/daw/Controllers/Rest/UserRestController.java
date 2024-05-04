@@ -101,9 +101,11 @@ public class UserRestController {
         //user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
         user.setRoles(Collections.singletonList("USER"));
         user.setEditor(false);
+        user.setNICK(user.getNICK());
         User savedUser = userRepository.save(user);
 
         UserDto userDto = new UserDto();
+        userDto.setNick(savedUser.getNICK());
         userDto.setId(savedUser.getId());
         userDto.setName(savedUser.getName());
         userDto.setSurname(savedUser.getSurname());

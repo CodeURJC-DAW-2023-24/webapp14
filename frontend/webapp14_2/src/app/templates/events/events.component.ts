@@ -77,7 +77,7 @@ export class EventsComponent {
   }
 
   goToNewEvent(){
-    this.router.navigate(['/new-eventPage']);
+    this.router.navigate(['/newEventPage']);
   }
 
   deleteEvent(id: number){

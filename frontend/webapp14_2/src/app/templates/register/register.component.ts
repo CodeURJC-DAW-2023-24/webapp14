@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 })
 export class RegisterComponent {
 
-  nikename: string = '';
+  NICK: string = '';
   nameUser: string = '';
   surnameUser: string = '';
   emailUser: string = '';
@@ -23,6 +23,7 @@ export class RegisterComponent {
   onSubmit() {
     // Creamos el objeto de usuario con los datos del formulario
     const dataUser = {
+
       id: 0,
       name: this.nameUser,
       surname: this.surnameUser,
@@ -33,7 +34,7 @@ export class RegisterComponent {
       phone: this.phoneUser,
       editor: false,
       events: [],
-      NICK: this.nikename
+      NICK: this.NICK
     };
 
     // Llamamos al servicio para registrar al nuevo usuario

@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class LoginComponent {
 
   user: User | undefined;
-  nickname: string = '';
+  NICK: string = '';
   pass: string = '';
 
   constructor(private userService: UserService, private router: Router) {}
@@ -20,7 +20,7 @@ export class LoginComponent {
 
   onSubmit(){
     const credentials = {
-      username: this.nickname,
+      NICK: this.NICK,
       password: this.pass
     };
 
