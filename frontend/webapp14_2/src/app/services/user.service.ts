@@ -32,4 +32,12 @@ export class UserService {
     return this.http.get<User[]>(`/api/users/`);
   }
 
+  putPermission(id: number): Observable<User>{
+    return this.http.post<User>(`/api/users/grantPermissions/${id}`, {});
+  }
+
+  quitPermission(id: number): Observable<User>{
+    return this.http.post<User>(`/api/users/quitPermission/${id}`, {});
+  }
+
 }
