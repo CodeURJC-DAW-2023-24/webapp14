@@ -75,8 +75,8 @@ export class UserPermissionsComponent implements OnInit {
     this.userService.putPermission(id).subscribe(
       response => {
         console.log('Cambio hecho', response);
-        window.location.reload();
-        this.fetchUsers();
+
+
       }
     )
   }
@@ -87,8 +87,8 @@ export class UserPermissionsComponent implements OnInit {
         this.fetchUsers();
         console.log('Cambio hecho', response);
         // Recargar la página
-        window.location.reload();
-        // Volver a cargar la lista de usuarios
+
+
 
       }
     );
