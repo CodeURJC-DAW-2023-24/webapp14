@@ -24,12 +24,27 @@ export class UserService {
     return this.http.post<User>(`/api/users/`, dataUser);
   }
 
+  getUserById(id:number): Observable<User>{
+    return this.http.get<User>(`/api/users/${id}`);
+  }
+
+  updateUser(id:number,user:User): Observable<any>{
+    return this.http.put(`/api/users/${id}`, user)
+  }
   getUserEvents(userId: number): Observable<Event[]> {
     return this.http.get<Event[]>(`/api/users/${userId}/events`);
   }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`/api/users/`);
+  }
+
+  putPermission(id: number): Observable<User>{
+    return this.http.post<User>(`/api/users/grantPermissions/${id}`, {});
+  }
+
+  quitPermission(id: number): Observable<User>{
+    return this.http.post<User>(`/api/users/quitPermission/${id}`, {});
   }
 
 }
