@@ -19,16 +19,37 @@ export class NewEventComponent {
     comments: [],
     imageUrl: '',
   };
-  imageFile: File | null = null;
+  imageField: File | undefined;
+  newID: number = 0;
 
-  constructor(private eventService: EventService, private router: Router) { }
+  constructor(private eventService: EventService, private router: Router) {
+  }
 
   submitForm() {
-    if (this.newEvent) {
+    if (this.newEvent.title && this.newEvent.date && this.newEvent.duration && this.newEvent.place && this.newEvent.description) {
       this.eventService.createEvent(this.newEvent).subscribe(
-        () => {
+        (event: Event) => {
           console.log('Evento creado con éxito');
-          this.router.navigate(['/']); // Redirigir a la página de inicio
+          this.newID = event.id;
+          if (this.imageField) {
+            const formData = new FormData();
+            formData.append('imageFile', this.imageField);
+            this.eventService.newImage(this.newID, formData).subscribe(
+              (response: any) => {
+                console.log('Imagen subida con éxito');
+                this.router.navigate(['/']);
+              },
+              error => {
+                console.error('Error al subir la imagen', error);
+              }
+            );
+          } else {
+            console.error('No se ha seleccionado ninguna imagen');
+            this.router.navigate(['/']);
+          }
+        },
+        error => {
+          console.error('Error al crear el evento', error);
         }
       );
     } else {
@@ -36,9 +57,8 @@ export class NewEventComponent {
     }
   }
 
-  handleImageInput(event: any) {
-    if (event.target.files && event.target.files.length > 0) {
-      this.imageFile = event.target.files[0];
-    }
+  onFileSelected(event: any) {
+    this.imageField = event.target.files[0];
   }
+
 }

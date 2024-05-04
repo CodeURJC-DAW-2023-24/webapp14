@@ -52,6 +52,10 @@ export class EventService {
 
   }
 
+  newImage(id: number, files: FormData){
+    return this.http.post(`/api/events/${id}/image`, files);
+  }
+
 
 
   updateEvent(id:number, event:Event): Observable<any>{
