@@ -1,4 +1,4 @@
-<form>
+<form enctype="multipart/form-data">>
   <label for="floatingTitle">Evento:</label>
   <input type="text" [(ngModel)]="titleEvent" id="floatingTitle" name="title" required>
 
@@ -15,7 +15,7 @@
   <input type="text" [(ngModel)]="descriptionEvent" class="form-control" id="floatingDescription" name="description" required>
 
   <label>Subir nueva imagen:</label><br>
-  <input type='file' name='imageField' accept=".jpg, .jpeg" /><br>
+  <input type="file" (change)="onFileSelected($event)"  name="imageField" accept=".jpg, .jpeg" /><br>
 
   <input type='checkbox' name='removeImage'>
   <label>Eliminar imagen actual</label><br>
