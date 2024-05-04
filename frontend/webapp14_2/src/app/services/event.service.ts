@@ -19,6 +19,10 @@ export class EventService {
     return this.http.get<Event>(`/api/events/${id}`);
   }
 
+  createEvent(eventData: FormData): Observable<any> {
+    return this.http.post('/api/events', eventData, { responseType: 'text' });
+  }
+
   loadEvents(page: number, pageSize: number): Observable<Event[]> {
     const url = `/api/events/pageableEvents?page=${page}&size=${pageSize}`;
     return this.http.get<Event[]>(url);

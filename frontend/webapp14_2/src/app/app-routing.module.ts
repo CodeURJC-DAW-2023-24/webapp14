@@ -12,6 +12,7 @@ import {ShowEventComponent} from "./templates/show-event/show-event.component";
 import {InscriptionComponent} from "./templates/inscription/inscription.component";
 import {EditFormComponent} from "./templates/edit-form/edit-form.component";
 import {EditEventComponent} from "./templates/edit-event/edit-event.component";
+import {NewEventComponent} from "./templates/new-event/new-event.component";
 
 
 const routes: Routes = [
@@ -24,12 +25,13 @@ const routes: Routes = [
   { path:'eventsPage', component: EventsComponent },
   { path:'permissionPage', component: UserPermissionsComponent },
   { path: 'event/:id', component: ShowEventComponent },
-  { path: 'inscriptionPage', component: InscriptionComponent}
+  { path: 'inscriptionPage', component: InscriptionComponent},
   { path: 'event/:id', component: ShowEventComponent },
   {path:'review', component:ReviewComponent},
   { path: 'event/:id', component: ShowEventComponent },
   {path: 'editForm/:id', component: EditFormComponent},
-  {path: 'editEvent/:id', component: EditEventComponent}
+  {path: 'editEvent/:id', component: EditEventComponent},
+  {path: 'newEventPage', component:NewEventComponent}
 ];
 
 @NgModule({

@@ -5,6 +5,8 @@ export interface Event{
   place: string;
   date: string;
   duration: string;
+  category:string;
+  n_tickets:number;
   comments: Comment[];
   imageUrl: string;
 }
