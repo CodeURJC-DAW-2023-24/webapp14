@@ -498,3 +498,161 @@ Documentación HTML: https://rawcdn.githack.com/CodeURJC-DAW-2023-24/webapp14/2d
 ### Diagrama de clases y templates
 
 ![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/118294636/55d2012e-f54f-46e0-ab78-4549d2f7b296)
+
+
+# FASE 4
+
+### Preparación del entorno de desarrollo:
+
+### Diagrama de clases y templates de la SPA:
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/118294636/b60246f4-9bc3-49db-a7cb-c197b93bdff9)
+
+### Vídeo:
+https://www.youtube.com/watch?v=HN1UsPzJoK0&t
+
+## PARTICIPACIÓN
+
+
+| Nombre                     | Participación |
+| -------------------------- | -------------- |
+| Andrés Carretero Jiménez | 100%           |
+| Almudena López Rodríguez | 100%           |
+| Irene Pérez Santiago      | 100%           |
+| Alba Velasco Marqués      | 100%           |
+
+### Alba Velasco Marqués
+
+Durante esta fase mis tareas principales han sido:
+
+- Agregar la operacion de api rest comment "createCommentForEvent"
+- Agregar la operacion de api rest comment "getCommentsByUserId"
+- Agregar la operacion de api rest comment "getCommentsByEventId"
+- Hacer el commentService
+- Hacer el component editEvent
+- Hacer el componente editForm
+- Hacer el componente review
+- Hacer el componente showEvents
+- Hacer el model Comment
+
+Los 5 commits más significativos han sido:
+
+
+| Commit                                                                         | Enlace                                                                                           |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| EditEvent hecho                                                           | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/909d1591f360df473566f5c9823ac7d057945824 |
+| Conseguido final editForm | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/de5eb9c8b5f915ff361bdd4b845c4540addc9102 |
+| agregado showevent.html y showevent.component.ts          | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/90b7500a467170d9e1c3efc6212d7a460ab078da |
+| Conseguido crear un comentario en un evento con apirest                                                   | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/84d6691e9275885eb71255b28afa81fda97721bd |
+| obtener los comentarios de un usuario segun su id en la api                              | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/d568dd6d8a52648f24d08d16f505c753adbf4915 |
+
+Los 5 ficheros en los que más he participado han sido:
+
+
+| Fichero               | Enlace                                                                                                                                |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| CommentService | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/services/comment.service.ts |
+| showEvents.component.ts  | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/show-event/show-event.component.ts  |
+| editForm.component.ts   | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/edit-form/edit-form.component.ts    |
+| review.component.ts        | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/review/review.component.ts                                |
+| editEvent.component.ts        | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/edit-event/edit-event.component.ts             |
+
+### Almudena López Rodríguez
+
+Tareas:
+
+- Establecer la base de la API Rest
+- Crear la generación automática de la documentación de la API
+- Configurar la seguridad
+- Crear la colección de objetos JSON
+- Crear los gráficos con sus correspondientes operaciones de la API
+- Hacer las peticiones Rest de los eventos y del login
+- Añadir las imágenes a la base de datos
+
+Los 5 commits más significativos han sido:
+
+
+| Commit                                                                           | Enlace                                                                                           |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Operacion API Especial Datos Grafico                                             | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/ddd88cbe986adfa76d68f8a6f02bf50f57408061 |
+| Generación de la documentación automatica de la API                            | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/d6ff7a1acc7c8f2d26b5ec89c6367b62d1007762 |
+| Creacion de la nueva configuración de seguridad y programación del RESTEVENTOS | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/1b08f273167d83296bec8b68d16c973af455553b |
+| Merge branch 'GraficosAdmin' into Imagenes                                       | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/1b4a2c7e288ae22a485b4309b134e52c5567b991 |
+| Se guarda el evento al que se registran y el ususario                            | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/fe797f664dbfca78cefa4c4606a2185f59bb8a67 |
+
+Los 5 ficheros en los que más he participado han sido:
+
+
+| Fichero                     | Enlace                                                                                                                                 |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| EventRestController         | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/Rest/EventRestController.java |
+| LoginController             | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/auth/LoginController.java     |
+| UserController              | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/UserController.java           |
+| pom.xml                     | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/pom.xml                                                                     |
+| api.postman_collection.json | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/api.postman_collection.json                                              |
+
+### Andrés Carretero Jiménez
+
+Tareas:
+
+- Que se muestre la información de los usuarios en el perfil
+- Inscribirte a un evento y generar el pdf
+- Crear un nuevo evento
+- Arreglar los permisos del editor y del user
+- Hacer peticion de pageable events que nos faltaba
+- Grabación del vídeo
+- Diagrama de clases y templates de la SPA
+
+Los 5 commits más significativos han sido:
+
+
+| Commit                                                                  | Enlace                                                                                           |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Funciona la inscripcion y se genera el PDF                                       | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/38f4ed3dd79d6393e2da0164f3cba6cb16ac4324 |
+| Se muestran los datos en el perfil                                       |https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/64e556a93574ae25d6b2aa5d13ac11e8133546ae |
+| Crear nuevo evento | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/cef1b4f7f7b227124674dd1463180c0106e20e84 |
+| Permisos de editor y de user corregidos       | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/0db032d8ccc282e50b68bc94ff38be8f92c13b3e |
+| Creada la petición de pageable events                      | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/d5e886da70fe40c2877e6265dad3904d0d7caeef |
+
+Los 5 ficheros en los que más he participado han sido:
+
+
+| Fichero                  | Enlace                                                                                                                                 |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| ticket.service.ts  | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/services/ticket.service.ts  |
+| inscription.component.ts     | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/inscription/inscription.component.ts          |
+| new-event.component.ts | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/new-event/new-event.component.ts |
+| profile.component.ts           | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/profile/profile.component.ts                              |
+| inscription.component.html           | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/inscription/inscription.component.html                              |
+
+### Irene Pérez Santiago
+
+Tareas:
+
+- Configuración de la maquina de la Universidad
+- Configuración del proyecto por carpetas
+- Configuración del dockerfile y docker compose
+- Generar documentación de conexión
+- Comprobar la docker en la máquina
+
+Los 5 commits más significativos han sido:
+
+
+| Commit                                  | Enlace                                                                                         |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Se eliminan los problemas con el target | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/3ff8f23e26f59828403a3489efbc270715c451f6 |
+| Funciona el docker en carpeta           | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/d4a7c86be90e31010b87229e4929a8a12ab2daeb |
+| Eliminar lo repetido                    | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/ce179d9bcb957dd1d64ca5b36f1e5844b8b432d0 |
+| Docker on                               | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/6b8de1c99f5132110e9e1dbf40f04f7dca8e6af1 |
+| Update create_image.sh                  | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/e5be303a7a692d93a86370dcdaf31e720522f9dc |
+
+Los 5 ficheros en los que más he participado han sido:
+
+
+| Fichero            | Enlace                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------ |
+| Dockerfile         | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/Dockerfile         |
+| create_image.sh    | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/create_image.sh    |
+| docker-compose.yml | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/docker-compose.yml |
+| pom.xml            | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/pom.xml                   |
+| README.md          | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/README.md                 |
