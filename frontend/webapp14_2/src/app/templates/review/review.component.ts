@@ -11,7 +11,7 @@ import {User} from "../../models/user.model";
   styleUrls: ['../../../assets/css/material-dashboard.css',
     '../../../assets/css/nucleo-icons.css',
     '../../../assets/css/nucleo-svg.css',
-    '../../../assets/scss/material-dashboard.scss',
+    '../../../material-dashboard/material-dashboard.scss',
     '../../../../src/styles.css'
   ]
 })

@@ -14,7 +14,7 @@ import { Router} from "@angular/router";
     '../../../assets/css/material-dashboard.css',
     '../../../assets/css/nucleo-icons.css',
     '../../../assets/css/nucleo-svg.css',
-    '../../../assets/scss/material-dashboard.scss',
+    '../../../material-dashboard/material-dashboard.scss',
   ]
 })
 export class DashboardComponent implements OnInit {
