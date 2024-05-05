@@ -1,0 +1,21 @@
+<form>
+  <label for="floatingName">Nombre:</label>
+  <input type="text" [(ngModel)]="nameUser" id="floatingName" name="name" required>
+
+  <label for="floatingSurname">Apellido</label>
+  <input type="text" [(ngModel)]="surnameUser" class="form-control" id="floatingSurname" name="surname" required>
+
+  <label for="floatingNick">Nick</label>
+  <input type="text" [(ngModel)]="nickUser" class="form-control" id="floatingNick" name="nick"required>
+
+  <label for="floatingEmail">Email</label>
+  <input type="text" [(ngModel)]="emailUser" class="form-control" id="floatingEmail" name="email"  required>
+
+  <label for="floatingStudyCenter">Centro de estudios</label>
+  <input type="text" [(ngModel)]="studyCenterUser" class="form-control" id="floatingStudyCenter" name="studyCenter" required>
+
+  <label for="floatingPhone">Numero de contacto</label>
+  <input type="text" [(ngModel)]="phoneUser" class="form-control" id="floatingPhone" name="phone"  required>
+
+  <button type="submit" (click)="onSubmit()">Guardar cambios</button>
+</form>
