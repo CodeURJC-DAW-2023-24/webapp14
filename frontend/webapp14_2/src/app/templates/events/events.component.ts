@@ -11,13 +11,7 @@ import { Event} from "../../models/event.model";
   selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: [
-    '../../../assets/css/nucleo-icons.css',
-    '../../../assets/css/material-dashboard.css',
-    '../../../assets/css/nucleo-svg.css',
-    '../../../assets/css/styles.css',
-    '../../../assets/css/styles-showEvent.css',
-    '../../../assets/css/stylesInsc.css',
-    '../../../assets/css/styles-error.css',
+    '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
   ]
 })
 export class EventsComponent {

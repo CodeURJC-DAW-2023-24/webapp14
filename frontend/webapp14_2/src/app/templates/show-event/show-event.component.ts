@@ -13,10 +13,7 @@ import {User} from "../../models/user.model";
   selector: 'app-show-event',
   templateUrl: './show-event.component.html',
   styleUrls:[
-    '../../../assets/css/material-dashboard.css',
-    '../../../assets/css/nucleo-icons.css',
-    '../../../assets/css/nucleo-svg.css',
-    '../../../styles.css'
+    '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
   ]
 })
 export class ShowEventComponent {

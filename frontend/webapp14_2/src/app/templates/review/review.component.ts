@@ -8,11 +8,8 @@ import {User} from "../../models/user.model";
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
-  styleUrls: ['../../../assets/css/material-dashboard.css',
-    '../../../assets/css/nucleo-icons.css',
-    '../../../assets/css/nucleo-svg.css',
-    '../../../assets/scss/material-dashboard.scss',
-    '../../../../src/styles.css'
+  styleUrls: [
+    '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
   ]
 })
 export class ReviewComponent {

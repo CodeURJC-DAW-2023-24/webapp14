@@ -11,10 +11,7 @@ import { Router} from "@angular/router";
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: [
-    '../../../assets/css/material-dashboard.css',
-    '../../../assets/css/nucleo-icons.css',
-    '../../../assets/css/nucleo-svg.css',
-    '../../../assets/scss/material-dashboard.scss',
+    '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
   ]
 })
 export class DashboardComponent implements OnInit {
