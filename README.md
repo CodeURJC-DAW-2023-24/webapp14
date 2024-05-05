@@ -1,6 +1,6 @@
 # TicketEvent
 
-        Proyecto de web insipirado en la página de eventos EVENTOS URJC (https://eventos.urjc.es)
+    Proyecto de web insipirado en la página de eventos EVENTOS URJC (https://eventos.urjc.es)
 ## MIEMBROS DEL EQUIPO:
 
 El equipo está compuesto por:
@@ -498,3 +498,54 @@ Documentación HTML: https://rawcdn.githack.com/CodeURJC-DAW-2023-24/webapp14/2d
 ### Diagrama de clases y templates
 
 ![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/118294636/55d2012e-f54f-46e0-ab78-4549d2f7b296)
+
+# FASE 4
+
+
+## COMO EJECUTAR LA APLICACIÓN - DESDE FUERA DE LA MAQUINA DE LA UNIVERSIDAD
+
+Para ejecutar la aplicación en cualquiera de los siguientes casos, debes cumplir los siguientes requisitos:
+
+1. Tener instalado docker, y docker compose (en caso de no tenerlo, consulta https://docs.docker.com/engine/install/ y https://docs.docker.com/compose/)
+2. Tener git instalado en la maquina, u ordenador donde vayas a ejecutar la aplicación (https://git-scm.com)
+3. Clona nuestra repositorio (https://github.com/CodeURJC-DAW-2023-24/webapp14.git)
+
+### Aplicación Dockerizada
+
+Para ejecutar al aplicación a través de la versión dockerizada,na vez que tenemos esos requisitos cubiertos:
+
+1. Accede a la carpeta donde has clonado el repositorio
+2. Ejecuta docker compose -f docker/docker-compose.yml up , en algunos casos si no has iniciado sesión deberás primero realizar un docker login (RECOMENDABLE: ejecutar el comando con sudo delante)
+3. Accede a la web a través de tu navegador de confianza, https://localhost:8443/ o https://IPMAQUINA:8443/
+
+### Ejecutar el fichero create_image.sh
+
+Para ejecutar el fichero create_image.sh, una vez que tenemos los requisitos cubiertos:
+
+1. Accede a la carpeta donde has clonado el repositorio
+2. Muevete a la carpeta docker/
+3. Da permisos de ejecución al fichero chmod +x create_image.sh (en windows, te resultará más sencillo hacerlo desde el explorador de archivos, sino sabes como aqui te dejamos los enlaces https://www.anujvarma.com/ssh-on-windows-permissions-for-private-key-too-open/) (RECOMENDABLE: ejecutar el comando con sudo delante)
+4. Ejecuta el fichero ./create_image.sh, te pedirá logearte y después de ahi ya estaría todo (RECOMENDABLE: ejecutar el comando con sudo delante)
+
+### Generar una imagen dockerizada
+
+Para generar una imagen dockerizada, una vez que tenemos los requisitos cubiertos tienes que:
+
+1. Accede a la carpeta donde has clonado el repositorio
+2. Con el comando sudo delante, docker build -t iireenees012/webapp -f docker/Dockerfile .
+
+#### COMO EJECUTAR LA APLICACIÓN - DESDE LA MAQUINA DE LA UNIVERSIDAD
+
+Si eres estudiante del Curso 2023 - 2024 de la Asignatura Desarrollo de Aplicaciones Web, puedes optar por ejecutar la aplicación desde la máquina que te han asignado los profesores:
+
+1. Hay que conectarse a la red de la Universidad:
+   1. A través de Eduroam, es decir, presencial en la Universidad
+   2. A través de MyApps, ya bien sea a través del Escritorio de Desarrollo o el Escritorio de Ubuntu
+   3. A través de la VPN de la Universidad, para saber como configurarla consulta el Manual de la VPN (https://www.urjc.es/principal-intranet/documentos/general/82-configuracion-vpn-urjc/file)
+2. Despliega y configura tu maquina:
+   1. Para conectarte deberas acceder por SSH a través de la clave remota, a través de los datos proporcionados por  los profesores (te dan la IP y el fichero de la clave ssh), la clave deberás descargarla y guardarlar
+   2. Abre la terminal de tu ordenador o del escritorio de desarrollo, accede a la carpeta donde has guardado la clave y ejecutra este comando ssh -i prAppWebXX.key vmuser@IP_MAQUINA (No olvides que tienes que sustituir los datos)
+   3. Si no tienes docker y docker compose hay que instalarlo (en caso de no tenerlo, consulta https://docs.docker.com/engine/install/ y https://docs.docker.com/compose/)
+3. Despliegue de la aplicación:
+   1. Clona nuestra repositorio (https://github.com/CodeURJC-DAW-2023-24/webapp14.git)
+   2. Accede a él y ya puedes experimentar lo que necesites, recomendado usar sudo para las siguientes operaciones.
