@@ -502,9 +502,69 @@ Documentación HTML: https://rawcdn.githack.com/CodeURJC-DAW-2023-24/webapp14/2d
 
 # FASE 4
 
-### Preparación del entorno de desarrollo:
+### PREPARACIÓN DEL ENTORNO DE DESARROLLO:
 
-### Diagrama de clases y templates de la SPA:
+Para instalar y configurar el entorno de desarrollo para poder ejecutat la aplicación SPA con Angular necesitaremos seguir los siguientes pasos:
+Descargar e instalar Node.js:
+- Lo podemos descargar utilizando este enlace: (https://nodejs.org)
+Instalar Angular CLI:
+- Para ello abrimos la terminal y ejecutamos el siguiente comando: npm install -g @angular/cli
+Una vez instalado Angular CLI debemos dirigirnos al frontend de nuestro proyecto.
+- Instalamos los modulos necesarios con: npm install
+- Configuramos un fichero config para evitar conflictos con el proxy
+- Ejecutamos la aplicación SPA con: npm start
+Abrir en el navegador: http://localhost:4200/new/
+
+## COMO EJECUTAR LA APLICACIÓN - DESDE FUERA DE LA MAQUINA DE LA UNIVERSIDAD
+
+Para ejecutar la aplicación en cualquiera de los siguientes casos, debes cumplir los siguientes requisitos:
+
+1. Tener instalado docker, y docker compose (en caso de no tenerlo, consulta https://docs.docker.com/engine/install/ y https://docs.docker.com/compose/)
+2. Tener git instalado en la maquina, u ordenador donde vayas a ejecutar la aplicación (https://git-scm.com)
+3. Clona nuestra repositorio (https://github.com/CodeURJC-DAW-2023-24/webapp14.git)
+
+### Aplicación Dockerizada
+
+Para ejecutar al aplicación a través de la versión dockerizada,na vez que tenemos esos requisitos cubiertos:
+
+1. Accede a la carpeta donde has clonado el repositorio
+2. Ejecuta docker compose -f docker/docker-compose.yml up , en algunos casos si no has iniciado sesión deberás primero realizar un docker login (RECOMENDABLE: ejecutar el comando con sudo delante)
+3. Accede a la web a través de tu navegador de confianza, https://localhost:8443/ o https://IPMAQUINA:8443/
+
+### Ejecutar el fichero create_image.sh
+
+Para ejecutar el fichero create_image.sh, una vez que tenemos los requisitos cubiertos:
+
+1. Accede a la carpeta donde has clonado el repositorio
+2. Muevete a la carpeta docker/
+3. Da permisos de ejecución al fichero chmod +x create_image.sh (en windows, te resultará más sencillo hacerlo desde el explorador de archivos, sino sabes como aqui te dejamos los enlaces https://www.anujvarma.com/ssh-on-windows-permissions-for-private-key-too-open/) (RECOMENDABLE: ejecutar el comando con sudo delante)
+4. Ejecuta el fichero ./create_image.sh, te pedirá logearte y después de ahi ya estaría todo (RECOMENDABLE: ejecutar el comando con sudo delante)
+
+### Generar una imagen dockerizada
+
+Para generar una imagen dockerizada, una vez que tenemos los requisitos cubiertos tienes que:
+
+1. Accede a la carpeta donde has clonado el repositorio
+2. Con el comando sudo delante, docker build -t iireenees012/webapp -f docker/Dockerfile .
+
+#### COMO EJECUTAR LA APLICACIÓN - DESDE LA MAQUINA DE LA UNIVERSIDAD
+
+Si eres estudiante del Curso 2023 - 2024 de la Asignatura Desarrollo de Aplicaciones Web, puedes optar por ejecutar la aplicación desde la máquina que te han asignado los profesores:
+
+1. Hay que conectarse a la red de la Universidad:
+   1. A través de Eduroam, es decir, presencial en la Universidad
+   2. A través de MyApps, ya bien sea a través del Escritorio de Desarrollo o el Escritorio de Ubuntu
+   3. A través de la VPN de la Universidad, para saber como configurarla consulta el Manual de la VPN (https://www.urjc.es/principal-intranet/documentos/general/82-configuracion-vpn-urjc/file)
+2. Despliega y configura tu maquina:
+   1. Para conectarte deberas acceder por SSH a través de la clave remota, a través de los datos proporcionados por  los profesores (te dan la IP y el fichero de la clave ssh), la clave deberás descargarla y guardarlar
+   2. Abre la terminal de tu ordenador o del escritorio de desarrollo, accede a la carpeta donde has guardado la clave y ejecutra este comando ssh -i prAppWebXX.key vmuser@IP_MAQUINA (No olvides que tienes que sustituir los datos)
+   3. Si no tienes docker y docker compose hay que instalarlo (en caso de no tenerlo, consulta https://docs.docker.com/engine/install/ y https://docs.docker.com/compose/)
+3. Despliegue de la aplicación:
+   1. Clona nuestra repositorio (https://github.com/CodeURJC-DAW-2023-24/webapp14.git)
+   2. Accede a él y ya puedes experimentar lo que necesites, recomendado usar sudo para las siguientes operaciones.
+
+
+### Diagrama de clases y templates de la SPA: 
 
 ![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/118294636/b60246f4-9bc3-49db-a7cb-c197b93bdff9)
 
@@ -561,35 +621,32 @@ Los 5 ficheros en los que más he participado han sido:
 
 Tareas:
 
-- Establecer la base de la API Rest
-- Crear la generación automática de la documentación de la API
-- Configurar la seguridad
-- Crear la colección de objetos JSON
-- Crear los gráficos con sus correspondientes operaciones de la API
-- Hacer las peticiones Rest de los eventos y del login
-- Añadir las imágenes a la base de datos
+- Hacer pantallas con Angular
+- Ayudar a levantar el docker
+- Configurar el /new
+
 
 Los 5 commits más significativos han sido:
 
 
 | Commit                                                                           | Enlace                                                                                           |
 | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Operacion API Especial Datos Grafico                                             | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/ddd88cbe986adfa76d68f8a6f02bf50f57408061 |
-| Generación de la documentación automatica de la API                            | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/d6ff7a1acc7c8f2d26b5ec89c6367b62d1007762 |
-| Creacion de la nueva configuración de seguridad y programación del RESTEVENTOS | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/1b08f273167d83296bec8b68d16c973af455553b |
-| Merge branch 'GraficosAdmin' into Imagenes                                       | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/1b4a2c7e288ae22a485b4309b134e52c5567b991 |
-| Se guarda el evento al que se registran y el ususario                            | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/fe797f664dbfca78cefa4c4606a2185f59bb8a67 |
+| Subida de imagenes                                             | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/427fc97c7285d68a9041659e85fbb98a96b3fe94 |
+| Gestion eventos                            |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/5327242b61a99229c3fc4d637d5abdce984f74df |
+| Gestion de Permisos | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/865a3cd38dc6650613dfa9a0d87a367c2f2b670d |
+| Dasboard del Admin                                       | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/5ea6d5574fdfd31109ddbfd746298990b7ca02c5 |
+| Index(incluido el cargar más)                            |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/3d58ba4dcdd3dce57a84d8033ec1f6b703fde423  |
 
 Los 5 ficheros en los que más he participado han sido:
 
 
 | Fichero                     | Enlace                                                                                                                                 |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| EventRestController         | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/Rest/EventRestController.java |
-| LoginController             | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/auth/LoginController.java     |
-| UserController              | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/src/main/java/com/codeUrjc/daw/Controllers/UserController.java           |
-| pom.xml                     | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/pom.xml                                                                     |
-| api.postman_collection.json | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/pruebaB/api.postman_collection.json                                              |
+| events.component.ts        | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/events/events.component.ts |
+| page.component.ts            | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/page/page.component.ts     |
+| user-permissions.component.ts              | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/user-permissions/user-permissions.component.ts           |
+| dashboard.component.ts                     | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/dashboard/dashboard.component.ts                         |
+| Dockerfile | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/Dockerfile                                              |
 
 ### Andrés Carretero Jiménez
 
@@ -629,30 +686,30 @@ Los 5 ficheros en los que más he participado han sido:
 
 Tareas:
 
-- Configuración de la maquina de la Universidad
-- Configuración del proyecto por carpetas
-- Configuración del dockerfile y docker compose
-- Generar documentación de conexión
-- Comprobar la docker en la máquina
+- Transformar a Angular  la pantalla de error
+- Transformar a Angular la pantalla de events
+- Documentar el Docker
+- Configurar angular.json para levantar /new con Docker
+- Transformar Docker y Docker compose
 
 Los 5 commits más significativos han sido:
 
 
 | Commit                                  | Enlace                                                                                         |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Se eliminan los problemas con el target | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/3ff8f23e26f59828403a3489efbc270715c451f6 |
-| Funciona el docker en carpeta           | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/d4a7c86be90e31010b87229e4929a8a12ab2daeb |
-| Eliminar lo repetido                    | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/ce179d9bcb957dd1d64ca5b36f1e5844b8b432d0 |
-| Docker on                               | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/6b8de1c99f5132110e9e1dbf40f04f7dca8e6af1 |
-| Update create_image.sh                  | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/e5be303a7a692d93a86370dcdaf31e720522f9dc |
+| explicacion de como funciona Docker     | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/c0ad39d22eb312be5d7c131d2e2e92faa4b3e007 |
+| configuramos angular.json para que funcione Docker  | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/ad09220e42cee3aa641f1f228ea997e8b631daab |
+| reactualización de Docker                   | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/8eb81b1b8b2770ad962fa7eb2894b93ae195f117  |
+| se pasa error.component.html                              | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/b726fc556affc0b4561bcf449e7e80928487a74d  |
+| primera version de events.component.html                  | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/271aeac9fd45d65691de1026b6dde18c9415e457 |
 
 Los 5 ficheros en los que más he participado han sido:
 
 
 | Fichero            | Enlace                                                                               |
 | ------------------ | ------------------------------------------------------------------------------------ |
-| Dockerfile         | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/Dockerfile         |
-| create_image.sh    | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/create_image.sh    |
-| docker-compose.yml | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/docker-compose.yml |
-| pom.xml            | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/pom.xml                   |
-| README.md          | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/README.md                 |
+| angular.json         | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/frontend/webapp14_2/angular.json        |
+| docker-compose.yml    | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/docker/docker-compose.yml    |
+| Dockerfile | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/docker/Dockerfile |
+| error.component.ts            | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/frontend/webapp14_2/src/app/templates/error/error.component.ts                   |
+| events.component.html          | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/frontend/webapp14_2/src/app/templates/events/events.component.html                 |
