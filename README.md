@@ -499,8 +499,21 @@ Documentación HTML: https://rawcdn.githack.com/CodeURJC-DAW-2023-24/webapp14/2d
 
 ![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/118294636/55d2012e-f54f-46e0-ab78-4549d2f7b296)
 
+
 # FASE 4
 
+### PREPARACIÓN DEL ENTORNO DE DESARROLLO:
+
+Para instalar y configurar el entorno de desarrollo para poder ejecutat la aplicación SPA con Angular necesitaremos seguir los siguientes pasos:
+Descargar e instalar Node.js:
+- Lo podemos descargar utilizando este enlace: (https://nodejs.org)
+Instalar Angular CLI:
+- Para ello abrimos la terminal y ejecutamos el siguiente comando: npm install -g @angular/cli
+Una vez instalado Angular CLI debemos dirigirnos al frontend de nuestro proyecto.
+- Instalamos los modulos necesarios con: npm install
+- Configuramos un fichero config para evitar conflictos con el proxy
+- Ejecutamos la aplicación SPA con: npm start
+Abrir en el navegador: http://localhost:4200/new/
 
 ## COMO EJECUTAR LA APLICACIÓN - DESDE FUERA DE LA MAQUINA DE LA UNIVERSIDAD
 
@@ -549,3 +562,154 @@ Si eres estudiante del Curso 2023 - 2024 de la Asignatura Desarrollo de Aplicaci
 3. Despliegue de la aplicación:
    1. Clona nuestra repositorio (https://github.com/CodeURJC-DAW-2023-24/webapp14.git)
    2. Accede a él y ya puedes experimentar lo que necesites, recomendado usar sudo para las siguientes operaciones.
+
+
+### Diagrama de clases y templates de la SPA: 
+
+![image](https://github.com/CodeURJC-DAW-2023-24/webapp14/assets/118294636/b60246f4-9bc3-49db-a7cb-c197b93bdff9)
+
+### Vídeo:
+https://www.youtube.com/watch?v=HN1UsPzJoK0&t
+
+## PARTICIPACIÓN
+
+
+| Nombre                     | Participación |
+| -------------------------- | -------------- |
+| Andrés Carretero Jiménez | 100%           |
+| Almudena López Rodríguez | 100%           |
+| Irene Pérez Santiago      | 100%           |
+| Alba Velasco Marqués      | 100%           |
+
+### Alba Velasco Marqués
+
+Durante esta fase mis tareas principales han sido:
+
+- Agregar la operacion de api rest comment "createCommentForEvent"
+- Agregar la operacion de api rest comment "getCommentsByUserId"
+- Agregar la operacion de api rest comment "getCommentsByEventId"
+- Hacer el commentService
+- Hacer el component editEvent
+- Hacer el componente editForm
+- Hacer el componente review
+- Hacer el componente showEvents
+- Hacer el model Comment
+
+Los 5 commits más significativos han sido:
+
+
+| Commit                                                                         | Enlace                                                                                           |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| EditEvent hecho                                                           | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/909d1591f360df473566f5c9823ac7d057945824 |
+| Conseguido final editForm | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/de5eb9c8b5f915ff361bdd4b845c4540addc9102 |
+| agregado showevent.html y showevent.component.ts          | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/90b7500a467170d9e1c3efc6212d7a460ab078da |
+| Conseguido crear un comentario en un evento con apirest                                                   | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/84d6691e9275885eb71255b28afa81fda97721bd |
+| obtener los comentarios de un usuario segun su id en la api                              | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/d568dd6d8a52648f24d08d16f505c753adbf4915 |
+
+Los 5 ficheros en los que más he participado han sido:
+
+
+| Fichero               | Enlace                                                                                                                                |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| CommentService | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/services/comment.service.ts |
+| showEvents.component.ts  | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/show-event/show-event.component.ts  |
+| editForm.component.ts   | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/edit-form/edit-form.component.ts    |
+| review.component.ts        | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/review/review.component.ts                                |
+| editEvent.component.ts        | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/edit-event/edit-event.component.ts             |
+
+### Almudena López Rodríguez
+
+Tareas:
+
+- Hacer pantallas con Angular
+- Ayudar a levantar el docker
+- Configurar el /new
+
+
+Los 5 commits más significativos han sido:
+
+
+| Commit                                                                           | Enlace                                                                                           |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Subida de imagenes                                             | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/427fc97c7285d68a9041659e85fbb98a96b3fe94 |
+| Gestion eventos                            |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/5327242b61a99229c3fc4d637d5abdce984f74df |
+| Gestion de Permisos | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/865a3cd38dc6650613dfa9a0d87a367c2f2b670d |
+| Dasboard del Admin                                       | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/5ea6d5574fdfd31109ddbfd746298990b7ca02c5 |
+| Index(incluido el cargar más)                            |  https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/3d58ba4dcdd3dce57a84d8033ec1f6b703fde423  |
+
+Los 5 ficheros en los que más he participado han sido:
+
+
+| Fichero                     | Enlace                                                                                                                                 |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| events.component.ts        | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/events/events.component.ts |
+| page.component.ts            | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/page/page.component.ts     |
+| user-permissions.component.ts              | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/user-permissions/user-permissions.component.ts           |
+| dashboard.component.ts                     | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/dashboard/dashboard.component.ts                         |
+| Dockerfile | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/docker/Dockerfile                                              |
+
+### Andrés Carretero Jiménez
+
+Tareas:
+
+- Que se muestre la información de los usuarios en el perfil
+- Inscribirte a un evento y generar el pdf
+- Crear un nuevo evento
+- Arreglar los permisos del editor y del user
+- Hacer peticion de pageable events que nos faltaba
+- Grabación del vídeo
+- Diagrama de clases y templates de la SPA
+
+Los 5 commits más significativos han sido:
+
+
+| Commit                                                                  | Enlace                                                                                           |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Funciona la inscripcion y se genera el PDF                                       | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/38f4ed3dd79d6393e2da0164f3cba6cb16ac4324 |
+| Se muestran los datos en el perfil                                       |https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/64e556a93574ae25d6b2aa5d13ac11e8133546ae |
+| Crear nuevo evento | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/cef1b4f7f7b227124674dd1463180c0106e20e84 |
+| Permisos de editor y de user corregidos       | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/0db032d8ccc282e50b68bc94ff38be8f92c13b3e |
+| Creada la petición de pageable events                      | https://github.com/CodeURJC-DAW-2023-24/webapp14/commit/d5e886da70fe40c2877e6265dad3904d0d7caeef |
+
+Los 5 ficheros en los que más he participado han sido:
+
+
+| Fichero                  | Enlace                                                                                                                                 |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| ticket.service.ts  | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/services/ticket.service.ts  |
+| inscription.component.ts     | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/inscription/inscription.component.ts          |
+| new-event.component.ts | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/new-event/new-event.component.ts |
+| profile.component.ts           | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/profile/profile.component.ts                              |
+| inscription.component.html           | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/main/frontend/webapp14_2/src/app/templates/inscription/inscription.component.html                              |
+
+### Irene Pérez Santiago
+
+Tareas:
+
+- Transformar a Angular  la pantalla de error
+- Transformar a Angular la pantalla de events
+- Documentar el Docker
+- Configurar angular.json para levantar /new con Docker
+- Transformar Docker y Docker compose
+
+Los 5 commits más significativos han sido:
+
+
+| Commit                                  | Enlace                                                                                         |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| explicacion de como funciona Docker     | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/c0ad39d22eb312be5d7c131d2e2e92faa4b3e007 |
+| configuramos angular.json para que funcione Docker  | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/ad09220e42cee3aa641f1f228ea997e8b631daab |
+| reactualización de Docker                   | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/8eb81b1b8b2770ad962fa7eb2894b93ae195f117  |
+| se pasa error.component.html                              | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/b726fc556affc0b4561bcf449e7e80928487a74d  |
+| primera version de events.component.html                  | https://github.com/CodeURJC-DAW-2023-24/webapp14/tree/271aeac9fd45d65691de1026b6dde18c9415e457 |
+
+Los 5 ficheros en los que más he participado han sido:
+
+
+| Fichero            | Enlace                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------ |
+| angular.json         | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/frontend/webapp14_2/angular.json        |
+| docker-compose.yml    | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/docker/docker-compose.yml    |
+| Dockerfile | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/docker/Dockerfile |
+| error.component.ts            | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/frontend/webapp14_2/src/app/templates/error/error.component.ts                   |
+| events.component.html          | https://github.com/CodeURJC-DAW-2023-24/webapp14/blob/reverVersion/frontend/webapp14_2/src/app/templates/events/events.component.html                 |
